@@ -98,11 +98,15 @@ foreach ($pages as $page) {
 	{$page['jsonLd']}
 	</script>
 	<style>
-	body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
-	pre { background: #f5f5f5; padding: 1rem; overflow-x: auto; border-radius: 4px; border: 1px solid #ddd; }
-	code { font-size: 0.9rem; }
-	a { color: #0366d6; }
-	.meta { color: #666; font-size: 0.85rem; margin-top: 2rem; }
+	body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #e6edf3; }
+	pre { background: #161b22; padding: 1rem; overflow-x: auto; border-radius: 6px; border: 1px solid #30363d; }
+	code { font-size: 0.9rem; color: #e6edf3; }
+	a { color: #58a6ff; }
+	a:hover { color: #79c0ff; }
+	h1, h2 { color: #e6edf3; }
+	h1 a { color: #58a6ff; }
+	.meta { color: #8b949e; font-size: 0.85rem; margin-top: 2rem; }
+	.meta code { color: #8b949e; }
 	</style>
 	</head>
 	<body>
@@ -140,10 +144,13 @@ $indexHtml = <<<HTML
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Schema.org JSON-LD QC — Example Pages</title>
 <style>
-body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
-a { color: #0366d6; }
+body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #e6edf3; }
+a { color: #58a6ff; }
+a:hover { color: #79c0ff; }
+h1, h2 { color: #e6edf3; }
 ul { line-height: 1.8; }
-.meta { color: #666; font-size: 0.85rem; margin-top: 2rem; }
+code { background: #161b22; padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9rem; }
+.meta { color: #8b949e; font-size: 0.85rem; margin-top: 2rem; }
 </style>
 </head>
 <body>
