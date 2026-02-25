@@ -5,8 +5,5 @@ steps:
       php-version: '8.3'
       tools: composer:v2
   - run: composer install --no-interaction --prefer-dist
-  - uses: actions/setup-node@v4
-    with:
-      node-version: '20'
-  - run: npm install
-  - run: npx playwright install --with-deps chromium
+  - uses: oven-sh/setup-bun@v2
+  - run: bun install

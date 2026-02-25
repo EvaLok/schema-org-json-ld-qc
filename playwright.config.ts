@@ -1,7 +1,6 @@
-// @ts-check
-const { defineConfig } = require('@playwright/test');
+import { defineConfig } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
 	testDir: './tests/E2E',
 	timeout: 120000,
 	retries: 1,
