@@ -3,6 +3,7 @@
 namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateOffer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
@@ -274,6 +275,57 @@ class ProductTest extends TestCase
 		$this->assertEquals(29.99, $data['offers'][0]['price']);
 		$this->assertSame('https://schema.org/InStock', $data['offers'][0]['availability']);
 		$this->assertArrayNotHasKey('itemCondition', $data['offers'][0]);
+	}
+
+	public function testProductWithAggregateOffer(): void
+	{
+		$product = new Product(
+			name: 'Widget',
+			image: ['https://example.com/widget.jpg'],
+			description: 'A premium widget.',
+			sku: 'W001',
+			offers: new AggregateOffer(
+				lowPrice: 29.99,
+				priceCurrency: 'USD',
+				highPrice: 59.99,
+				offerCount: 3,
+			),
+			brand: new Brand(name: 'WidgetCo'),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Product', $data['@type']);
+		$this->assertSame('AggregateOffer', $data['offers']['@type']);
+		$this->assertEquals(29.99, $data['offers']['lowPrice']);
+		$this->assertEquals(59.99, $data['offers']['highPrice']);
+		$this->assertSame(3, $data['offers']['offerCount']);
+		$this->assertSame('USD', $data['offers']['priceCurrency']);
+	}
+
+	public function testOfferWithPriceValidUntil(): void
+	{
+		$product = new Product(
+			name: 'Widget',
+			image: ['https://example.com/widget.jpg'],
+			description: 'A widget.',
+			sku: 'W002',
+			offers: [
+				new Offer(
+					url: 'https://example.com/widget',
+					priceCurrency: 'USD',
+					price: 19.99,
+					availability: ItemAvailability::InStock,
+					priceValidUntil: '2026-12-31',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('2026-12-31', $data['offers'][0]['priceValidUntil']);
 	}
 
 	public function testProductOptionalFieldsOmitted(): void
