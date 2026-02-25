@@ -27,7 +27,7 @@ jobs:
         run: |
           {
             echo "content<<PROMPT_EOF"
-            cat orchestrator-prompt.md
+            cat .github/workflows/orchestrator-prompt.md
             echo "PROMPT_EOF"
           } >> "$GITHUB_OUTPUT"
 
