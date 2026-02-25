@@ -4,6 +4,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
@@ -130,6 +131,63 @@ class RecipeTest extends TestCase
 		$this->assertSame('Mike Johnson', $data['review']['author']);
 		$this->assertSame('Rating', $data['review']['reviewRating']['@type']);
 		$this->assertSame(5, $data['review']['reviewRating']['ratingValue']);
+	}
+
+	public function testRecipeWithHowToSections(): void
+	{
+		$recipe = new Recipe(
+			name: 'Two-Layer Cake',
+			image: ['https://example.com/cake.jpg'],
+			recipeInstructions: [
+				new HowToSection(
+					name: 'Make the Cake Batter',
+					itemListElement: [
+						new HowToStep(text: 'Preheat oven to 350°F.'),
+						new HowToStep(text: 'Mix flour, sugar, and baking powder.'),
+						new HowToStep(text: 'Add eggs, milk, and vanilla. Beat until smooth.'),
+						new HowToStep(text: 'Pour into two greased 9-inch round pans.'),
+						new HowToStep(text: 'Bake for 30-35 minutes.'),
+					],
+				),
+				new HowToSection(
+					name: 'Make the Frosting',
+					itemListElement: [
+						new HowToStep(text: 'Beat butter until fluffy.'),
+						new HowToStep(text: 'Gradually add powdered sugar and cocoa powder.'),
+						new HowToStep(text: 'Add milk and vanilla. Beat until smooth.'),
+					],
+				),
+				new HowToSection(
+					name: 'Assemble',
+					itemListElement: [
+						new HowToStep(text: 'Place one cake layer on a plate.'),
+						new HowToStep(text: 'Spread frosting on top, then add second layer.'),
+						new HowToStep(text: 'Frost the top and sides of the cake.'),
+					],
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($recipe);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Recipe', $data['@type']);
+		$this->assertCount(3, $data['recipeInstructions']);
+
+		// First section
+		$this->assertSame('HowToSection', $data['recipeInstructions'][0]['@type']);
+		$this->assertSame('Make the Cake Batter', $data['recipeInstructions'][0]['name']);
+		$this->assertCount(5, $data['recipeInstructions'][0]['itemListElement']);
+		$this->assertSame('HowToStep', $data['recipeInstructions'][0]['itemListElement'][0]['@type']);
+
+		// Second section
+		$this->assertSame('HowToSection', $data['recipeInstructions'][1]['@type']);
+		$this->assertSame('Make the Frosting', $data['recipeInstructions'][1]['name']);
+		$this->assertCount(3, $data['recipeInstructions'][1]['itemListElement']);
+
+		// Third section
+		$this->assertSame('Assemble', $data['recipeInstructions'][2]['name']);
+		$this->assertCount(3, $data['recipeInstructions'][2]['itemListElement']);
 	}
 
 	public function testOptionalFieldsOmittedWhenNull(): void

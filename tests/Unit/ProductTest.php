@@ -250,6 +250,32 @@ class ProductTest extends TestCase
 		$this->assertSame('Carol Davis', $data['review'][1]['author']['name']);
 	}
 
+	public function testOfferWithoutItemCondition(): void
+	{
+		$product = new Product(
+			name: 'Simple Offer Product',
+			image: ['https://example.com/simple.jpg'],
+			description: 'Testing Offer without itemCondition.',
+			sku: 'SOP-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/simple',
+					priceCurrency: 'USD',
+					price: 29.99,
+					availability: ItemAvailability::InStock,
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Offer', $data['offers'][0]['@type']);
+		$this->assertEquals(29.99, $data['offers'][0]['price']);
+		$this->assertSame('https://schema.org/InStock', $data['offers'][0]['availability']);
+		$this->assertArrayNotHasKey('itemCondition', $data['offers'][0]);
+	}
+
 	public function testProductOptionalFieldsOmitted(): void
 	{
 		$product = new Product(

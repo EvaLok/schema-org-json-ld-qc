@@ -76,6 +76,51 @@ class CourseTest extends TestCase
 		$this->assertSame(5420, $data['totalHistoricalEnrollment']);
 	}
 
+	public function testCourseInstanceWithoutCourseMode(): void
+	{
+		$course = new Course(
+			name: 'Data Science Fundamentals',
+			description: 'Learn the basics of data science.',
+			hasCourseInstance: [
+				new CourseInstance(
+					instructor: new Person(name: 'Prof. Data'),
+					courseWorkload: 'PT20H',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($course);
+		$data = json_decode($json, true);
+
+		$this->assertSame('CourseInstance', $data['hasCourseInstance'][0]['@type']);
+		$this->assertSame('Person', $data['hasCourseInstance'][0]['instructor']['@type']);
+		$this->assertSame('PT20H', $data['hasCourseInstance'][0]['courseWorkload']);
+		$this->assertArrayNotHasKey('courseMode', $data['hasCourseInstance'][0]);
+	}
+
+	public function testCourseWithOfferWithoutItemCondition(): void
+	{
+		$course = new Course(
+			name: 'Web Development Bootcamp',
+			description: 'Full-stack web development.',
+			offers: [
+				new Offer(
+					url: 'https://example.com/courses/webdev',
+					priceCurrency: 'USD',
+					price: 499.00,
+					availability: ItemAvailability::InStock,
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($course);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Offer', $data['offers'][0]['@type']);
+		$this->assertEquals(499, $data['offers'][0]['price']);
+		$this->assertArrayNotHasKey('itemCondition', $data['offers'][0]);
+	}
+
 	public function testOptionalFieldsOmitted(): void
 	{
 		$course = new Course(

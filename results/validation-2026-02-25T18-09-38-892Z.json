@@ -1,0 +1,1170 @@
+{
+  "timestamp": "2026-02-25T18:09:38.893Z",
+  "packageCommit": "b32760fbfb6aff99c7ec227440d737e9c136a84b",
+  "summary": {
+    "total": 30,
+    "passed": 30,
+    "failed": 0,
+    "totalErrors": 0,
+    "totalWarnings": 120
+  },
+  "results": [
+    {
+      "schemaType": "Article",
+      "script": "src/generate-article.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Article\",\n    \"headline\": \"Understanding Tidal Patterns in the North Sea\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Dr. Sarah Chen\"\n    },\n    \"datePublished\": \"2025-01-15\",\n    \"dateModified\": \"2025-02-01\",\n    \"image\": [\n        \"https://example.com/tidal-1x1.jpg\",\n        \"https://example.com/tidal-4x3.jpg\",\n        \"https://example.com/tidal-16x9.jpg\"\n    ],\n    \"description\": \"A comprehensive guide to tidal patterns and their impact on coastal ecosystems.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Nature Weekly\",\n        \"logo\": \"https://example.com/logo.png\"\n    }\n}"
+    },
+    {
+      "schemaType": "BlogPosting",
+      "script": "src/generate-blogposting.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"BlogPosting\",\n    \"headline\": \"Understanding Dependency Injection in PHP\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Marcus Rivera\"\n    },\n    \"datePublished\": \"2025-11-20\",\n    \"dateModified\": \"2025-12-01\",\n    \"image\": [\n        \"https://example.com/di-php.jpg\",\n        \"https://example.com/di-diagram.png\"\n    ],\n    \"description\": \"A practical guide to dependency injection patterns in modern PHP applications.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"PHP Weekly\",\n        \"logo\": \"https://example.com/phpweekly-logo.png\"\n    }\n}"
+    },
+    {
+      "schemaType": "BreadcrumbList",
+      "script": "src/generate-breadcrumblist.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://example.com/\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"Electronics\",\n            \"item\": \"https://example.com/electronics\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Phones\",\n            \"item\": \"https://example.com/electronics/phones\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 4,\n            \"name\": \"Pixel 9 Pro\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "Clip",
+      "script": "src/generate-clip.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Clip\",\n    \"name\": \"Introduction to the Topic\",\n    \"startOffset\": 0,\n    \"url\": \"https://example.com/video/tutorial?t=0\",\n    \"endOffset\": 120\n}"
+    },
+    {
+      "schemaType": "Course",
+      "script": "src/generate-course.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Course",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Course\",\n    \"name\": \"Introduction to Machine Learning\",\n    \"description\": \"A comprehensive introduction to machine learning concepts, algorithms, and practical applications using Python.\",\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"name\": \"DataScience Academy\"\n    },\n    \"offers\": [\n        {\n            \"@type\": \"Offer\",\n            \"url\": \"https://example.com/courses/ml-intro\",\n            \"priceCurrency\": \"USD\",\n            \"price\": 199.99,\n            \"availability\": \"https://schema.org/InStock\",\n            \"itemCondition\": \"https://schema.org/NewCondition\"\n        }\n    ],\n    \"hasCourseInstance\": [\n        {\n            \"@type\": \"CourseInstance\",\n            \"courseMode\": \"online\",\n            \"instructor\": {\n                \"@type\": \"Person\",\n                \"name\": \"Dr. Emily Zhang\"\n            }\n        }\n    ],\n    \"inLanguage\": \"en\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.8,\n        \"bestRating\": 5,\n        \"ratingCount\": 1024\n    },\n    \"image\": \"https://example.com/photos/ml-course.jpg\"\n}"
+    },
+    {
+      "schemaType": "Dataset",
+      "script": "src/generate-dataset.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Dataset\",\n    \"name\": \"Global Ocean Temperature Records 1950-2025\",\n    \"description\": \"Comprehensive dataset of ocean surface temperature measurements from 1950 to 2025, collected from buoys, satellites, and research vessels worldwide.\",\n    \"url\": \"https://example.com/datasets/ocean-temp\",\n    \"creator\": {\n        \"@type\": \"Organization\",\n        \"name\": \"National Oceanographic Institute\"\n    },\n    \"license\": \"https://creativecommons.org/licenses/by/4.0/\",\n    \"keywords\": [\n        \"ocean temperature\",\n        \"climate data\",\n        \"marine science\"\n    ],\n    \"isAccessibleForFree\": true,\n    \"temporalCoverage\": \"1950/2025\",\n    \"includedInDataCatalog\": {\n        \"@type\": \"DataCatalog\",\n        \"name\": \"World Climate Data Repository\"\n    },\n    \"distribution\": [\n        {\n            \"@type\": \"DataDownload\",\n            \"contentUrl\": \"https://example.com/datasets/ocean-temp/download.csv\",\n            \"encodingFormat\": \"text/csv\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "DiscussionForumPosting",
+      "script": "src/generate-discussionforumposting.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"DiscussionForumPosting\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Alex Thompson\"\n    },\n    \"datePublished\": \"2025-03-10T14:30:00Z\",\n    \"text\": \"Has anyone managed to get the new schema.org VacationRental type working with Google Rich Results? I keep getting validation warnings about missing fields.\",\n    \"headline\": \"VacationRental schema validation issues\",\n    \"url\": \"https://example.com/forum/posts/vacationrental-schema\",\n    \"comment\": [\n        {\n            \"@type\": \"Comment\",\n            \"text\": \"Yes! Make sure you include the address and aggregateRating fields. Those are recommended by Google.\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Sarah Dev\"\n            },\n            \"datePublished\": \"2025-03-10T15:45:00Z\"\n        },\n        {\n            \"@type\": \"Comment\",\n            \"text\": \"I found that the bestRating and worstRating fields on nested ratings also trigger warnings if omitted.\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Mike Builder\"\n            },\n            \"datePublished\": \"2025-03-10T16:20:00Z\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "EmployerAggregateRating",
+      "script": "src/generate-employeraggregaterating.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"EmployerAggregateRating\",\n    \"itemReviewed\": {\n        \"@type\": \"Organization\",\n        \"name\": \"TechCorp Industries\"\n    },\n    \"ratingValue\": 4.2,\n    \"ratingCount\": 1847,\n    \"reviewCount\": 523,\n    \"bestRating\": 5,\n    \"worstRating\": 1\n}"
+    },
+    {
+      "schemaType": "Event",
+      "script": "src/generate-event.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Event\",\n    \"name\": \"The Rolling Stones - Hackney Diamonds Tour\",\n    \"startDate\": \"2025-07-21T19:00-05:00\",\n    \"location\": [\n        {\n            \"@type\": \"Place\",\n            \"name\": \"Soldier Field\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"streetAddress\": \"1410 Special Olympics Dr\",\n                \"addressLocality\": \"Chicago\",\n                \"addressRegion\": \"IL\",\n                \"postalCode\": \"60605\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"VirtualLocation\",\n            \"url\": \"https://livestream.example.com/rolling-stones\",\n            \"name\": \"Official Livestream\"\n        }\n    ],\n    \"description\": \"The Rolling Stones return to Chicago for one night only. Available in-person and via livestream.\",\n    \"endDate\": \"2025-07-21T23:00-05:00\",\n    \"eventAttendanceMode\": \"https://schema.org/MixedEventAttendanceMode\",\n    \"eventStatus\": \"https://schema.org/EventScheduled\",\n    \"image\": [\n        \"https://example.com/rolling-stones-tour.jpg\"\n    ],\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/tickets/rolling-stones\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 125,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"organizer\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Live Nation\",\n        \"url\": \"https://www.livenation.com\"\n    },\n    \"performer\": {\n        \"@type\": \"Person\",\n        \"name\": \"The Rolling Stones\"\n    }\n}"
+    },
+    {
+      "schemaType": "FAQPage",
+      "script": "src/generate-faqpage.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"FAQPage\",\n    \"mainEntity\": [\n        {\n            \"@type\": \"Question\",\n            \"name\": \"What is JSON-LD?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"JSON-LD is a method of encoding Linked Data using JSON. It allows data to be serialized in a way that is familiar to developers.\"\n            }\n        },\n        {\n            \"@type\": \"Question\",\n            \"name\": \"Why should I use structured data on my website?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"Structured data helps search engines understand your content better and can enable rich results in search, such as FAQ snippets, recipe cards, and product listings.\"\n            }\n        },\n        {\n            \"@type\": \"Question\",\n            \"name\": \"How do I validate my structured data?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"You can use the Google Rich Results Test at search.google.com/test/rich-results to validate your structured data and see which rich result types it supports.\"\n            }\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "ItemList",
+      "script": "src/generate-itemlist.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ItemList\",\n    \"itemListElement\": [\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"MacBook Pro 16-inch\",\n            \"url\": \"https://example.com/best-laptops/macbook-pro\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"ThinkPad X1 Carbon\",\n            \"url\": \"https://example.com/best-laptops/thinkpad-x1\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Dell XPS 15\",\n            \"url\": \"https://example.com/best-laptops/dell-xps-15\"\n        }\n    ],\n    \"itemListOrder\": \"https://schema.org/ItemListOrderDescending\",\n    \"numberOfItems\": 3\n}"
+    },
+    {
+      "schemaType": "JobPosting",
+      "script": "src/generate-jobposting.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 3,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "JobPosting",
+          "message": "Missing field \"applicantLocationRequirements\" (optional)",
+          "fields": [
+            "applicantLocationRequirements"
+          ]
+        },
+        {
+          "type": "JobPosting",
+          "message": "Missing field \"identifier\" (optional)",
+          "fields": [
+            "identifier"
+          ]
+        },
+        {
+          "type": "JobPosting",
+          "message": "Missing field \"jobLocationType\" (optional)",
+          "fields": [
+            "jobLocationType"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"JobPosting\",\n    \"title\": \"Senior Software Engineer\",\n    \"description\": \"<p>We are looking for a senior software engineer to lead our backend team. You will design and implement scalable APIs, mentor junior developers, and drive technical decisions.</p><p>Requirements: 5+ years experience with PHP or Python, experience with cloud infrastructure, strong communication skills.</p>\",\n    \"datePosted\": \"2025-03-01\",\n    \"hiringOrganization\": {\n        \"@type\": \"Organization\",\n        \"name\": \"ACME Corp\",\n        \"url\": \"https://acme.example.com\",\n        \"logo\": \"https://acme.example.com/logo.png\"\n    },\n    \"jobLocation\": {\n        \"@type\": \"Place\",\n        \"name\": \"ACME Headquarters\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"streetAddress\": \"100 Innovation Way\",\n            \"addressLocality\": \"Austin\",\n            \"addressRegion\": \"TX\",\n            \"postalCode\": \"78701\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"baseSalary\": {\n        \"@type\": \"MonetaryAmount\",\n        \"currency\": \"USD\",\n        \"minValue\": 150000,\n        \"maxValue\": 200000\n    },\n    \"employmentType\": \"FULL_TIME\",\n    \"validThrough\": \"2025-06-01\",\n    \"directApply\": true\n}"
+    },
+    {
+      "schemaType": "LocalBusiness",
+      "script": "src/generate-localbusiness.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 3,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "LocalBusiness",
+          "message": "Missing field \"bestRating\" (optional)",
+          "fields": [
+            "bestRating"
+          ]
+        },
+        {
+          "type": "LocalBusiness",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        },
+        {
+          "type": "LocalBusiness",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"LocalBusiness\",\n    \"name\": \"Dave's Steak House\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"148 W 51st St\",\n        \"addressLocality\": \"New York\",\n        \"addressRegion\": \"NY\",\n        \"postalCode\": \"10019\",\n        \"addressCountry\": \"US\"\n    },\n    \"url\": \"https://davessteakhouse.example.com\",\n    \"telephone\": \"+1-212-555-0100\",\n    \"description\": \"Classic American steakhouse in the heart of Midtown Manhattan.\",\n    \"image\": [\n        \"https://example.com/photos/daves-exterior.jpg\"\n    ],\n    \"priceRange\": \"$$$\",\n    \"geo\": {\n        \"@type\": \"GeoCoordinates\",\n        \"latitude\": 40.7614,\n        \"longitude\": -73.9826\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.4,\n        \"reviewCount\": 267\n    },\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": \"James T.\",\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 5,\n            \"bestRating\": 5\n        },\n        \"reviewBody\": \"Best steak I have had in years. The service was impeccable.\",\n        \"datePublished\": \"2025-02-01\"\n    },\n    \"servesCuisine\": \"American\",\n    \"logo\": \"https://example.com/daves-logo.png\"\n}"
+    },
+    {
+      "schemaType": "MathSolver, LearningResource",
+      "script": "src/generate-mathsolver.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": [\n        \"MathSolver\",\n        \"LearningResource\"\n    ],\n    \"url\": \"https://math.example.com/solver\",\n    \"usageInfo\": \"https://math.example.com/terms\",\n    \"potentialAction\": [\n        {\n            \"@type\": \"SolveMathAction\",\n            \"target\": \"https://math.example.com/solve-algebra\",\n            \"eduQuestionType\": [\n                \"Polynomial\",\n                \"Linear Equation\"\n            ],\n            \"mathExpression-input\": \"text\"\n        },\n        {\n            \"@type\": \"SolveMathAction\",\n            \"target\": \"https://math.example.com/solve-calculus\",\n            \"eduQuestionType\": \"Integral\",\n            \"mathExpression-input\": \"latex\"\n        }\n    ],\n    \"name\": \"MathWay Solver\",\n    \"inLanguage\": \"en\",\n    \"learningResourceType\": \"Math Solver\",\n    \"assesses\": [\n        \"Algebra\",\n        \"Calculus\"\n    ]\n}"
+    },
+    {
+      "schemaType": "MobileApplication",
+      "script": "src/generate-mobileapplication.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 2,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "MobileApplication",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        },
+        {
+          "type": "MobileApplication",
+          "message": "Missing field \"datePublished\" (optional)",
+          "fields": [
+            "datePublished"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"MobileApplication\",\n    \"name\": \"FitTracker\",\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://play.google.com/store/apps/details?id=com.example.fittracker\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 0,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.5,\n        \"bestRating\": 5,\n        \"ratingCount\": 32100\n    },\n    \"applicationCategory\": \"HealthApplication\",\n    \"operatingSystem\": \"Android 10+\",\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"FitnessGuru\"\n        },\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 5,\n            \"bestRating\": 5,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"Best fitness tracking app I have ever used. Accurate heart rate monitoring.\"\n    },\n    \"description\": \"Track your workouts, heart rate, and daily steps with precision.\"\n}"
+    },
+    {
+      "schemaType": "Movie",
+      "script": "src/generate-movie.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 2,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Movie",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        },
+        {
+          "type": "Movie",
+          "message": "Missing field \"datePublished\" (optional)",
+          "fields": [
+            "datePublished"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Movie\",\n    \"name\": \"The Algorithmic Garden\",\n    \"image\": \"https://example.com/photos/algorithmic-garden.jpg\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 8.1,\n        \"bestRating\": 10,\n        \"ratingCount\": 45230\n    },\n    \"dateCreated\": \"2025-06-15\",\n    \"director\": {\n        \"@type\": \"Person\",\n        \"name\": \"Sofia Castellano\"\n    },\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"Roger Chen\"\n        },\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 9,\n            \"bestRating\": 10,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"A stunning visual exploration of mathematics in nature.\"\n    },\n    \"description\": \"A mathematician discovers that the patterns in an ancient garden hold the key to a revolutionary algorithm.\",\n    \"actor\": [\n        {\n            \"@type\": \"Person\",\n            \"name\": \"Elena Voss\"\n        },\n        {\n            \"@type\": \"Person\",\n            \"name\": \"Marcus Reid\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "NewsArticle",
+      "script": "src/generate-newsarticle.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"NewsArticle\",\n    \"headline\": \"City Council Approves $50M Green Infrastructure Plan\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Sarah Greenfield\"\n    },\n    \"datePublished\": \"2025-03-10T09:00:00Z\",\n    \"dateModified\": \"2025-03-10T14:30:00Z\",\n    \"image\": [\n        \"https://example.com/photos/green-plan-1x1.jpg\",\n        \"https://example.com/photos/green-plan-4x3.jpg\",\n        \"https://example.com/photos/green-plan-16x9.jpg\"\n    ],\n    \"description\": \"The city council voted unanimously to approve a $50 million plan for green infrastructure improvements including urban forests, rain gardens, and permeable pavements.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Metro Daily News\",\n        \"url\": \"https://metrodaily.example.com\",\n        \"logo\": \"https://metrodaily.example.com/logo.png\"\n    }\n}"
+    },
+    {
+      "schemaType": "Organization",
+      "script": "src/generate-organization.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Organization\",\n    \"name\": \"TechStart Inc.\",\n    \"url\": \"https://techstart.example.com\",\n    \"logo\": \"https://techstart.example.com/logo.png\",\n    \"description\": \"Leading technology startup accelerator.\",\n    \"email\": \"info@techstart.example.com\",\n    \"telephone\": \"+1-555-123-4567\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"123 Innovation Drive\",\n        \"addressLocality\": \"San Francisco\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"94105\",\n        \"addressCountry\": \"US\"\n    },\n    \"contactPoint\": {\n        \"@type\": \"ContactPoint\",\n        \"telephone\": \"+1-555-987-6543\",\n        \"contactType\": \"customer service\"\n    },\n    \"sameAs\": [\n        \"https://twitter.com/techstart\",\n        \"https://linkedin.com/company/techstart\"\n    ],\n    \"foundingDate\": \"2020-03-15\",\n    \"legalName\": \"TechStart Incorporated\"\n}"
+    },
+    {
+      "schemaType": "Person",
+      "script": "src/generate-person.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Person\",\n    \"name\": \"Dr. Emily Zhang\",\n    \"url\": \"https://emilyzhang.example.com\",\n    \"image\": \"https://emilyzhang.example.com/photo.jpg\",\n    \"jobTitle\": \"Senior Research Scientist\",\n    \"worksFor\": {\n        \"@type\": \"Organization\",\n        \"name\": \"BioGen Labs\"\n    },\n    \"sameAs\": [\n        \"https://twitter.com/emilyzhang\",\n        \"https://linkedin.com/in/emilyzhang\"\n    ],\n    \"description\": \"Genomics researcher specializing in CRISPR applications.\",\n    \"givenName\": \"Emily\",\n    \"familyName\": \"Zhang\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Boston\",\n        \"addressRegion\": \"MA\",\n        \"addressCountry\": \"US\"\n    }\n}"
+    },
+    {
+      "schemaType": "Product",
+      "script": "src/generate-product.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 11,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Product",
+          "message": "Missing field \"audience\" (optional)",
+          "fields": [
+            "audience"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"color\" (optional)",
+          "fields": [
+            "color"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"hasCertification\" (optional)",
+          "fields": [
+            "hasCertification"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"inProductGroupWithID\" (optional)",
+          "fields": [
+            "inProductGroupWithID"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"isVariantOf\" (optional)",
+          "fields": [
+            "isVariantOf"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"material\" (optional)",
+          "fields": [
+            "material"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"pattern\" (optional)",
+          "fields": [
+            "pattern"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"size\" (optional)",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"subjectOf\" (optional)",
+          "fields": [
+            "subjectOf"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing one of field \"gtin\", \"gtin8\", \"gtin12\", \"gtin13\", \"gtin14\", \"isbn\" on either product or all offers",
+          "fields": [
+            "gtin",
+            "gtin8",
+            "gtin12",
+            "gtin13",
+            "gtin14",
+            "isbn"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"priceValidUntil\" (optional)",
+          "fields": [
+            "priceValidUntil"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Executive Anvil\",\n    \"image\": [\n        \"https://example.com/photos/1x1/anvil.jpg\",\n        \"https://example.com/photos/4x3/anvil.jpg\",\n        \"https://example.com/photos/16x9/anvil.jpg\"\n    ],\n    \"description\": \"Sleek and deadly, this anvil is the epitome of executive style.\",\n    \"sku\": \"0446310786\",\n    \"offers\": [\n        {\n            \"@type\": \"Offer\",\n            \"url\": \"https://example.com/anvil\",\n            \"priceCurrency\": \"USD\",\n            \"price\": 119.99,\n            \"availability\": \"https://schema.org/InStock\",\n            \"itemCondition\": \"https://schema.org/NewCondition\"\n        }\n    ],\n    \"brand\": {\n        \"@type\": \"Brand\",\n        \"name\": \"ACME\"\n    },\n    \"mpn\": \"925872\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.4,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 89,\n        \"reviewCount\": 12\n    },\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Fred Benson\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"This is the best anvil I have ever used. Heavy duty and well built.\",\n            \"datePublished\": \"2025-04-01\",\n            \"name\": \"Best anvil ever\"\n        },\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Sara Mitchell\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 4,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Great quality but a bit pricey for what you get.\",\n            \"datePublished\": \"2025-05-10\",\n            \"name\": \"Good but expensive\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "ProfilePage",
+      "script": "src/generate-profilepage.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ProfilePage\",\n    \"mainEntity\": {\n        \"@type\": \"Person\",\n        \"name\": \"Ada Lovelace\",\n        \"url\": \"https://example.com/profiles/ada-lovelace\",\n        \"sameAs\": [\n            \"https://twitter.com/example_ada\",\n            \"https://www.linkedin.com/in/example-ada\"\n        ]\n    },\n    \"dateCreated\": \"2024-01-15\",\n    \"dateModified\": \"2025-03-20\"\n}"
+    },
+    {
+      "schemaType": "QAPage",
+      "script": "src/generate-qapage.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"QAPage\",\n    \"mainEntity\": {\n        \"@type\": \"Question\",\n        \"name\": \"How do I validate JSON-LD structured data locally?\",\n        \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Use @adobe/structured-data-validator \\u2014 it validates against Google requirements locally with deterministic results.\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"DevHelper\"\n            },\n            \"upvoteCount\": 42,\n            \"datePublished\": \"2025-02-20\"\n        },\n        \"suggestedAnswer\": [\n            {\n                \"@type\": \"Answer\",\n                \"text\": \"You can also use structured-data-testing-tool for basic structural checks, though it does not validate against Google-specific requirements.\",\n                \"author\": {\n                    \"@type\": \"Person\",\n                    \"name\": \"SchemaFan\"\n                },\n                \"upvoteCount\": 15,\n                \"datePublished\": \"2025-02-21\"\n            }\n        ],\n        \"answerCount\": 2,\n        \"text\": \"I want to validate my JSON-LD output against Google Rich Results requirements without using a browser. Is there a local tool?\",\n        \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"NewDev123\"\n        },\n        \"datePublished\": \"2025-02-19\"\n    }\n}"
+    },
+    {
+      "schemaType": "Quiz",
+      "script": "src/generate-quiz.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Quiz\",\n    \"hasPart\": [\n        {\n            \"@type\": \"Question\",\n            \"name\": \"What is the chemical symbol for water?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"H2O\"\n            },\n            \"eduQuestionType\": \"Multiple choice\"\n        },\n        {\n            \"@type\": \"Question\",\n            \"name\": \"What planet is closest to the Sun?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"Mercury\"\n            },\n            \"eduQuestionType\": \"Multiple choice\"\n        }\n    ],\n    \"about\": \"General Science\",\n    \"name\": \"Basic Science Quiz\",\n    \"description\": \"Test your knowledge of basic science concepts.\"\n}"
+    },
+    {
+      "schemaType": "Recipe",
+      "script": "src/generate-recipe-sections.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 59,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Recipe",
+          "message": "Missing field \"aggregateRating\" (optional)",
+          "fields": [
+            "aggregateRating"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"nutrition.calories\" (optional)",
+          "fields": [
+            "nutrition.calories"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"cookTime\" (optional)",
+          "fields": [
+            "cookTime"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Recipe\",\n    \"name\": \"Classic Tiramisu\",\n    \"image\": [\n        \"https://example.com/photos/1x1/tiramisu.jpg\",\n        \"https://example.com/photos/4x3/tiramisu.jpg\",\n        \"https://example.com/photos/16x9/tiramisu.jpg\"\n    ],\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Chef Marco\"\n    },\n    \"datePublished\": \"2025-03-15\",\n    \"description\": \"An authentic Italian tiramisu with espresso-soaked ladyfingers and mascarpone cream.\",\n    \"prepTime\": \"PT30M\",\n    \"totalTime\": \"PT4H30M\",\n    \"keywords\": \"tiramisu, italian, dessert, no-bake\",\n    \"recipeYield\": \"8 servings\",\n    \"recipeCategory\": \"Dessert\",\n    \"recipeCuisine\": \"Italian\",\n    \"recipeIngredient\": [\n        \"6 egg yolks\",\n        \"3/4 cup sugar\",\n        \"500g mascarpone cheese\",\n        \"2 cups heavy cream\",\n        \"2 cups strong espresso, cooled\",\n        \"3 tbsp coffee liqueur\",\n        \"300g ladyfinger biscuits\",\n        \"Unsweetened cocoa powder\"\n    ],\n    \"recipeInstructions\": [\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Prepare the Mascarpone Cream\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Whisk egg yolks and sugar until thick and pale yellow.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Add mascarpone cheese and mix until smooth.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"In a separate bowl, whip heavy cream to stiff peaks.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Gently fold whipped cream into the mascarpone mixture.\"\n                }\n            ]\n        },\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Assemble the Tiramisu\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Combine espresso and coffee liqueur in a shallow dish.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Quickly dip each ladyfinger into the espresso mixture.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Arrange a layer of soaked ladyfingers in a 9x13 dish.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Spread half the mascarpone cream over the ladyfingers.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Repeat with a second layer of ladyfingers and cream.\"\n                }\n            ]\n        },\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Chill and Serve\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Cover with plastic wrap and refrigerate for at least 4 hours.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Dust generously with cocoa powder before serving.\"\n                }\n            ]\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "Recipe",
+      "script": "src/generate-recipe.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 32,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Recipe\",\n    \"name\": \"Classic Banana Bread\",\n    \"image\": [\n        \"https://example.com/photos/1x1/banana-bread.jpg\",\n        \"https://example.com/photos/4x3/banana-bread.jpg\",\n        \"https://example.com/photos/16x9/banana-bread.jpg\"\n    ],\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Mary Baker\"\n    },\n    \"datePublished\": \"2025-01-10\",\n    \"description\": \"This classic banana bread recipe is moist, delicious, and easy to make.\",\n    \"prepTime\": \"PT15M\",\n    \"cookTime\": \"PT60M\",\n    \"totalTime\": \"PT75M\",\n    \"keywords\": \"banana bread, baking, dessert, snack\",\n    \"recipeYield\": \"1 loaf (10 slices)\",\n    \"recipeCategory\": \"Dessert\",\n    \"recipeCuisine\": \"American\",\n    \"recipeIngredient\": [\n        \"3 ripe bananas\",\n        \"1/3 cup melted butter\",\n        \"3/4 cup sugar\",\n        \"1 egg, beaten\",\n        \"1 tsp vanilla extract\",\n        \"1 tsp baking soda\",\n        \"Pinch of salt\",\n        \"1 1/2 cups all-purpose flour\"\n    ],\n    \"recipeInstructions\": [\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Preheat oven to 350\\u00b0F (175\\u00b0C). Grease a 4x8 inch loaf pan.\"\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Mash the bananas in a mixing bowl with a fork.\"\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Mix in the melted butter, sugar, egg, and vanilla.\"\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Stir in the baking soda and salt. Mix in the flour.\"\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Pour batter into prepared loaf pan.\"\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Bake for 60 minutes or until a toothpick inserted comes out clean.\"\n        }\n    ],\n    \"nutrition\": {\n        \"@type\": \"NutritionInformation\",\n        \"calories\": \"240 calories\",\n        \"fatContent\": \"8 g\",\n        \"carbohydrateContent\": \"40 g\",\n        \"proteinContent\": \"3 g\",\n        \"servingSize\": \"1 slice\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.7,\n        \"bestRating\": 5,\n        \"ratingCount\": 256\n    }\n}"
+    },
+    {
+      "schemaType": "Review",
+      "script": "src/generate-review.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Review\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"James Wilson\"\n    },\n    \"reviewRating\": {\n        \"@type\": \"Rating\",\n        \"ratingValue\": 4,\n        \"bestRating\": 5,\n        \"worstRating\": 1\n    },\n    \"reviewBody\": \"Excellent product with great build quality. Minor issues with the manual.\",\n    \"datePublished\": \"2025-03-15\",\n    \"name\": \"Great quality, minor documentation issues\",\n    \"itemReviewed\": {\n        \"@type\": \"Thing\",\n        \"name\": \"Acme Wireless Headphones\"\n    }\n}"
+    },
+    {
+      "schemaType": "SoftwareApplication",
+      "script": "src/generate-softwareapplication.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "SoftwareApplication",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"SoftwareApplication\",\n    \"name\": \"TaskFlow Pro\",\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/taskflow-pro\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 4.99,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.6,\n        \"bestRating\": 5,\n        \"ratingCount\": 8250\n    },\n    \"applicationCategory\": \"BusinessApplication\",\n    \"operatingSystem\": \"Android, iOS\",\n    \"description\": \"A powerful task management app for professionals.\"\n}"
+    },
+    {
+      "schemaType": "VacationRental",
+      "script": "src/generate-vacationrental.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 4,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "VacationRental",
+          "message": "Missing field \"bestRating\" (optional)",
+          "fields": [
+            "bestRating"
+          ]
+        },
+        {
+          "type": "VacationRental",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        },
+        {
+          "type": "VacationRental",
+          "message": "Missing field \"datePublished\" (optional)",
+          "fields": [
+            "datePublished"
+          ]
+        },
+        {
+          "type": "VacationRental",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"VacationRental\",\n    \"name\": \"Seaside Villa Retreat\",\n    \"identifier\": \"villa-seaside-42\",\n    \"image\": [\n        \"https://example.com/villa-front.jpg\",\n        \"https://example.com/villa-pool.jpg\",\n        \"https://example.com/villa-interior.jpg\"\n    ],\n    \"latitude\": 36.7783,\n    \"longitude\": -119.4179,\n    \"containsPlace\": {\n        \"@type\": \"Accommodation\",\n        \"occupancy\": {\n            \"@type\": \"QuantitativeValue\",\n            \"value\": 8\n        },\n        \"numberOfBedrooms\": 4,\n        \"numberOfBathroomsTotal\": 3,\n        \"floorSize\": {\n            \"@type\": \"QuantitativeValue\",\n            \"value\": 250,\n            \"unitCode\": \"MTK\"\n        }\n    },\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"123 Ocean Boulevard\",\n        \"addressLocality\": \"Malibu\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"90265\",\n        \"addressCountry\": \"US\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.9,\n        \"reviewCount\": 87\n    },\n    \"checkinTime\": \"15:00\",\n    \"checkoutTime\": \"11:00\",\n    \"description\": \"A stunning oceanfront villa with private pool and panoramic sea views.\",\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": \"Traveler Kate\",\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5\n            },\n            \"reviewBody\": \"Absolutely perfect. The views are incredible.\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "VideoObject",
+      "script": "src/generate-videoobject.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "VideoObject",
+          "message": "Missing field \"publication\" (optional)",
+          "fields": [
+            "publication"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"VideoObject\",\n    \"name\": \"How to Make Sourdough Bread from Scratch\",\n    \"thumbnailUrl\": [\n        \"https://example.com/photos/sourdough-1x1.jpg\",\n        \"https://example.com/photos/sourdough-4x3.jpg\",\n        \"https://example.com/photos/sourdough-16x9.jpg\"\n    ],\n    \"uploadDate\": \"2025-02-05T08:00:00+00:00\",\n    \"description\": \"A step-by-step guide to making artisan sourdough bread at home, from creating your starter to baking the perfect loaf.\",\n    \"contentUrl\": \"https://example.com/video/sourdough-guide.mp4\",\n    \"embedUrl\": \"https://example.com/embed/sourdough-guide\",\n    \"duration\": \"PT23M15S\",\n    \"expires\": \"2027-02-05T08:00:00+00:00\",\n    \"regionsAllowed\": \"US,CA,GB,AU\",\n    \"interactionStatistic\": {\n        \"@type\": \"InteractionCounter\",\n        \"interactionType\": \"WatchAction\",\n        \"userInteractionCount\": 14503\n    },\n    \"hasPart\": [\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Creating the Starter\",\n            \"startOffset\": 0,\n            \"url\": \"https://example.com/video/sourdough-guide?t=0\",\n            \"endOffset\": 180\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Mixing the Dough\",\n            \"startOffset\": 180,\n            \"url\": \"https://example.com/video/sourdough-guide?t=180\",\n            \"endOffset\": 420\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Shaping and Proofing\",\n            \"startOffset\": 420,\n            \"url\": \"https://example.com/video/sourdough-guide?t=420\",\n            \"endOffset\": 840\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Baking the Loaf\",\n            \"startOffset\": 840,\n            \"url\": \"https://example.com/video/sourdough-guide?t=840\",\n            \"endOffset\": 1395\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "WebApplication",
+      "script": "src/generate-webapplication.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "WebApplication",
+          "message": "Missing field \"worstRating\" (optional)",
+          "fields": [
+            "worstRating"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"WebApplication\",\n    \"name\": \"CloudNote Editor\",\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/cloudnote\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 9.99,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.3,\n        \"bestRating\": 5,\n        \"ratingCount\": 5670\n    },\n    \"applicationCategory\": \"ProductivityApplication\",\n    \"operatingSystem\": \"All\",\n    \"description\": \"A collaborative note-taking and document editing web application.\",\n    \"screenshot\": \"https://example.com/screenshots/cloudnote-editor.png\"\n}"
+    }
+  ]
+}

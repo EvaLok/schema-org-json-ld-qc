@@ -1,0 +1,447 @@
+{
+  "timestamp": "2026-02-25T18:09:23.908Z",
+  "packageCommit": "b32760fbfb6aff99c7ec227440d737e9c136a84b",
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "totalErrors": 0,
+    "totalWarnings": 59
+  },
+  "results": [
+    {
+      "schemaType": "Event",
+      "script": "src/generate-event.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Event\",\n    \"name\": \"The Rolling Stones - Hackney Diamonds Tour\",\n    \"startDate\": \"2025-07-21T19:00-05:00\",\n    \"location\": [\n        {\n            \"@type\": \"Place\",\n            \"name\": \"Soldier Field\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"streetAddress\": \"1410 Special Olympics Dr\",\n                \"addressLocality\": \"Chicago\",\n                \"addressRegion\": \"IL\",\n                \"postalCode\": \"60605\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"VirtualLocation\",\n            \"url\": \"https://livestream.example.com/rolling-stones\",\n            \"name\": \"Official Livestream\"\n        }\n    ],\n    \"description\": \"The Rolling Stones return to Chicago for one night only. Available in-person and via livestream.\",\n    \"endDate\": \"2025-07-21T23:00-05:00\",\n    \"eventAttendanceMode\": \"https://schema.org/MixedEventAttendanceMode\",\n    \"eventStatus\": \"https://schema.org/EventScheduled\",\n    \"image\": [\n        \"https://example.com/rolling-stones-tour.jpg\"\n    ],\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/tickets/rolling-stones\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 125,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"organizer\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Live Nation\",\n        \"url\": \"https://www.livenation.com\"\n    },\n    \"performer\": {\n        \"@type\": \"Person\",\n        \"name\": \"The Rolling Stones\"\n    }\n}"
+    },
+    {
+      "schemaType": "Recipe",
+      "script": "src/generate-recipe-sections.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 59,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Recipe",
+          "message": "Missing field \"aggregateRating\" (optional)",
+          "fields": [
+            "aggregateRating"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"nutrition.calories\" (optional)",
+          "fields": [
+            "nutrition.calories"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"cookTime\" (optional)",
+          "fields": [
+            "cookTime"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"name\" (optional)",
+          "fields": [
+            "name"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Recipe\",\n    \"name\": \"Classic Tiramisu\",\n    \"image\": [\n        \"https://example.com/photos/1x1/tiramisu.jpg\",\n        \"https://example.com/photos/4x3/tiramisu.jpg\",\n        \"https://example.com/photos/16x9/tiramisu.jpg\"\n    ],\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Chef Marco\"\n    },\n    \"datePublished\": \"2025-03-15\",\n    \"description\": \"An authentic Italian tiramisu with espresso-soaked ladyfingers and mascarpone cream.\",\n    \"prepTime\": \"PT30M\",\n    \"totalTime\": \"PT4H30M\",\n    \"keywords\": \"tiramisu, italian, dessert, no-bake\",\n    \"recipeYield\": \"8 servings\",\n    \"recipeCategory\": \"Dessert\",\n    \"recipeCuisine\": \"Italian\",\n    \"recipeIngredient\": [\n        \"6 egg yolks\",\n        \"3/4 cup sugar\",\n        \"500g mascarpone cheese\",\n        \"2 cups heavy cream\",\n        \"2 cups strong espresso, cooled\",\n        \"3 tbsp coffee liqueur\",\n        \"300g ladyfinger biscuits\",\n        \"Unsweetened cocoa powder\"\n    ],\n    \"recipeInstructions\": [\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Prepare the Mascarpone Cream\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Whisk egg yolks and sugar until thick and pale yellow.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Add mascarpone cheese and mix until smooth.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"In a separate bowl, whip heavy cream to stiff peaks.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Gently fold whipped cream into the mascarpone mixture.\"\n                }\n            ]\n        },\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Assemble the Tiramisu\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Combine espresso and coffee liqueur in a shallow dish.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Quickly dip each ladyfinger into the espresso mixture.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Arrange a layer of soaked ladyfingers in a 9x13 dish.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Spread half the mascarpone cream over the ladyfingers.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Repeat with a second layer of ladyfingers and cream.\"\n                }\n            ]\n        },\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Chill and Serve\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Cover with plastic wrap and refrigerate for at least 4 hours.\"\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Dust generously with cocoa powder before serving.\"\n                }\n            ]\n        }\n    ]\n}"
+    }
+  ]
+}

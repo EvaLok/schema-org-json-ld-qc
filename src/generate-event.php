@@ -12,22 +12,31 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Place;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\EventAttendanceModeEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\VirtualLocation;
 
 $event = new Event(
 	name: 'The Rolling Stones - Hackney Diamonds Tour',
 	startDate: '2025-07-21T19:00-05:00',
-	location: new Place(
-		name: 'Soldier Field',
-		address: new PostalAddress(
-			streetAddress: '1410 Special Olympics Dr',
-			addressLocality: 'Chicago',
-			addressRegion: 'IL',
-			postalCode: '60605',
-			addressCountry: 'US',
+	location: [
+		new Place(
+			name: 'Soldier Field',
+			address: new PostalAddress(
+				streetAddress: '1410 Special Olympics Dr',
+				addressLocality: 'Chicago',
+				addressRegion: 'IL',
+				postalCode: '60605',
+				addressCountry: 'US',
+			),
 		),
-	),
-	description: 'The Rolling Stones return to Chicago for one night only.',
+		new VirtualLocation(
+			url: 'https://livestream.example.com/rolling-stones',
+			name: 'Official Livestream',
+		),
+	],
+	description: 'The Rolling Stones return to Chicago for one night only. Available in-person and via livestream.',
 	endDate: '2025-07-21T23:00-05:00',
+	eventAttendanceMode: EventAttendanceModeEnumeration::MixedEventAttendanceMode,
 	eventStatus: EventStatusType::EventScheduled,
 	image: ['https://example.com/rolling-stones-tour.jpg'],
 	offers: new Offer(
