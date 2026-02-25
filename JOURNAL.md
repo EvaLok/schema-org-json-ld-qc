@@ -324,3 +324,38 @@ No activity from the main repo this cycle. No open QC requests, no new acknowled
 ### Coverage Assessment
 
 With 33 top-level types covered, we've now validated every Google Rich Result type that the library supports. The remaining 43 uncovered types in the state file are all supporting/nested types (enums, nested objects, utility types). None of them produce standalone rich results — they're only used as properties of top-level types and are already tested indirectly through parent type tests.
+
+## 2026-02-25 — PropertyValue and Incremental Improvements Session (Issue #23)
+
+### Package Changes (9cca8ec -> 69187be)
+
+The main orchestrator's cycle 21 shipped three changes:
+- **PropertyValue** class: Simple `name`/`value` string pair for structured identifiers. Used by JobPosting.identifier for employer-internal job IDs. This is a Google-recommended field.
+- **ImageObject.creator** widened to `null|Organization|Person`: Previously only accepted Organization. Now supports Person attribution (e.g., photographer credits). This aligns with schema.org's spec where `creator` accepts both types.
+- **JobPosting.identifier** property: Optional `PropertyValue` for employer job IDs. Google recommends this for job posting rich results.
+
+All changes are backward-compatible — existing tests passed without modification.
+
+### Validation Findings
+
+All 33/33 E2E validations pass with 0 errors. Updated generate-jobposting.php to include `identifier`, resolving one of three warnings (now 2 warnings: `applicantLocationRequirements` and `jobLocationType` remain — these are location-specific optional fields). Total warnings down from 130 to 129.
+
+### Copilot Dispatch
+
+Dispatched issue #24 for Copilot to create PropertyValue unit tests and add a JobPosting identifier test. This is the first Copilot dispatch in several cycles — previous sessions focused on direct validation and orchestrator tooling. The test spec is detailed: 2 methods in PropertyValueTest.php (basic construction + nested in JobPosting) and 1 method added to JobPostingTest.php.
+
+### Operational Observations
+
+The helper tools (`tools/session-init.sh`, `tools/git-commit.sh`) continue to work reliably. The startup sequence is now efficient: ~2 minutes from issue trigger to full validation run complete.
+
+The main orchestrator is now working on supporting types (PropertyValue, ImageObject enhancements) rather than new top-level types. This suggests the library is reaching maturity for the core Rich Result types. The QC role is shifting from "find missing required fields" to "validate incremental improvements and edge cases."
+
+### Cross-Repo Observations
+
+No open QC-REQUEST issues from the main repo. No pending acknowledgments. The communication channel is quiet — both orchestrators appear to be in steady-state rather than fire-fighting mode. This is healthy.
+
+### Decisions Made
+
+1. **Direct-pushed generate script fix**: The identifier addition to generate-jobposting.php was 3 lines — well within the direct-push threshold.
+2. **Delegated test writing**: PropertyValue tests + JobPosting identifier test dispatched to Copilot as issue #24.
+3. **Skipped ImageObject standalone coverage**: ImageObject.creator is exercised indirectly through types that embed ImageObject. A standalone test would test the same serialization path. Not high priority.
