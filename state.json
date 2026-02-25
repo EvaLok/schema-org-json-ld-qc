@@ -1,5 +1,5 @@
 {
-	"last_updated": "2026-02-25T10:15:00Z",
+	"last_updated": "2026-02-25T10:25:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
@@ -8,124 +8,34 @@
 	},
 	"schema_types": {
 		"covered": {
-			"Article": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"FAQPage": {
-				"unit_test": "pass",
-				"e2e_test": "infrastructure_failure",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"Product": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"Recipe": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"LocalBusiness": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"Event": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"JobPosting": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"BreadcrumbList": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"VideoObject": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			},
-			"NewsArticle": {
-				"unit_test": "pass",
-				"e2e_test": "not_attempted",
-				"last_tested": "2026-02-25",
-				"package_commit": "c98da7c"
-			}
+			"Article": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"FAQPage": { "unit_test": "pass", "e2e_test": "infrastructure_failure", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Product": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Recipe": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"LocalBusiness": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Event": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"JobPosting": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"VideoObject": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"NewsArticle": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Course": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"QAPage": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Movie": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" }
 		},
 		"uncovered": [
-			"Accommodation",
-			"AdministrativeArea",
-			"AggregateRating",
-			"AlignmentObject",
-			"Answer",
-			"BedDetails",
-			"BlogPosting",
-			"Brand",
-			"Comment",
-			"ContactPoint",
-			"Course",
-			"CourseInstance",
-			"DataCatalog",
-			"DataDownload",
-			"DayOfWeek",
-			"DefinedRegion",
-			"DiscussionForumPosting",
-			"EmployerAggregateRating",
-			"EventStatusType",
-			"GeoCoordinates",
-			"GeoShape",
-			"HowToStep",
-			"ImageObject",
-			"InteractionCounter",
-			"ItemAvailability",
-			"ItemList",
-			"ListItem",
-			"LocationFeatureSpecification",
-			"MathSolver",
-			"MobileApplication",
-			"MonetaryAmount",
-			"Movie",
-			"NutritionInformation",
-			"Offer",
-			"OfferItemCondition",
-			"OfferShippingDetails",
-			"OpeningHoursSpecification",
-			"Organization",
-			"Person",
-			"Place",
-			"PostalAddress",
-			"ProfilePage",
-			"QAPage",
-			"QuantitativeValue",
-			"Question",
-			"Quiz",
-			"Rating",
-			"Review",
-			"Schedule",
-			"ShippingDeliveryTime",
-			"SoftwareApplication",
-			"SolveMathAction",
-			"SpeakableSpecification",
-			"VacationRental",
-			"WebApplication",
-			"WebPageElement"
+			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
+			"Answer", "BedDetails", "BlogPosting", "Brand", "Comment", "ContactPoint",
+			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
+			"DiscussionForumPosting", "EmployerAggregateRating", "EventStatusType",
+			"GeoCoordinates", "GeoShape", "HowToStep", "ImageObject", "InteractionCounter",
+			"ItemAvailability", "ItemList", "ListItem", "LocationFeatureSpecification",
+			"MathSolver", "MobileApplication", "MonetaryAmount", "NutritionInformation",
+			"Offer", "OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
+			"Organization", "Person", "Place", "PostalAddress", "ProfilePage",
+			"QuantitativeValue", "Question", "Quiz", "Rating", "Review", "Schedule",
+			"ShippingDeliveryTime", "SolveMathAction", "SpeakableSpecification",
+			"VacationRental", "WebApplication", "WebPageElement"
 		]
 	},
 	"e2e_status": {
@@ -147,7 +57,7 @@
 			"issue": 4,
 			"date": "2026-02-25",
 			"type": "bootstrap",
-			"summary": "First session. Created 10 unit test files (37 tests, 215 assertions), 10 usage scripts. All passing. E2E blocked by Google auth."
+			"summary": "First session. 14 types covered with 48 tests, 277 assertions, all passing. E2E blocked by Google auth. Opened question-for-eva #5."
 		}
 	]
 }
