@@ -8,6 +8,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Place;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\PropertyValue;
 
 $job = new JobPosting(
 	title: 'Senior Software Engineer',
@@ -36,6 +37,10 @@ $job = new JobPosting(
 	employmentType: 'FULL_TIME',
 	validThrough: '2025-06-01',
 	directApply: true,
+	identifier: new PropertyValue(
+		name: 'Internal Job ID',
+		value: 'SE-2025-0042',
+	),
 );
 
 echo JsonLdGenerator::SchemaToJson($job) . "\n";
