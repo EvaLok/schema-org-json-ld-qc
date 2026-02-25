@@ -1,0 +1,134 @@
+{
+  "timestamp": "2026-02-25T13:37:07.060Z",
+  "packageCommit": "efdce911ad38bc28dc383aa830222b0d208d2beb",
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "totalErrors": 0,
+    "totalWarnings": 12
+  },
+  "results": [
+    {
+      "schemaType": "Product",
+      "script": "src/generate-product.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 11,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Product",
+          "message": "Missing field \"audience\" (optional)",
+          "fields": [
+            "audience"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"color\" (optional)",
+          "fields": [
+            "color"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"hasCertification\" (optional)",
+          "fields": [
+            "hasCertification"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"inProductGroupWithID\" (optional)",
+          "fields": [
+            "inProductGroupWithID"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"isVariantOf\" (optional)",
+          "fields": [
+            "isVariantOf"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"material\" (optional)",
+          "fields": [
+            "material"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"pattern\" (optional)",
+          "fields": [
+            "pattern"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"size\" (optional)",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"subjectOf\" (optional)",
+          "fields": [
+            "subjectOf"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing one of field \"gtin\", \"gtin8\", \"gtin12\", \"gtin13\", \"gtin14\", \"isbn\" on either product or all offers",
+          "fields": [
+            "gtin",
+            "gtin8",
+            "gtin12",
+            "gtin13",
+            "gtin14",
+            "isbn"
+          ]
+        },
+        {
+          "type": "Product",
+          "message": "Missing field \"priceValidUntil\" (optional)",
+          "fields": [
+            "priceValidUntil"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Executive Anvil\",\n    \"image\": [\n        \"https://example.com/photos/1x1/anvil.jpg\",\n        \"https://example.com/photos/4x3/anvil.jpg\",\n        \"https://example.com/photos/16x9/anvil.jpg\"\n    ],\n    \"description\": \"Sleek and deadly, this anvil is the epitome of executive style.\",\n    \"sku\": \"0446310786\",\n    \"offers\": [\n        {\n            \"@type\": \"Offer\",\n            \"url\": \"https://example.com/anvil\",\n            \"priceCurrency\": \"USD\",\n            \"price\": 119.99,\n            \"itemCondition\": \"https://schema.org/NewCondition\",\n            \"availability\": \"https://schema.org/InStock\"\n        }\n    ],\n    \"brand\": {\n        \"@type\": \"Brand\",\n        \"name\": \"ACME\"\n    },\n    \"mpn\": \"925872\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.4,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 89,\n        \"reviewCount\": 12\n    },\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Fred Benson\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"This is the best anvil I have ever used. Heavy duty and well built.\",\n            \"datePublished\": \"2025-04-01\",\n            \"name\": \"Best anvil ever\"\n        },\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Sara Mitchell\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 4,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Great quality but a bit pricey for what you get.\",\n            \"datePublished\": \"2025-05-10\",\n            \"name\": \"Good but expensive\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "VideoObject",
+      "script": "src/generate-videoobject.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "VideoObject",
+          "message": "Missing field \"publication\" (optional)",
+          "fields": [
+            "publication"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"VideoObject\",\n    \"name\": \"How to Make Sourdough Bread from Scratch\",\n    \"thumbnailUrl\": [\n        \"https://example.com/photos/sourdough-1x1.jpg\",\n        \"https://example.com/photos/sourdough-4x3.jpg\",\n        \"https://example.com/photos/sourdough-16x9.jpg\"\n    ],\n    \"uploadDate\": \"2025-02-05T08:00:00+00:00\",\n    \"description\": \"A step-by-step guide to making artisan sourdough bread at home, from creating your starter to baking the perfect loaf.\",\n    \"contentUrl\": \"https://example.com/video/sourdough-guide.mp4\",\n    \"embedUrl\": \"https://example.com/embed/sourdough-guide\",\n    \"duration\": \"PT23M15S\",\n    \"expires\": \"2027-02-05T08:00:00+00:00\",\n    \"regionsAllowed\": \"US,CA,GB,AU\",\n    \"interactionStatistic\": {\n        \"@type\": \"InteractionCounter\",\n        \"interactionType\": \"WatchAction\",\n        \"userInteractionCount\": 14503\n    },\n    \"hasPart\": [\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Creating the Starter\",\n            \"startOffset\": 0,\n            \"url\": \"https://example.com/video/sourdough-guide?t=0\",\n            \"endOffset\": 180\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Mixing the Dough\",\n            \"startOffset\": 180,\n            \"url\": \"https://example.com/video/sourdough-guide?t=180\",\n            \"endOffset\": 420\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Shaping and Proofing\",\n            \"startOffset\": 420,\n            \"url\": \"https://example.com/video/sourdough-guide?t=420\",\n            \"endOffset\": 840\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Baking the Loaf\",\n            \"startOffset\": 840,\n            \"url\": \"https://example.com/video/sourdough-guide?t=840\",\n            \"endOffset\": 1395\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "Clip",
+      "script": "src/generate-clip.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Clip\",\n    \"name\": \"Introduction to the Topic\",\n    \"startOffset\": 0,\n    \"url\": \"https://example.com/video/tutorial?t=0\",\n    \"endOffset\": 120\n}"
+    }
+  ]
+}

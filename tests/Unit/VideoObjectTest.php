@@ -3,6 +3,8 @@
 namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
 use PHPUnit\Framework\TestCase;
 
@@ -74,5 +76,78 @@ class VideoObjectTest extends TestCase
 		$this->assertArrayNotHasKey('duration', $data);
 		$this->assertArrayNotHasKey('expires', $data);
 		$this->assertArrayNotHasKey('regionsAllowed', $data);
+		$this->assertArrayNotHasKey('interactionStatistic', $data);
+		$this->assertArrayNotHasKey('hasPart', $data);
+		$this->assertArrayNotHasKey('ineligibleRegion', $data);
+	}
+
+	public function testVideoObjectWithClips(): void
+	{
+		$video = new VideoObject(
+			name: 'Cooking Tutorial',
+			thumbnailUrl: ['https://example.com/thumb.jpg'],
+			uploadDate: '2025-06-01',
+			hasPart: [
+				new Clip(
+					name: 'Prep Work',
+					startOffset: 0,
+					url: 'https://example.com/video?t=0',
+					endOffset: 120,
+				),
+				new Clip(
+					name: 'Cooking',
+					startOffset: 120,
+					url: 'https://example.com/video?t=120',
+					endOffset: 600,
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($video);
+		$data = json_decode($json, true);
+
+		$this->assertCount(2, $data['hasPart']);
+		$this->assertSame('Clip', $data['hasPart'][0]['@type']);
+		$this->assertSame('Prep Work', $data['hasPart'][0]['name']);
+		$this->assertSame(0, $data['hasPart'][0]['startOffset']);
+		$this->assertSame(120, $data['hasPart'][0]['endOffset']);
+		$this->assertSame('Clip', $data['hasPart'][1]['@type']);
+		$this->assertSame('Cooking', $data['hasPart'][1]['name']);
+		$this->assertSame(120, $data['hasPart'][1]['startOffset']);
+	}
+
+	public function testVideoObjectWithInteractionStatistic(): void
+	{
+		$video = new VideoObject(
+			name: 'Popular Video',
+			thumbnailUrl: ['https://example.com/thumb.jpg'],
+			uploadDate: '2025-03-15',
+			interactionStatistic: new InteractionCounter(
+				interactionType: 'WatchAction',
+				userInteractionCount: 50000,
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($video);
+		$data = json_decode($json, true);
+
+		$this->assertSame('InteractionCounter', $data['interactionStatistic']['@type']);
+		$this->assertSame('WatchAction', $data['interactionStatistic']['interactionType']);
+		$this->assertSame(50000, $data['interactionStatistic']['userInteractionCount']);
+	}
+
+	public function testVideoObjectWithIneligibleRegion(): void
+	{
+		$video = new VideoObject(
+			name: 'Restricted Video',
+			thumbnailUrl: ['https://example.com/thumb.jpg'],
+			uploadDate: '2025-04-01',
+			ineligibleRegion: 'CN,RU',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($video);
+		$data = json_decode($json, true);
+
+		$this->assertSame('CN,RU', $data['ineligibleRegion']);
 	}
 }

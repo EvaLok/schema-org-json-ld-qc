@@ -8,6 +8,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OfferItemCondition;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
@@ -133,5 +134,147 @@ class ProductTest extends TestCase
 
 		$this->assertSame('https://schema.org/UsedCondition', $data['offers'][0]['itemCondition']);
 		$this->assertSame('https://schema.org/OutOfStock', $data['offers'][0]['availability']);
+	}
+
+	public function testProductWithAggregateRating(): void
+	{
+		$product = new Product(
+			name: 'Smart Widget',
+			image: ['https://example.com/widget.jpg'],
+			description: 'A highly rated widget.',
+			sku: 'SWG-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/widget',
+					priceCurrency: 'USD',
+					price: 49.99,
+					itemCondition: OfferItemCondition::NewCondition,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			aggregateRating: new AggregateRating(
+				ratingValue: 4.6,
+				bestRating: 5,
+				worstRating: 1,
+				ratingCount: 150,
+				reviewCount: 42,
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
+		$this->assertSame(4.6, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
+		$this->assertSame(150, $data['aggregateRating']['ratingCount']);
+		$this->assertSame(42, $data['aggregateRating']['reviewCount']);
+	}
+
+	public function testProductWithSingleReview(): void
+	{
+		$product = new Product(
+			name: 'Deluxe Gadget',
+			image: ['https://example.com/gadget.jpg'],
+			description: 'A fine gadget.',
+			sku: 'GAD-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/gadget',
+					priceCurrency: 'USD',
+					price: 79.99,
+					itemCondition: OfferItemCondition::NewCondition,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			review: new Review(
+				author: new Person(name: 'Jane Doe'),
+				reviewRating: new Rating(
+					ratingValue: 5,
+					bestRating: 5,
+					worstRating: 1,
+				),
+				reviewBody: 'Absolutely fantastic gadget.',
+				datePublished: '2025-06-15',
+				name: 'Love it!',
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Review', $data['review']['@type']);
+		$this->assertSame('Person', $data['review']['author']['@type']);
+		$this->assertSame('Jane Doe', $data['review']['author']['name']);
+		$this->assertSame(5, $data['review']['reviewRating']['ratingValue']);
+		$this->assertSame('Absolutely fantastic gadget.', $data['review']['reviewBody']);
+	}
+
+	public function testProductWithMultipleReviews(): void
+	{
+		$product = new Product(
+			name: 'Ultra Widget',
+			image: ['https://example.com/ultra.jpg'],
+			description: 'The ultimate widget.',
+			sku: 'UWG-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/ultra',
+					priceCurrency: 'USD',
+					price: 199.99,
+					itemCondition: OfferItemCondition::NewCondition,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			review: [
+				new Review(
+					author: new Person(name: 'Bob Smith'),
+					reviewRating: new Rating(ratingValue: 4),
+					reviewBody: 'Very good, minor issues.',
+				),
+				new Review(
+					author: new Person(name: 'Carol Davis'),
+					reviewRating: new Rating(ratingValue: 5),
+					reviewBody: 'Perfect!',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertIsArray($data['review']);
+		$this->assertCount(2, $data['review']);
+		$this->assertSame('Bob Smith', $data['review'][0]['author']['name']);
+		$this->assertSame('Carol Davis', $data['review'][1]['author']['name']);
+	}
+
+	public function testProductOptionalFieldsOmitted(): void
+	{
+		$product = new Product(
+			name: 'Basic Item',
+			image: ['https://example.com/basic.jpg'],
+			description: 'A basic item.',
+			sku: 'BAS-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/basic',
+					priceCurrency: 'USD',
+					price: 9.99,
+					itemCondition: OfferItemCondition::NewCondition,
+					availability: ItemAvailability::InStock,
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertArrayNotHasKey('brand', $data);
+		$this->assertArrayNotHasKey('mpn', $data);
+		$this->assertArrayNotHasKey('weight', $data);
+		$this->assertArrayNotHasKey('aggregateRating', $data);
+		$this->assertArrayNotHasKey('review', $data);
 	}
 }

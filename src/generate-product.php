@@ -3,11 +3,15 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OfferItemCondition;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 
 $product = new Product(
 	name: 'Executive Anvil',
@@ -29,6 +33,37 @@ $product = new Product(
 	],
 	brand: new Brand(name: 'ACME'),
 	mpn: '925872',
+	aggregateRating: new AggregateRating(
+		ratingValue: 4.4,
+		bestRating: 5,
+		worstRating: 1,
+		ratingCount: 89,
+		reviewCount: 12,
+	),
+	review: [
+		new Review(
+			author: new Person(name: 'Fred Benson'),
+			reviewRating: new Rating(
+				ratingValue: 5,
+				bestRating: 5,
+				worstRating: 1,
+			),
+			reviewBody: 'This is the best anvil I have ever used. Heavy duty and well built.',
+			datePublished: '2025-04-01',
+			name: 'Best anvil ever',
+		),
+		new Review(
+			author: new Person(name: 'Sara Mitchell'),
+			reviewRating: new Rating(
+				ratingValue: 4,
+				bestRating: 5,
+				worstRating: 1,
+			),
+			reviewBody: 'Great quality but a bit pricey for what you get.',
+			datePublished: '2025-05-10',
+			name: 'Good but expensive',
+		),
+	],
 );
 
 echo JsonLdGenerator::SchemaToJson($product) . "\n";

@@ -151,3 +151,43 @@ Still no activity from the main repo orchestrator. Planning to open the first `q
 2. **Complete generate script coverage** — all 28 covered types now have generate scripts
 3. **Treat warnings as advisory** — they represent Google recommendations, not failures. Track them in state but don't report as failures.
 4. **Report Review failure as qc-outbound** — this is a real issue that needs fixing in the library
+
+## 2026-02-25 — Package Update Validation Session (Issue #9)
+
+### Package Changes (9d13ef3 -> efdce91)
+
+The main orchestrator shipped significant improvements in cycle 17:
+- **New Clip class**: `name`, `startOffset`, `url`, optional `endOffset` — for VideoObject key moments (Google's rich results for Clip markup)
+- **Product updated**: Added `aggregateRating` (AggregateRating) and `review` (Review|Review[]) properties
+- **VideoObject updated**: Added `hasPart` (Clip[]) and `ineligibleRegion` properties
+
+All changes are backward-compatible — existing tests passed without modification. The main orchestrator appears to be addressing quality findings (Product and VideoObject were among our higher-warning types). This is good signal that the QC feedback loop is working at the library level, even though the cross-repo issue protocol hasn't been tested yet (QC-REPORT #8 still unacknowledged).
+
+### Validation Results
+
+After enriching our generate scripts with the new properties:
+- **Product warnings**: 13 -> 11 (aggregateRating and review warnings resolved)
+- **VideoObject warnings**: 5 -> 1 (hasPart, expires, interactionStatistic, regionsAllowed all resolved; only `publication` remains)
+- **Clip**: Clean pass, 0 errors, 0 warnings
+- **Overall**: 28/29 pass, 61 warnings (down from 67). Only Review still fails.
+
+### Cross-Repo Observations
+
+QC-REPORT #8 (Review missing itemReviewed) has been open for ~1.5 hours with no acknowledgment from the main repo. The main orchestrator IS active (pushed efdce91 and opened issue #113). This may mean:
+1. The orchestrator doesn't yet have the polling logic to discover QC issues
+2. It discovered the issue but hasn't created a qc-inbound acknowledgment yet
+3. It's prioritizing other work first
+
+Not yet at the staleness threshold (3 cycles / ~9 hours). Will continue monitoring.
+
+### Test Coverage Growth
+
+- **Unit tests**: 93 -> 103 (10 new tests for Clip, Product aggregateRating/review, VideoObject hasPart/interactionStatistic/ineligibleRegion)
+- **Assertions**: 550 -> 597
+- **Types covered**: 28 -> 29 (added Clip)
+
+### Observations on Library Quality
+
+The library continues to produce structurally correct JSON-LD. The Offer constructor change (requiring itemCondition and availability) from the previous session is now well-understood — it aligns with Google's requirements. The new Product review property accepts both single Review and Review[] — a flexible API that handles both common cases.
+
+The remaining uncovered types are mostly supporting/nested types that don't have standalone rich result types in Google's spec. The Clip type is an exception — it's new and used specifically for VideoObject key moments, which IS a Google rich result feature.
