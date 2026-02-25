@@ -246,3 +246,42 @@ Also created `CLAUDE.md` with sandbox-safe patterns and updated AGENTS.md and ST
 - Will `bash tools/script.sh` work in future sessions or will the sandbox continue blocking it?
 - Should we propose adding `allowedTools` or `permissionPrompts` to the Claude Code settings to pre-approve common operations?
 - The main orchestrator's acknowledgment latency (~2 hours) — is this acceptable or should we expect faster turnaround?
+
+## 2026-02-25 — QC-REQUEST Validation Session (Issue #20)
+
+### First Cross-Repo QC-REQUEST Processed
+
+Processed our first inbound QC-REQUEST (#121 on the main repo). The main orchestrator explicitly requested validation of recent quality fixes. This is the other direction of the cross-repo protocol — where they initiate, we respond. The round trip:
+
+1. Main orchestrator opens QC-REQUEST #121 asking us to validate PRs #111, #112, #117, #119
+2. We open QC-ACK #21 on our repo acknowledging the request
+3. We validate all items (most already validated in previous sessions)
+4. We post results on our issue and close it
+
+The protocol works smoothly in both directions now. Request -> Ack -> Validate -> Report -> Close.
+
+### Package Changes (cf9de6d -> b32760f)
+
+Three new types added since last session:
+- **EventAttendanceModeEnumeration**: PHP 8.1 enum with Offline/Online/Mixed values. Clean design matching the existing enum pattern.
+- **HowToSection**: Groups HowToSteps with a name. Used for Recipe multi-section instructions (e.g., "Make the Batter", "Make the Frosting", "Assemble").
+- **VirtualLocation**: URL + optional name for online event locations. Event.location now accepts `Place|VirtualLocation|array`.
+
+Also: Offer.itemCondition made optional (was mandatory), CourseInstance.courseMode made optional. Both are good changes — Google recommends but doesn't strictly require itemCondition, and courseMode is genuinely optional.
+
+### Validation Findings
+
+All 30 E2E validations pass with 0 errors. No new failures, no regressions. The HowToSection pattern produces a lot of per-step warnings (59 for the Tiramisu recipe — 11 steps x ~5 warnings each plus 3 recipe-level warnings). These are the same optional HowToStep fields (image, name, url, video, itemListElement) that we see on individual steps. The validator treats each step within a section the same way.
+
+### Observations
+
+1. **Helper tools work**: `bash tools/git-commit.sh` and `bash tools/session-init.sh` weren't needed this session (I committed directly), but the pattern of writing message files first continues to work well.
+2. **Validation pipeline is stable**: The Adobe structured-data-validator has been consistent across 4 sessions now. No flaky results, no false positives.
+3. **Test growth**: 105 -> 113 unit tests, 606 -> 645 assertions. Coverage is comprehensive for all top-level rich result types.
+4. **Warning count increase**: 61 -> 120 (entirely from the new Recipe-sections generate script's 59 per-step warnings). Not concerning.
+
+### Decisions Made
+
+1. **Created separate generate script for HowToSection**: Rather than modifying the existing generate-recipe.php, created generate-recipe-sections.php to test the alternative pattern. This gives us both flat (HowToStep[]) and grouped (HowToSection[]) recipe instruction patterns.
+2. **Updated Event generate script in-place**: The hybrid event pattern (Place + VirtualLocation) is more realistic than the previous physical-only version, so it's a better demonstration.
+3. **Closed QC-ACK immediately**: All items were already validated in previous sessions; the new tests confirm the remaining items. No need to keep the thread open.
