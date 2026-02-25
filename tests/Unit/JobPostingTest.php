@@ -9,6 +9,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Place;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\PropertyValue;
 use PHPUnit\Framework\TestCase;
 
 class JobPostingTest extends TestCase
@@ -105,6 +106,37 @@ class JobPostingTest extends TestCase
 		$this->assertSame('United States', $data['applicantLocationRequirements']['name']);
 	}
 
+	public function testJobPostingWithIdentifier(): void
+	{
+		$job = new JobPosting(
+			title: 'Software Engineer',
+			description: '<p>Build high-quality software for our platform.</p>',
+			datePosted: '2025-03-01',
+			hiringOrganization: new Organization(name: 'ACME Corp'),
+			jobLocation: new Place(
+				name: 'ACME HQ',
+				address: new PostalAddress(
+					streetAddress: '100 Innovation Way',
+					addressLocality: 'Austin',
+					addressRegion: 'TX',
+					postalCode: '78701',
+					addressCountry: 'US',
+				),
+			),
+			identifier: new PropertyValue(
+				name: 'Internal Job ID',
+				value: 'SE-2025-0042',
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($job);
+		$data = json_decode($json, true);
+
+		$this->assertSame('PropertyValue', $data['identifier']['@type']);
+		$this->assertSame('Internal Job ID', $data['identifier']['name']);
+		$this->assertSame('SE-2025-0042', $data['identifier']['value']);
+	}
+
 	public function testOptionalFieldsOmitted(): void
 	{
 		$job = new JobPosting(
@@ -123,5 +155,6 @@ class JobPostingTest extends TestCase
 		$this->assertArrayNotHasKey('validThrough', $data);
 		$this->assertArrayNotHasKey('directApply', $data);
 		$this->assertArrayNotHasKey('jobLocationType', $data);
+		$this->assertArrayNotHasKey('identifier', $data);
 	}
 }
