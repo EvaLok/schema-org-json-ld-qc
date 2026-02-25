@@ -191,3 +191,58 @@ Not yet at the staleness threshold (3 cycles / ~9 hours). Will continue monitori
 The library continues to produce structurally correct JSON-LD. The Offer constructor change (requiring itemCondition and availability) from the previous session is now well-understood — it aligns with Google's requirements. The new Product review property accepts both single Review and Review[] — a flexible API that handles both common cases.
 
 The remaining uncovered types are mostly supporting/nested types that don't have standalone rich result types in Google's spec. The Clip type is an exception — it's new and used specifically for VideoObject key moments, which IS a Google rich result feature.
+
+## 2026-02-25 — Fix Verification and Tooling Session (Issue #11)
+
+### Cross-Repo Protocol: First Successful Round Trip
+
+The cross-repo QC communication protocol has now completed its first full cycle:
+1. **Session #7**: Found Review missing `itemReviewed` — opened QC-REPORT #8
+2. **Session #9**: Still no acknowledgment — continued monitoring
+3. **Between sessions**: Main orchestrator discovered our report, opened QC-ACK #115 on their repo, implemented fix (added `itemReviewed` to Review + new `Thing` class)
+4. **This session**: Discovered QC-ACK #115, updated package (efdce91 -> cf9de6d), verified fix, closed QC-REPORT #8
+
+**Total round-trip time**: ~2 hours from report to verified fix. This is excellent for an asynchronous cross-repo protocol. The main orchestrator's acknowledgment issue #115 correctly references our issue URL, and the fix is clean — adding optional `itemReviewed` of type `TypedSchema` is the right approach.
+
+### Package Changes (efdce91 -> cf9de6d)
+
+- **Review updated**: Added optional `itemReviewed` property (null|TypedSchema)
+- **New Thing class**: Minimal schema type with just `name` — useful for `itemReviewed` when you don't need a full type-specific object
+
+### Validation Results
+
+**29/29 types pass E2E validation**, 0 errors, 61 warnings. This is the first time all covered types pass. Review now produces valid standalone rich result JSON-LD with `itemReviewed`.
+
+Unit tests: 105 (up from 103), 606 assertions (up from 597). Added tests for `itemReviewed` with Thing and Person variants.
+
+### Sandbox Permission Analysis (Eva Request #10)
+
+Eva asked me to build tools to avoid recurring permission failures. Identified these blocked constructs:
+- `$()` command substitution — always blocked
+- `${}` parameter expansion — always blocked
+- `printenv`/`env` — requires approval
+- `chmod` — requires approval
+- Complex pipe chains — sometimes blocked
+
+Created 5 helper scripts in `tools/`:
+- `session-init.sh` — environment capture + opening comment
+- `gh-post.sh` — GitHub operations reading body from files
+- `validate-all.sh` — combined unit + E2E test runner
+- `poll-repos.sh` — cross-repo status check
+- `discover-types.sh` — uncovered type discovery
+
+Also created `CLAUDE.md` with sandbox-safe patterns and updated AGENTS.md and STARTUP_CHECKLIST.md.
+
+**Key insight**: The tools themselves may require approval to run (`bash tools/script.sh` gets blocked too). The real value is dual: (1) when the sandbox becomes less restrictive, these scripts will save time, and (2) they document the operational patterns for future sessions. The CLAUDE.md file is the more immediately useful artifact — it teaches the agent which constructs to avoid.
+
+### Decisions Made
+
+1. **Close QC-REPORT #8**: Fix verified at cf9de6d. Full cross-repo round trip complete.
+2. **Tools over workflow changes**: Created helper scripts rather than proposing workflow changes. The scripts solve the problem without requiring Eva to merge PRs.
+3. **CLAUDE.md created**: This is the primary mechanism for teaching the agent sandbox-safe patterns.
+
+### Open Questions
+
+- Will `bash tools/script.sh` work in future sessions or will the sandbox continue blocking it?
+- Should we propose adding `allowedTools` or `permissionPrompts` to the Claude Code settings to pre-approve common operations?
+- The main orchestrator's acknowledgment latency (~2 hours) — is this acceptable or should we expect faster turnaround?

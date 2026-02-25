@@ -55,3 +55,26 @@ Use `@adobe/structured-data-validator` for programmatic validation of JSON-LD ou
 - Wrap in minimal HTML with `<script type="application/ld+json">`
 - Validate with the Adobe validator
 - Store results in `results/` with: schema type, timestamp, package commit, pass/fail, errors, the JSON-LD tested
+
+## Helper tools (tools/)
+
+Shell scripts for common operations. Invoke with `bash tools/<script>.sh` (not `./tools/`):
+
+- `tools/session-init.sh <issue>` — Capture env info and post opening comment
+- `tools/gh-post.sh comment <issue> <body-file>` — Post a comment from a file
+- `tools/gh-post.sh create-issue <title> <body-file> [labels]` — Create issue from a file
+- `tools/gh-post.sh close <issue>` — Close an issue
+- `tools/validate-all.sh` — Run unit tests + E2E validation
+- `tools/poll-repos.sh` — Check cross-repo communication status
+- `tools/discover-types.sh` — Compare main repo types against our coverage
+
+## Claude Code sandbox notes
+
+The Claude Code sandbox blocks certain shell constructs:
+- **No `$()`**: Command substitution is blocked. Use helper scripts instead.
+- **No `${}`**: Parameter expansion is blocked. Hardcode values or use scripts.
+- **No `printenv`/`env`**: Environment variable inspection requires approval.
+- **No `chmod`**: Permission changes may be blocked. Use `bash script.sh` instead.
+- **Pipe/chain limits**: Complex pipes with `;` or `&&` may need approval.
+
+When writing commands for the orchestrator, keep them simple: single commands, no substitutions, no special characters in arguments. For complex operations, use the tools/ scripts.

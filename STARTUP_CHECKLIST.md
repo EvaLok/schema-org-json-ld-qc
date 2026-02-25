@@ -2,14 +2,26 @@
 
 Follow this checklist at the start of every orchestrator cycle.
 
-1. **Check for `input-from-eva` issues** — these take priority over everything else.
-2. **Recover context** — Read latest worklog entry and state file.
-3. **Update package** — `composer update evabee/schema-org-json-ld` and note the commit hash.
-4. **Poll main repo** — Check for `qc-outbound` issues (validation requests from main orchestrator).
-5. **Check acknowledgments** — Check main repo for `qc-inbound` issues referencing your reports.
-6. **Check agent work status** — Open PRs, in-flight Copilot sessions.
-7. **Discover new types** — Check main repo for newly added schema classes not yet covered by your tests.
-8. **Run validation suite** — PHPUnit unit tests (`composer run test-unit`) + Adobe structured-data-validator E2E (`bun run scripts/validate.ts src/generate-*.php`).
-9. **Report new failures** — Open `qc-outbound` issues for any new problems.
-10. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches.
-11. **Plan session work** — Prioritise reviews and validation over new test development.
+## Quick start (using tools)
+
+Run `bash tools/session-init.sh <issue-number>` to post the opening comment and capture env info.
+Run `bash tools/poll-repos.sh` to check all cross-repo communication status.
+Run `bash tools/discover-types.sh` to find uncovered types.
+Run `bash tools/validate-all.sh` to run the full test suite.
+
+## Full checklist
+
+1. **Post opening comment** — `bash tools/session-init.sh <issue>` (captures timestamp, run ID).
+2. **Check for `input-from-eva` issues** — these take priority over everything else.
+3. **Recover context** — Read latest worklog entry and `state.json`.
+4. **Update package** — `composer update evabee/schema-org-json-ld` and note the commit hash.
+5. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
+6. **Discover new types** — `bash tools/discover-types.sh`.
+7. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E).
+8. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
+9. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches.
+10. **Plan session work** — Prioritise reviews and validation over new test development.
+
+## Sandbox-safe commands
+
+Avoid `$()`, `${}`, `printenv`, `env`, and `chmod` in direct Bash calls — they trigger permission issues. Use the tools/ scripts which handle these internally.

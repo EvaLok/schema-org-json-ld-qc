@@ -3,8 +3,10 @@
 namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Thing;
 use PHPUnit\Framework\TestCase;
 
 class ReviewTest extends TestCase
@@ -66,7 +68,43 @@ class ReviewTest extends TestCase
 		$this->assertArrayNotHasKey('reviewBody', $data);
 		$this->assertArrayNotHasKey('datePublished', $data);
 		$this->assertArrayNotHasKey('name', $data);
+		$this->assertArrayNotHasKey('itemReviewed', $data);
 		$this->assertArrayNotHasKey('bestRating', $data['reviewRating']);
 		$this->assertArrayNotHasKey('worstRating', $data['reviewRating']);
+	}
+
+	public function testReviewWithItemReviewedThing(): void
+	{
+		$review = new Review(
+			author: 'Jane Critic',
+			reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+			name: 'Outstanding product',
+			itemReviewed: new Thing(name: 'Acme Wireless Headphones'),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($review);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Review', $data['@type']);
+		$this->assertArrayHasKey('itemReviewed', $data);
+		$this->assertSame('Thing', $data['itemReviewed']['@type']);
+		$this->assertSame('Acme Wireless Headphones', $data['itemReviewed']['name']);
+	}
+
+	public function testReviewWithItemReviewedPerson(): void
+	{
+		$review = new Review(
+			author: 'Tech Reviewer',
+			reviewRating: new Rating(ratingValue: 4, bestRating: 5),
+			itemReviewed: new Person(name: 'Dr. Smith'),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($review);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Review', $data['@type']);
+		$this->assertArrayHasKey('itemReviewed', $data);
+		$this->assertSame('Person', $data['itemReviewed']['@type']);
+		$this->assertSame('Dr. Smith', $data['itemReviewed']['name']);
 	}
 }

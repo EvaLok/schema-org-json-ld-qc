@@ -6,6 +6,7 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Thing;
 
 $review = new Review(
 	author: new Person(name: 'James Wilson'),
@@ -17,6 +18,7 @@ $review = new Review(
 	reviewBody: 'Excellent product with great build quality. Minor issues with the manual.',
 	datePublished: '2025-03-15',
 	name: 'Great quality, minor documentation issues',
+	itemReviewed: new Thing(name: 'Acme Wireless Headphones'),
 );
 
 echo JsonLdGenerator::SchemaToJson($review) . "\n";

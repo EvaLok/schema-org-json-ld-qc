@@ -1,42 +1,42 @@
 {
-	"last_updated": "2026-02-25T13:38:00Z",
+	"last_updated": "2026-02-25T14:30:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "efdce911ad38bc28dc383aa830222b0d208d2beb",
-		"last_updated": "2026-02-25T13:32:00Z"
+		"commit": "cf9de6d00df6b00fba2b1ae9ec31e9ddfff21c9d",
+		"last_updated": "2026-02-25T14:24:00Z"
 	},
 	"schema_types": {
 		"covered": {
-			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 11, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 32, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"Review": { "unit_test": "pass", "e2e_test": "fail", "e2e_errors": ["Required attribute 'itemReviewed' is missing", "Required attribute 'itemReviewed.name' is missing"], "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "efdce91" },
-			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "efdce91" }
+			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 11, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 32, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "cf9de6d" },
+			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "cf9de6d" }
 		},
 		"uncovered": [
 			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
@@ -50,15 +50,15 @@
 			"Place", "PostalAddress",
 			"QuantitativeValue", "Question", "Rating", "Schedule",
 			"ShippingDeliveryTime", "SolveMathAction", "SpeakableSpecification",
-			"WebPageElement"
+			"Thing", "WebPageElement"
 		]
 	},
 	"e2e_status": {
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-02-25T13:37:00Z",
-		"summary": "28/29 types pass, 1 fail (Review missing itemReviewed). 61 warnings across all types (down from 67 — Product and VideoObject improved)."
+		"last_run": "2026-02-25T14:28:00Z",
+		"summary": "29/29 types pass, 0 fail. 61 warnings across all types. Review fix verified (itemReviewed added at cf9de6d)."
 	},
 	"cross_repo": {
 		"outbound_issues": [
@@ -66,10 +66,13 @@
 				"issue": 8,
 				"title": "[QC-REPORT] Review class missing required itemReviewed property",
 				"schema_type": "Review",
-				"status": "open",
+				"status": "closed",
 				"opened": "2026-02-25T12:15:00Z",
-				"acknowledged": false,
-				"last_checked": "2026-02-25T13:38:00Z"
+				"acknowledged": true,
+				"acknowledged_at": "2026-02-25T14:05:41Z",
+				"main_repo_issue": 115,
+				"resolved": "2026-02-25T14:28:00Z",
+				"fix_commit": "cf9de6d"
 			}
 		],
 		"inbound_issues": [],
@@ -89,19 +92,25 @@
 			"issue": 6,
 			"date": "2026-02-25",
 			"type": "expansion",
-			"summary": "Second session. Expanded to 28 types covered with 93 tests, 550 assertions, all passing. Added BlogPosting, Organization, Person, Review, ItemList, Quiz, MathSolver, EmployerAggregateRating, MobileApplication, WebApplication, VacationRental. Installed structured-data-testing-tool for local validation. No package changes (still c98da7c)."
+			"summary": "Second session. Expanded to 28 types covered with 93 tests, 550 assertions, all passing."
 		},
 		{
 			"issue": 7,
 			"date": "2026-02-25",
 			"type": "e2e-validation",
-			"summary": "Third session. Implemented Adobe structured-data-validator E2E pipeline. Package updated c98da7c->9d13ef3. 27/28 types pass E2E validation, 1 fail (Review missing itemReviewed). 93 unit tests pass. Created generate scripts for all 28 covered types."
+			"summary": "Third session. Implemented Adobe E2E pipeline. Package c98da7c->9d13ef3. 27/28 pass, 1 fail (Review). 93 unit tests."
 		},
 		{
 			"issue": 9,
 			"date": "2026-02-25",
 			"type": "package-update-validation",
-			"summary": "Fourth session. Package updated 9d13ef3->efdce91 (new Clip class, Product aggregateRating/review, VideoObject hasPart/ineligibleRegion). Added Clip coverage. 103 unit tests, 597 assertions. 28/29 types pass E2E, 1 fail (Review). Warnings reduced 67->61."
+			"summary": "Fourth session. Package 9d13ef3->efdce91. New Clip class. 103 unit tests, 597 assertions. 28/29 pass E2E."
+		},
+		{
+			"issue": 11,
+			"date": "2026-02-25",
+			"type": "fix-verification-and-tooling",
+			"summary": "Fifth session. Package efdce91->cf9de6d. Review fix verified (itemReviewed+Thing). 29/29 pass E2E, 0 errors. QC-REPORT #8 closed. Created tools/ scripts per Eva request. Closed input-from-eva #10."
 		}
 	]
 }
