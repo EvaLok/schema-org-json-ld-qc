@@ -108,4 +108,79 @@ class LocalBusinessTest extends TestCase
 
 		$this->assertArrayNotHasKey('@context', $data['address']);
 	}
+
+	public function testLocalBusinessWithDepartment(): void
+	{
+		$biz = new LocalBusiness(
+			name: 'MegaMart',
+			address: new PostalAddress(
+				streetAddress: '100 Retail Blvd',
+				addressLocality: 'Chicago',
+				addressRegion: 'IL',
+				postalCode: '60601',
+				addressCountry: 'US',
+			),
+			department: [
+				new LocalBusiness(
+					name: 'MegaMart Electronics',
+					address: new PostalAddress(streetAddress: '100 Retail Blvd, Dept E'),
+					telephone: '+1-312-555-0101',
+				),
+				new LocalBusiness(
+					name: 'MegaMart Grocery',
+					address: new PostalAddress(streetAddress: '100 Retail Blvd, Dept G'),
+					telephone: '+1-312-555-0102',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($biz);
+		$data = json_decode($json, true);
+
+		$this->assertSame('LocalBusiness', $data['@type']);
+		$this->assertSame('MegaMart', $data['name']);
+		$this->assertCount(2, $data['department']);
+		$this->assertSame('LocalBusiness', $data['department'][0]['@type']);
+		$this->assertSame('MegaMart Electronics', $data['department'][0]['name']);
+		$this->assertSame('LocalBusiness', $data['department'][1]['@type']);
+		$this->assertSame('MegaMart Grocery', $data['department'][1]['name']);
+	}
+
+	public function testLocalBusinessWithSingleDepartment(): void
+	{
+		$biz = new LocalBusiness(
+			name: 'Small Store',
+			address: new PostalAddress(streetAddress: '1 Main St'),
+			department: new LocalBusiness(
+				name: 'Small Store Pharmacy',
+				address: new PostalAddress(streetAddress: '1 Main St, Pharmacy'),
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($biz);
+		$data = json_decode($json, true);
+
+		$this->assertSame('LocalBusiness', $data['department']['@type']);
+		$this->assertSame('Small Store Pharmacy', $data['department']['name']);
+	}
+
+	public function testLocalBusinessWithEmailAndSameAs(): void
+	{
+		$biz = new LocalBusiness(
+			name: 'Connected Biz',
+			address: new PostalAddress(streetAddress: '10 Social St'),
+			email: 'info@connected.example.com',
+			sameAs: [
+				'https://facebook.com/connectedbiz',
+				'https://twitter.com/connectedbiz',
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($biz);
+		$data = json_decode($json, true);
+
+		$this->assertSame('info@connected.example.com', $data['email']);
+		$this->assertCount(2, $data['sameAs']);
+		$this->assertSame('https://facebook.com/connectedbiz', $data['sameAs'][0]);
+	}
 }

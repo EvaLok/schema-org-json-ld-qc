@@ -6,6 +6,7 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ContactPoint;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\QuantitativeValue;
 
 $org = new Organization(
 	name: 'TechStart Inc.',
@@ -31,6 +32,9 @@ $org = new Organization(
 	],
 	foundingDate: '2020-03-15',
 	legalName: 'TechStart Incorporated',
+	numberOfEmployees: new QuantitativeValue(value: 150),
+	taxID: '94-3456789',
+	duns: '12-345-6789',
 );
 
 echo JsonLdGenerator::SchemaToJson($org);

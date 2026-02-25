@@ -92,5 +92,56 @@ class OrganizationTest extends TestCase
 		$this->assertArrayNotHasKey('contactPoint', $data);
 		$this->assertArrayNotHasKey('sameAs', $data);
 		$this->assertArrayNotHasKey('foundingDate', $data);
+		$this->assertArrayNotHasKey('numberOfEmployees', $data);
+		$this->assertArrayNotHasKey('taxID', $data);
+		$this->assertArrayNotHasKey('vatID', $data);
+		$this->assertArrayNotHasKey('naics', $data);
+		$this->assertArrayNotHasKey('duns', $data);
+		$this->assertArrayNotHasKey('leiCode', $data);
+		$this->assertArrayNotHasKey('iso6523Code', $data);
+		$this->assertArrayNotHasKey('globalLocationNumber', $data);
+	}
+
+	public function testOrganizationWithBusinessIdentifiers(): void
+	{
+		$org = new Organization(
+			name: 'Acme Corporation',
+			taxID: '12-3456789',
+			vatID: 'DE123456789',
+			naics: '511210',
+			duns: '12-345-6789',
+			leiCode: '5493006MHB84DD3ZDB09',
+			iso6523Code: '0060:123456789',
+			globalLocationNumber: '1234567890128',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($org);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Organization', $data['@type']);
+		$this->assertSame('12-3456789', $data['taxID']);
+		$this->assertSame('DE123456789', $data['vatID']);
+		$this->assertSame('511210', $data['naics']);
+		$this->assertSame('12-345-6789', $data['duns']);
+		$this->assertSame('5493006MHB84DD3ZDB09', $data['leiCode']);
+		$this->assertSame('0060:123456789', $data['iso6523Code']);
+		$this->assertSame('1234567890128', $data['globalLocationNumber']);
+	}
+
+	public function testOrganizationWithNumberOfEmployees(): void
+	{
+		$org = new Organization(
+			name: 'Big Corp',
+			numberOfEmployees: new \EvaLok\SchemaOrgJsonLd\v1\Schema\QuantitativeValue(
+				value: 5000,
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($org);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Organization', $data['@type']);
+		$this->assertSame('QuantitativeValue', $data['numberOfEmployees']['@type']);
+		$this->assertEquals(5000, $data['numberOfEmployees']['value']);
 	}
 }
