@@ -285,3 +285,42 @@ All 30 E2E validations pass with 0 errors. No new failures, no regressions. The 
 1. **Created separate generate script for HowToSection**: Rather than modifying the existing generate-recipe.php, created generate-recipe-sections.php to test the alternative pattern. This gives us both flat (HowToStep[]) and grouped (HowToSection[]) recipe instruction patterns.
 2. **Updated Event generate script in-place**: The hybrid event pattern (Place + VirtualLocation) is more realistic than the previous physical-only version, so it's a better demonstration.
 3. **Closed QC-ACK immediately**: All items were already validated in previous sessions; the new tests confirm the remaining items. No need to keep the thread open.
+
+## 2026-02-25 — New Types Validation Session (Issue #22)
+
+### Package Changes (b32760f -> 9cca8ec)
+
+The main orchestrator's cycle 20 shipped LocalBusiness subtypes and Organization enhancements:
+- **FoodEstablishment**: Extends LocalBusiness, adds `acceptsReservations` (bool|string). Clean design — the bool/string union allows both `true` and a reservation URL.
+- **Restaurant**: Extends FoodEstablishment, just overrides `@type`. Minimal class, correct pattern.
+- **Store**: Extends LocalBusiness, just overrides `@type`. Same pattern as Restaurant.
+- **LocalBusiness updated**: Added `department` (LocalBusiness|LocalBusiness[]), `logo`, `email`, `sameAs`. The department property is interesting — it allows modeling a store with sub-departments (e.g., MegaMart with a Pharmacy department).
+- **Organization updated**: Added `numberOfEmployees` (QuantitativeValue), plus business identifier properties: `taxID`, `vatID`, `naics`, `duns`, `leiCode`, `iso6523Code`, `globalLocationNumber`. These are Google-recommended properties for Organization rich results.
+
+### Validation Findings
+
+All 33/33 E2E validations pass with 0 errors. No regressions from the package update. The new types produce structurally correct JSON-LD. Warnings for FoodEstablishment, Restaurant, and Store are the same `bestRating`/`worstRating` pattern we see on LocalBusiness — advisory only.
+
+The inheritance hierarchy works correctly:
+- Restaurant correctly outputs `@type: "Restaurant"` (not "FoodEstablishment" or "LocalBusiness")
+- Store correctly outputs `@type: "Store"` (not "LocalBusiness")
+- All LocalBusiness properties are available on subtypes through PHP constructor forwarding
+
+### OpeningHoursSpecification API Observation
+
+Discovered that `OpeningHoursSpecification` takes a single `DayOfWeek` enum, not an array. This means you need 7 separate specs for a business open every day (one per day). This is a valid design — Google's spec shows individual day-of-week values too — but it's verbose. A consumer might expect array support for grouping days with the same hours. Not a bug, just an API observation worth noting.
+
+### Test Growth
+
+- **Unit tests**: 113 -> 133 (20 new tests across 5 test classes)
+- **Assertions**: 645 -> 745
+- **Types covered**: 30 -> 33 (added FoodEstablishment, Restaurant, Store)
+- **E2E validations**: 30 -> 33 (added 3 new generate scripts)
+
+### Cross-Repo Observations
+
+No activity from the main repo this cycle. No open QC requests, no new acknowledgments. The main orchestrator's cycle 20 focused on LocalBusiness subtypes and Organization properties — both shipped without issues. The QC pipeline remains clean with 0 open reports.
+
+### Coverage Assessment
+
+With 33 top-level types covered, we've now validated every Google Rich Result type that the library supports. The remaining 43 uncovered types in the state file are all supporting/nested types (enums, nested objects, utility types). None of them produce standalone rich results — they're only used as properties of top-level types and are already tested indirectly through parent type tests.
