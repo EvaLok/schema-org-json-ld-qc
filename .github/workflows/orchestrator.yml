@@ -8,84 +8,80 @@ jobs:
   orchestrate:
     if: contains(github.event.issue.labels.*.name, 'orchestrator-run')
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 75
     permissions:
-      contents: read
+      contents: write
       issues: write
+      pull-requests: write
+      id-token: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.QC_ORCHESTRATOR_PAT }}
+          fetch-depth: 0
 
-      - name: Dispatch to Copilot (Opus 4.6)
-        env:
-          GH_TOKEN: ${{ secrets.QC_ORCHESTRATOR_PAT }}
+      - name: Load system prompt
+        id: prompt
         run: |
-          ISSUE_NUM=${{ github.event.issue.number }}
-          jq -n \
-            --rawfile prompt .github/workflows/orchestrator-prompt.md \
-            --arg issue "$ISSUE_NUM" \
-            '{
-              title: ("QC Orchestrator Session — from #" + $issue),
-              body: ($prompt + "\n\nYou are starting a new QC orchestrator cycle. The triggering issue is #" + $issue + ".\nPost your opening comment on that issue, then follow your startup checklist."),
-              labels: ["agent-task"],
-              assignees: ["copilot-swe-agent[bot]"],
-              agent_assignment: {
-                target_repo: "EvaLok/schema-org-json-ld-qc",
-                base_branch: "master",
-                model: "claude-opus-4-6",
-                custom_instructions: ""
-              }
-            }' | gh api /repos/EvaLok/schema-org-json-ld-qc/issues --method POST --input -
+          {
+            echo "content<<PROMPT_EOF"
+            cat .github/workflows/orchestrator-prompt.md
+            echo "PROMPT_EOF"
+          } >> "$GITHUB_OUTPUT"
 
-      # --- claude-code-action (disabled due to SDK crash — github.com/anthropics/claude-code-action/issues/947) ---
-      # - name: Setup PHP
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: '8.3'
-      #     tools: composer:v2
-      # - name: Install PHP dependencies
-      #   run: composer install --no-interaction
-      # - name: Setup Bun
-      #   uses: oven-sh/setup-bun@v2
-      # - name: Install JS dependencies
-      #   run: bun install
-      # - name: Run QC Orchestrator
-      #   uses: anthropics/claude-code-action@v1
-      #   with:
-      #     claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      #     github_token: ${{ secrets.QC_ORCHESTRATOR_PAT }}
-      #     claude_args: |
-      #       --model claude-opus-4-6
-      #     prompt: |
-      #       ${{ steps.prompt.outputs.content }}
-      #
-      #       You are starting a new QC orchestrator cycle. The triggering issue is #${{ github.event.issue.number }}.
-      #       Post your opening comment on that issue, then follow your startup checklist.
-      #     settings: |
-      #       {
-      #         "permissions": {
-      #           "allow": [
-      #             "Edit",
-      #             "Write",
-      #             "Bash(gh *)",
-      #             "Bash(git *)",
-      #             "Bash(jq *)",
-      #             "Bash(composer *)",
-      #             "Bash(bun *)",
-      #             "Bash(bunx *)",
-      #             "Bash(php *)",
-      #             "Bash(mkdir *)",
-      #             "Bash(ls *)",
-      #             "Bash(date *)",
-      #             "Bash(wc *)",
-      #             "Bash(sort *)",
-      #             "Bash(bash *)",
-      #             "Bash(cat *)",
-      #             "Bash(head *)",
-      #             "Bash(tail *)",
-      #             "WebFetch(domain:developers.google.com)",
-      #             "WebFetch(domain:schema.org)"
-      #           ]
-      #         }
-      #       }
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install JS dependencies
+        run: bun install
+
+      - name: Run QC Orchestrator
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.QC_ORCHESTRATOR_PAT }}
+          claude_args: |
+            --model claude-opus-4-6
+          prompt: |
+            ${{ steps.prompt.outputs.content }}
+
+            You are starting a new QC orchestrator cycle. The triggering issue is #${{ github.event.issue.number }}.
+            Post your opening comment on that issue, then follow your startup checklist.
+          settings: |
+            {
+              "permissions": {
+                "allow": [
+                  "Edit",
+                  "Write",
+                  "Bash(gh *)",
+                  "Bash(git *)",
+                  "Bash(jq *)",
+                  "Bash(composer *)",
+                  "Bash(bun *)",
+                  "Bash(bunx *)",
+                  "Bash(php *)",
+                  "Bash(mkdir *)",
+                  "Bash(ls *)",
+                  "Bash(date *)",
+                  "Bash(wc *)",
+                  "Bash(sort *)",
+                  "Bash(bash *)",
+                  "Bash(cat *)",
+                  "Bash(head *)",
+                  "Bash(tail *)",
+                  "WebFetch(domain:developers.google.com)",
+                  "WebFetch(domain:schema.org)"
+                ]
+              }
+            }
