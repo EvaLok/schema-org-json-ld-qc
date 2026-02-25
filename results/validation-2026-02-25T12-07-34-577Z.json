@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-02-25T12:07:34.577Z",
+  "packageCommit": "9d13ef318545eb0dd3bb0dfaa4f258327fd930f4",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "totalErrors": 0,
+    "totalWarnings": 0
+  },
+  "results": [
+    {
+      "schemaType": "Article",
+      "script": "src/generate-article.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Article\",\n    \"headline\": \"Understanding Tidal Patterns in the North Sea\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Dr. Sarah Chen\"\n    },\n    \"datePublished\": \"2025-01-15\",\n    \"dateModified\": \"2025-02-01\",\n    \"image\": [\n        \"https://example.com/tidal-1x1.jpg\",\n        \"https://example.com/tidal-4x3.jpg\",\n        \"https://example.com/tidal-16x9.jpg\"\n    ],\n    \"description\": \"A comprehensive guide to tidal patterns and their impact on coastal ecosystems.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Nature Weekly\",\n        \"logo\": \"https://example.com/logo.png\"\n    }\n}"
+    }
+  ]
+}

@@ -90,3 +90,64 @@ Still no activity on the main repo. No `qc-outbound` issues, no `qc-inbound` ack
 2. **Added standalone entity types**: Organization, Person, Review — these appear both as nested types and as standalone rich results
 3. **Added application subtypes**: MobileApplication, WebApplication — these test the inheritance hierarchy
 4. **Installed structured-data-testing-tool**: Provides basic local validation without needing Google's service
+
+## 2026-02-25 — E2E Validation Session (Issue #7)
+
+### Adobe structured-data-validator: Working
+
+The `@adobe/structured-data-validator` v1.6.0 with `@marbec/web-auto-extractor` v2.2.1 is now fully operational as our E2E validation pipeline. This replaces the failed Google Rich Results Test browser approach. The pipeline is:
+
+1. PHP generate script -> JSON-LD output
+2. Wrap in HTML with `<script type="application/ld+json">`
+3. Extract with `@marbec/web-auto-extractor`
+4. Validate with `@adobe/structured-data-validator` against Google requirements + schema.org spec
+5. Save results to `results/`
+
+Key observation: the validator fetches `https://schema.org/version/latest/schemaorg-all-https.jsonld` on every run for schema.org spec validation. This is a ~2MB download. Could consider caching it for faster CI runs.
+
+### First Real Validation Failure: Review
+
+**Review fails E2E validation** with 2 errors:
+- Required attribute `itemReviewed` is missing
+- Required attribute `itemReviewed.name` is missing
+
+The library's `Review` class (at commit `9d13ef3`) has these constructor parameters: `author`, `reviewRating`, `reviewBody`, `datePublished`, `name` — but **no `itemReviewed` property**. Google's structured data spec requires `itemReviewed` with a `name` for standalone Review rich results.
+
+This is a genuine library limitation. Reviews work fine as nested types (inside Product, Movie, etc.) because the parent provides context, but standalone `Review` output fails Google validation. This is exactly the kind of issue the QC process exists to find.
+
+### Package API Change: Offer Constructor
+
+The package update (`c98da7c` -> `9d13ef3`) changed the `Offer` constructor to require `itemCondition` (OfferItemCondition enum) and `availability` (ItemAvailability enum) as mandatory parameters. Previously these may have been optional. This is a breaking change for consumer code that was constructing Offers with only url/priceCurrency/price.
+
+This caught me by surprise when creating new generate scripts — a real-world consumer would face the same issue after `composer update`. The breaking change is reasonable (Google requires these fields for valid Offer structured data), but it should be documented in a changelog.
+
+### Validator Coverage Observations
+
+The Adobe validator has dedicated type handlers for a specific subset of schema.org types:
+- Product, JobPosting, Recipe, BreadcrumbList, VideoObject, Organization, Person, Review
+- Offer, OfferShippingDetails, AggregateRating, Rating, Brand, ListItem, DefinedRegion
+- ImageObject, QuantitativeValue, ShippingDeliveryTime
+- HowToStep, HowToSection, HowToDirection, HowToTip
+- Plus a global schema.org validator that checks any type against the spec
+
+Types without dedicated handlers still get schema.org spec validation (property names, types), but don't get Google-specific Rich Results validation. This means our "pass" for types like Course, Dataset, Quiz, etc. means they're schema.org-valid but we can't confirm they'd produce Google Rich Results.
+
+### Warning Patterns
+
+Most warnings are about optional Google-recommended fields:
+- `worstRating` — appears across many types with ratings. Google recommends it but doesn't require it.
+- Recipe HowToStep fields (itemListElement, image, name, url, video) — each step gets 5 warnings, multiplied by 6-7 steps = 30+ warnings. These are per-step recommendations.
+- Product has the most diverse warnings: aggregateRating, review, audience, color, gtin, etc.
+
+These are all genuine recommendations from Google but not validation failures. The library correctly omits them when the user doesn't provide them (null handling works correctly).
+
+### Cross-Repo Communication
+
+Still no activity from the main repo orchestrator. Planning to open the first `qc-outbound` issue for the Review `itemReviewed` finding. This will be the first real test of the cross-repo communication protocol.
+
+### Decisions Made
+
+1. **Created TypeScript validation script** (`scripts/validate.ts`) using Bun — replaces the old JS script using structured-data-testing-tool
+2. **Complete generate script coverage** — all 28 covered types now have generate scripts
+3. **Treat warnings as advisory** — they represent Google recommendations, not failures. Track them in state but don't report as failures.
+4. **Report Review failure as qc-outbound** — this is a real issue that needs fixing in the library
