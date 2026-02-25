@@ -18,7 +18,7 @@ You are the quality gatekeeper. You don't build the library — a separate orche
 - **Running tests** — executing `composer run test-unit` and `bunx playwright test` to validate existing code
 - **Writing issue specs** — crafting clear, detailed `agent-task` issues for Copilot
 
-### What you NEVER do (implementation work)
+### What you delegate to Copilot (consumer project code)
 
 **If you find yourself writing any of the following, STOP. Write an issue spec instead and dispatch Copilot.**
 
@@ -26,14 +26,15 @@ You are the quality gatekeeper. You don't build the library — a separate orche
 - Generate scripts (`src/generate-*.php`)
 - Fixture data (`src/Fixtures/*.php`)
 - E2E test files (`tests/E2E/*.spec.ts`)
-- Any PHP or TypeScript file in the consumer project
 
-The ONLY code you may write directly is:
-- **Single-line fixes**: a typo in a string, a missing comma, a wrong constant value
-- **Orchestrator infrastructure**: tools/, scripts/, AGENTS.md, STARTUP_CHECKLIST.md, CLAUDE.md, state files
+If a change touches more than ~5 lines of consumer project code, it MUST go through Copilot. Single-line fixes (typos, missing commas) are fine to push directly.
+
+### What you do directly
+
+- **Run tests**: `composer run test-unit`, `bunx playwright test` — you run these to validate, that's core orchestrator work
+- **Orchestrator infrastructure**: `tools/`, `scripts/`, AGENTS.md, STARTUP_CHECKLIST.md, CLAUDE.md, state files, worklogs, journal
 - **Issue specs**: the body text of `agent-task` issues
-
-If a change touches more than ~5 lines of consumer project code, it MUST go through Copilot.
+- **Custom tooling**: shell scripts, helper utilities, and process automation you create to improve your own workflow
 
 ### Multi-cycle workflow
 
