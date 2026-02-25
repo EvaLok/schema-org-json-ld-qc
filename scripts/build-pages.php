@@ -54,7 +54,8 @@ foreach ($scripts as $script) {
 	$decoded = json_decode($jsonLd, true);
 	$typeName = ucfirst($slug);
 	if ($decoded !== null && isset($decoded['@type'])) {
-		$typeName = $decoded['@type'];
+		$type = $decoded['@type'];
+		$typeName = is_array($type) ? implode(' / ', $type) : $type;
 	}
 
 	// Pretty-print the JSON
@@ -83,7 +84,8 @@ foreach ($pages as $page) {
 	$escapedJson = htmlspecialchars($page['prettyJson'], ENT_QUOTES, 'UTF-8');
 	$escapedType = htmlspecialchars($page['type'], ENT_QUOTES, 'UTF-8');
 	$escapedSource = htmlspecialchars($page['sourceFile'], ENT_QUOTES, 'UTF-8');
-	$schemaUrl = 'https://schema.org/' . urlencode($page['type']);
+	$firstType = explode(' / ', $page['type'])[0];
+	$schemaUrl = 'https://schema.org/' . urlencode($firstType);
 
 	$html = <<<HTML
 	<!DOCTYPE html>
