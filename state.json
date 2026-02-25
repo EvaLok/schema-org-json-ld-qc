@@ -1,0 +1,132 @@
+{
+	"last_updated": "2026-02-25T09:53:47Z",
+	"package": {
+		"name": "evabee/schema-org-json-ld",
+		"version": "dev-master",
+		"commit": "c98da7c043376d41da97877f7aed9d2f576c78e0",
+		"last_updated": "2026-02-25T09:53:47Z"
+	},
+	"schema_types": {
+		"covered": {
+			"Article": {
+				"unit_test": "pass",
+				"e2e_test": "not_attempted",
+				"last_tested": "2026-02-25",
+				"package_commit": "c98da7c"
+			},
+			"FAQPage": {
+				"unit_test": "pass",
+				"e2e_test": "not_attempted",
+				"last_tested": "2026-02-25",
+				"package_commit": "c98da7c"
+			},
+			"Product": {
+				"unit_test": "pass",
+				"e2e_test": "not_attempted",
+				"last_tested": "2026-02-25",
+				"package_commit": "c98da7c"
+			},
+			"Recipe": {
+				"unit_test": "pass",
+				"e2e_test": "not_attempted",
+				"last_tested": "2026-02-25",
+				"package_commit": "c98da7c"
+			},
+			"LocalBusiness": {
+				"unit_test": "pass",
+				"e2e_test": "not_attempted",
+				"last_tested": "2026-02-25",
+				"package_commit": "c98da7c"
+			},
+			"Event": {
+				"unit_test": "pass",
+				"e2e_test": "not_attempted",
+				"last_tested": "2026-02-25",
+				"package_commit": "c98da7c"
+			}
+		},
+		"uncovered": [
+			"Accommodation",
+			"AdministrativeArea",
+			"AggregateRating",
+			"AlignmentObject",
+			"Answer",
+			"BedDetails",
+			"BlogPosting",
+			"Brand",
+			"BreadcrumbList",
+			"Comment",
+			"ContactPoint",
+			"Course",
+			"CourseInstance",
+			"DataCatalog",
+			"DataDownload",
+			"DayOfWeek",
+			"DefinedRegion",
+			"DiscussionForumPosting",
+			"EmployerAggregateRating",
+			"EventStatusType",
+			"GeoCoordinates",
+			"GeoShape",
+			"HowToStep",
+			"ImageObject",
+			"InteractionCounter",
+			"ItemAvailability",
+			"ItemList",
+			"JobPosting",
+			"ListItem",
+			"LocationFeatureSpecification",
+			"MathSolver",
+			"MobileApplication",
+			"MonetaryAmount",
+			"Movie",
+			"NewsArticle",
+			"NutritionInformation",
+			"Offer",
+			"OfferItemCondition",
+			"OfferShippingDetails",
+			"OpeningHoursSpecification",
+			"Organization",
+			"Person",
+			"Place",
+			"PostalAddress",
+			"ProfilePage",
+			"QAPage",
+			"QuantitativeValue",
+			"Question",
+			"Quiz",
+			"Rating",
+			"Review",
+			"Schedule",
+			"ShippingDeliveryTime",
+			"SoftwareApplication",
+			"SolveMathAction",
+			"SpeakableSpecification",
+			"VacationRental",
+			"VideoObject",
+			"WebApplication",
+			"WebPageElement"
+		]
+	},
+	"e2e_status": {
+		"google_rich_results": "blocked",
+		"reason": "Google shows 'Something went wrong - Log in and try again' from headless Chromium",
+		"last_attempted": "2026-02-25"
+	},
+	"cross_repo": {
+		"outbound_issues": [],
+		"inbound_issues": [],
+		"processed_main_repo_issues": []
+	},
+	"agent_sessions": {
+		"in_flight": []
+	},
+	"session_history": [
+		{
+			"issue": 4,
+			"date": "2026-02-25",
+			"type": "bootstrap",
+			"summary": "First session. Created 6 unit test files (23 tests, 142 assertions), 6 usage scripts. All passing."
+		}
+	]
+}

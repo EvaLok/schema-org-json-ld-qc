@@ -1,0 +1,14 @@
+{
+	"schema_type": "FAQPage",
+	"timestamp": "2026-02-25T10:07:42Z",
+	"package_commit": "c98da7c043376d41da97877f7aed9d2f576c78e0",
+	"result": {
+		"success": false,
+		"infrastructure_failure": true,
+		"reason": "Google Rich Results Test shows 'Something went wrong - Log in and try again' alertdialog after clicking 'test code' button. Code was entered successfully via CodeMirror.setValue(). Google likely requires authentication or blocks headless browser submissions.",
+		"detectedTypes": [],
+		"errors": [],
+		"warnings": []
+	},
+	"json_ld_tested": "See src/generate-faqpage.php for the JSON-LD that was submitted"
+}
