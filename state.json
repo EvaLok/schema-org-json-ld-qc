@@ -1,10 +1,10 @@
 {
-	"last_updated": "2026-02-25T10:35:00Z",
+	"last_updated": "2026-02-25T10:30:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
 		"commit": "c98da7c043376d41da97877f7aed9d2f576c78e0",
-		"last_updated": "2026-02-25T09:53:47Z"
+		"last_updated": "2026-02-25T10:21:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -24,26 +24,38 @@
 			"Movie": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
 			"Dataset": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
 			"ProfilePage": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
-			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" }
+			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"BlogPosting": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Organization": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Person": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Review": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"ItemList": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"Quiz": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"MathSolver": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"MobileApplication": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"WebApplication": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" },
+			"VacationRental": { "unit_test": "pass", "e2e_test": "not_attempted", "last_tested": "2026-02-25", "package_commit": "c98da7c" }
 		},
 		"uncovered": [
 			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
-			"Answer", "BedDetails", "BlogPosting", "Brand", "Comment", "ContactPoint",
+			"Answer", "BedDetails", "Brand", "Comment", "ContactPoint",
 			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
-			"EmployerAggregateRating", "EventStatusType",
+			"EventStatusType",
 			"GeoCoordinates", "GeoShape", "HowToStep", "ImageObject", "InteractionCounter",
-			"ItemAvailability", "ItemList", "ListItem", "LocationFeatureSpecification",
-			"MathSolver", "MobileApplication", "MonetaryAmount", "NutritionInformation",
+			"ItemAvailability", "ListItem", "LocationFeatureSpecification",
+			"MonetaryAmount", "NutritionInformation",
 			"Offer", "OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
-			"Organization", "Person", "Place", "PostalAddress",
-			"QuantitativeValue", "Question", "Quiz", "Rating", "Review", "Schedule",
+			"Place", "PostalAddress",
+			"QuantitativeValue", "Question", "Rating", "Schedule",
 			"ShippingDeliveryTime", "SolveMathAction", "SpeakableSpecification",
-			"VacationRental", "WebApplication", "WebPageElement"
+			"WebPageElement"
 		]
 	},
 	"e2e_status": {
 		"google_rich_results": "blocked",
-		"reason": "Google shows 'Something went wrong - Log in and try again' from headless Chromium",
+		"structured_data_testing_tool": "installed",
+		"reason": "Google shows 'Something went wrong - Log in and try again' from headless Chromium. Using structured-data-testing-tool as basic local validation.",
 		"last_attempted": "2026-02-25",
 		"question_for_eva_issue": 5
 	},
@@ -61,6 +73,12 @@
 			"date": "2026-02-25",
 			"type": "bootstrap",
 			"summary": "First session. 17 types covered with 58 tests, 328 assertions, all passing. E2E blocked by Google auth. Opened question-for-eva #5."
+		},
+		{
+			"issue": 6,
+			"date": "2026-02-25",
+			"type": "expansion",
+			"summary": "Second session. Expanded to 28 types covered with 93 tests, 550 assertions, all passing. Added BlogPosting, Organization, Person, Review, ItemList, Quiz, MathSolver, EmployerAggregateRating, MobileApplication, WebApplication, VacationRental. Installed structured-data-testing-tool for local validation. No package changes (still c98da7c)."
 		}
 	]
 }
