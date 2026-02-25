@@ -1,0 +1,35 @@
+{
+    "name": "evabee/schema-org-json-ld-qc",
+    "description": "QC and E2E validation for evabee/schema-org-json-ld",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/EvaLok/schema-org-json-ld"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "evabee/schema-org-json-ld": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Evabee\\SchemaOrgQc\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Evabee\\SchemaOrgQc\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test-unit": "phpunit --testsuite=unit",
+        "test": "phpunit"
+    }
+}

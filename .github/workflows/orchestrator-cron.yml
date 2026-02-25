@@ -1,0 +1,26 @@
+name: QC Orchestrator Cron
+
+on:
+  # schedule:
+  #   - cron: '0 1,4,7,10,13,16,19,22 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: qc-orchestrator
+  cancel-in-progress: false
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Create orchestrator issue
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "QC Orchestrator run $TIMESTAMP" \
+            --label "orchestrator-run" \
+            --body "@claude Run your QC orchestrator cycle. Follow STARTUP_CHECKLIST.md."
+        env:
+          GH_TOKEN: ${{ secrets.QC_ORCHESTRATOR_PAT }}
