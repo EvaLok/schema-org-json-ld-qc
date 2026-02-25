@@ -71,6 +71,7 @@ Shell scripts for common operations. Invoke with `bash tools/<script>.sh` (not `
 - `tools/validate-all.sh` — Run unit tests + E2E validation
 - `tools/poll-repos.sh` — Check cross-repo communication status
 - `tools/discover-types.sh` — Compare main repo types against our coverage
+- `tools/git-commit.sh <message-file> [files...]` — Commit using a message file (avoids `$()` sandbox restriction)
 
 ## Claude Code sandbox notes
 

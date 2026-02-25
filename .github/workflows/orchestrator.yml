@@ -76,6 +76,10 @@ jobs:
                   "Bash(date *)",
                   "Bash(wc *)",
                   "Bash(sort *)",
+                  "Bash(bash *)",
+                  "Bash(cat *)",
+                  "Bash(head *)",
+                  "Bash(tail *)",
                   "WebFetch(domain:developers.google.com)",
                   "WebFetch(domain:schema.org)"
                 ]

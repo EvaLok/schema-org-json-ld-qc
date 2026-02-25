@@ -43,6 +43,14 @@ bun run scripts/validate.ts src/generate-*.php
 grep -A5 '"evabee/schema-org-json-ld"' composer.lock
 ```
 
+### Git commits
+```bash
+# BAD: git commit -m "$(cat <<'EOF' ... EOF)"  — $() is blocked
+# GOOD: Write the message to a file first, then use the helper
+# Step 1: Use the Write tool to create /tmp/commit-msg.txt
+# Step 2: bash tools/git-commit.sh /tmp/commit-msg.txt [files...]
+```
+
 ### Avoid these constructs in direct Bash calls
 - `$()` — command substitution
 - `${}` — parameter expansion (use plain `$VAR` instead, or avoid)

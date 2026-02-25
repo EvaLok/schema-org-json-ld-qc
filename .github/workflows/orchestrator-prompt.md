@@ -298,6 +298,7 @@ Each orchestrator cycle is triggered by an issue with the `orchestrator-run` lab
 - **Post an opening comment immediately** with your model name, UTC timestamp, and run ID (`$GITHUB_RUN_ID`). Do not include secrets or tokens.
 - **Comment as you work** — what you're testing, what you're discovering, what decisions you're making.
 - **Commit and push state** frequently. There are no stop hooks — treat every commit as if it might be your last.
+- **To commit**: Write the commit message to a file with the Write tool, then run `bash tools/git-commit.sh /tmp/commit-msg.txt [files...]`. Do NOT use `git commit -m "$(cat ...)"` — the `$()` is blocked by the sandbox.
 - **Close your issue** with a summary when your cycle is complete.
 
 ### Startup checklist
