@@ -60,7 +60,16 @@
 		"summary": "27/28 types pass, 1 fail (Review missing itemReviewed). 67 warnings across all types (all optional fields)."
 	},
 	"cross_repo": {
-		"outbound_issues": [],
+		"outbound_issues": [
+			{
+				"issue": 8,
+				"title": "[QC-REPORT] Review class missing required itemReviewed property",
+				"schema_type": "Review",
+				"status": "open",
+				"opened": "2026-02-25T12:15:00Z",
+				"acknowledged": false
+			}
+		],
 		"inbound_issues": [],
 		"processed_main_repo_issues": []
 	},
