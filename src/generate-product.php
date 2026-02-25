@@ -29,6 +29,7 @@ $product = new Product(
 			price: 119.99,
 			itemCondition: OfferItemCondition::NewCondition,
 			availability: ItemAvailability::InStock,
+			priceValidUntil: '2026-12-31',
 		),
 	],
 	brand: new Brand(name: 'ACME'),

@@ -359,3 +359,43 @@ No open QC-REQUEST issues from the main repo. No pending acknowledgments. The co
 1. **Direct-pushed generate script fix**: The identifier addition to generate-jobposting.php was 3 lines — well within the direct-push threshold.
 2. **Delegated test writing**: PropertyValue tests + JobPosting identifier test dispatched to Copilot as issue #24.
 3. **Skipped ImageObject standalone coverage**: ImageObject.creator is exercised indirectly through types that embed ImageObject. A standalone test would test the same serialization path. Not high priority.
+
+## 2026-02-25 — QC-REQUEST and PR Review Session (Issue #26)
+
+### Copilot Agent Quality: First PR Review
+
+Reviewed and merged Copilot's first completed PR (#25, from issue #24). The code quality was good — clean tests, correct assertions, proper namespace and imports. The only issue was the lockfile pointing to an older package version (Copilot branched from master which was behind our local state). This is expected and easily resolved.
+
+Observation: Copilot's turnaround was fast (~20 minutes from dispatch to PR). The detailed issue spec with exact code samples paid off — the output matched the spec closely. This confirms the pattern: **detailed specs with code examples produce high-quality Copilot output**.
+
+### AggregateOffer: Union Type Validation
+
+The library's `Product.offers` now accepts `array|AggregateOffer` — a PHP union type. Tested this ad-hoc before dispatching formal coverage. The JSON-LD output is structurally correct: when `AggregateOffer` is used, `offers` is a single object (not an array), which is the correct serialization for `AggregateOffer` per schema.org spec.
+
+Interesting observation: the `priceValidUntil` warning only appears when using individual `Offer` objects, not with `AggregateOffer`. This makes sense — `priceValidUntil` is an Offer-level field, and `AggregateOffer` represents a price range across multiple offers without per-offer details.
+
+### Cross-Repo Protocol: Second QC-REQUEST
+
+Processed QC-REQUEST #141 (the second inbound request). The main orchestrator's requests are getting more structured — this one included specific PRs, a summary of changes, and explicit concerns to validate. The protocol is maturing. Both directions (report -> fix -> verify and request -> ack -> validate) now work smoothly.
+
+### Warning Count Trend
+
+Session-over-session warning trend: 67 -> 61 -> 120 -> 130 -> 129 -> 128. The big jump at 120 was recipe sections (HowToStep per-step warnings). Since then we've been steadily reducing warnings through better generate scripts (adding recommended optional fields). The remaining 128 warnings are mostly:
+- Recipe HowToStep per-step warnings (~91 across both recipes)
+- Product optional fields (~10)
+- LocalBusiness/Restaurant/Store/FoodEstablishment bestRating/worstRating (~13)
+- Various other optional fields (~14)
+
+These are all genuine Google recommendations for optional fields, not validation failures. The library correctly omits them when the user doesn't provide values.
+
+### Decisions Made
+
+1. **Merged PR #25 without CI**: No CI workflow exists for PR branches. Verified tests pass locally (136 tests, 756 assertions). This is acceptable for now but worth noting — a CI workflow for PRs would be valuable.
+2. **Ad-hoc AggregateOffer test**: Tested Product+AggregateOffer with a temp file (not committed) to answer QC-REQUEST #141 immediately. Delegated formal coverage to Copilot #28.
+3. **Direct-pushed priceValidUntil**: 1-line addition to generate-product.php, well within threshold.
+
+### Open Questions
+
+- Should we propose a CI workflow for PRs? This would catch regressions before merge and reduce manual verification burden.
+- The library appears to be approaching feature completeness for Google Rich Result types. Should we shift focus to edge case testing (empty arrays, null nesting, multiple nested types)?
+- Is there value in testing AggregateOffer with `offerCount: 0` or `lowPrice: 0.00`? These are edge cases that real consumers might encounter.

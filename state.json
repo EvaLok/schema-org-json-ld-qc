@@ -1,49 +1,49 @@
 {
-	"last_updated": "2026-02-25T20:52:00Z",
+	"last_updated": "2026-02-25T22:15:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "69187be",
-		"last_updated": "2026-02-25T20:49:00Z"
+		"commit": "e13243a",
+		"last_updated": "2026-02-25T22:08:00Z"
 	},
 	"schema_types": {
 		"covered": {
-			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 11, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 32, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 59, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "69187be" },
-			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "69187be" }
+			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 10, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 32, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 59, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "e13243a" },
+			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-25", "package_commit": "e13243a" }
 		},
 		"uncovered": [
-			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
+			"Accommodation", "AdministrativeArea", "AggregateOffer", "AggregateRating", "AlignmentObject",
 			"Answer", "BedDetails", "Brand", "Comment", "ContactPoint",
 			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
 			"EventAttendanceModeEnumeration", "EventStatusType",
@@ -61,8 +61,8 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-02-25T20:50:00Z",
-		"summary": "33/33 E2E pass, 0 errors, 129 warnings (down from 130 — identifier warning resolved). Package 69187be."
+		"last_run": "2026-02-25T22:09:00Z",
+		"summary": "33/33 E2E pass, 0 errors, 128 warnings (Product priceValidUntil resolved). Package e13243a."
 	},
 	"cross_repo": {
 		"outbound_issues": [
@@ -87,16 +87,34 @@
 				"status": "closed",
 				"opened": "2026-02-25T18:07:00Z",
 				"validation_complete": true
+			},
+			{
+				"issue": 27,
+				"title": "[QC-ACK] Validate recent quality fixes (Cycles 19-22)",
+				"main_repo_issue": 141,
+				"status": "closed",
+				"opened": "2026-02-25T22:12:00Z",
+				"validation_complete": true
 			}
 		],
-		"processed_main_repo_issues": [121]
+		"processed_main_repo_issues": [121, 141]
 	},
 	"agent_sessions": {
 		"in_flight": [
 			{
+				"issue": 28,
+				"title": "Add AggregateOffer generate script, unit tests, and Product AggregateOffer variant",
+				"dispatched": "2026-02-25T22:13:00Z",
+				"model": "gpt-5.3-codex"
+			}
+		],
+		"completed": [
+			{
 				"issue": 24,
 				"title": "Add PropertyValue unit tests and JobPosting identifier test",
 				"dispatched": "2026-02-25T20:51:00Z",
+				"pr": 25,
+				"status": "merged",
 				"model": "gpt-5.3-codex"
 			}
 		]
@@ -149,6 +167,12 @@
 			"date": "2026-02-25",
 			"type": "package-update-validation",
 			"summary": "Eighth session. Package 9cca8ec->69187be. New: PropertyValue, ImageObject.creator widened, JobPosting.identifier. Updated generate-jobposting.php with identifier (warnings 3->2). Dispatched Copilot #24 for PropertyValue+JobPosting tests. 133 unit tests, 745 assertions. 33/33 E2E pass, 0 errors, 129 warnings."
+		},
+		{
+			"issue": 26,
+			"date": "2026-02-25",
+			"type": "qc-request-and-review",
+			"summary": "Ninth session. Package 69187be->e13243a. New: AggregateOffer, Offer.priceValidUntil, Product.offers union type. Merged Copilot PR #25 (PropertyValue tests). Processed QC-REQUEST #141 (all items pass). Added priceValidUntil to Product generate (warnings 11->10). Dispatched Copilot #28 for AggregateOffer coverage. 136 unit tests, 756 assertions. 33/33 E2E pass, 0 errors, 128 warnings."
 		}
 	]
 }
