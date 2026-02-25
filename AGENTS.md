@@ -10,6 +10,10 @@ This is a **QC/validation project**, not a library. It consumes `evabee/schema-o
 - `tests/E2E/` — TypeScript tests using `@adobe/structured-data-validator` for automated validation
 - `results/` — Structured test results
 
+## GitHub Pages
+
+The repo publishes JSON-LD examples as static HTML pages via GitHub Pages. `scripts/build-pages.php` discovers all `src/generate-*.php` scripts, runs them, and writes HTML pages to `_site/`. The `_site/` directory is gitignored — pages are built by the `pages.yml` workflow on deploy. When you add a new generate script, the site automatically gains a new page.
+
 ## Key rules
 
 - **Never modify the `evabee/schema-org-json-ld` package** — only consume it via Composer

@@ -124,6 +124,17 @@ Store test results in `results/` with a structured format tracking:
 - Specific errors or warnings from the validator
 - The JSON-LD that was tested (for reproducibility)
 
+## GitHub Pages
+
+The repo publishes JSON-LD examples as static HTML pages via GitHub Pages. Each page contains a `<script type="application/ld+json">` tag with the raw output from a `src/generate-*.php` script, plus a prettified JSON display.
+
+- **Build script**: `scripts/build-pages.php` — discovers all generate scripts, runs them, wraps output in HTML, writes to `_site/`
+- **Workflow**: `.github/workflows/pages.yml` — triggers on push to master (when generate scripts or the build script change), builds and deploys via `actions/deploy-pages`
+- **Live URL**: `https://evalok.github.io/schema-org-json-ld-qc/`
+- **No committed HTML**: `_site/` is in `.gitignore` — pages are built fresh on every deploy
+
+When you or an agent adds a new `src/generate-*.php` script, the site automatically gains a new page on the next deploy. You can maintain `scripts/build-pages.php` directly (push to master), but `pages.yml` is a workflow file and requires Eva to merge changes.
+
 ## Cross-repo communication protocol
 
 You communicate with the main orchestrator on `EvaLok/schema-org-json-ld` via a cross-repo issue protocol. **Neither orchestrator has write access to the other's repository.** All communication happens by reading the other's public issues and writing to your own.
@@ -383,6 +394,7 @@ Keep your repo tidy. At the start of each session (or when you have a natural pa
 | STARTUP_CHECKLIST.md | Direct push to master | Low risk |
 | State files (worklog, journal, state file) | Direct push to master | No risk |
 | Skills (.claude/skills/) | Direct push to master | Low risk |
+| scripts/build-pages.php | Direct push to master | Low risk |
 | Custom tools/scripts | Direct push to master | Low risk |
 | Workflow files (.github/workflows/) | Via PR only — Eva must merge | No write access |
 | Consumer project code | Via @copilot PR (gated by CI + review) OR direct push for trivial fixes | Use judgement |
