@@ -649,3 +649,51 @@ The main repo's CHANGELOG.md creation signals v1.0.0 is approaching. Our QC cove
 1. **Focused on warning reduction over new type coverage**: With no new schema types and no QC-REQUESTs, reducing warnings is the highest-value work. The warnings represent genuine gaps in our demonstration of the library's capabilities.
 2. **Responded to Eva on #39 with detailed API design feedback**: This is an opportunity to influence the library's API for missing properties. Provided code snippets showing exactly how we'd want to use them.
 3. **Did not pursue ProductGroup enrichment yet**: At 24 warnings, it's the third-largest contributor, but the variant Product enrichment is more complex (each variant needs material, pattern, mpn, etc.). Will tackle after the current batch merges.
+
+## 2026-02-26 — Session #56: Warning Reduction Harvest (Issue #56)
+
+### Warning Reduction Results
+
+The two Copilot tasks from session #50 delivered excellent results. PRs #53 and #54 merged cleanly, reducing E2E warnings from **158 to 75** — a 53% reduction. The breakdown:
+
+- **12 types went to zero warnings**: FoodEstablishment, LocalBusiness, Restaurant, Store, Course, SoftwareApplication, WebApplication (all via bestRating/worstRating addition)
+- **Recipe**: 32→13 (HowToStep enrichment with name/url/image eliminated ~19 warnings)
+- **Recipe Sections**: 59→24 (same pattern — 11 steps enriched)
+- **Product AggregateOffer**: 12→4 (review, audience, color, material, etc. added)
+- **VacationRental**: 4→1, **MobileApplication**: 2→1, **Movie**: 2→1
+
+### Remaining Warning Analysis
+
+Mapped every remaining warning (75 total) to root cause:
+
+**Library limitations (~40 warnings)**: Properties that genuinely don't exist in the library classes:
+- HowToStep.video (17 warnings) — each Recipe step lacks video support
+- HowToStep.itemListElement (17 warnings) — sub-directions not supported
+- VideoObject.publication (1) — no BroadcastEvent class
+- Product.subjectOf (2-3) — not in Product class
+- Movie/SoftwareApplication/VacationRental.datePublished (3) — not in their classes
+
+**Fixable on our side (~31 warnings)**: Properties exist but we haven't set them:
+- ProductGroup variants (24) — missing brand, mpn, material, pattern, etc. on individual Products
+- Recipe.video at recipe level (2) — Recipe.video property exists, just unused
+- Recipe Sections nutrition.calories (1) — missing nutrition info
+- JobPosting location fields (2) — applicantLocationRequirements/jobLocationType exist
+- Certification fields (2) — certificationIdentification exists
+
+### QC-REPORT for Missing Properties
+
+Per Eva's directive, filed [#57](https://github.com/EvaLok/schema-org-json-ld-qc/issues/57) as a formal QC-REPORT requesting the library add the missing properties. Prioritised HowToStep.video/itemListElement (P1, 34 warnings), datePublished on 3 types (P2, 3 warnings), and VideoObject.publication/Product.subjectOf (P3, 4 warnings).
+
+### Agent Quality Observations
+
+Copilot PRs #53 and #54 were both high quality:
+- **No conflicts between PRs**: Despite both touching `src/generate-recipe.php`, the merge-ort strategy resolved them cleanly. This is because the changes were in non-overlapping regions (PR #53 touched the AggregateRating, PR #54 touched the HowToStep objects).
+- **Consistent pattern following**: Both PRs followed the established patterns in the codebase — same coding style, same assertion patterns in tests.
+- **Accurate scope**: Neither PR exceeded its spec. This validates the detailed issue spec approach.
+- **Fast turnaround**: Both completed in 8-10 minutes.
+
+### Decisions Made
+
+1. **Filed QC-REPORT on own repo**: Eva approved dispatching the missing property request. Used `qc-outbound` label per protocol — the main orchestrator will discover it by polling.
+2. **Dispatched ProductGroup enrichment now**: With the Recipe/rating batch done, ProductGroup (24 warnings) is the biggest remaining target. Also bundled miscellaneous fixes (Recipe video, JobPosting, Certification) into a second task.
+3. **isVariantOf/subjectOf left unfixed**: isVariantOf would create circular references (Product→ProductGroup→Products), and subjectOf isn't in the library. Accepted these 4 warnings as irreducible without library changes.

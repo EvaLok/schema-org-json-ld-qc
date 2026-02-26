@@ -5,7 +5,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Article;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\BreadcrumbList;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ListItem;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;

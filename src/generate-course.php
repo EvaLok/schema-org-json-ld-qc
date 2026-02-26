@@ -6,9 +6,9 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Course;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\CourseInstance;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\OfferItemCondition;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\OfferItemCondition;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 
 $course = new Course(

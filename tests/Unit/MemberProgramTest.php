@@ -6,7 +6,7 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgram;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgramTier;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\QuantitativeValue;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\TierBenefitEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\TierBenefitEnumeration;
 use PHPUnit\Framework\TestCase;
 
 class MemberProgramTest extends TestCase

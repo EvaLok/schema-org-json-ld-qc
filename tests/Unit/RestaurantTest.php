@@ -4,7 +4,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\DayOfWeek;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
