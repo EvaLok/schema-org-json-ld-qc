@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c9c18ec13923c3c993ac8a3b2a402b5",
+    "content-hash": "d7ed5f0e8f051b9638164a9a6ecf05e4",
     "packages": [
         {
             "name": "evabee/schema-org-json-ld",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/EvaLok/schema-org-json-ld.git",
-                "reference": "ab334c4f539cff6f0877723555363f8055d69a61"
+                "url": "https://github.com/EvaLok/schema-org-json-ld",
+                "reference": "870ece57a7629fe9d4977795ebfe30b0825b16a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/ab334c4f539cff6f0877723555363f8055d69a61",
-                "reference": "ab334c4f539cff6f0877723555363f8055d69a61",
+                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/870ece57a7629fe9d4977795ebfe30b0825b16a7",
+                "reference": "870ece57a7629fe9d4977795ebfe30b0825b16a7",
                 "shasum": ""
             },
             "require": {
@@ -71,11 +71,7 @@
                 "structured data",
                 "video"
             ],
-            "support": {
-                "source": "https://github.com/EvaLok/schema-org-json-ld/tree/master",
-                "issues": "https://github.com/EvaLok/schema-org-json-ld/issues"
-            },
-            "time": "2026-02-26T00:52:27+00:00"
+            "time": "2026-02-26T09:58:16+00:00"
         }
     ],
     "packages-dev": [
