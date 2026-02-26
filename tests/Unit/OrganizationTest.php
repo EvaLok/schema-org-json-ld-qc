@@ -4,11 +4,17 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ContactPoint;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgram;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgramTier;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ReturnFeesEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ShippingConditions;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ShippingService;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\TierBenefitEnumeration;
 use PHPUnit\Framework\TestCase;
 
 class OrganizationTest extends TestCase
@@ -170,5 +176,61 @@ class OrganizationTest extends TestCase
 		$this->assertSame('Organization', $data['@type']);
 		$this->assertSame('QuantitativeValue', $data['numberOfEmployees']['@type']);
 		$this->assertEquals(5000, $data['numberOfEmployees']['value']);
+	}
+
+	public function testOrganizationWithMemberProgram(): void
+	{
+		if (!class_exists(MemberProgram::class)) {
+			$this->markTestSkipped('MemberProgram is not available in the installed schema-org-json-ld version.');
+		}
+
+		$org = new Organization(
+			name: 'ShopMart',
+			hasMemberProgram: new MemberProgram(
+				name: 'ShopMart Rewards',
+				description: 'Earn points on purchases.',
+				hasTiers: [
+					new MemberProgramTier(
+						name: 'Basic',
+						hasTierBenefit: TierBenefitEnumeration::TierBenefitLoyaltyPoints,
+					),
+				],
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($org);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Organization', $data['@type']);
+		$this->assertSame('MemberProgram', $data['hasMemberProgram']['@type']);
+		$this->assertSame('ShopMart Rewards', $data['hasMemberProgram']['name']);
+		$this->assertCount(1, $data['hasMemberProgram']['hasTiers']);
+	}
+
+	public function testOrganizationWithShippingService(): void
+	{
+		if (!class_exists(ShippingService::class)) {
+			$this->markTestSkipped('ShippingService is not available in the installed schema-org-json-ld version.');
+		}
+
+		$org = new Organization(
+			name: 'ShipCo',
+			hasShippingService: new ShippingService(
+				shippingConditions: new ShippingConditions(
+					shippingRate: new MonetaryAmount(
+						value: 4.99,
+						currency: 'USD',
+					),
+				),
+				name: 'Standard',
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($org);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Organization', $data['@type']);
+		$this->assertSame('ShippingService', $data['hasShippingService']['@type']);
+		$this->assertSame('Standard', $data['hasShippingService']['name']);
 	}
 }
