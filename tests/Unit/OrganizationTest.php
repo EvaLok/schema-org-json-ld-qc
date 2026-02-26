@@ -4,8 +4,11 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ContactPoint;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ReturnFeesEnumeration;
 use PHPUnit\Framework\TestCase;
 
 class OrganizationTest extends TestCase
@@ -100,6 +103,30 @@ class OrganizationTest extends TestCase
 		$this->assertArrayNotHasKey('leiCode', $data);
 		$this->assertArrayNotHasKey('iso6523Code', $data);
 		$this->assertArrayNotHasKey('globalLocationNumber', $data);
+		$this->assertArrayNotHasKey('hasMerchantReturnPolicy', $data);
+		$this->assertArrayNotHasKey('hasMemberProgram', $data);
+		$this->assertArrayNotHasKey('hasShippingService', $data);
+	}
+
+	public function testOrganizationWithMerchantReturnPolicy(): void
+	{
+		$org = new Organization(
+			name: 'RetailCo',
+			hasMerchantReturnPolicy: new MerchantReturnPolicy(
+				applicableCountry: 'US',
+				returnPolicyCategory: MerchantReturnEnumeration::MerchantReturnFiniteReturnWindow,
+				merchantReturnDays: 30,
+				returnFees: ReturnFeesEnumeration::FreeReturn,
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($org);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Organization', $data['@type']);
+		$this->assertSame('MerchantReturnPolicy', $data['hasMerchantReturnPolicy']['@type']);
+		$this->assertSame(30, $data['hasMerchantReturnPolicy']['merchantReturnDays']);
+		$this->assertSame('https://schema.org/FreeReturn', $data['hasMerchantReturnPolicy']['returnFees']);
 	}
 
 	public function testOrganizationWithBusinessIdentifiers(): void
