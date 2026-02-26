@@ -541,6 +541,7 @@ class ProductTest extends TestCase
 				new Certification(
 					name: 'ENERGY STAR',
 					issuedBy: new Organization(name: 'U.S. EPA'),
+					certificationIdentification: 'ES-2025-0001',
 				),
 			],
 		);
@@ -553,6 +554,7 @@ class ProductTest extends TestCase
 		$this->assertSame('Certification', $data['hasCertification'][0]['@type']);
 		$this->assertSame('ENERGY STAR', $data['hasCertification'][0]['name']);
 		$this->assertSame('Organization', $data['hasCertification'][0]['issuedBy']['@type']);
+		$this->assertSame('ES-2025-0001', $data['hasCertification'][0]['certificationIdentification']);
 	}
 
 	public function testProductNewOptionalFieldsOmitted(): void

@@ -127,6 +127,8 @@ class JobPostingTest extends TestCase
 				name: 'Internal Job ID',
 				value: 'SE-2025-0042',
 			),
+			applicantLocationRequirements: new AdministrativeArea(name: 'United States'),
+			jobLocationType: 'TELECOMMUTE',
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($job);
@@ -135,6 +137,9 @@ class JobPostingTest extends TestCase
 		$this->assertSame('PropertyValue', $data['identifier']['@type']);
 		$this->assertSame('Internal Job ID', $data['identifier']['name']);
 		$this->assertSame('SE-2025-0042', $data['identifier']['value']);
+		$this->assertSame('AdministrativeArea', $data['applicantLocationRequirements']['@type']);
+		$this->assertSame('United States', $data['applicantLocationRequirements']['name']);
+		$this->assertSame('TELECOMMUTE', $data['jobLocationType']);
 	}
 
 	public function testOptionalFieldsOmitted(): void

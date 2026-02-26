@@ -6,8 +6,10 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Recipe;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
 
 $recipe = new Recipe(
 	name: 'Classic Tiramisu',
@@ -124,6 +126,16 @@ $recipe = new Recipe(
 		ratingCount: 184,
 		bestRating: 5,
 		worstRating: 1,
+	),
+	nutrition: new NutritionInformation(calories: '450 calories'),
+	video: new VideoObject(
+		name: 'Classic Tiramisu Tutorial',
+		thumbnailUrl: ['https://example.com/photos/tiramisu/video-thumbnail.jpg'],
+		uploadDate: '2025-03-15',
+		description: 'Learn how to make authentic Italian tiramisu from scratch.',
+		contentUrl: 'https://example.com/videos/tiramisu.mp4',
+		embedUrl: 'https://example.com/embed/tiramisu',
+		duration: 'PT12M45S',
 	),
 );
 
