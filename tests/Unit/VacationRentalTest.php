@@ -76,6 +76,7 @@ class VacationRentalTest extends TestCase
 				worstRating: 1,
 				reviewCount: 87,
 			),
+			datePublished: '2025-06-01',
 			brand: new Brand(name: 'Luxury Stays'),
 			checkinTime: '15:00',
 			checkoutTime: '11:00',
@@ -95,6 +96,7 @@ class VacationRentalTest extends TestCase
 
 		$this->assertSame('VacationRental', $data['@type']);
 		$this->assertSame('Seaside Villa Retreat', $data['name']);
+		$this->assertSame('2025-06-01', $data['datePublished']);
 		$this->assertCount(3, $data['image']);
 		$this->assertSame(4, $data['containsPlace']['numberOfBedrooms']);
 		$this->assertSame(3, $data['containsPlace']['numberOfBathroomsTotal']);

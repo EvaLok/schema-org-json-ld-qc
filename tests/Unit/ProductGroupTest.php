@@ -53,6 +53,7 @@ class ProductGroupTest extends TestCase
 			material: '100% Premium Cotton',
 			pattern: 'Solid',
 			inProductGroupWithID: 'oxford-shirts',
+			subjectOf: 'https://example.com/shirt-review',
 			audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 16),
 			hasCertification: [
 				new Certification(
@@ -101,6 +102,7 @@ class ProductGroupTest extends TestCase
 		$this->assertSame('100% Premium Cotton', $data['hasVariant'][0]['material']);
 		$this->assertSame('Solid', $data['hasVariant'][0]['pattern']);
 		$this->assertSame('oxford-shirts', $data['hasVariant'][0]['inProductGroupWithID']);
+		$this->assertSame('https://example.com/shirt-review', $data['hasVariant'][0]['subjectOf']);
 		$this->assertSame('PeopleAudience', $data['hasVariant'][0]['audience']['@type']);
 		$this->assertSame('OT-12345', $data['hasVariant'][0]['hasCertification'][0]['certificationIdentification']);
 		$this->assertSame('AggregateRating', $data['hasVariant'][0]['aggregateRating']['@type']);

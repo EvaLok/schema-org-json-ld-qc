@@ -40,6 +40,7 @@ $rental = new VacationRental(
 		worstRating: 1,
 		reviewCount: 87,
 	),
+	datePublished: '2025-06-01',
 	checkinTime: '15:00',
 	checkoutTime: '11:00',
 	description: 'A stunning oceanfront villa with private pool and panoramic sea views.',

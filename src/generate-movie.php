@@ -19,6 +19,7 @@ $movie = new Movie(
 		worstRating: 1,
 	),
 	dateCreated: '2025-06-15',
+	datePublished: '2025-11-21',
 	director: new Person(name: 'Sofia Castellano'),
 	review: new Review(
 		author: new Person(name: 'Roger Chen'),

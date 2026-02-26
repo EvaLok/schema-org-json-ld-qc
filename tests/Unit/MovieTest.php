@@ -40,6 +40,7 @@ class MovieTest extends TestCase
 				ratingCount: 2150000,
 			),
 			dateCreated: '2010-07-16',
+			datePublished: '2025-11-21',
 			director: new Person(name: 'Christopher Nolan'),
 			review: new Review(
 				author: 'Movie Critic',
@@ -59,6 +60,7 @@ class MovieTest extends TestCase
 
 		$this->assertSame('Movie', $data['@type']);
 		$this->assertSame('2010-07-16', $data['dateCreated']);
+		$this->assertSame('2025-11-21', $data['datePublished']);
 		$this->assertSame('Person', $data['director']['@type']);
 		$this->assertSame('Christopher Nolan', $data['director']['name']);
 		$this->assertSame('Review', $data['review']['@type']);

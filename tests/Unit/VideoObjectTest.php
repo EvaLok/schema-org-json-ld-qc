@@ -3,6 +3,7 @@
 namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\BroadcastEvent;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
@@ -44,6 +45,11 @@ class VideoObjectTest extends TestCase
 			duration: 'PT45M30S',
 			expires: '2026-01-20T12:00:00Z',
 			regionsAllowed: 'US,CA,GB',
+			publication: new BroadcastEvent(
+				isLiveBroadcast: false,
+				startDate: '2025-02-05T08:00:00+00:00',
+				endDate: '2025-02-05T09:00:00+00:00',
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($video);
@@ -57,6 +63,8 @@ class VideoObjectTest extends TestCase
 		$this->assertSame('PT45M30S', $data['duration']);
 		$this->assertSame('2026-01-20T12:00:00Z', $data['expires']);
 		$this->assertSame('US,CA,GB', $data['regionsAllowed']);
+		$this->assertSame('BroadcastEvent', $data['publication']['@type']);
+		$this->assertFalse($data['publication']['isLiveBroadcast']);
 	}
 
 	public function testOptionalFieldsOmitted(): void

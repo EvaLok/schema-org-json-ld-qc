@@ -43,6 +43,7 @@ $product = new Product(
 	size: 'Standard',
 	gtin: '0012345678905',
 	inProductGroupWithID: 'pg-executive-tools',
+	subjectOf: 'https://example.com/product-review-video',
 	audience: new PeopleAudience(
 		suggestedGender: 'unisex',
 		suggestedMinAge: 18,

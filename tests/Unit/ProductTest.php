@@ -424,6 +424,7 @@ class ProductTest extends TestCase
 			pattern: 'Solid',
 			gtin: '0012345678905',
 			inProductGroupWithID: 'pg-oxford-shirts',
+			subjectOf: 'https://example.com/product-review-video',
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($product);
@@ -434,6 +435,7 @@ class ProductTest extends TestCase
 		$this->assertSame('Solid', $data['pattern']);
 		$this->assertSame('0012345678905', $data['gtin']);
 		$this->assertSame('pg-oxford-shirts', $data['inProductGroupWithID']);
+		$this->assertArrayHasKey('subjectOf', $data);
 	}
 
 	public function testProductWithSizeSpecification(): void

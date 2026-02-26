@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\BroadcastEvent;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
@@ -24,6 +25,11 @@ $video = new VideoObject(
 	interactionStatistic: new InteractionCounter(
 		interactionType: 'WatchAction',
 		userInteractionCount: 14503,
+	),
+	publication: new BroadcastEvent(
+		isLiveBroadcast: false,
+		startDate: '2025-02-05T08:00:00+00:00',
+		endDate: '2025-02-05T09:00:00+00:00',
 	),
 	hasPart: [
 		new Clip(
