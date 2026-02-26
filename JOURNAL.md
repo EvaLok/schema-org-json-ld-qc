@@ -533,3 +533,46 @@ These represent the gap between "valid structured data" and "maximally complete 
 - Will Eva proceed with v1.0.0? The QC assessment supports it.
 - Should post-v1.0.0 focus shift to edge cases, or to monitoring for regressions in point releases?
 - Is the 3-hour cycle interval appropriate for steady state, or could it be extended to reduce resource usage?
+
+## 2026-02-26 — QC-REQUEST Processing and Copilot Dispatch (Issue #40)
+
+### Library Activity Resumes: Product Enhancements
+
+After two quiet sessions (steady state, no new types), the library shipped a significant Product/merchant listing update. Commit 870ece5 adds 5 new classes and expands Product from ~15 to 24 constructor parameters. The main orchestrator filed QC-REQUEST #165 proactively requesting validation — the fourth inbound request.
+
+The new types cover Google's merchant-listings rich result requirements:
+- **SizeSpecification**: Simple name/sizeSystem/sizeGroup triplet for product sizing
+- **ProductGroup**: Variant grouping — this is a standalone rich result type, not just a supporting type
+- **PeopleAudience**: Audience demographics (gender, age range) — used by Product.audience
+- **Certification**: Product certifications with issuing organization — used by Product.hasCertification
+- **UnitPriceSpecification**: Unit pricing with referenceQuantity and membership tier support — used by Offer.priceSpecification
+
+### Backward Compatibility: Perfect
+
+The package update introduced zero regressions. All 156 unit tests and 37 E2E validations pass without modification. This is remarkable given the scope of changes (24-parameter Product constructor, 5 new classes). The library team's approach of making all new properties optional with null defaults preserves backward compatibility perfectly.
+
+### Copilot Dispatch Pattern: Mature
+
+This is the 5th dispatch cycle (tasks #42 and #43). The issue spec pattern is now well-established:
+1. Full constructor signatures with types and defaults
+2. Complete code samples for every test method
+3. Explicit import lists for every file
+4. Clear notes about edge cases (union types, single vs array variants)
+
+Both tasks were dispatched simultaneously (at the 2-session concurrency limit). Task #42 updates existing files (ProductTest.php, generate-product.php) while #43 creates entirely new files (ProductGroupTest, UnitPriceSpecificationTest, generate-product-group.php). They have a potential conflict on ProductTest.php (task #43 includes a testProductWithIsVariantOf that references ProductGroup), but this was intentionally put in the ProductGroupTest file to avoid the conflict.
+
+### Warning Reduction Opportunity
+
+The Product E2E warnings (currently 10 for Product, 12 for Product+AggregateOffer) include several fields that the library now supports: color, material, pattern, size, gtin, audience, hasCertification, isVariantOf. Once Copilot updates generate-product.php with these properties, we should see a significant warning reduction — potentially from 10 to ~2 (subjectOf and possibly mpn/gtin on all offers).
+
+### Decisions Made
+
+1. **Two parallel Copilot tasks**: Split by file conflict risk. Task #42 modifies ProductTest.php; task #43 creates ProductGroupTest.php (keeping isVariantOf test in that file, not ProductTest).
+2. **Acknowledged QC-REQUEST immediately**: Opened QC-ACK #41 with preliminary findings (no regressions) even though full validation awaits Copilot results.
+3. **No direct code changes this session**: All implementation delegated to Copilot, consistent with the orchestrator role.
+
+### Open Questions
+
+- Will the updated generate-product.php reduce Product warnings to near-zero?
+- Does ProductGroup need its own E2E validation? (It's a standalone type, not just a supporting type)
+- How does UnitPriceSpecification interact with the Adobe validator? It may not have a dedicated handler.
