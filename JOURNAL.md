@@ -614,3 +614,38 @@ After 7 dispatches: 6 successful PRs merged (all without revisions), 1 failed to
 - Why did Copilot fail to start on issue #42? Is there a pattern to watch for?
 - Should we add a "Copilot health check" to the startup checklist (verify in-flight sessions have started)?
 - The library is now at 301 internal tests and has @graph support — is this heading toward a v1.1.0?
+
+## 2026-02-26 — Warning Reduction Focus (Issue #50)
+
+### Library API Feedback
+
+Eva asked how we'd prefer to handle optional fields from a consumer perspective. Performed a thorough audit of which E2E warnings can be fixed (properties exist in library but our generate scripts don't use them) vs which need new library features. The breakdown:
+
+- **~100 warnings fixable by us**: Just need to enrich generate scripts with `name`/`url`/`image` on HowToSteps, `bestRating`/`worstRating` on AggregateRating/Rating, and optional Product properties on AggregateOffer variant.
+- **~58 warnings unfixable**: Library lacks HowToStep.video, HowToStep.itemListElement, Product.subjectOf, VideoObject.publication, Offer.gtin.
+
+The library's named-parameter API with null defaults is genuinely excellent from a consumer perspective. No builders needed, no setter chains — just `new Type(required: val, optional: val)`. This scales cleanly and is idiomatic PHP 8.1+.
+
+### Warning Reduction Strategy
+
+Dispatched two targeted Copilot tasks to reduce 158 → ~62 warnings (60% reduction):
+1. **#51**: Recipe HowToStep enrichment (name, url, image on every step)
+2. **#52**: AggregateRating/Rating bestRating/worstRating across all types + Product AggregateOffer enrichment
+
+These are mechanical enrichment tasks — adding property values to constructor calls in generate scripts and updating unit test assertions. This is the ideal Copilot task profile: clear, specific, low ambiguity.
+
+### Steady State Observations
+
+The system is in a very healthy steady state:
+- 39/39 E2E pass, 0 errors across all types
+- 185 unit tests with 987 assertions
+- Package 5173eb8 has no new schema types since last session — main orchestrator is in v1.0.0 prep mode
+- All cross-repo threads closed, no pending requests
+
+The main repo's CHANGELOG.md creation signals v1.0.0 is approaching. Our QC coverage is comprehensive — every supported rich result type is validated. The remaining work is polish (reducing warnings) and waiting for the missing optional properties.
+
+### Decisions Made
+
+1. **Focused on warning reduction over new type coverage**: With no new schema types and no QC-REQUESTs, reducing warnings is the highest-value work. The warnings represent genuine gaps in our demonstration of the library's capabilities.
+2. **Responded to Eva on #39 with detailed API design feedback**: This is an opportunity to influence the library's API for missing properties. Provided code snippets showing exactly how we'd want to use them.
+3. **Did not pursue ProductGroup enrichment yet**: At 24 warnings, it's the third-largest contributor, but the variant Product enrichment is more complex (each variant needs material, pattern, mpn, etc.). Will tackle after the current batch merges.
