@@ -5,10 +5,16 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Certification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\PeopleAudience;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 use PHPUnit\Framework\TestCase;
 
 class ProductGroupTest extends TestCase
@@ -39,6 +45,34 @@ class ProductGroupTest extends TestCase
 					priceCurrency: 'USD',
 					price: 29.99,
 					availability: ItemAvailability::InStock,
+					priceValidUntil: '2026-12-31',
+				),
+			],
+			brand: new Brand(name: 'ClassicWear'),
+			mpn: 'OX-BLUE-M',
+			material: '100% Premium Cotton',
+			pattern: 'Solid',
+			inProductGroupWithID: 'oxford-shirts',
+			audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 16),
+			hasCertification: [
+				new Certification(
+					name: 'OEKO-TEX Standard 100',
+					issuedBy: new Organization(name: 'OEKO-TEX Association'),
+					certificationIdentification: 'OT-12345',
+				),
+			],
+			aggregateRating: new AggregateRating(
+				ratingValue: 4.6,
+				bestRating: 5,
+				worstRating: 1,
+				ratingCount: 156,
+			),
+			review: [
+				new Review(
+					author: new Person(name: 'Sam T.'),
+					reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
+					reviewBody: 'Perfect fit and great quality cotton.',
+					datePublished: '2025-08-15',
 				),
 			],
 			color: 'Blue',
@@ -62,6 +96,16 @@ class ProductGroupTest extends TestCase
 		$this->assertCount(1, $data['hasVariant']);
 		$this->assertSame('Product', $data['hasVariant'][0]['@type']);
 		$this->assertSame('Blue T-Shirt', $data['hasVariant'][0]['name']);
+		$this->assertSame('ClassicWear', $data['hasVariant'][0]['brand']['name']);
+		$this->assertSame('OX-BLUE-M', $data['hasVariant'][0]['mpn']);
+		$this->assertSame('100% Premium Cotton', $data['hasVariant'][0]['material']);
+		$this->assertSame('Solid', $data['hasVariant'][0]['pattern']);
+		$this->assertSame('oxford-shirts', $data['hasVariant'][0]['inProductGroupWithID']);
+		$this->assertSame('PeopleAudience', $data['hasVariant'][0]['audience']['@type']);
+		$this->assertSame('OT-12345', $data['hasVariant'][0]['hasCertification'][0]['certificationIdentification']);
+		$this->assertSame('AggregateRating', $data['hasVariant'][0]['aggregateRating']['@type']);
+		$this->assertIsArray($data['hasVariant'][0]['review']);
+		$this->assertSame('2026-12-31', $data['hasVariant'][0]['offers'][0]['priceValidUntil']);
 		$this->assertSame('Brand', $data['brand']['@type']);
 	}
 
