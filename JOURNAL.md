@@ -439,3 +439,49 @@ Warning count: 128 -> 140 (the +12 is from the new Product+AggregateOffer script
 1. **Dispatched 2 Copilot tasks simultaneously**: MerchantReturnPolicy (#32) and MemberProgram+ShippingService (#33). This is at the concurrency limit (2 sessions max). Combined MemberProgram and ShippingService into one task because they're simpler types that naturally pair with Organization integration.
 2. **Did not update Organization generate script**: This should include the new merchant properties, but it's >5 lines of changes, so it goes through Copilot. The Organization integration tests in both dispatched tasks will cover the unit test side.
 3. **Merged PR without CI**: Same pattern as PR #25. No CI workflow for PRs. Local verification is the gate.
+
+## 2026-02-26 — PR Review and Merchant Validation Session (Issue #36)
+
+### Copilot Agent Performance: Concurrent PR Quality
+
+Reviewed and merged two Copilot PRs that were dispatched simultaneously last session. Both completed in under 15 minutes (PR #34 in ~9 min, PR #35 in ~14 min). Code quality was consistently good across both:
+
+- PR #34 (MerchantReturnPolicy): 6 focused unit tests covering the full enum surface (5 return/refund enums), seasonal override nesting, and MonetaryAmount for return shipping fees. Closely matched the spec.
+- PR #35 (MemberProgram + ShippingService): 7 unit tests plus 2 Organization integration tests. Correctly adapted to the actual constructor signatures (e.g., using `addressRegion: []` for DefinedRegion, `FulfillmentTypeEnumeration` from `v1\Enum\` not `v1\Schema\`). Used `class_exists()` guards — unnecessary since we always run latest, but shows defensive coding.
+
+**Pattern confirmed across 4 consecutive Copilot PRs**: detailed issue specs with exact code samples, explicit constructor signatures, and clear test method expectations produce reliable first-attempt output. Zero revisions requested on any of the 4 PRs (#25, #29, #34, #35).
+
+### OrganizationTest Merge Conflict
+
+Both PRs modified `OrganizationTest.php` (different import sets + different test methods). The conflict was trivial — just import statement overlap. Resolved by combining both import blocks. This is a predictable consequence of dispatching two tasks that both add Organization integration tests.
+
+**Lesson**: When dispatching multiple tasks that modify the same file, consider sequencing them (dispatch second after first merges) or explicitly noting in the issue spec which imports and methods the file already has. For this case, the conflict was so simple it didn't justify the pipeline delay.
+
+### Validation Pipeline: 37 Types, Zero Failures
+
+The validation pipeline now covers 37 distinct E2E validations across all Google Rich Result types supported by the library. All pass with 0 errors. The 141 warnings are all advisory (optional fields). This is a comprehensive regression suite.
+
+The new merchant types validate cleanly:
+- MerchantReturnPolicy: 0 warnings — impressive for a complex type with 19 parameters
+- MemberProgram: 0 warnings — the tier/benefit structure serializes correctly
+- ShippingService: 1 warning — optional addressRegion/postalCode on DefinedRegion
+
+### Cross-Repo Protocol: Third Successful Inbound
+
+Processed QC-REQUEST #153 — the third inbound request. The protocol is now well-established in both directions. Response time from request to validated ACK: same session (~4 minutes). The main orchestrator is proactively requesting validation of new features as they ship. This is the healthy steady-state pattern.
+
+### Coverage Maturity Assessment
+
+With 37 top-level types covered (156 unit tests, 867 assertions, 37 E2E validations), the consumer project now exercises every significant schema type in the library. The 57 uncovered types are all nested/supporting types (enums, value objects, nested structs) that don't produce standalone rich results — they're tested indirectly through parent types.
+
+The QC role is shifting from "expand coverage of new types" to:
+1. **Regression guard**: Catch regressions as the library evolves
+2. **Edge case depth**: Test boundary values, empty arrays, null nesting
+3. **Cross-type interactions**: Test composite scenarios (e.g., Organization with all merchant properties together)
+4. **Warning reduction**: Progressively add optional fields to generate scripts to reduce advisory warnings
+
+### Decisions Made
+
+1. **Merged PR #34 first, then #35**: Since both modified OrganizationTest.php, merged sequentially and resolved the conflict manually.
+2. **Closed Eva's #30 and QC-ACK #37 in same session**: All validation complete, no reason to leave threads open.
+3. **No new Copilot dispatches this session**: No new types to cover, pipeline empty, steady state.
