@@ -399,3 +399,43 @@ These are all genuine Google recommendations for optional fields, not validation
 - Should we propose a CI workflow for PRs? This would catch regressions before merge and reduce manual verification burden.
 - The library appears to be approaching feature completeness for Google Rich Result types. Should we shift focus to edge case testing (empty arrays, null nesting, multiple nested types)?
 - Is there value in testing AggregateOffer with `offerCount: 0` or `lowPrice: 0.00`? These are edge cases that real consumers might encounter.
+
+## 2026-02-26 — Package Update and Dispatch Session (Issue #31)
+
+### Library Maturity: Commerce Features
+
+The library is now deep into commerce/merchant structured data. The latest additions — MerchantReturnPolicy (with 6 supporting enums), MemberProgram (loyalty programs), and ShippingService (with conditions, rates, transit times) — represent Google's merchant-listings rich result requirements. These are sophisticated, deeply nested types with many interdependencies.
+
+Observation: The main orchestrator is building these types correctly on first attempt. MerchantReturnPolicy has 19 constructor parameters covering the full Google spec: return windows, fees, methods, refund types, label sources, and separate handling for customer remorse vs. defective items, plus seasonal overrides. This is impressive API design quality.
+
+### Copilot Agent Performance
+
+PR #29 (AggregateOffer) was clean — matched the spec closely, tests pass, code quality good. This is the third consecutive Copilot PR that required no revisions. The pattern is confirmed: **detailed issue specs with exact code samples and explicit constructor signatures produce reliable Copilot output on first attempt**.
+
+The Copilot sandbox firewall continues to block `api.github.com` — the agent can't run `composer update` in its environment. This means:
+1. The composer.lock in PRs always points to whatever commit was on the branch when Copilot started
+2. We have to update the lockfile ourselves after merge (or just run `composer update` on master)
+
+This is a known limitation, not a blocker. But it means we can never fully trust the PR's lockfile — always re-run `composer install`/`update` locally before testing.
+
+### Direct QC Request Pattern
+
+Eva opened issue #30 directly on our repo (not via the cross-repo protocol) to request validation of Cycles 23-24. This is more efficient than the standard protocol for cases where the human operator wants to trigger validation explicitly. The cross-repo protocol is designed for orchestrator-to-orchestrator communication; direct issues from Eva are a legitimate shortcut.
+
+### Coverage Strategy Reassessment
+
+With 34 E2E validations and 140 unit tests, we've covered all the "top-level" rich result types. The uncovered list (now 60 types) consists of:
+- **Enums** (13): DayOfWeek, EventStatusType, ItemAvailability, MerchantReturnEnumeration, etc. — tested indirectly via parent types
+- **Nested/supporting types** (47): AggregateRating, PostalAddress, ContactPoint, Offer, etc. — tested extensively as children of top-level types
+
+The new merchant types (MerchantReturnPolicy, MemberProgram, ShippingService) are interesting because they're both standalone schema.org types AND nested within Organization. They'll need both standalone generate scripts (for E2E validation) and Organization integration (for the composite pattern).
+
+### Observations on Warning Stability
+
+Warning count: 128 -> 140 (the +12 is from the new Product+AggregateOffer script, which doesn't include review/aggregateRating, so it gets more optional-field warnings). The baseline warning set is very stable across sessions — same patterns repeating (HowToStep per-step warnings, Product optional fields, LocalBusiness bestRating/worstRating). No new warning categories discovered this session.
+
+### Decisions Made
+
+1. **Dispatched 2 Copilot tasks simultaneously**: MerchantReturnPolicy (#32) and MemberProgram+ShippingService (#33). This is at the concurrency limit (2 sessions max). Combined MemberProgram and ShippingService into one task because they're simpler types that naturally pair with Organization integration.
+2. **Did not update Organization generate script**: This should include the new merchant properties, but it's >5 lines of changes, so it goes through Copilot. The Organization integration tests in both dispatched tasks will cover the unit test side.
+3. **Merged PR without CI**: Same pattern as PR #25. No CI workflow for PRs. Local verification is the gate.
