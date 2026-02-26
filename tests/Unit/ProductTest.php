@@ -6,13 +6,17 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateOffer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Certification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OfferItemCondition;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\PeopleAudience;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SizeSpecification;
 use PHPUnit\Framework\TestCase;
 
 class ProductTest extends TestCase
@@ -354,5 +358,187 @@ class ProductTest extends TestCase
 		$this->assertArrayNotHasKey('weight', $data);
 		$this->assertArrayNotHasKey('aggregateRating', $data);
 		$this->assertArrayNotHasKey('review', $data);
+	}
+
+	public function testProductWithTextProperties(): void
+	{
+		$product = new Product(
+			name: 'Classic Oxford Shirt',
+			image: ['https://example.com/shirt.jpg'],
+			description: 'A timeless cotton oxford button-down shirt.',
+			sku: 'SHIRT-OX-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/shirt',
+					priceCurrency: 'USD',
+					price: 89.00,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			color: 'Light Blue',
+			material: '100% Cotton Oxford',
+			pattern: 'Solid',
+			gtin: '0012345678905',
+			inProductGroupWithID: 'pg-oxford-shirts',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('Light Blue', $data['color']);
+		$this->assertSame('100% Cotton Oxford', $data['material']);
+		$this->assertSame('Solid', $data['pattern']);
+		$this->assertSame('0012345678905', $data['gtin']);
+		$this->assertSame('pg-oxford-shirts', $data['inProductGroupWithID']);
+	}
+
+	public function testProductWithSizeSpecification(): void
+	{
+		$product = new Product(
+			name: 'Running Shoes',
+			image: ['https://example.com/shoes.jpg'],
+			description: 'Lightweight running shoes.',
+			sku: 'SHOE-RUN-42',
+			offers: [
+				new Offer(
+					url: 'https://example.com/shoes',
+					priceCurrency: 'EUR',
+					price: 129.99,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			size: new SizeSpecification(
+				name: '42',
+				sizeSystem: 'EU',
+				sizeGroup: 'regular',
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('SizeSpecification', $data['size']['@type']);
+		$this->assertSame('42', $data['size']['name']);
+		$this->assertSame('EU', $data['size']['sizeSystem']);
+		$this->assertSame('regular', $data['size']['sizeGroup']);
+	}
+
+	public function testProductWithStringSize(): void
+	{
+		$product = new Product(
+			name: 'T-Shirt',
+			image: ['https://example.com/tshirt.jpg'],
+			description: 'A basic t-shirt.',
+			sku: 'TS-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/tshirt',
+					priceCurrency: 'USD',
+					price: 19.99,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			size: 'XL',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('XL', $data['size']);
+	}
+
+	public function testProductWithAudience(): void
+	{
+		$product = new Product(
+			name: 'Kids Drawing Tablet',
+			image: ['https://example.com/tablet.jpg'],
+			description: 'A drawing tablet designed for children.',
+			sku: 'TAB-KIDS-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/tablet',
+					priceCurrency: 'USD',
+					price: 49.99,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			audience: new PeopleAudience(
+				suggestedGender: 'unisex',
+				suggestedMinAge: 5,
+				suggestedMaxAge: 12,
+			),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertSame('PeopleAudience', $data['audience']['@type']);
+		$this->assertSame('unisex', $data['audience']['suggestedGender']);
+		$this->assertSame(5, $data['audience']['suggestedMinAge']);
+		$this->assertSame(12, $data['audience']['suggestedMaxAge']);
+	}
+
+	public function testProductWithCertifications(): void
+	{
+		$product = new Product(
+			name: 'Eco Dishwasher',
+			image: ['https://example.com/dishwasher.jpg'],
+			description: 'An energy efficient dishwasher.',
+			sku: 'DW-ECO-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/dishwasher',
+					priceCurrency: 'USD',
+					price: 599.99,
+					availability: ItemAvailability::InStock,
+				),
+			],
+			hasCertification: [
+				new Certification(
+					name: 'ENERGY STAR',
+					issuedBy: new Organization(name: 'U.S. EPA'),
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertIsArray($data['hasCertification']);
+		$this->assertCount(1, $data['hasCertification']);
+		$this->assertSame('Certification', $data['hasCertification'][0]['@type']);
+		$this->assertSame('ENERGY STAR', $data['hasCertification'][0]['name']);
+		$this->assertSame('Organization', $data['hasCertification'][0]['issuedBy']['@type']);
+	}
+
+	public function testProductNewOptionalFieldsOmitted(): void
+	{
+		$product = new Product(
+			name: 'Plain Item',
+			image: ['https://example.com/plain.jpg'],
+			description: 'A plain item with no optional fields.',
+			sku: 'PLN-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/plain',
+					priceCurrency: 'USD',
+					price: 5.00,
+					availability: ItemAvailability::InStock,
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertArrayNotHasKey('color', $data);
+		$this->assertArrayNotHasKey('material', $data);
+		$this->assertArrayNotHasKey('pattern', $data);
+		$this->assertArrayNotHasKey('size', $data);
+		$this->assertArrayNotHasKey('gtin', $data);
+		$this->assertArrayNotHasKey('inProductGroupWithID', $data);
+		$this->assertArrayNotHasKey('isVariantOf', $data);
+		$this->assertArrayNotHasKey('audience', $data);
+		$this->assertArrayNotHasKey('hasCertification', $data);
 	}
 }

@@ -5,9 +5,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Certification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OfferItemCondition;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\PeopleAudience;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
@@ -34,6 +37,22 @@ $product = new Product(
 	],
 	brand: new Brand(name: 'ACME'),
 	mpn: '925872',
+	color: 'Slate Gray',
+	material: 'Hardened Steel',
+	pattern: 'Solid',
+	size: 'Standard',
+	gtin: '0012345678905',
+	inProductGroupWithID: 'pg-executive-tools',
+	audience: new PeopleAudience(
+		suggestedGender: 'unisex',
+		suggestedMinAge: 18,
+	),
+	hasCertification: [
+		new Certification(
+			name: 'ACME Safety Certified',
+			issuedBy: new Organization(name: 'ACME Safety Council'),
+		),
+	],
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.4,
 		bestRating: 5,
