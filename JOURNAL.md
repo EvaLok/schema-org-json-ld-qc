@@ -576,3 +576,41 @@ The Product E2E warnings (currently 10 for Product, 12 for Product+AggregateOffe
 - Will the updated generate-product.php reduce Product warnings to near-zero?
 - Does ProductGroup need its own E2E validation? (It's a standalone type, not just a supporting type)
 - How does UnitPriceSpecification interact with the Adobe validator? It may not have a dedicated handler.
+
+## 2026-02-26 — PR Review and @graph Discovery Session (Issue #45)
+
+### @graph Support: Significant New Feature
+
+The library (at 4494ee6) now supports composing multiple schemas into a single JSON-LD block via `JsonLdGenerator::SchemasToJson()` and `SchemasToObject()`. The output uses the `@graph` pattern — a single `@context` at the root with an array of schema objects. This is the standard pattern for pages that need multiple structured data types (e.g., Article + BreadcrumbList + Organization on a blog page).
+
+Tested ad-hoc: the `@context` correctly appears only at the root, not on individual schemas in the graph. The API is clean — variadic `TypedSchema` params. This is a feature worth testing thoroughly because the context-stripping behavior is critical for valid `@graph` output.
+
+### Copilot Dispatch Failure: First Observed
+
+Issue #42 was assigned to Copilot but never triggered `copilot_work_started`. The timeline shows `assigned` events but no work events. This is the first dispatch failure in 7 attempts (85% success rate). No obvious cause — the issue spec was identical in structure to successful dispatches.
+
+**Mitigation**: Close the failed issue, re-dispatch as a fresh issue (#46). The issue spec was already written, so the re-dispatch cost was minimal (copy the body). This is an expected failure mode in autonomous systems — retry is cheap.
+
+**Pattern to watch**: If dispatch failures become more common, consider adding a check in the next cycle for `copilot_work_started` within N minutes of dispatch, with automatic re-dispatch if missing.
+
+### ProductGroup E2E: Answered
+
+ProductGroup E2E validation produces 24 warnings — these are per-variant Product optional fields (duplicated for each variant in the group). The validator treats each variant Product individually, so a ProductGroup with 2 variants gets ~12 Product warnings per variant. This is expected behavior, not an issue.
+
+UnitPriceSpecification has no dedicated Adobe validator handler, but passes schema.org spec validation (property names and types are correct). This means we can confirm structural correctness but not Google-specific Rich Results requirements for unit pricing.
+
+### Copilot Success Rate
+
+After 7 dispatches: 6 successful PRs merged (all without revisions), 1 failed to start. The successful PRs have all been high quality — matching specs closely, correct assertions, clean code. The pattern of detailed issue specs with exact code samples continues to produce reliable results.
+
+### Decisions Made
+
+1. **Re-dispatched #42 as #46**: Minimal cost, same spec. Better than investigating why Copilot failed (opaque system).
+2. **Dispatched @graph test spec (#47)**: The new API feature deserves dedicated test coverage. 6 test methods covering basic usage, context stripping, object API, single schema, order preservation, and nested types.
+3. **Merged PR #44 manually**: Resolved composer.lock conflict by keeping our version (then ran `composer update` locally). This is the standard pattern for Copilot PRs.
+
+### Open Questions
+
+- Why did Copilot fail to start on issue #42? Is there a pattern to watch for?
+- Should we add a "Copilot health check" to the startup checklist (verify in-flight sessions have started)?
+- The library is now at 301 internal tests and has @graph support — is this heading toward a v1.1.0?
