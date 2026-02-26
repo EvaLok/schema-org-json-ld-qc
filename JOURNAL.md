@@ -697,3 +697,50 @@ Copilot PRs #53 and #54 were both high quality:
 1. **Filed QC-REPORT on own repo**: Eva approved dispatching the missing property request. Used `qc-outbound` label per protocol — the main orchestrator will discover it by polling.
 2. **Dispatched ProductGroup enrichment now**: With the Recipe/rating batch done, ProductGroup (24 warnings) is the biggest remaining target. Also bundled miscellaneous fixes (Recipe video, JobPosting, Certification) into a second task.
 3. **isVariantOf/subjectOf left unfixed**: isVariantOf would create circular references (Product→ProductGroup→Products), and subjectOf isn't in the library. Accepted these 4 warnings as irreducible without library changes.
+
+## 2026-02-26 — QC-REQUEST Validation Session (Issue #62)
+
+### Breaking Change: Enum Namespace Consolidation
+
+The library (c9e68c6) consolidated all enum classes from `v1\Schema` to `v1\Enum`. This is the first breaking change the library has made that broke our consumer project. 49 of 186 tests failed immediately after `composer update`.
+
+**Lesson**: Always run the test suite immediately after a package update before doing anything else. The early detection allowed a quick fix (52 import statement changes) rather than discovering this mid-validation when it would have been more confusing.
+
+**Process improvement**: The `bash tools/session-init.sh` script should probably run `composer update` AND a quick `php vendor/bin/phpunit` as part of startup, failing fast if the package update breaks things. Currently these are separate checklist items.
+
+### Copilot PR Merge Conflicts from Namespace Change
+
+Both Copilot PRs (#60, #61) were created from master BEFORE the namespace fix was pushed. PR #60 had merge conflicts on the `ItemAvailability` import line (both files touched). PR #61 auto-merged cleanly because its changes didn't overlap with the import lines.
+
+**Lesson**: When a breaking change affects import statements, any in-flight Copilot PRs that touch those files will likely conflict. The fix is mechanical — resolve by taking the new namespace from master and the new code from the PR branch. But it adds ~5 minutes of manual conflict resolution per PR.
+
+**Pattern**: Push namespace/import fixes to master BEFORE marking Copilot PRs as ready. Then merge master into each PR branch to resolve conflicts before the GitHub merge.
+
+### Cross-Repo Communication Acceleration
+
+The QC-REPORT → QC-ACK → QC-REQUEST cycle completed faster than any previous cycle:
+- QC-REPORT #57 posted at 19:22
+- QC-ACK #195 from main orchestrator at 19:47 (25 minutes)
+- Library PRs #198, #199 merged by 20:05 (43 minutes)
+- QC-REQUEST #200 posted at 20:05 (43 minutes)
+- Our QC-ACK #63 created at 22:20 (3 hours — but this was a cycle boundary)
+
+The protocol is working well. The main orchestrator is responsive.
+
+### Warning Trajectory
+
+158 → 75 → 58 → target ~17 after current tasks complete.
+
+The remaining ~17 warnings will be:
+- Recipe/Recipe(Sections): optional fields like `expires`, `hasPart`, `publication`, `ineligibleRegion`, `interactionStatistic` — these are genuinely optional and we've chosen not to populate them
+- ProductGroup: `isVariantOf` (circular reference limitation)
+- ShippingService: `addressRegion`/`postalCode` conditional
+- Any residual from nested VideoObject publication warnings
+
+This is a reasonable baseline. The initial 158 was alarming but most were addressable through completeness improvements in our test fixtures.
+
+### Decisions Made
+
+1. **Fixed namespace directly**: The enum namespace change was a mechanical find-and-replace affecting only import statements. Dispatching to Copilot would have taken 10+ minutes for a 2-minute fix. This falls within the "single-line fixes" exception.
+2. **Dispatched two focused tasks**: HowToStep enrichment (#64) and datePublished/subjectOf (#65) are clearly scoped to exercise the new library properties.
+3. **Processed QC-REQUEST #200 immediately**: Created QC-ACK #63 with initial validation results, noting that full validation with new properties will come after Copilot tasks complete.
