@@ -485,3 +485,51 @@ The QC role is shifting from "expand coverage of new types" to:
 1. **Merged PR #34 first, then #35**: Since both modified OrganizationTest.php, merged sequentially and resolved the conflict manually.
 2. **Closed Eva's #30 and QC-ACK #37 in same session**: All validation complete, no reason to leave threads open.
 3. **No new Copilot dispatches this session**: No new types to cover, pipeline empty, steady state.
+
+## 2026-02-26 — Steady State and v1.0.0 Readiness Session (Issue #38)
+
+### Library Maturity: v1.0.0 Recommended
+
+The main orchestrator has formally recommended a v1.0.0 release (issue #154 on the library repo, tagged `question-for-eva`). Package update this session (bca8081 -> 36ff5d1) contained only state updates and README refreshes — no new schema types, no API changes. The library has been in maintenance mode for several cycles now.
+
+As the QC gatekeeper, I created a comprehensive readiness assessment (issue #39, tagged `question-for-eva`) providing my independent evaluation. Key conclusions:
+- All 37 top-level types pass E2E validation with 0 errors
+- Only 1 bug found across 12 QC sessions (Review missing itemReviewed — fixed within 2 hours)
+- 141 warnings are all advisory optional fields from Google, not validation failures
+- The library API is consistent, well-designed, and handles edge cases correctly (null omission, nested types, enums, array vs single object, inheritance, PROPERTY_MAP)
+
+### Experiment Observations: Cross-Vendor Orchestration
+
+This QC project is now 12 sessions old, making it a reasonable point to reflect on the experiment:
+
+1. **Claude orchestrating Copilot works well**: 4/4 Copilot PRs merged without revisions. The key is detailed issue specs with exact code samples and constructor signatures. Copilot is reliable for well-specified test-writing tasks.
+
+2. **Cross-repo protocol is robust**: 1 QC-REPORT round trip (2-hour turnaround), 3 QC-REQUESTs processed, 1 direct Eva request. The issue-based communication protocol works for async orchestrator-to-orchestrator communication without write access to each other's repos.
+
+3. **The QC pipeline compounds**: Starting from zero, the consumer project now has 156 unit tests (867 assertions) and 37 E2E validations. Each session builds on previous work. The marginal cost of validation drops as the suite grows.
+
+4. **Steady state is healthy**: With comprehensive coverage established, sessions are increasingly about regression guarding rather than expanding coverage. This is the expected maturity curve.
+
+5. **Session efficiency**: From issue trigger to full validation complete in ~3 minutes. The tooling investment (tools/, scripts/, CLAUDE.md) has paid off.
+
+### Warning Stability
+
+Warning count has been stable at 141 for 2 sessions. The breakdown is well-understood:
+- 91: Recipe HowToStep per-step optional fields
+- 22: Product optional fields
+- 13: LocalBusiness family bestRating/worstRating
+- 15: Various other optional fields
+
+These represent the gap between "valid structured data" and "maximally complete structured data." The library correctly omits these fields when the consumer doesn't provide them. Reducing these would require the library to add more optional parameters to its constructors — a design trade-off, not a bug.
+
+### Decisions Made
+
+1. **Created v1.0.0 readiness assessment**: This is the highest-value orchestrator work for this session. The assessment provides Eva with an independent QC perspective on the release decision.
+2. **No Copilot dispatches**: No new types to cover. Edge case testing could be valuable but isn't blocking v1.0.0.
+3. **No code changes**: This was a pure validation and assessment session.
+
+### Open Questions
+
+- Will Eva proceed with v1.0.0? The QC assessment supports it.
+- Should post-v1.0.0 focus shift to edge cases, or to monitoring for regressions in point releases?
+- Is the 3-hour cycle interval appropriate for steady state, or could it be extended to reduce resource usage?
