@@ -1,77 +1,77 @@
 {
-	"last_updated": "2026-02-26T16:25:00Z",
+	"last_updated": "2026-02-26T19:25:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "5173eb8",
-		"last_updated": "2026-02-26T16:20:00Z"
+		"commit": "2b335ff",
+		"last_updated": "2026-02-26T19:20:00Z"
 	},
 	"schema_types": {
 		"covered": {
-			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"MemberProgram": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"MerchantReturnPolicy": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 12, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 24, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 32, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 59, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"ShippingService": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "5173eb8" },
-			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "5173eb8" }
+			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"MemberProgram": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"MerchantReturnPolicy": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 4, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 24, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 13, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 24, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"ShippingService": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "last_tested": "2026-02-26", "package_commit": "2b335ff" },
+			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "2b335ff" }
 		},
 		"uncovered": [
 			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
 			"Answer", "BedDetails", "Brand", "Comment", "ContactPoint",
 			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
-			"EventAttendanceModeEnumeration", "EventStatusType", "FulfillmentTypeEnumeration",
+			"EventAttendanceModeEnumeration", "EventStatusType",
 			"GeoCoordinates", "GeoShape", "HowToSection", "HowToStep", "ImageObject", "InteractionCounter",
 			"ItemAvailability", "ListItem", "LocationFeatureSpecification",
 			"MemberProgramTier", "MerchantReturnEnumeration",
 			"MerchantReturnPolicySeasonalOverride", "MonetaryAmount", "NutritionInformation",
 			"Offer", "OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
-			"Place", "PostalAddress", "PropertyValue",
+			"PeopleAudience", "Place", "PostalAddress", "PropertyValue",
 			"QuantitativeValue", "Question", "Rating",
 			"RefundTypeEnumeration", "ReturnFeesEnumeration", "ReturnLabelSourceEnumeration", "ReturnMethodEnumeration",
 			"Schedule", "ServicePeriod", "ShippingConditions", "ShippingDeliveryTime", "ShippingRateSettings",
-			"SolveMathAction", "SpeakableSpecification",
-			"Thing", "TierBenefitEnumeration", "VirtualLocation", "WebPageElement"
+			"SizeSpecification", "SolveMathAction", "SpeakableSpecification",
+			"Thing", "TierBenefitEnumeration", "UnitPriceSpecification", "VirtualLocation", "WebPageElement"
 		]
 	},
 	"e2e_status": {
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-02-26T16:21:00Z",
-		"summary": "39/39 E2E pass, 0 errors, 158 warnings. Package 5173eb8. No regressions from v1.0.0 prep commits."
+		"last_run": "2026-02-26T19:21:00Z",
+		"summary": "39/39 E2E pass, 0 errors, 75 warnings. Package 2b335ff. Down from 158 (53% reduction) after merging PRs #53, #54."
 	},
 	"cross_repo": {
 		"outbound_issues": [
@@ -86,6 +86,14 @@
 				"main_repo_issue": 115,
 				"resolved": "2026-02-25T14:28:00Z",
 				"fix_commit": "cf9de6d"
+			},
+			{
+				"issue": 57,
+				"title": "[QC-REPORT] Missing optional properties causing 40+ validator warnings",
+				"status": "open",
+				"opened": "2026-02-26T19:22:00Z",
+				"acknowledged": false,
+				"properties_requested": ["HowToStep.video", "HowToStep.itemListElement", "VideoObject.publication", "Product.subjectOf", "Movie.datePublished", "SoftwareApplication.datePublished", "VacationRental.datePublished"]
 			}
 		],
 		"inbound_issues": [
@@ -134,8 +142,8 @@
 	},
 	"agent_sessions": {
 		"in_flight": [
-			{ "issue": 51, "pr": null, "status": "dispatched", "model": "gpt-5.3-codex", "dispatched_at": "2026-02-26T16:24:00Z" },
-			{ "issue": 52, "pr": null, "status": "dispatched", "model": "gpt-5.3-codex", "dispatched_at": "2026-02-26T16:24:00Z" }
+			{ "issue": 58, "pr": null, "status": "dispatched", "model": "gpt-5.3-codex", "dispatched_at": "2026-02-26T19:23:00Z" },
+			{ "issue": 59, "pr": null, "status": "dispatched", "model": "gpt-5.3-codex", "dispatched_at": "2026-02-26T19:23:00Z" }
 		],
 		"completed": [
 			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
@@ -145,7 +153,9 @@
 			{ "issue": 42, "pr": null, "status": "failed", "model": "gpt-5.3-codex", "note": "Never started. Re-dispatched as #46." },
 			{ "issue": 43, "pr": 44, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 46, "pr": 48, "status": "merged", "model": "gpt-5.3-codex" },
-			{ "issue": 47, "pr": 49, "status": "merged", "model": "gpt-5.3-codex" }
+			{ "issue": 47, "pr": 49, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 51, "pr": 54, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 52, "pr": 53, "status": "merged", "model": "gpt-5.3-codex" }
 		]
 	},
 	"session_history": [
@@ -172,6 +182,11 @@
 			"issue": 50,
 			"date": "2026-02-26",
 			"type": "warning-reduction-dispatch"
+		},
+		{
+			"issue": 56,
+			"date": "2026-02-26",
+			"type": "pr-review-and-qc-report"
 		}
 	]
 }

@@ -4,11 +4,11 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Event;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\EventAttendanceModeEnumeration;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\EventStatusType;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\EventAttendanceModeEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\EventStatusType;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ItemAvailability;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\OfferItemCondition;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\OfferItemCondition;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Place;

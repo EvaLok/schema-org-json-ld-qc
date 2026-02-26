@@ -6,15 +6,15 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ContactPoint;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgram;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgramTier;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ReturnFeesEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnFeesEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ShippingConditions;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ShippingService;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\TierBenefitEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\TierBenefitEnumeration;
 use PHPUnit\Framework\TestCase;
 
 class OrganizationTest extends TestCase

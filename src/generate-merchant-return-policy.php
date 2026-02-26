@@ -3,14 +3,14 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicySeasonalOverride;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\RefundTypeEnumeration;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ReturnFeesEnumeration;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ReturnLabelSourceEnumeration;
-use EvaLok\SchemaOrgJsonLd\v1\Schema\ReturnMethodEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\RefundTypeEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnFeesEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnLabelSourceEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnMethodEnumeration;
 
 $policy = new MerchantReturnPolicy(
 	applicableCountry: ['US', 'CA'],
