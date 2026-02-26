@@ -39,12 +39,42 @@ $recipe = new Recipe(
 		'1 1/2 cups all-purpose flour',
 	],
 	recipeInstructions: [
-		new HowToStep(text: 'Preheat oven to 350°F (175°C). Grease a 4x8 inch loaf pan.'),
-		new HowToStep(text: 'Mash the bananas in a mixing bowl with a fork.'),
-		new HowToStep(text: 'Mix in the melted butter, sugar, egg, and vanilla.'),
-		new HowToStep(text: 'Stir in the baking soda and salt. Mix in the flour.'),
-		new HowToStep(text: 'Pour batter into prepared loaf pan.'),
-		new HowToStep(text: 'Bake for 60 minutes or until a toothpick inserted comes out clean.'),
+		new HowToStep(
+			text: 'Preheat oven to 350°F (175°C). Grease a 4x8 inch loaf pan.',
+			name: 'Preheat the oven',
+			url: 'https://example.com/banana-bread#step1',
+			image: 'https://example.com/photos/banana-bread/step1.jpg',
+		),
+		new HowToStep(
+			text: 'Mash the bananas in a mixing bowl with a fork.',
+			name: 'Mash bananas',
+			url: 'https://example.com/banana-bread#step2',
+			image: 'https://example.com/photos/banana-bread/step2.jpg',
+		),
+		new HowToStep(
+			text: 'Mix in the melted butter, sugar, egg, and vanilla.',
+			name: 'Mix wet ingredients',
+			url: 'https://example.com/banana-bread#step3',
+			image: 'https://example.com/photos/banana-bread/step3.jpg',
+		),
+		new HowToStep(
+			text: 'Stir in the baking soda and salt. Mix in the flour.',
+			name: 'Add dry ingredients',
+			url: 'https://example.com/banana-bread#step4',
+			image: 'https://example.com/photos/banana-bread/step4.jpg',
+		),
+		new HowToStep(
+			text: 'Pour batter into prepared loaf pan.',
+			name: 'Fill loaf pan',
+			url: 'https://example.com/banana-bread#step5',
+			image: 'https://example.com/photos/banana-bread/step5.jpg',
+		),
+		new HowToStep(
+			text: 'Bake for 60 minutes or until a toothpick inserted comes out clean.',
+			name: 'Bake banana bread',
+			url: 'https://example.com/banana-bread#step6',
+			image: 'https://example.com/photos/banana-bread/step6.jpg',
+		),
 	],
 	nutrition: new NutritionInformation(
 		calories: '240 calories',
@@ -57,6 +87,7 @@ $recipe = new Recipe(
 		ratingValue: 4.7,
 		ratingCount: 256,
 		bestRating: 5,
+		worstRating: 1,
 	),
 );
 

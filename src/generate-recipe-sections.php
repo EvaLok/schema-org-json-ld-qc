@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
@@ -19,6 +20,7 @@ $recipe = new Recipe(
 	datePublished: '2025-03-15',
 	description: 'An authentic Italian tiramisu with espresso-soaked ladyfingers and mascarpone cream.',
 	prepTime: 'PT30M',
+	cookTime: 'PT0M',
 	totalTime: 'PT4H30M',
 	keywords: 'tiramisu, italian, dessert, no-bake',
 	recipeYield: '8 servings',
@@ -38,30 +40,91 @@ $recipe = new Recipe(
 		new HowToSection(
 			name: 'Prepare the Mascarpone Cream',
 			itemListElement: [
-				new HowToStep(text: 'Whisk egg yolks and sugar until thick and pale yellow.'),
-				new HowToStep(text: 'Add mascarpone cheese and mix until smooth.'),
-				new HowToStep(text: 'In a separate bowl, whip heavy cream to stiff peaks.'),
-				new HowToStep(text: 'Gently fold whipped cream into the mascarpone mixture.'),
+				new HowToStep(
+					text: 'Whisk egg yolks and sugar until thick and pale yellow.',
+					name: 'Whisk yolks and sugar',
+					url: 'https://example.com/tiramisu#cream-step1',
+					image: 'https://example.com/photos/tiramisu/step-1.jpg',
+				),
+				new HowToStep(
+					text: 'Add mascarpone cheese and mix until smooth.',
+					name: 'Blend in mascarpone',
+					url: 'https://example.com/tiramisu#cream-step2',
+					image: 'https://example.com/photos/tiramisu/step-2.jpg',
+				),
+				new HowToStep(
+					text: 'In a separate bowl, whip heavy cream to stiff peaks.',
+					name: 'Whip heavy cream',
+					url: 'https://example.com/tiramisu#cream-step3',
+					image: 'https://example.com/photos/tiramisu/step-3.jpg',
+				),
+				new HowToStep(
+					text: 'Gently fold whipped cream into the mascarpone mixture.',
+					name: 'Fold cream mixture',
+					url: 'https://example.com/tiramisu#cream-step4',
+					image: 'https://example.com/photos/tiramisu/step-4.jpg',
+				),
 			],
 		),
 		new HowToSection(
 			name: 'Assemble the Tiramisu',
 			itemListElement: [
-				new HowToStep(text: 'Combine espresso and coffee liqueur in a shallow dish.'),
-				new HowToStep(text: 'Quickly dip each ladyfinger into the espresso mixture.'),
-				new HowToStep(text: 'Arrange a layer of soaked ladyfingers in a 9x13 dish.'),
-				new HowToStep(text: 'Spread half the mascarpone cream over the ladyfingers.'),
-				new HowToStep(text: 'Repeat with a second layer of ladyfingers and cream.'),
+				new HowToStep(
+					text: 'Combine espresso and coffee liqueur in a shallow dish.',
+					name: 'Prepare espresso dip',
+					url: 'https://example.com/tiramisu#assemble-step1',
+					image: 'https://example.com/photos/tiramisu/step-5.jpg',
+				),
+				new HowToStep(
+					text: 'Quickly dip each ladyfinger into the espresso mixture.',
+					name: 'Dip ladyfingers',
+					url: 'https://example.com/tiramisu#assemble-step2',
+					image: 'https://example.com/photos/tiramisu/step-6.jpg',
+				),
+				new HowToStep(
+					text: 'Arrange a layer of soaked ladyfingers in a 9x13 dish.',
+					name: 'Layer ladyfingers',
+					url: 'https://example.com/tiramisu#assemble-step3',
+					image: 'https://example.com/photos/tiramisu/step-7.jpg',
+				),
+				new HowToStep(
+					text: 'Spread half the mascarpone cream over the ladyfingers.',
+					name: 'Add first cream layer',
+					url: 'https://example.com/tiramisu#assemble-step4',
+					image: 'https://example.com/photos/tiramisu/step-8.jpg',
+				),
+				new HowToStep(
+					text: 'Repeat with a second layer of ladyfingers and cream.',
+					name: 'Repeat layers',
+					url: 'https://example.com/tiramisu#assemble-step5',
+					image: 'https://example.com/photos/tiramisu/step-9.jpg',
+				),
 			],
 		),
 		new HowToSection(
 			name: 'Chill and Serve',
 			itemListElement: [
-				new HowToStep(text: 'Cover with plastic wrap and refrigerate for at least 4 hours.'),
-				new HowToStep(text: 'Dust generously with cocoa powder before serving.'),
+				new HowToStep(
+					text: 'Cover with plastic wrap and refrigerate for at least 4 hours.',
+					name: 'Chill tiramisu',
+					url: 'https://example.com/tiramisu#serve-step1',
+					image: 'https://example.com/photos/tiramisu/step-10.jpg',
+				),
+				new HowToStep(
+					text: 'Dust generously with cocoa powder before serving.',
+					name: 'Finish with cocoa',
+					url: 'https://example.com/tiramisu#serve-step2',
+					image: 'https://example.com/photos/tiramisu/step-11.jpg',
+				),
 			],
 		),
 	],
+	aggregateRating: new AggregateRating(
+		ratingValue: 4.9,
+		ratingCount: 184,
+		bestRating: 5,
+		worstRating: 1,
+	),
 );
 
 echo JsonLdGenerator::SchemaToJson($recipe) . "\n";

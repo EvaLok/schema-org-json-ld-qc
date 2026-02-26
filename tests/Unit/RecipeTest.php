@@ -62,12 +62,42 @@ class RecipeTest extends TestCase
 				'2 cups chocolate chips',
 			],
 			recipeInstructions: [
-				new HowToStep(text: 'Preheat oven to 375°F (190°C).'),
-				new HowToStep(text: 'Combine flour, baking soda, and salt in a bowl.'),
-				new HowToStep(text: 'Beat butter and sugars until creamy. Add eggs and vanilla.'),
-				new HowToStep(text: 'Gradually blend in flour mixture. Stir in chocolate chips.'),
-				new HowToStep(text: 'Drop rounded tablespoons onto ungreased baking sheets.'),
-				new HowToStep(text: 'Bake for 9 to 11 minutes or until golden brown.'),
+				new HowToStep(
+					text: 'Preheat oven to 375°F (190°C).',
+					name: 'Preheat oven',
+					url: 'https://example.com/cookies#step1',
+					image: 'https://example.com/photos/cookies/step1.jpg',
+				),
+				new HowToStep(
+					text: 'Combine flour, baking soda, and salt in a bowl.',
+					name: 'Mix dry ingredients',
+					url: 'https://example.com/cookies#step2',
+					image: 'https://example.com/photos/cookies/step2.jpg',
+				),
+				new HowToStep(
+					text: 'Beat butter and sugars until creamy. Add eggs and vanilla.',
+					name: 'Beat wet ingredients',
+					url: 'https://example.com/cookies#step3',
+					image: 'https://example.com/photos/cookies/step3.jpg',
+				),
+				new HowToStep(
+					text: 'Gradually blend in flour mixture. Stir in chocolate chips.',
+					name: 'Combine dough',
+					url: 'https://example.com/cookies#step4',
+					image: 'https://example.com/photos/cookies/step4.jpg',
+				),
+				new HowToStep(
+					text: 'Drop rounded tablespoons onto ungreased baking sheets.',
+					name: 'Portion dough',
+					url: 'https://example.com/cookies#step5',
+					image: 'https://example.com/photos/cookies/step5.jpg',
+				),
+				new HowToStep(
+					text: 'Bake for 9 to 11 minutes or until golden brown.',
+					name: 'Bake cookies',
+					url: 'https://example.com/cookies#step6',
+					image: 'https://example.com/photos/cookies/step6.jpg',
+				),
 			],
 			nutrition: new NutritionInformation(
 				calories: '210 calories',
@@ -99,6 +129,24 @@ class RecipeTest extends TestCase
 		$this->assertCount(9, $data['recipeIngredient']);
 		$this->assertCount(6, $data['recipeInstructions']);
 		$this->assertSame('HowToStep', $data['recipeInstructions'][0]['@type']);
+		$this->assertSame('Preheat oven', $data['recipeInstructions'][0]['name']);
+		$this->assertSame('https://example.com/cookies#step1', $data['recipeInstructions'][0]['url']);
+		$this->assertSame('https://example.com/photos/cookies/step1.jpg', $data['recipeInstructions'][0]['image']);
+		$this->assertSame('Mix dry ingredients', $data['recipeInstructions'][1]['name']);
+		$this->assertSame('https://example.com/cookies#step2', $data['recipeInstructions'][1]['url']);
+		$this->assertSame('https://example.com/photos/cookies/step2.jpg', $data['recipeInstructions'][1]['image']);
+		$this->assertSame('Beat wet ingredients', $data['recipeInstructions'][2]['name']);
+		$this->assertSame('https://example.com/cookies#step3', $data['recipeInstructions'][2]['url']);
+		$this->assertSame('https://example.com/photos/cookies/step3.jpg', $data['recipeInstructions'][2]['image']);
+		$this->assertSame('Combine dough', $data['recipeInstructions'][3]['name']);
+		$this->assertSame('https://example.com/cookies#step4', $data['recipeInstructions'][3]['url']);
+		$this->assertSame('https://example.com/photos/cookies/step4.jpg', $data['recipeInstructions'][3]['image']);
+		$this->assertSame('Portion dough', $data['recipeInstructions'][4]['name']);
+		$this->assertSame('https://example.com/cookies#step5', $data['recipeInstructions'][4]['url']);
+		$this->assertSame('https://example.com/photos/cookies/step5.jpg', $data['recipeInstructions'][4]['image']);
+		$this->assertSame('Bake cookies', $data['recipeInstructions'][5]['name']);
+		$this->assertSame('https://example.com/cookies#step6', $data['recipeInstructions'][5]['url']);
+		$this->assertSame('https://example.com/photos/cookies/step6.jpg', $data['recipeInstructions'][5]['image']);
 
 		// Nutrition
 		$this->assertSame('NutritionInformation', $data['nutrition']['@type']);
