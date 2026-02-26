@@ -30,11 +30,13 @@ $biz = new LocalBusiness(
 	),
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.4,
+		bestRating: 5,
+		worstRating: 1,
 		reviewCount: 267,
 	),
 	review: new Review(
 		author: 'James T.',
-		reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+		reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 		reviewBody: 'Best steak I have had in years. The service was impeccable.',
 		datePublished: '2025-02-01',
 	),

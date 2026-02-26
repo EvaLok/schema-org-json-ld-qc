@@ -64,11 +64,13 @@ class LocalBusinessTest extends TestCase
 			),
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.6,
+				bestRating: 5,
+				worstRating: 1,
 				reviewCount: 89,
 			),
 			review: new Review(
 				author: 'Sarah K.',
-				reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+				reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 				reviewBody: 'Dave fixed my laptop in 2 hours. Highly recommend!',
 				datePublished: '2025-01-10',
 			),
@@ -90,8 +92,11 @@ class LocalBusinessTest extends TestCase
 
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(4.6, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 
 		$this->assertSame('Review', $data['review']['@type']);
+		$this->assertSame(1, $data['review']['reviewRating']['worstRating']);
 	}
 
 	public function testNestedAddressHasNoContext(): void

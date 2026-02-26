@@ -22,6 +22,7 @@ $app = new WebApplication(
 		ratingValue: 4.3,
 		ratingCount: 5670,
 		bestRating: 5,
+		worstRating: 1,
 	),
 	applicationCategory: 'ProductivityApplication',
 	operatingSystem: 'All',

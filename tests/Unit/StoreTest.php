@@ -76,10 +76,10 @@ class StoreTest extends TestCase
 				new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Saturday, opens: '09:00', closes: '17:00'),
 				new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Sunday, opens: '10:00', closes: '16:00'),
 			],
-			aggregateRating: new AggregateRating(ratingValue: 4.8, reviewCount: 156),
+			aggregateRating: new AggregateRating(ratingValue: 4.8, bestRating: 5, worstRating: 1, reviewCount: 156),
 			review: new Review(
 				author: 'Carlos D.',
-				reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+				reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 				reviewBody: 'Great selection.',
 				datePublished: '2025-10-20',
 			),
@@ -91,6 +91,9 @@ class StoreTest extends TestCase
 		$this->assertCount(2, $data['openingHoursSpecification']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(4.8, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
+		$this->assertSame(1, $data['review']['reviewRating']['worstRating']);
 		$this->assertSame('Review', $data['review']['@type']);
 	}
 

@@ -36,6 +36,8 @@ $rental = new VacationRental(
 	),
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.9,
+		bestRating: 5,
+		worstRating: 1,
 		reviewCount: 87,
 	),
 	checkinTime: '15:00',
@@ -44,7 +46,7 @@ $rental = new VacationRental(
 	review: [
 		new Review(
 			author: 'Traveler Kate',
-			reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+			reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 			reviewBody: 'Absolutely perfect. The views are incredible.',
 		),
 	],

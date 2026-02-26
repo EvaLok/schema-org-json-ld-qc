@@ -16,6 +16,7 @@ $movie = new Movie(
 		ratingValue: 8.1,
 		ratingCount: 45230,
 		bestRating: 10,
+		worstRating: 1,
 	),
 	dateCreated: '2025-06-15',
 	director: new Person(name: 'Sofia Castellano'),

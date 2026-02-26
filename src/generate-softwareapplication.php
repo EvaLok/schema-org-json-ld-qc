@@ -22,6 +22,7 @@ $app = new SoftwareApplication(
 		ratingValue: 4.6,
 		ratingCount: 8250,
 		bestRating: 5,
+		worstRating: 1,
 	),
 	applicationCategory: 'BusinessApplication',
 	operatingSystem: 'Android, iOS',

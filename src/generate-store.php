@@ -41,11 +41,13 @@ $store = new Store(
 	],
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.8,
+		bestRating: 5,
+		worstRating: 1,
 		reviewCount: 156,
 	),
 	review: new Review(
 		author: 'Carlos D.',
-		reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+		reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 		reviewBody: 'Incredible selection of native plants. The staff really knows their stuff.',
 		datePublished: '2025-10-20',
 	),
