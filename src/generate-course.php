@@ -35,6 +35,7 @@ $course = new Course(
 		ratingValue: 4.8,
 		ratingCount: 1024,
 		bestRating: 5,
+		worstRating: 1,
 	),
 	image: 'https://example.com/photos/ml-course.jpg',
 );

@@ -30,11 +30,13 @@ $food = new FoodEstablishment(
 	),
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.7,
+		bestRating: 5,
+		worstRating: 1,
 		reviewCount: 312,
 	),
 	review: new Review(
 		author: 'Maria G.',
-		reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+		reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 		reviewBody: 'The tasting menu was extraordinary. Every course was a masterpiece.',
 		datePublished: '2025-11-15',
 	),

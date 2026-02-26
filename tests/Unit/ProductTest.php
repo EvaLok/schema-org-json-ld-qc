@@ -284,17 +284,49 @@ class ProductTest extends TestCase
 	public function testProductWithAggregateOffer(): void
 	{
 		$product = new Product(
-			name: 'Widget',
-			image: ['https://example.com/widget.jpg'],
-			description: 'A premium widget.',
-			sku: 'W001',
+			name: 'Wireless Bluetooth Headphones',
+			image: [
+				'https://example.com/photos/headphones-front.jpg',
+				'https://example.com/photos/headphones-side.jpg',
+			],
+			description: 'Premium noise-cancelling wireless headphones with 30-hour battery life.',
+			sku: 'WBH-PRO-2025',
 			offers: new AggregateOffer(
-				lowPrice: 29.99,
+				lowPrice: 149.99,
 				priceCurrency: 'USD',
-				highPrice: 59.99,
-				offerCount: 3,
+				highPrice: 249.99,
+				offerCount: 8,
 			),
-			brand: new Brand(name: 'WidgetCo'),
+			brand: new Brand(name: 'AudioTech'),
+			aggregateRating: new AggregateRating(
+				ratingValue: 4.6,
+				bestRating: 5,
+				worstRating: 1,
+				ratingCount: 234,
+				reviewCount: 45,
+			),
+			mpn: 'AT-WBH-PRO',
+			color: 'Matte Black',
+			material: 'Premium ABS Plastic',
+			pattern: 'Solid',
+			size: 'One Size',
+			gtin: '0098765432101',
+			audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 13),
+			review: [
+				new Review(
+					author: new Person(name: 'Alex Chen'),
+					reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
+					reviewBody: 'Incredible noise cancellation and battery life.',
+					datePublished: '2025-06-15',
+					name: 'Best headphones ever',
+				),
+			],
+			hasCertification: [
+				new Certification(
+					name: 'Bluetooth 5.3 Certified',
+					issuedBy: new Organization(name: 'Bluetooth SIG'),
+				),
+			],
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($product);
@@ -302,10 +334,22 @@ class ProductTest extends TestCase
 
 		$this->assertSame('Product', $data['@type']);
 		$this->assertSame('AggregateOffer', $data['offers']['@type']);
-		$this->assertEquals(29.99, $data['offers']['lowPrice']);
-		$this->assertEquals(59.99, $data['offers']['highPrice']);
-		$this->assertSame(3, $data['offers']['offerCount']);
+		$this->assertEquals(149.99, $data['offers']['lowPrice']);
+		$this->assertEquals(249.99, $data['offers']['highPrice']);
+		$this->assertSame(8, $data['offers']['offerCount']);
 		$this->assertSame('USD', $data['offers']['priceCurrency']);
+		$this->assertSame('AT-WBH-PRO', $data['mpn']);
+		$this->assertSame('Matte Black', $data['color']);
+		$this->assertSame('Premium ABS Plastic', $data['material']);
+		$this->assertSame('Solid', $data['pattern']);
+		$this->assertSame('One Size', $data['size']);
+		$this->assertSame('0098765432101', $data['gtin']);
+		$this->assertSame('PeopleAudience', $data['audience']['@type']);
+		$this->assertSame(13, $data['audience']['suggestedMinAge']);
+		$this->assertSame('Review', $data['review'][0]['@type']);
+		$this->assertSame(1, $data['review'][0]['reviewRating']['worstRating']);
+		$this->assertSame('Certification', $data['hasCertification'][0]['@type']);
+		$this->assertSame('Organization', $data['hasCertification'][0]['issuedBy']['@type']);
 	}
 
 	public function testOfferWithPriceValidUntil(): void

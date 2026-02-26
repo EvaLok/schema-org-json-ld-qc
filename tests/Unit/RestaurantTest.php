@@ -83,18 +83,18 @@ class RestaurantTest extends TestCase
 			review: [
 				new Review(
 					author: 'Alice',
-					reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+					reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 					reviewBody: 'Amazing!',
 					datePublished: '2025-12-01',
 				),
 				new Review(
 					author: 'Bob',
-					reviewRating: new Rating(ratingValue: 4, bestRating: 5),
+					reviewRating: new Rating(ratingValue: 4, bestRating: 5, worstRating: 1),
 					reviewBody: 'Good food.',
 					datePublished: '2025-11-20',
 				),
 			],
-			aggregateRating: new AggregateRating(ratingValue: 4.5, reviewCount: 100),
+			aggregateRating: new AggregateRating(ratingValue: 4.5, bestRating: 5, worstRating: 1, reviewCount: 100),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($restaurant);
@@ -106,6 +106,10 @@ class RestaurantTest extends TestCase
 		$this->assertSame('Review', $data['review'][1]['@type']);
 		$this->assertSame('Bob', $data['review'][1]['author']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
+		$this->assertSame(1, $data['review'][0]['reviewRating']['worstRating']);
+		$this->assertSame(1, $data['review'][1]['reviewRating']['worstRating']);
 	}
 
 	public function testRestaurantNullFieldsOmitted(): void

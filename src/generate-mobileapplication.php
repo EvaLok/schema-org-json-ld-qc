@@ -25,6 +25,7 @@ $app = new MobileApplication(
 		ratingValue: 4.5,
 		ratingCount: 32100,
 		bestRating: 5,
+		worstRating: 1,
 	),
 	applicationCategory: 'HealthApplication',
 	operatingSystem: 'Android 10+',

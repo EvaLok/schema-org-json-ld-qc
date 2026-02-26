@@ -36,6 +36,7 @@ class MovieTest extends TestCase
 			aggregateRating: new AggregateRating(
 				ratingValue: 8.8,
 				bestRating: 10,
+				worstRating: 1,
 				ratingCount: 2150000,
 			),
 			dateCreated: '2010-07-16',
@@ -65,6 +66,7 @@ class MovieTest extends TestCase
 		$this->assertSame('Leonardo DiCaprio', $data['actor'][0]['name']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(8.8, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 	}
 
 	public function testOptionalFieldsOmitted(): void

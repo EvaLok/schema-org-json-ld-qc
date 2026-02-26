@@ -122,10 +122,10 @@ class FoodEstablishmentTest extends TestCase
 			image: ['https://example.com/photo.jpg'],
 			priceRange: '$$$',
 			geo: new GeoCoordinates(latitude: 45.5231, longitude: -122.6765),
-			aggregateRating: new AggregateRating(ratingValue: 4.7, reviewCount: 312),
+			aggregateRating: new AggregateRating(ratingValue: 4.7, bestRating: 5, worstRating: 1, reviewCount: 312),
 			review: new Review(
 				author: 'Maria G.',
-				reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+				reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 				reviewBody: 'Excellent.',
 				datePublished: '2025-11-15',
 			),
@@ -144,6 +144,9 @@ class FoodEstablishmentTest extends TestCase
 		$this->assertSame('Pacific Northwest', $data['servesCuisine']);
 		$this->assertTrue($data['acceptsReservations']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
+		$this->assertSame(1, $data['review']['reviewRating']['worstRating']);
 		$this->assertSame('Review', $data['review']['@type']);
 		$this->assertSame('GeoCoordinates', $data['geo']['@type']);
 	}

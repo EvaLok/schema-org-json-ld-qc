@@ -41,18 +41,20 @@ $restaurant = new Restaurant(
 	],
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.5,
+		bestRating: 5,
+		worstRating: 1,
 		reviewCount: 487,
 	),
 	review: [
 		new Review(
 			author: 'Anthony R.',
-			reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+			reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 			reviewBody: 'Best margherita pizza outside of Naples. The crust is perfection.',
 			datePublished: '2025-12-01',
 		),
 		new Review(
 			author: 'Lisa M.',
-			reviewRating: new Rating(ratingValue: 4, bestRating: 5),
+			reviewRating: new Rating(ratingValue: 4, bestRating: 5, worstRating: 1),
 			reviewBody: 'Great food and atmosphere, but can get crowded on weekends.',
 			datePublished: '2025-11-20',
 		),

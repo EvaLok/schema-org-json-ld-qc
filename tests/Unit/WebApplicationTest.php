@@ -26,6 +26,8 @@ class WebApplicationTest extends TestCase
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.5,
 				reviewCount: 50000,
+				bestRating: 5,
+				worstRating: 1,
 			),
 			applicationCategory: 'BusinessApplication',
 		);
@@ -39,6 +41,7 @@ class WebApplicationTest extends TestCase
 		$this->assertSame('BusinessApplication', $data['applicationCategory']);
 		$this->assertSame('Offer', $data['offers']['@type']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 	}
 
 	public function testWebApplicationWithDescription(): void
@@ -55,6 +58,8 @@ class WebApplicationTest extends TestCase
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.8,
 				ratingCount: 9500,
+				bestRating: 5,
+				worstRating: 1,
 			),
 			applicationCategory: 'DesignApplication',
 			description: 'Collaborative interface design tool for teams.',

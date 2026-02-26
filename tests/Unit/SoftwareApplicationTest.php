@@ -28,6 +28,8 @@ class SoftwareApplicationTest extends TestCase
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.6,
 				ratingCount: 8864,
+				bestRating: 5,
+				worstRating: 1,
 			),
 			applicationCategory: 'GameApplication',
 			operatingSystem: 'ANDROID',
@@ -45,6 +47,7 @@ class SoftwareApplicationTest extends TestCase
 		$this->assertEquals(0, $data['offers']['price']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(4.6, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 	}
 
 	public function testSoftwareApplicationWithReview(): void
@@ -61,6 +64,8 @@ class SoftwareApplicationTest extends TestCase
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.8,
 				reviewCount: 15000,
+				bestRating: 5,
+				worstRating: 1,
 			),
 			applicationCategory: 'DeveloperApplication',
 			description: 'Free source-code editor by Microsoft.',

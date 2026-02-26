@@ -72,6 +72,8 @@ class VacationRentalTest extends TestCase
 			),
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.9,
+				bestRating: 5,
+				worstRating: 1,
 				reviewCount: 87,
 			),
 			brand: new Brand(name: 'Luxury Stays'),
@@ -82,7 +84,7 @@ class VacationRentalTest extends TestCase
 			review: [
 				new Review(
 					author: 'Traveler Kate',
-					reviewRating: new Rating(ratingValue: 5, bestRating: 5),
+					reviewRating: new Rating(ratingValue: 5, bestRating: 5, worstRating: 1),
 					reviewBody: 'Absolutely perfect. The views are incredible.',
 				),
 			],
@@ -102,6 +104,8 @@ class VacationRentalTest extends TestCase
 		$this->assertSame('Malibu', $data['address']['addressLocality']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(4.9, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 		$this->assertSame('Brand', $data['brand']['@type']);
 		$this->assertSame('Luxury Stays', $data['brand']['name']);
 		$this->assertSame('15:00', $data['checkinTime']);
@@ -109,6 +113,7 @@ class VacationRentalTest extends TestCase
 		$this->assertCount(3, $data['knowsLanguage']);
 		$this->assertCount(1, $data['review']);
 		$this->assertSame('Review', $data['review'][0]['@type']);
+		$this->assertSame(1, $data['review'][0]['reviewRating']['worstRating']);
 	}
 
 	public function testVacationRentalNullFieldsOmitted(): void

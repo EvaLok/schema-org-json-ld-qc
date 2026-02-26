@@ -26,6 +26,8 @@ class MobileApplicationTest extends TestCase
 			aggregateRating: new AggregateRating(
 				ratingValue: 4.7,
 				ratingCount: 12500000,
+				bestRating: 5,
+				worstRating: 1,
 			),
 			applicationCategory: 'EducationApplication',
 			operatingSystem: 'ANDROID',
@@ -41,6 +43,7 @@ class MobileApplicationTest extends TestCase
 		$this->assertSame('ANDROID', $data['operatingSystem']);
 		$this->assertSame('Offer', $data['offers']['@type']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 	}
 
 	public function testMobileApplicationTypeNotSoftwareApplication(): void

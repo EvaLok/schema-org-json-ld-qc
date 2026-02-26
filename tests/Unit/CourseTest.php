@@ -3,6 +3,7 @@
 namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Course;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\CourseInstance;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ItemAvailability;
@@ -58,6 +59,12 @@ class CourseTest extends TestCase
 			courseCode: 'PHP-ADV-101',
 			inLanguage: 'en',
 			totalHistoricalEnrollment: 5420,
+			aggregateRating: new AggregateRating(
+				ratingValue: 4.8,
+				ratingCount: 1024,
+				bestRating: 5,
+				worstRating: 1,
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($course);
@@ -74,6 +81,8 @@ class CourseTest extends TestCase
 		$this->assertSame('PHP-ADV-101', $data['courseCode']);
 		$this->assertSame('en', $data['inLanguage']);
 		$this->assertSame(5420, $data['totalHistoricalEnrollment']);
+		$this->assertSame(5, $data['aggregateRating']['bestRating']);
+		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 	}
 
 	public function testCourseInstanceWithoutCourseMode(): void
