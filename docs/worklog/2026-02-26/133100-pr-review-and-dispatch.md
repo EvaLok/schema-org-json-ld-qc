@@ -47,19 +47,35 @@ Two tasks dispatched (at concurrency limit):
 - Closed PR #44 and deleted branch (already merged manually)
 - Cleaned up temp files (issue-46-body.json, issue-47-body.json, comment files)
 
+### Copilot PRs #48 and #49 — same session
+
+Both Copilot tasks completed within ~9 minutes of dispatch. Reviewed and merged both:
+- PR #48 (Product properties): 3 new test files + 6 new ProductTest methods + generate-product.php enrichment
+- PR #49 (@graph tests): GraphTest.php with 6 tests + generate-graph.php
+
+### Final validation results
+
+- **Unit tests**: 185 passing (987 assertions) — 19 new tests this session
+- **E2E validation**: 39/39 pass, 0 errors, 158 warnings
+  - Product warnings: **10 -> 3** (7 warnings eliminated by enriched generate-product.php)
+  - @graph generate script: PASS, 0 warnings
+
+### QC-ACK #41 closed
+
+All items from QC-REQUEST #165 fully validated. Posted final results and closed.
+
 ## Current state
 
-- **Unit tests**: 166 passing (906 assertions)
-- **E2E**: 38/38 pass, 0 errors, 165 warnings
+- **Unit tests**: 185 passing (987 assertions)
+- **E2E**: 39/39 pass, 0 errors, 158 warnings
 - **Package**: 4494ee6 (latest)
-- **Cross-repo**: QC-ACK #41 open (pending Copilot #46 results)
-- **Agent sessions**: 2 in-flight (#46, #47)
-- **Coverage**: 38 top-level types. @graph API pending Copilot #47.
+- **Cross-repo**: All threads closed. No open QC-ACKs.
+- **Agent sessions**: 0 in-flight. 8 total (7 merged, 1 failed/re-dispatched).
+- **Coverage**: 39 top-level types + @graph composite.
 
 ## Next steps
 
-- Review Copilot PRs from #46 and #47 when ready
-- Merge if tests pass and code quality is good
-- Run updated E2E validation with enriched generate-product.php (expect Product warnings to decrease significantly)
-- Post final validation results on QC-ACK #41 and consider closing it
-- Check if main orchestrator has any new QC-REQUESTs
+- Monitor for new QC-REQUESTs from main repo
+- Consider enriching Product (AggregateOffer) generate script with new properties (currently 12 warnings)
+- Consider enriching ProductGroup generate script with full variant properties (currently 24 warnings)
+- Watch for Eva's response on v1.0.0 readiness (issue #39)

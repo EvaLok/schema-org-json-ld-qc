@@ -1,5 +1,5 @@
 {
-	"last_updated": "2026-02-26T13:35:00Z",
+	"last_updated": "2026-02-26T13:49:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
@@ -19,6 +19,7 @@
 			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
+			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 2, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
@@ -30,7 +31,7 @@
 			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
-			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 10, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
+			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 3, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 12, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 24, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
 			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-26", "package_commit": "4494ee6" },
@@ -49,7 +50,7 @@
 		},
 		"uncovered": [
 			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
-			"Answer", "BedDetails", "Brand", "Certification", "Comment", "ContactPoint",
+			"Answer", "BedDetails", "Brand", "Comment", "ContactPoint",
 			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
 			"EventAttendanceModeEnumeration", "EventStatusType", "FulfillmentTypeEnumeration",
 			"GeoCoordinates", "GeoShape", "HowToSection", "HowToStep", "ImageObject", "InteractionCounter",
@@ -57,20 +58,20 @@
 			"MemberProgramTier", "MerchantReturnEnumeration",
 			"MerchantReturnPolicySeasonalOverride", "MonetaryAmount", "NutritionInformation",
 			"Offer", "OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
-			"PeopleAudience", "Place", "PostalAddress", "PropertyValue",
+			"Place", "PostalAddress", "PropertyValue",
 			"QuantitativeValue", "Question", "Rating",
 			"RefundTypeEnumeration", "ReturnFeesEnumeration", "ReturnLabelSourceEnumeration", "ReturnMethodEnumeration",
 			"Schedule", "ServicePeriod", "ShippingConditions", "ShippingDeliveryTime", "ShippingRateSettings",
-			"SizeSpecification", "SolveMathAction", "SpeakableSpecification",
-			"Thing", "TierBenefitEnumeration", "UnitPriceSpecification", "VirtualLocation", "WebPageElement"
+			"SolveMathAction", "SpeakableSpecification",
+			"Thing", "TierBenefitEnumeration", "VirtualLocation", "WebPageElement"
 		]
 	},
 	"e2e_status": {
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-02-26T13:33:00Z",
-		"summary": "38/38 E2E pass, 0 errors, 165 warnings. Package 4494ee6. ProductGroup added. No regressions."
+		"last_run": "2026-02-26T13:48:00Z",
+		"summary": "39/39 E2E pass, 0 errors, 158 warnings. Package 4494ee6. ProductGroup, @graph added. Product warnings 10->3."
 	},
 	"cross_repo": {
 		"outbound_issues": [
@@ -110,8 +111,7 @@
 				"main_repo_issue": null,
 				"status": "closed",
 				"opened": "2026-02-26T00:53:00Z",
-				"validation_complete": true,
-				"note": "Direct request from Eva. Completed this session."
+				"validation_complete": true
 			},
 			{
 				"issue": 37,
@@ -125,170 +125,45 @@
 				"issue": 41,
 				"title": "[QC-ACK] Validate Cycle 29 Product enhancements (PRs #161, #163)",
 				"main_repo_issue": 165,
-				"status": "open",
+				"status": "closed",
 				"opened": "2026-02-26T10:22:00Z",
-				"validation_complete": false,
-				"note": "PR #44 merged (ProductGroup/UnitPriceSpec). Copilot #46 and #47 dispatched for remaining coverage."
+				"validation_complete": true
 			}
 		],
 		"processed_main_repo_issues": [121, 141, 153, 165]
 	},
 	"agent_sessions": {
-		"in_flight": [
-			{
-				"issue": 46,
-				"title": "Add Product text properties, SizeSpecification, PeopleAudience, and Certification tests",
-				"dispatched": "2026-02-26T13:35:00Z",
-				"pr": null,
-				"status": "in_progress",
-				"model": "gpt-5.3-codex",
-				"note": "Re-dispatch of failed #42"
-			},
-			{
-				"issue": 47,
-				"title": "Add @graph API tests (SchemasToJson/SchemasToObject) and generate script",
-				"dispatched": "2026-02-26T13:35:00Z",
-				"pr": null,
-				"status": "in_progress",
-				"model": "gpt-5.3-codex"
-			}
-		],
+		"in_flight": [],
 		"completed": [
-			{
-				"issue": 24,
-				"title": "Add PropertyValue unit tests and JobPosting identifier test",
-				"dispatched": "2026-02-25T20:51:00Z",
-				"pr": 25,
-				"status": "merged",
-				"model": "gpt-5.3-codex"
-			},
-			{
-				"issue": 28,
-				"title": "Add AggregateOffer generate script, unit tests, and Product AggregateOffer variant",
-				"dispatched": "2026-02-25T22:13:00Z",
-				"pr": 29,
-				"status": "merged",
-				"model": "gpt-5.3-codex"
-			},
-			{
-				"issue": 32,
-				"title": "Add MerchantReturnPolicy generate script, unit tests, and Organization integration",
-				"dispatched": "2026-02-26T01:42:00Z",
-				"pr": 34,
-				"status": "merged",
-				"model": "gpt-5.3-codex"
-			},
-			{
-				"issue": 33,
-				"title": "Add MemberProgram, ShippingService generate scripts, unit tests, and Organization integration",
-				"dispatched": "2026-02-26T01:42:00Z",
-				"pr": 35,
-				"status": "merged",
-				"model": "gpt-5.3-codex"
-			},
-			{
-				"issue": 42,
-				"title": "Add Product text properties, SizeSpecification, PeopleAudience, and Certification tests",
-				"dispatched": "2026-02-26T10:22:00Z",
-				"pr": null,
-				"status": "failed",
-				"model": "gpt-5.3-codex",
-				"note": "Copilot never started work. Re-dispatched as #46."
-			},
-			{
-				"issue": 43,
-				"title": "Add ProductGroup generate script and tests, UnitPriceSpecification tests, Offer priceSpecification test",
-				"dispatched": "2026-02-26T10:22:00Z",
-				"pr": 44,
-				"status": "merged",
-				"model": "gpt-5.3-codex"
-			}
+			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 28, "pr": 29, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 32, "pr": 34, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 33, "pr": 35, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 42, "pr": null, "status": "failed", "model": "gpt-5.3-codex", "note": "Never started. Re-dispatched as #46." },
+			{ "issue": 43, "pr": 44, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 46, "pr": 48, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 47, "pr": 49, "status": "merged", "model": "gpt-5.3-codex" }
 		]
 	},
 	"session_history": [
-		{
-			"issue": 4,
-			"date": "2026-02-25",
-			"type": "bootstrap",
-			"summary": "First session. 17 types covered with 58 tests, 328 assertions, all passing. E2E blocked by Google auth. Opened question-for-eva #5."
-		},
-		{
-			"issue": 6,
-			"date": "2026-02-25",
-			"type": "expansion",
-			"summary": "Second session. Expanded to 28 types covered with 93 tests, 550 assertions, all passing."
-		},
-		{
-			"issue": 7,
-			"date": "2026-02-25",
-			"type": "e2e-validation",
-			"summary": "Third session. Implemented Adobe E2E pipeline. Package c98da7c->9d13ef3. 27/28 pass, 1 fail (Review). 93 unit tests."
-		},
-		{
-			"issue": 9,
-			"date": "2026-02-25",
-			"type": "package-update-validation",
-			"summary": "Fourth session. Package 9d13ef3->efdce91. New Clip class. 103 unit tests, 597 assertions. 28/29 pass E2E."
-		},
-		{
-			"issue": 11,
-			"date": "2026-02-25",
-			"type": "fix-verification-and-tooling",
-			"summary": "Fifth session. Package efdce91->cf9de6d. Review fix verified (itemReviewed+Thing). 29/29 pass E2E, 0 errors. QC-REPORT #8 closed. Created tools/ scripts per Eva request. Closed input-from-eva #10."
-		},
-		{
-			"issue": 20,
-			"date": "2026-02-25",
-			"type": "qc-request-validation",
-			"summary": "Sixth session. Package cf9de6d->b32760f. Processed QC-REQUEST #121. Added tests for VirtualLocation, HowToSection, EventAttendanceMode, optional Offer.itemCondition, optional CourseInstance.courseMode. 113 unit tests, 645 assertions. 30/30 E2E pass, 0 errors."
-		},
-		{
-			"issue": 22,
-			"date": "2026-02-25",
-			"type": "new-types-validation",
-			"summary": "Seventh session. Package b32760f->9cca8ec. New types: FoodEstablishment, Restaurant, Store. Updated Organization (business identifiers) and LocalBusiness (department). 133 unit tests, 745 assertions. 33/33 E2E pass, 0 errors, 130 warnings."
-		},
-		{
-			"issue": 23,
-			"date": "2026-02-25",
-			"type": "package-update-validation",
-			"summary": "Eighth session. Package 9cca8ec->69187be. New: PropertyValue, ImageObject.creator widened, JobPosting.identifier. Updated generate-jobposting.php with identifier (warnings 3->2). Dispatched Copilot #24 for PropertyValue+JobPosting tests. 133 unit tests, 745 assertions. 33/33 E2E pass, 0 errors, 129 warnings."
-		},
-		{
-			"issue": 26,
-			"date": "2026-02-25",
-			"type": "qc-request-and-review",
-			"summary": "Ninth session. Package 69187be->e13243a. New: AggregateOffer, Offer.priceValidUntil, Product.offers union type. Merged Copilot PR #25 (PropertyValue tests). Processed QC-REQUEST #141 (all items pass). Added priceValidUntil to Product generate (warnings 11->10). Dispatched Copilot #28 for AggregateOffer coverage. 136 unit tests, 756 assertions. 33/33 E2E pass, 0 errors, 128 warnings."
-		},
-		{
-			"issue": 31,
-			"date": "2026-02-26",
-			"type": "package-update-and-dispatch",
-			"summary": "Tenth session. Package e13243a->ab334c4. Main orchestrator cycles 23-24: MerchantReturnPolicy, MemberProgram, ShippingService, Organization merchant properties. Merged Copilot PR #29 (AggregateOffer coverage). Processed Eva's direct QC request #30. Dispatched Copilot #32 (MerchantReturnPolicy) and #33 (MemberProgram+ShippingService). 140 unit tests, 774 assertions. 34/34 E2E pass, 0 errors, 140 warnings."
-		},
-		{
-			"issue": 36,
-			"date": "2026-02-26",
-			"type": "pr-review-and-validation",
-			"summary": "Eleventh session. Package ab334c4->bca8081. Merged Copilot PRs #34 (MerchantReturnPolicy) and #35 (MemberProgram+ShippingService), resolved OrganizationTest conflict. Processed QC-REQUEST #153 (all items pass). 156 unit tests, 867 assertions. 37/37 E2E pass, 0 errors, 141 warnings."
-		},
-		{
-			"issue": 38,
-			"date": "2026-02-26",
-			"type": "steady-state-and-readiness",
-			"summary": "Twelfth session. Package bca8081->36ff5d1 (state/README updates only, no new types). All tests pass: 156 unit (867 assertions), 37/37 E2E (0 errors, 141 warnings). Created v1.0.0 readiness assessment (issue #39). No new types, no regressions, no open bugs."
-		},
-		{
-			"issue": 40,
-			"date": "2026-02-26",
-			"type": "qc-request-and-dispatch",
-			"summary": "Thirteenth session. Package 36ff5d1->870ece5. 5 new types: SizeSpecification, ProductGroup, PeopleAudience, Certification, UnitPriceSpecification. Processed QC-REQUEST #165 (QC-ACK #41). Dispatched Copilot #42 (Product properties + SizeSpec + PeopleAudience + Certification) and #43 (ProductGroup + UnitPriceSpec + Offer). Existing tests: 156 unit (867 assertions), 37/37 E2E (0 errors, 141 warnings). No regressions."
-		},
+		{ "issue": 4, "date": "2026-02-25", "type": "bootstrap" },
+		{ "issue": 6, "date": "2026-02-25", "type": "expansion" },
+		{ "issue": 7, "date": "2026-02-25", "type": "e2e-validation" },
+		{ "issue": 9, "date": "2026-02-25", "type": "package-update-validation" },
+		{ "issue": 11, "date": "2026-02-25", "type": "fix-verification-and-tooling" },
+		{ "issue": 20, "date": "2026-02-25", "type": "qc-request-validation" },
+		{ "issue": 22, "date": "2026-02-25", "type": "new-types-validation" },
+		{ "issue": 23, "date": "2026-02-25", "type": "package-update-validation" },
+		{ "issue": 26, "date": "2026-02-25", "type": "qc-request-and-review" },
+		{ "issue": 31, "date": "2026-02-26", "type": "package-update-and-dispatch" },
+		{ "issue": 36, "date": "2026-02-26", "type": "pr-review-and-validation" },
+		{ "issue": 38, "date": "2026-02-26", "type": "steady-state-and-readiness" },
+		{ "issue": 40, "date": "2026-02-26", "type": "qc-request-and-dispatch" },
 		{
 			"issue": 45,
 			"date": "2026-02-26",
-			"type": "pr-review-and-dispatch",
-			"summary": "Fourteenth session. Package 870ece5->4494ee6 (@graph support). Merged Copilot PR #44 (ProductGroup+UnitPriceSpec, 10 new tests). Closed failed #42 (Copilot never started). Dispatched #46 (re-dispatch Product properties) and #47 (@graph tests). 166 unit tests (906 assertions), 38/38 E2E (0 errors, 165 warnings). No regressions."
+			"type": "pr-review-graph-and-product",
+			"summary": "Fourteenth session. Package 870ece5->4494ee6 (@graph support). Merged 3 Copilot PRs: #44 (ProductGroup+UnitPriceSpec), #48 (Product properties+SizeSpec+PeopleAudience+Certification), #49 (@graph tests). Closed failed #42, re-dispatched as #46. Closed QC-ACK #41. 185 unit tests (987 assertions), 39/39 E2E (0 errors, 158 warnings). Product warnings 10->3."
 		}
 	]
 }
