@@ -6,8 +6,10 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Recipe;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
 use PHPUnit\Framework\TestCase;
 
 class RecipeSectionsTest extends TestCase
@@ -108,6 +110,13 @@ class RecipeSectionsTest extends TestCase
 				bestRating: 5,
 				worstRating: 1,
 			),
+			nutrition: new NutritionInformation(calories: '450 calories'),
+			video: new VideoObject(
+				name: 'Classic Tiramisu Tutorial',
+				thumbnailUrl: ['https://example.com/photos/tiramisu/video-thumbnail.jpg'],
+				uploadDate: '2025-03-15',
+				contentUrl: 'https://example.com/videos/tiramisu.mp4',
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($recipe);
@@ -115,6 +124,8 @@ class RecipeSectionsTest extends TestCase
 
 		$this->assertSame('PT0M', $data['cookTime']);
 		$this->assertSame(1, $data['aggregateRating']['worstRating']);
+		$this->assertSame('450 calories', $data['nutrition']['calories']);
+		$this->assertSame('VideoObject', $data['video']['@type']);
 
 		foreach ($data['recipeInstructions'] as $section) {
 			foreach ($section['itemListElement'] as $step) {

@@ -10,6 +10,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Recipe;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
 
 $recipe = new Recipe(
 	name: 'Classic Banana Bread',
@@ -88,6 +89,15 @@ $recipe = new Recipe(
 		ratingCount: 256,
 		bestRating: 5,
 		worstRating: 1,
+	),
+	video: new VideoObject(
+		name: 'How to Make Banana Bread',
+		thumbnailUrl: ['https://example.com/photos/banana-bread/video-thumbnail.jpg'],
+		uploadDate: '2025-02-05',
+		description: 'Watch our step-by-step guide to making the best banana bread.',
+		contentUrl: 'https://example.com/videos/banana-bread.mp4',
+		embedUrl: 'https://example.com/embed/banana-bread',
+		duration: 'PT8M30S',
 	),
 );
 

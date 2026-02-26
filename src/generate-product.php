@@ -51,6 +51,7 @@ $product = new Product(
 		new Certification(
 			name: 'ACME Safety Certified',
 			issuedBy: new Organization(name: 'ACME Safety Council'),
+			certificationIdentification: 'ASC-2025-0042',
 		),
 	],
 	aggregateRating: new AggregateRating(

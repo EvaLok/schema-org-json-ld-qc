@@ -56,6 +56,7 @@ $product = new Product(
 		new Certification(
 			name: 'Bluetooth 5.3 Certified',
 			issuedBy: new Organization(name: 'Bluetooth SIG'),
+			certificationIdentification: 'BT53-WBH-2025',
 		),
 	],
 );

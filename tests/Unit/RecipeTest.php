@@ -11,6 +11,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Recipe;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\VideoObject;
 use PHPUnit\Framework\TestCase;
 
 class RecipeTest extends TestCase
@@ -111,6 +112,12 @@ class RecipeTest extends TestCase
 				ratingCount: 312,
 				bestRating: 5,
 			),
+			video: new VideoObject(
+				name: 'Cookie Baking Tutorial',
+				thumbnailUrl: ['https://example.com/cookies-video-thumb.jpg'],
+				uploadDate: '2025-01-01',
+				contentUrl: 'https://example.com/cookies-video.mp4',
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($recipe);
@@ -157,6 +164,7 @@ class RecipeTest extends TestCase
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(4.8, $data['aggregateRating']['ratingValue']);
 		$this->assertSame(312, $data['aggregateRating']['ratingCount']);
+		$this->assertSame('VideoObject', $data['video']['@type']);
 	}
 
 	public function testRecipeWithReview(): void
