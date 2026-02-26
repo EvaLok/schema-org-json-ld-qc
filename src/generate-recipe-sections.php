@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
@@ -47,24 +48,64 @@ $recipe = new Recipe(
 					name: 'Whisk yolks and sugar',
 					url: 'https://example.com/tiramisu#cream-step1',
 					image: 'https://example.com/photos/tiramisu/step-1.jpg',
+					video: new Clip(
+						name: 'Whisking Yolks and Sugar',
+						startOffset: 0,
+						url: 'https://example.com/videos/tiramisu.mp4?t=0',
+						endOffset: 30,
+					),
+					itemListElement: [
+						'Add egg yolks and sugar to a mixing bowl.',
+						'Whisk continuously until the mixture is pale and thick.',
+					],
 				),
 				new HowToStep(
 					text: 'Add mascarpone cheese and mix until smooth.',
 					name: 'Blend in mascarpone',
 					url: 'https://example.com/tiramisu#cream-step2',
 					image: 'https://example.com/photos/tiramisu/step-2.jpg',
+					video: new Clip(
+						name: 'Blending in Mascarpone',
+						startOffset: 30,
+						url: 'https://example.com/videos/tiramisu.mp4?t=30',
+						endOffset: 90,
+					),
+					itemListElement: [
+						'Add mascarpone to the yolk mixture in portions.',
+						'Mix until the cream is smooth with no lumps.',
+					],
 				),
 				new HowToStep(
 					text: 'In a separate bowl, whip heavy cream to stiff peaks.',
 					name: 'Whip heavy cream',
 					url: 'https://example.com/tiramisu#cream-step3',
 					image: 'https://example.com/photos/tiramisu/step-3.jpg',
+					video: new Clip(
+						name: 'Whipping Heavy Cream',
+						startOffset: 90,
+						url: 'https://example.com/videos/tiramisu.mp4?t=90',
+						endOffset: 150,
+					),
+					itemListElement: [
+						'Pour cold heavy cream into a chilled bowl.',
+						'Whip until the cream holds firm peaks.',
+					],
 				),
 				new HowToStep(
 					text: 'Gently fold whipped cream into the mascarpone mixture.',
 					name: 'Fold cream mixture',
 					url: 'https://example.com/tiramisu#cream-step4',
 					image: 'https://example.com/photos/tiramisu/step-4.jpg',
+					video: new Clip(
+						name: 'Folding the Cream Mixture',
+						startOffset: 150,
+						url: 'https://example.com/videos/tiramisu.mp4?t=150',
+						endOffset: 210,
+					),
+					itemListElement: [
+						'Add whipped cream to the mascarpone base in batches.',
+						'Fold gently to keep the mixture airy and smooth.',
+					],
 				),
 			],
 		),
@@ -76,30 +117,80 @@ $recipe = new Recipe(
 					name: 'Prepare espresso dip',
 					url: 'https://example.com/tiramisu#assemble-step1',
 					image: 'https://example.com/photos/tiramisu/step-5.jpg',
+					video: new Clip(
+						name: 'Preparing the Espresso Dip',
+						startOffset: 210,
+						url: 'https://example.com/videos/tiramisu.mp4?t=210',
+						endOffset: 270,
+					),
+					itemListElement: [
+						'Pour cooled espresso into a shallow dish.',
+						'Stir in coffee liqueur until fully combined.',
+					],
 				),
 				new HowToStep(
 					text: 'Quickly dip each ladyfinger into the espresso mixture.',
 					name: 'Dip ladyfingers',
 					url: 'https://example.com/tiramisu#assemble-step2',
 					image: 'https://example.com/photos/tiramisu/step-6.jpg',
+					video: new Clip(
+						name: 'Dipping Ladyfingers',
+						startOffset: 270,
+						url: 'https://example.com/videos/tiramisu.mp4?t=270',
+						endOffset: 330,
+					),
+					itemListElement: [
+						'Dip each ladyfinger briefly on both sides.',
+						'Avoid soaking too long so the cookies stay structured.',
+					],
 				),
 				new HowToStep(
 					text: 'Arrange a layer of soaked ladyfingers in a 9x13 dish.',
 					name: 'Layer ladyfingers',
 					url: 'https://example.com/tiramisu#assemble-step3',
 					image: 'https://example.com/photos/tiramisu/step-7.jpg',
+					video: new Clip(
+						name: 'Layering Ladyfingers',
+						startOffset: 330,
+						url: 'https://example.com/videos/tiramisu.mp4?t=330',
+						endOffset: 390,
+					),
+					itemListElement: [
+						'Place soaked ladyfingers tightly in a single layer.',
+						'Trim or break pieces to fill any gaps in the dish.',
+					],
 				),
 				new HowToStep(
 					text: 'Spread half the mascarpone cream over the ladyfingers.',
 					name: 'Add first cream layer',
 					url: 'https://example.com/tiramisu#assemble-step4',
 					image: 'https://example.com/photos/tiramisu/step-8.jpg',
+					video: new Clip(
+						name: 'Adding the First Cream Layer',
+						startOffset: 390,
+						url: 'https://example.com/videos/tiramisu.mp4?t=390',
+						endOffset: 450,
+					),
+					itemListElement: [
+						'Spoon half of the mascarpone cream over the cookies.',
+						'Spread evenly to cover the entire ladyfinger layer.',
+					],
 				),
 				new HowToStep(
 					text: 'Repeat with a second layer of ladyfingers and cream.',
 					name: 'Repeat layers',
 					url: 'https://example.com/tiramisu#assemble-step5',
 					image: 'https://example.com/photos/tiramisu/step-9.jpg',
+					video: new Clip(
+						name: 'Building the Second Layer',
+						startOffset: 450,
+						url: 'https://example.com/videos/tiramisu.mp4?t=450',
+						endOffset: 510,
+					),
+					itemListElement: [
+						'Add a second layer of dipped ladyfingers.',
+						'Top with the remaining mascarpone cream and smooth the surface.',
+					],
 				),
 			],
 		),
@@ -111,12 +202,32 @@ $recipe = new Recipe(
 					name: 'Chill tiramisu',
 					url: 'https://example.com/tiramisu#serve-step1',
 					image: 'https://example.com/photos/tiramisu/step-10.jpg',
+					video: new Clip(
+						name: 'Chilling the Tiramisu',
+						startOffset: 510,
+						url: 'https://example.com/videos/tiramisu.mp4?t=510',
+						endOffset: 690,
+					),
+					itemListElement: [
+						'Cover the dish tightly with plastic wrap.',
+						'Refrigerate for at least 4 hours so layers can set.',
+					],
 				),
 				new HowToStep(
 					text: 'Dust generously with cocoa powder before serving.',
 					name: 'Finish with cocoa',
 					url: 'https://example.com/tiramisu#serve-step2',
 					image: 'https://example.com/photos/tiramisu/step-11.jpg',
+					video: new Clip(
+						name: 'Finishing with Cocoa',
+						startOffset: 690,
+						url: 'https://example.com/videos/tiramisu.mp4?t=690',
+						endOffset: 765,
+					),
+					itemListElement: [
+						'Use a fine sieve to dust cocoa powder over the top.',
+						'Slice and serve chilled for the best texture.',
+					],
 				),
 			],
 		),

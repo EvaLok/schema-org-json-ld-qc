@@ -4,6 +4,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
@@ -68,6 +69,16 @@ class RecipeTest extends TestCase
 					name: 'Preheat oven',
 					url: 'https://example.com/cookies#step1',
 					image: 'https://example.com/photos/cookies/step1.jpg',
+					video: new Clip(
+						name: 'Preheat Oven Clip',
+						startOffset: 0,
+						url: 'https://example.com/cookies-video.mp4?t=0',
+						endOffset: 30,
+					),
+					itemListElement: [
+						'Set oven temperature to 375°F (190°C).',
+						'Wait for the oven to finish preheating.',
+					],
 				),
 				new HowToStep(
 					text: 'Combine flour, baking soda, and salt in a bowl.',
@@ -139,6 +150,10 @@ class RecipeTest extends TestCase
 		$this->assertSame('Preheat oven', $data['recipeInstructions'][0]['name']);
 		$this->assertSame('https://example.com/cookies#step1', $data['recipeInstructions'][0]['url']);
 		$this->assertSame('https://example.com/photos/cookies/step1.jpg', $data['recipeInstructions'][0]['image']);
+		$this->assertSame('Clip', $data['recipeInstructions'][0]['video']['@type']);
+		$this->assertArrayHasKey('name', $data['recipeInstructions'][0]['video']);
+		$this->assertIsArray($data['recipeInstructions'][0]['itemListElement']);
+		$this->assertGreaterThanOrEqual(2, count($data['recipeInstructions'][0]['itemListElement']));
 		$this->assertSame('Mix dry ingredients', $data['recipeInstructions'][1]['name']);
 		$this->assertSame('https://example.com/cookies#step2', $data['recipeInstructions'][1]['url']);
 		$this->assertSame('https://example.com/photos/cookies/step2.jpg', $data['recipeInstructions'][1]['image']);

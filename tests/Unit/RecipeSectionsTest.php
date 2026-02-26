@@ -4,6 +4,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
@@ -30,6 +31,16 @@ class RecipeSectionsTest extends TestCase
 							name: 'Whisk yolks and sugar',
 							url: 'https://example.com/tiramisu#cream-step1',
 							image: 'https://example.com/photos/tiramisu/step-1.jpg',
+							video: new Clip(
+								name: 'Whisking Yolks and Sugar',
+								startOffset: 0,
+								url: 'https://example.com/videos/tiramisu.mp4?t=0',
+								endOffset: 30,
+							),
+							itemListElement: [
+								'Add yolks and sugar to a bowl.',
+								'Whisk until pale and thick.',
+							],
 						),
 						new HowToStep(
 							text: 'Add mascarpone cheese and mix until smooth.',
@@ -126,6 +137,8 @@ class RecipeSectionsTest extends TestCase
 		$this->assertSame(1, $data['aggregateRating']['worstRating']);
 		$this->assertSame('450 calories', $data['nutrition']['calories']);
 		$this->assertSame('VideoObject', $data['video']['@type']);
+		$this->assertSame('Clip', $data['recipeInstructions'][0]['itemListElement'][0]['video']['@type']);
+		$this->assertIsArray($data['recipeInstructions'][0]['itemListElement'][0]['itemListElement']);
 
 		foreach ($data['recipeInstructions'] as $section) {
 			foreach ($section['itemListElement'] as $step) {

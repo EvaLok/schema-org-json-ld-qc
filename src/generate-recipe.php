@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
@@ -45,36 +46,98 @@ $recipe = new Recipe(
 			name: 'Preheat the oven',
 			url: 'https://example.com/banana-bread#step1',
 			image: 'https://example.com/photos/banana-bread/step1.jpg',
+			video: new Clip(
+				name: 'Preheating the Oven',
+				startOffset: 0,
+				url: 'https://example.com/videos/banana-bread.mp4?t=0',
+				endOffset: 30,
+			),
+			itemListElement: [
+				'Set oven temperature to 350°F (175°C).',
+				'Lightly grease a 4x8 inch loaf pan with butter or cooking spray.',
+			],
 		),
 		new HowToStep(
 			text: 'Mash the bananas in a mixing bowl with a fork.',
 			name: 'Mash bananas',
 			url: 'https://example.com/banana-bread#step2',
 			image: 'https://example.com/photos/banana-bread/step2.jpg',
+			video: new Clip(
+				name: 'Mashing the Bananas',
+				startOffset: 30,
+				url: 'https://example.com/videos/banana-bread.mp4?t=30',
+				endOffset: 90,
+			),
+			itemListElement: [
+				'Peel all ripe bananas and place them in a large bowl.',
+				'Mash with a fork until mostly smooth with a few small lumps.',
+			],
 		),
 		new HowToStep(
 			text: 'Mix in the melted butter, sugar, egg, and vanilla.',
 			name: 'Mix wet ingredients',
 			url: 'https://example.com/banana-bread#step3',
 			image: 'https://example.com/photos/banana-bread/step3.jpg',
+			video: new Clip(
+				name: 'Combining the Wet Ingredients',
+				startOffset: 90,
+				url: 'https://example.com/videos/banana-bread.mp4?t=90',
+				endOffset: 150,
+			),
+			itemListElement: [
+				'Stir melted butter into the mashed bananas.',
+				'Add sugar, beaten egg, and vanilla extract.',
+				'Mix until the batter looks evenly combined.',
+			],
 		),
 		new HowToStep(
 			text: 'Stir in the baking soda and salt. Mix in the flour.',
 			name: 'Add dry ingredients',
 			url: 'https://example.com/banana-bread#step4',
 			image: 'https://example.com/photos/banana-bread/step4.jpg',
+			video: new Clip(
+				name: 'Adding Dry Ingredients',
+				startOffset: 150,
+				url: 'https://example.com/videos/banana-bread.mp4?t=150',
+				endOffset: 210,
+			),
+			itemListElement: [
+				'Sprinkle baking soda and salt over the wet batter.',
+				'Add flour and fold gently just until no dry streaks remain.',
+			],
 		),
 		new HowToStep(
 			text: 'Pour batter into prepared loaf pan.',
 			name: 'Fill loaf pan',
 			url: 'https://example.com/banana-bread#step5',
 			image: 'https://example.com/photos/banana-bread/step5.jpg',
+			video: new Clip(
+				name: 'Filling the Loaf Pan',
+				startOffset: 210,
+				url: 'https://example.com/videos/banana-bread.mp4?t=210',
+				endOffset: 270,
+			),
+			itemListElement: [
+				'Scrape the batter from the bowl into the greased loaf pan.',
+				'Spread the top evenly with a spatula for even baking.',
+			],
 		),
 		new HowToStep(
 			text: 'Bake for 60 minutes or until a toothpick inserted comes out clean.',
 			name: 'Bake banana bread',
 			url: 'https://example.com/banana-bread#step6',
 			image: 'https://example.com/photos/banana-bread/step6.jpg',
+			video: new Clip(
+				name: 'Baking and Checking Doneness',
+				startOffset: 270,
+				url: 'https://example.com/videos/banana-bread.mp4?t=270',
+				endOffset: 510,
+			),
+			itemListElement: [
+				'Place the pan on the center rack and bake for about 60 minutes.',
+				'Check doneness by inserting a toothpick into the center.',
+				'Cool in the pan for 10 minutes before transferring to a rack.',
+			],
 		),
 	],
 	nutrition: new NutritionInformation(
