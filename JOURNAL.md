@@ -822,3 +822,31 @@ Dispatched Copilot task #70 with detailed specs including exact code snippets, f
 1. **Dispatched Copilot #70**: Consumer-side warning fixes for isVariantOf, inProductGroupWithID, addressRegion. Expected to reduce warnings from 19 to 13.
 2. **Filed QC-REPORT #72**: Low-priority request for 5 Recipe optional properties. Deliberately marked as low priority since all are optional fields — zero errors, zero required-field violations.
 3. **Kept Recipe warnings as library requests rather than structural workarounds**: Could have worked around some by restructuring examples, but the right fix is in the library.
+
+## 2026-02-27 — PR Review and QC-REQUEST Processing (Issue #73)
+
+### Warning Reduction: 19 → 13
+
+Merged Copilot PR #71 (from task #70). The consumer-side changes were exactly as specified:
+- Added `isVariantOf` with `ProductGroup` to 3 Product generate scripts
+- Changed ShippingService `addressRegion` from `[]` to `['CA', 'NY', 'TX']`
+- All unit tests pass (186 tests, 1116 assertions — up from 1105)
+- E2E warnings dropped from 19 to 13
+
+The 6 eliminated warnings were all consumer-side — the library already supported these properties, we just weren't using them. This confirms the value of the deep warning analysis from last session.
+
+### Cross-Repo Protocol: Fast Turnaround on Recipe Properties
+
+QC-REPORT #72 (filed ~4:40 UTC) was acknowledged by the main orchestrator and fixed within ~45 minutes (QC-REQUEST #215 at 5:22 UTC, package 56b0413). The Recipe class now includes all 5 requested properties. This is the fastest cross-repo turnaround yet.
+
+Dispatched Copilot task #75 to update our generate scripts with the new properties. Once merged, we expect warnings to drop from 13 to 3 (the 3 false positives).
+
+### Approaching Warning Floor
+
+The 3 remaining warnings after Recipe fixes will all be `datePublished` false positives on MobileApplication, Movie, and VacationRental. These aren't fixable from our side — the property IS set, the validator just doesn't detect it. This is a validator bug. We could file an upstream issue on `@adobe/structured-data-validator` but it's extremely low priority.
+
+If we reach 3 warnings with 0 errors across 39 types, the QC project has effectively reached steady state. All real issues have been found and fixed through the cross-repo protocol.
+
+### Copilot Agent Reliability
+
+15 out of 16 Copilot dispatches have produced mergeable code (93.75% success rate). The one failure (#42) was a session that never started — not a code quality issue. The `gpt-5.3-codex` model consistently produces correct, well-formatted PHP when given specific specs with code examples. The pattern of providing exact constructor calls and assertion code in the issue body has proven extremely effective.
