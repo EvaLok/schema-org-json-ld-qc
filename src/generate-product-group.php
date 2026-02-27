@@ -16,6 +16,13 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 
+$groupRef = new ProductGroup(
+	name: 'Classic Oxford Shirt Collection',
+	productGroupID: 'oxford-shirts',
+	variesBy: ['https://schema.org/color', 'https://schema.org/size'],
+	url: 'https://example.com/shirts/oxford',
+);
+
 $blueShirt = new Product(
 	name: 'Classic Oxford Shirt - Blue',
 	image: ['https://example.com/shirts/blue.jpg'],
@@ -61,6 +68,7 @@ $blueShirt = new Product(
 	color: 'Blue',
 	size: 'M',
 	gtin: '0012345678905',
+	isVariantOf: $groupRef,
 );
 
 $whiteShirt = new Product(
@@ -108,6 +116,7 @@ $whiteShirt = new Product(
 	color: 'White',
 	size: 'M',
 	gtin: '0012345678912',
+	isVariantOf: $groupRef,
 );
 
 $productGroup = new ProductGroup(

@@ -14,6 +14,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PeopleAudience;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\SizeSpecification;
@@ -311,6 +312,11 @@ class ProductTest extends TestCase
 			pattern: 'Solid',
 			size: 'One Size',
 			gtin: '0098765432101',
+			inProductGroupWithID: 'audio-headphones-pro',
+			isVariantOf: new ProductGroup(
+				name: 'AudioTech Pro Series',
+				productGroupID: 'audio-headphones-pro',
+			),
 			audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 13),
 			review: [
 				new Review(
@@ -344,6 +350,10 @@ class ProductTest extends TestCase
 		$this->assertSame('Solid', $data['pattern']);
 		$this->assertSame('One Size', $data['size']);
 		$this->assertSame('0098765432101', $data['gtin']);
+		$this->assertSame('audio-headphones-pro', $data['inProductGroupWithID']);
+		$this->assertSame('ProductGroup', $data['isVariantOf']['@type']);
+		$this->assertSame('AudioTech Pro Series', $data['isVariantOf']['name']);
+		$this->assertSame('audio-headphones-pro', $data['isVariantOf']['productGroupID']);
 		$this->assertSame('PeopleAudience', $data['audience']['@type']);
 		$this->assertSame(13, $data['audience']['suggestedMinAge']);
 		$this->assertSame('Review', $data['review'][0]['@type']);
@@ -423,7 +433,11 @@ class ProductTest extends TestCase
 			material: '100% Cotton Oxford',
 			pattern: 'Solid',
 			gtin: '0012345678905',
-			inProductGroupWithID: 'pg-oxford-shirts',
+			inProductGroupWithID: 'pg-executive-tools',
+			isVariantOf: new ProductGroup(
+				name: 'Executive Tools Collection',
+				productGroupID: 'pg-executive-tools',
+			),
 			subjectOf: 'https://example.com/product-review-video',
 		);
 
@@ -434,7 +448,10 @@ class ProductTest extends TestCase
 		$this->assertSame('100% Cotton Oxford', $data['material']);
 		$this->assertSame('Solid', $data['pattern']);
 		$this->assertSame('0012345678905', $data['gtin']);
-		$this->assertSame('pg-oxford-shirts', $data['inProductGroupWithID']);
+		$this->assertSame('pg-executive-tools', $data['inProductGroupWithID']);
+		$this->assertSame('ProductGroup', $data['isVariantOf']['@type']);
+		$this->assertSame('Executive Tools Collection', $data['isVariantOf']['name']);
+		$this->assertSame('pg-executive-tools', $data['isVariantOf']['productGroupID']);
 		$this->assertArrayHasKey('subjectOf', $data);
 	}
 
