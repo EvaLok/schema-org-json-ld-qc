@@ -13,6 +13,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PeopleAudience;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 
@@ -43,6 +44,10 @@ $product = new Product(
 	size: 'Standard',
 	gtin: '0012345678905',
 	inProductGroupWithID: 'pg-executive-tools',
+	isVariantOf: new ProductGroup(
+		name: 'Executive Tools Collection',
+		productGroupID: 'pg-executive-tools',
+	),
 	subjectOf: 'https://example.com/product-review-video',
 	audience: new PeopleAudience(
 		suggestedGender: 'unisex',

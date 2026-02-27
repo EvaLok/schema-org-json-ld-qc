@@ -78,6 +78,10 @@ class ProductGroupTest extends TestCase
 			],
 			color: 'Blue',
 			size: 'M',
+			isVariantOf: new ProductGroup(
+				name: 'Classic Oxford Shirt Collection',
+				productGroupID: 'oxford-shirts',
+			),
 		);
 
 		$group = new ProductGroup(
@@ -102,6 +106,9 @@ class ProductGroupTest extends TestCase
 		$this->assertSame('100% Premium Cotton', $data['hasVariant'][0]['material']);
 		$this->assertSame('Solid', $data['hasVariant'][0]['pattern']);
 		$this->assertSame('oxford-shirts', $data['hasVariant'][0]['inProductGroupWithID']);
+		$this->assertSame('ProductGroup', $data['hasVariant'][0]['isVariantOf']['@type']);
+		$this->assertSame('Classic Oxford Shirt Collection', $data['hasVariant'][0]['isVariantOf']['name']);
+		$this->assertSame('oxford-shirts', $data['hasVariant'][0]['isVariantOf']['productGroupID']);
 		$this->assertSame('https://example.com/shirt-review', $data['hasVariant'][0]['subjectOf']);
 		$this->assertSame('PeopleAudience', $data['hasVariant'][0]['audience']['@type']);
 		$this->assertSame('OT-12345', $data['hasVariant'][0]['hasCertification'][0]['certificationIdentification']);

@@ -15,7 +15,7 @@ $service = new ShippingService(
 	shippingConditions: new ShippingConditions(
 		shippingDestination: new DefinedRegion(
 			addressCountry: 'US',
-			addressRegion: [],
+			addressRegion: ['CA', 'NY', 'TX'],
 		),
 		shippingRate: new MonetaryAmount(
 			value: 5.99,

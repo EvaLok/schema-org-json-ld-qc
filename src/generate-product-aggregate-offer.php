@@ -11,6 +11,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PeopleAudience;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 
@@ -42,6 +43,11 @@ $product = new Product(
 	pattern: 'Solid',
 	size: 'One Size',
 	gtin: '0098765432101',
+	inProductGroupWithID: 'audio-headphones-pro',
+	isVariantOf: new ProductGroup(
+		name: 'AudioTech Pro Series',
+		productGroupID: 'audio-headphones-pro',
+	),
 	subjectOf: 'https://example.com/product-comparison-video',
 	audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 13),
 	review: [

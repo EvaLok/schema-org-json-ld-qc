@@ -49,7 +49,7 @@ class ShippingServiceTest extends TestCase
 			shippingConditions: new ShippingConditions(
 				shippingDestination: new DefinedRegion(
 					addressCountry: 'US',
-					addressRegion: [],
+					addressRegion: ['CA', 'NY', 'TX'],
 				),
 				shippingRate: new MonetaryAmount(
 					value: 0,
@@ -68,6 +68,7 @@ class ShippingServiceTest extends TestCase
 		$this->assertSame('ShippingService', $data['@type']);
 		$this->assertSame('Free Shipping', $data['name']);
 		$this->assertSame('DefinedRegion', $data['shippingConditions']['shippingDestination']['@type']);
+		$this->assertSame(['CA', 'NY', 'TX'], $data['shippingConditions']['shippingDestination']['addressRegion']);
 		$this->assertSame('ServicePeriod', $data['shippingConditions']['transitTime']['@type']);
 	}
 
