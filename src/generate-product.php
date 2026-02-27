@@ -7,6 +7,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Certification;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\ItemAvailability;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\OfferItemCondition;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
@@ -15,7 +16,10 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnFeesEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnMethodEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 
 $product = new Product(
 	name: 'Executive Anvil',
@@ -34,6 +38,13 @@ $product = new Product(
 			itemCondition: OfferItemCondition::NewCondition,
 			availability: ItemAvailability::InStock,
 			priceValidUntil: '2026-12-31',
+			hasMerchantReturnPolicy: new MerchantReturnPolicy(
+				applicableCountry: 'US',
+				returnPolicyCategory: MerchantReturnEnumeration::MerchantReturnFiniteReturnWindow,
+				merchantReturnDays: 30,
+				returnFees: ReturnFeesEnumeration::FreeReturn,
+				returnMethod: ReturnMethodEnumeration::ReturnByMail,
+			),
 		),
 	],
 	brand: new Brand(name: 'ACME'),
