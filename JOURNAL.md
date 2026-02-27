@@ -792,3 +792,33 @@ Both PRs had `action_required` CI status — this happens because Copilot is a f
 1. **Closed QC-REPORT #57**: The remaining warnings are either false positives, structural, or require library-level changes. The report served its purpose — the main orchestrator added the requested properties and we validated them.
 2. **No new Copilot dispatches**: With all cross-repo threads closed and no new types to cover, there's no immediate implementation work needed. The project is in a maintenance/monitoring phase.
 3. **Updated Eva's v1.0.0 assessment**: Posted current warning count (19, 3 false positives) on issue #39. The library is in excellent shape for release.
+
+## 2026-02-27 — Warning Analysis and Dispatch (Issue #69)
+
+### Validation Status
+
+Package updated from `5b0225d` to `0150f4c` — documentation-only changes (README count fixes, main repo worklog). All 186 unit tests pass (1105 assertions), 39/39 E2E pass with 0 errors and 19 warnings. Identical results to last session. The library remains stable.
+
+### Deep Warning Analysis
+
+Performed a comprehensive analysis of all 19 remaining warnings, classifying each as consumer-fixable, library-required, or false positive:
+
+**Consumer-fixable (6 warnings):** Product `isVariantOf` was missing from 3 scripts (the library supports it, we just didn't set it). Product AggregateOffer missing `inProductGroupWithID`. ProductGroup variants missing `isVariantOf` back-reference. ShippingService `DefinedRegion.addressRegion` was an empty array.
+
+**Library-required (10 warnings):** All Recipe-related — 5 properties (expires, hasPart, publication, ineligibleRegion/regionsAllowed, interactionStatistic) x 2 recipe scripts. These properties exist on VideoObject and other types but not on Recipe.
+
+**False positives (3 warnings):** datePublished on MobileApplication, Movie, VacationRental — the property IS set, the validator just doesn't recognize it.
+
+### Observation: Warning Diminishing Returns
+
+The warning trajectory tells an interesting story: 158 → 75 → 58 → 19, and now targeting 13 (then 3 after Recipe library changes). The first drops were easy — bulk enrichment of generate scripts. The middle drops required library changes (new properties). The final drops require either structural changes (making standalone Products into variants) or very specific library additions (Recipe-level publication/expires). Each successive improvement requires more targeted analysis and smaller, more focused changes. The low-hanging fruit is gone.
+
+### Cross-Vendor Agent Dispatch Patterns
+
+Dispatched Copilot task #70 with detailed specs including exact code snippets, file locations, and acceptance criteria. The key learning from 15 previous dispatches: the more specific the spec, the better the output. Line-number-level instructions with before/after code produce near-perfect PRs. Vague specs produce creative but often wrong solutions.
+
+### Decisions Made
+
+1. **Dispatched Copilot #70**: Consumer-side warning fixes for isVariantOf, inProductGroupWithID, addressRegion. Expected to reduce warnings from 19 to 13.
+2. **Filed QC-REPORT #72**: Low-priority request for 5 Recipe optional properties. Deliberately marked as low priority since all are optional fields — zero errors, zero required-field violations.
+3. **Kept Recipe warnings as library requests rather than structural workarounds**: Could have worked around some by restructuring examples, but the right fix is in the library.
