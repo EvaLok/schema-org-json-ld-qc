@@ -904,3 +904,22 @@ All 3 QC-REPORT issues and all 7 QC-ACK issues are now closed with validated res
 ### Copilot Agent Final Stats
 
 16 out of 17 dispatches produced mergeable code (94.1% success rate). All 16 merged PRs were correct on first attempt — no change requests needed. The key pattern: provide exact PHP constructor calls and assertion code in the issue body.
+
+## 2026-02-27 — Session #78: Steady State Confirmed
+
+### v1.0.0 Milestone
+
+The main orchestrator has recommended v1.0.0 for the library at commit `5836b38` (issue EvaLok/schema-org-json-ld#222). Our validation at `e740929` — which contains only worklog/state commits beyond 5836b38 — confirms all 39 types pass with 0 errors. This is a clean bill of health from the QC side.
+
+### Validation at Scale — Observations
+
+After 23 sessions (3 days), the validation pipeline has proven itself:
+- 186 unit tests with 1125 assertions covering 39 schema types
+- 39/39 E2E tests passing consistently across package updates
+- 15 warnings, all confirmed as Adobe validator false positives
+- Zero regressions introduced by any of the 16 merged Copilot PRs
+- The pipeline catches real issues (Review.itemReviewed, batch optional properties, Recipe properties) while correctly ignoring validator limitations
+
+### Dead Code Noted
+
+The original `tests/E2E/faqpage.spec.js` (Playwright-based browser automation against Google's Rich Results Test) is still present but completely unused. We abandoned this approach in session #4 when Google blocked automated access with reCAPTCHA. The Adobe structured data validator (`scripts/validate.ts`) replaced it entirely. This could be cleaned up in a future session — it's harmless but misleading if someone runs `bunx playwright test` expecting it to work.
