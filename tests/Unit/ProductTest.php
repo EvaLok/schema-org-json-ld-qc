@@ -8,6 +8,8 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Brand;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Certification;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\ItemAvailability;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Offer;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\OfferItemCondition;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
@@ -17,6 +19,8 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Product;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ProductGroup;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnFeesEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnMethodEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\SizeSpecification;
 use PHPUnit\Framework\TestCase;
 
@@ -280,6 +284,68 @@ class ProductTest extends TestCase
 		$this->assertEquals(29.99, $data['offers'][0]['price']);
 		$this->assertSame('https://schema.org/InStock', $data['offers'][0]['availability']);
 		$this->assertArrayNotHasKey('itemCondition', $data['offers'][0]);
+	}
+
+	public function testOfferWithMerchantReturnPolicy(): void
+	{
+		$product = new Product(
+			name: 'Returnable Item',
+			image: ['https://example.com/returnable.jpg'],
+			description: 'Testing Offer with hasMerchantReturnPolicy.',
+			sku: 'RET-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/returnable',
+					priceCurrency: 'USD',
+					price: 39.99,
+					availability: ItemAvailability::InStock,
+					hasMerchantReturnPolicy: new MerchantReturnPolicy(
+						applicableCountry: 'US',
+						returnPolicyCategory: MerchantReturnEnumeration::MerchantReturnFiniteReturnWindow,
+						merchantReturnDays: 30,
+						returnFees: ReturnFeesEnumeration::FreeReturn,
+						returnMethod: ReturnMethodEnumeration::ReturnByMail,
+					),
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertArrayHasKey('hasMerchantReturnPolicy', $data['offers'][0]);
+		$this->assertSame('MerchantReturnPolicy', $data['offers'][0]['hasMerchantReturnPolicy']['@type']);
+		$this->assertSame('US', $data['offers'][0]['hasMerchantReturnPolicy']['applicableCountry']);
+		$this->assertSame(
+			'https://schema.org/MerchantReturnFiniteReturnWindow',
+			$data['offers'][0]['hasMerchantReturnPolicy']['returnPolicyCategory']
+		);
+		$this->assertSame(30, $data['offers'][0]['hasMerchantReturnPolicy']['merchantReturnDays']);
+		$this->assertSame('https://schema.org/FreeReturn', $data['offers'][0]['hasMerchantReturnPolicy']['returnFees']);
+		$this->assertSame('https://schema.org/ReturnByMail', $data['offers'][0]['hasMerchantReturnPolicy']['returnMethod']);
+	}
+
+	public function testOfferWithoutMerchantReturnPolicy(): void
+	{
+		$product = new Product(
+			name: 'No Return Policy Item',
+			image: ['https://example.com/no-return-policy.jpg'],
+			description: 'Testing Offer without hasMerchantReturnPolicy.',
+			sku: 'NRP-001',
+			offers: [
+				new Offer(
+					url: 'https://example.com/no-return-policy',
+					priceCurrency: 'USD',
+					price: 24.99,
+					availability: ItemAvailability::InStock,
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($product);
+		$data = json_decode($json, true);
+
+		$this->assertArrayNotHasKey('hasMerchantReturnPolicy', $data['offers'][0]);
 	}
 
 	public function testProductWithAggregateOffer(): void
