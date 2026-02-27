@@ -4,9 +4,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\BroadcastEvent;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Recipe;
@@ -247,6 +249,37 @@ $recipe = new Recipe(
 		contentUrl: 'https://example.com/videos/tiramisu.mp4',
 		embedUrl: 'https://example.com/embed/tiramisu',
 		duration: 'PT12M45S',
+	),
+	expires: '2027-03-15',
+	hasPart: [
+		new Clip(
+			name: 'Preparing the Cream',
+			startOffset: 0,
+			url: 'https://example.com/videos/tiramisu.mp4?t=0',
+			endOffset: 210,
+		),
+		new Clip(
+			name: 'Assembling Layers',
+			startOffset: 210,
+			url: 'https://example.com/videos/tiramisu.mp4?t=210',
+			endOffset: 510,
+		),
+		new Clip(
+			name: 'Finishing Touches',
+			startOffset: 510,
+			url: 'https://example.com/videos/tiramisu.mp4?t=510',
+			endOffset: 765,
+		),
+	],
+	publication: new BroadcastEvent(
+		isLiveBroadcast: false,
+		startDate: '2025-03-15T14:00:00+01:00',
+		endDate: '2025-03-15T14:30:00+01:00',
+	),
+	ineligibleRegion: 'GB-NIR',
+	interactionStatistic: new InteractionCounter(
+		interactionType: 'https://schema.org/WatchAction',
+		userInteractionCount: 31500,
 	),
 );
 

@@ -4,8 +4,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\BroadcastEvent;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Recipe;
@@ -161,6 +163,31 @@ $recipe = new Recipe(
 		contentUrl: 'https://example.com/videos/banana-bread.mp4',
 		embedUrl: 'https://example.com/embed/banana-bread',
 		duration: 'PT8M30S',
+	),
+	expires: '2027-01-10',
+	hasPart: [
+		new Clip(
+			name: 'Preparing Ingredients',
+			startOffset: 0,
+			url: 'https://example.com/videos/banana-bread.mp4?t=0',
+			endOffset: 90,
+		),
+		new Clip(
+			name: 'Mixing and Baking',
+			startOffset: 90,
+			url: 'https://example.com/videos/banana-bread.mp4?t=90',
+			endOffset: 510,
+		),
+	],
+	publication: new BroadcastEvent(
+		isLiveBroadcast: true,
+		startDate: '2025-01-10T10:00:00-05:00',
+		endDate: '2025-01-10T11:00:00-05:00',
+	),
+	ineligibleRegion: 'US-PR',
+	interactionStatistic: new InteractionCounter(
+		interactionType: 'https://schema.org/WatchAction',
+		userInteractionCount: 48250,
 	),
 );
 

@@ -4,9 +4,11 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\BroadcastEvent;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Clip;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToSection;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\HowToStep;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NutritionInformation;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
@@ -129,6 +131,31 @@ class RecipeTest extends TestCase
 				uploadDate: '2025-01-01',
 				contentUrl: 'https://example.com/cookies-video.mp4',
 			),
+			expires: '2027-01-10',
+			hasPart: [
+				new Clip(
+					name: 'Preparing Ingredients',
+					startOffset: 0,
+					url: 'https://example.com/videos/banana-bread.mp4?t=0',
+					endOffset: 90,
+				),
+				new Clip(
+					name: 'Mixing and Baking',
+					startOffset: 90,
+					url: 'https://example.com/videos/banana-bread.mp4?t=90',
+					endOffset: 510,
+				),
+			],
+			publication: new BroadcastEvent(
+				isLiveBroadcast: true,
+				startDate: '2025-01-10T10:00:00-05:00',
+				endDate: '2025-01-10T11:00:00-05:00',
+			),
+			ineligibleRegion: 'US-PR',
+			interactionStatistic: new InteractionCounter(
+				interactionType: 'https://schema.org/WatchAction',
+				userInteractionCount: 48250,
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($recipe);
@@ -180,6 +207,15 @@ class RecipeTest extends TestCase
 		$this->assertSame(4.8, $data['aggregateRating']['ratingValue']);
 		$this->assertSame(312, $data['aggregateRating']['ratingCount']);
 		$this->assertSame('VideoObject', $data['video']['@type']);
+		$this->assertSame('2027-01-10', $data['expires']);
+		$this->assertCount(2, $data['hasPart']);
+		$this->assertSame('Clip', $data['hasPart'][0]['@type']);
+		$this->assertSame('Preparing Ingredients', $data['hasPart'][0]['name']);
+		$this->assertSame(0, $data['hasPart'][0]['startOffset']);
+		$this->assertSame('BroadcastEvent', $data['publication']['@type']);
+		$this->assertSame('US-PR', $data['ineligibleRegion']);
+		$this->assertSame('InteractionCounter', $data['interactionStatistic']['@type']);
+		$this->assertSame(48250, $data['interactionStatistic']['userInteractionCount']);
 	}
 
 	public function testRecipeWithReview(): void
