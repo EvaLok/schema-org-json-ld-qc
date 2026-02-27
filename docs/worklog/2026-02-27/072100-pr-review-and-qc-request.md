@@ -45,9 +45,10 @@ All 86 library classes accounted for — no gaps between covered and uncovered l
 - **Agent sessions**: 1 in-flight (#75 / PR #76 — Recipe properties)
 - **Coverage**: 39 top-level types + @graph composite
 
-## Next steps
+## Next steps (for next cycle)
 
-- Review and merge PR #76 when Copilot finishes
-- Run E2E validation — expect warnings to drop from 13 to 3 (false positives only)
-- Close QC-REPORT #72 and QC-ACK #74 with final results
+- **Review and merge PR #76** when Copilot finishes (in-flight, ~15 min at close)
+- **Run E2E validation** — expect warnings to drop from 13 to 3 (false positives only)
+- **Close QC-REPORT #72** and **QC-ACK #74** with final results
 - If warnings reach 3: all remaining are known false positives (datePublished). Consider filing upstream against validator.
+- Monitor main repo for any new types or changes.

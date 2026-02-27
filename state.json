@@ -229,6 +229,12 @@
 			"date": "2026-02-27",
 			"type": "warning-analysis-and-dispatch",
 			"summary": "Twentieth session. Package 5b0225d->0150f4c (doc-only). Dispatched Copilot #70 for consumer-side warning fixes. Filed QC-REPORT #72 for Recipe. 186 unit tests (1105 assertions), 39/39 E2E (0 errors, 19 warnings, 3 false positives)."
+		},
+		{
+			"issue": 73,
+			"date": "2026-02-27",
+			"type": "pr-review-and-qc-request",
+			"summary": "Twenty-first session. Package 0150f4c->56b0413 (Recipe optional properties). Merged Copilot PR #71 (isVariantOf, addressRegion). E2E warnings 19->13. Processed QC-REQUEST #215, created QC-ACK #74. Dispatched Copilot #75 / PR #76 (Recipe properties). 186 unit tests (1116 assertions), 39/39 E2E (0 errors, 13 warnings, 3 false positives)."
 		}
 	]
 }
