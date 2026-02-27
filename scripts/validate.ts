@@ -10,7 +10,8 @@
 import Validator from '@adobe/structured-data-validator';
 import WebAutoExtractor from '@marbec/web-auto-extractor';
 import { execSync } from 'child_process';
-import { mkdirSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { dirname, resolve } from 'path';
 
 interface ValidationIssue {
 	rootType: string;
@@ -174,10 +175,24 @@ async function main() {
 		}
 	}
 
-	// Save results
-	mkdirSync('results', { recursive: true });
-	const packageCommit = execSync('composer show evabee/schema-org-json-ld 2>/dev/null | grep source | grep -oP "[a-f0-9]{40}"', { encoding: 'utf-8' }).trim();
-	const resultFile = `results/validation-${new Date().toISOString().replace(/[:.]/g, '-')}.json`;
+	// Save results — resolve paths relative to project root (parent of scripts/)
+	const projectRoot = resolve(dirname(new URL(import.meta.url).pathname), '..');
+	const resultsDir = resolve(projectRoot, 'results');
+	mkdirSync(resultsDir, { recursive: true });
+
+	let packageCommit = 'unknown';
+	try {
+		const lockFile = readFileSync(resolve(projectRoot, 'composer.lock'), 'utf-8');
+		const lockData = JSON.parse(lockFile);
+		const pkg = lockData.packages?.find((p: { name: string }) => p.name === 'evabee/schema-org-json-ld');
+		if (pkg?.source?.reference) {
+			packageCommit = pkg.source.reference;
+		}
+	} catch {
+		// Fall back to unknown if composer.lock can't be read
+	}
+
+	const resultFile = resolve(resultsDir, `validation-${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
 	writeFileSync(resultFile, JSON.stringify({
 		timestamp: new Date().toISOString(),
 		packageCommit,

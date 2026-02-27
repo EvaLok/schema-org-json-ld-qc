@@ -744,3 +744,51 @@ This is a reasonable baseline. The initial 158 was alarming but most were addres
 1. **Fixed namespace directly**: The enum namespace change was a mechanical find-and-replace affecting only import statements. Dispatching to Copilot would have taken 10+ minutes for a 2-minute fix. This falls within the "single-line fixes" exception.
 2. **Dispatched two focused tasks**: HowToStep enrichment (#64) and datePublished/subjectOf (#65) are clearly scoped to exercise the new library properties.
 3. **Processed QC-REQUEST #200 immediately**: Created QC-ACK #63 with initial validation results, noting that full validation with new properties will come after Copilot tasks complete.
+
+## 2026-02-27 — PR Review and Final Validation (Issue #68)
+
+### Warning Reduction Milestone
+
+The warning trajectory completed its arc this session: **158 → 75 → 58 → 19** (with 3 false positives, so effectively 16 real warnings). This is a 90% reduction from peak.
+
+The remaining 16 warnings are all in one of three categories:
+1. **False positives (3)**: The Adobe validator reports `datePublished` missing on MobileApplication, Movie, and VacationRental despite the field being clearly present in the JSON-LD output. This is a validator tool bug — the field is in the JSON, the unit tests assert it, and manual inspection confirms it.
+2. **Structural/contextual (5)**: Product `isVariantOf` and `inProductGroupWithID` warnings on standalone Products that are intentionally NOT in a group context. Setting these would be semantically incorrect.
+3. **Missing library properties (8)**: Recipe-level fields (`expires`, `hasPart`, `publication`, `ineligibleRegion`/`regionsAllowed`, `interactionStatistic`/`interactionCount`) that the library's Recipe class doesn't yet support.
+
+### Validator False Positive Discovery
+
+This is worth documenting in detail. The `@adobe/structured-data-validator` v1.6.0 with `@marbec/web-auto-extractor` v2.2.1 fails to detect `datePublished` on three specific types (MobileApplication, Movie, VacationRental) even though:
+- The JSON-LD output contains `"datePublished": "2025-03-15"` (etc.)
+- The HTML wrapper is correct (`<script type="application/ld+json">`)
+- Other fields on the same types ARE detected correctly
+- The `datePublished` field works fine on other types (Article, BlogPosting, etc.)
+
+Hypothesis: The validator may have type-specific extraction rules that don't include `datePublished` for these types, or the `web-auto-extractor` library may not parse it correctly for non-Article types. Not worth investigating further — these are "known false positives" now.
+
+### validate.ts Bug Fix
+
+Fixed a bug in `scripts/validate.ts` where the results-saving code crashed when the script was invoked from a working directory other than the project root. The original code used `execSync('composer show ...')` which depended on CWD; replaced with reading `composer.lock` directly using `import.meta.url` to resolve the project root. Also replaced `mkdirSync('results', ...)` with an absolute path resolution.
+
+This is a self-improvement to orchestrator infrastructure — fixing it directly rather than dispatching to Copilot, since it's a script in the `scripts/` directory.
+
+### All Cross-Repo Threads Closed
+
+For the first time since the first few sessions, there are zero open cross-repo communication threads:
+- QC-REPORT #57 (optional properties): closed as substantially resolved
+- QC-ACK #63 (QC-REQUEST #200): fully validated and closed
+- No pending QC-REQUESTs from the main repo
+
+The library is in a steady state. No new schema types are being added (the library has been focused on PHPStan static analysis improvements in recent cycles). The QC project has comprehensive coverage of all 39 top-level Google Rich Result types.
+
+### Copilot Agent Reliability
+
+Sessions #64 and #65 both completed successfully, producing clean PRs (#67 and #66 respectively). This brings the Copilot track record to 14 successful (13 merged on first attempt, 1 failed and re-dispatched successfully), out of 15 total dispatches. The 93% success rate is solid.
+
+Both PRs had `action_required` CI status — this happens because Copilot is a first-party bot and needs manual approval to run workflows. Testing locally before merge works as a substitute.
+
+### Decisions Made
+
+1. **Closed QC-REPORT #57**: The remaining warnings are either false positives, structural, or require library-level changes. The report served its purpose — the main orchestrator added the requested properties and we validated them.
+2. **No new Copilot dispatches**: With all cross-repo threads closed and no new types to cover, there's no immediate implementation work needed. The project is in a maintenance/monitoring phase.
+3. **Updated Eva's v1.0.0 assessment**: Posted current warning count (19, 3 false positives) on issue #39. The library is in excellent shape for release.
