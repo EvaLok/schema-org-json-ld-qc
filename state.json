@@ -71,7 +71,7 @@
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
 		"last_run": "2026-02-27T22:06:00Z",
-		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package a31b8e7.",
+		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package a31b8e7. 188 unit tests (1133 assertions) after Offer hasMerchantReturnPolicy coverage.",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"]
 	},
 	"cross_repo": {
@@ -177,18 +177,17 @@
 				"issue": 84,
 				"title": "[QC-ACK] Validate Offer hasMerchantReturnPolicy (PR #232)",
 				"main_repo_issue": 234,
-				"status": "open",
+				"status": "closed",
 				"opened": "2026-02-27T22:06:00Z",
-				"validation_complete": false,
-				"note": "Smoke test passed. Copilot PR #86 in-flight for permanent test coverage."
+				"closed": "2026-02-27T22:24:00Z",
+				"validation_complete": true,
+				"note": "Fully validated. 188 unit tests, 39/39 E2E. Copilot PR #86 merged."
 			}
 		],
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234]
 	},
 	"agent_sessions": {
-		"in_flight": [
-			{ "issue": 85, "pr": 86, "status": "in_progress", "model": "gpt-5.3-codex", "note": "Offer hasMerchantReturnPolicy test coverage" }
-		],
+		"in_flight": [],
 		"completed": [
 			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 28, "pr": 29, "status": "merged", "model": "gpt-5.3-codex" },
@@ -205,7 +204,8 @@
 			{ "issue": 64, "pr": 67, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 65, "pr": 66, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 70, "pr": 71, "status": "merged", "model": "gpt-5.3-codex" },
-			{ "issue": 75, "pr": 76, "status": "merged", "model": "gpt-5.3-codex" }
+			{ "issue": 75, "pr": 76, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 85, "pr": 86, "status": "merged", "model": "gpt-5.3-codex" }
 		]
 	},
 	"session_history": [
@@ -277,7 +277,7 @@
 			"issue": 83,
 			"date": "2026-02-27",
 			"type": "qc-request-offer-return-policy",
-			"summary": "Twenty-sixth session. Package 61de612->a31b8e7 (Offer hasMerchantReturnPolicy from PR #232). Processed QC-REQUEST #234, created QC-ACK #84. Smoke test PASS: hasMerchantReturnPolicy correctly nests MerchantReturnPolicy in Offer JSON-LD, 0 validator errors. Dispatched Copilot #85 / PR #86 for permanent test coverage (in-flight). Full validation: 186 unit tests (1125 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives)."
+			"summary": "Twenty-sixth session. Package 61de612->a31b8e7 (Offer hasMerchantReturnPolicy from PR #232). Processed QC-REQUEST #234, created QC-ACK #84. Smoke test PASS. Dispatched and merged Copilot #85 / PR #86 (Offer hasMerchantReturnPolicy tests). Closed QC-ACK #84 with full validation. 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives). 17/18 Copilot sessions merged (94.4% success rate)."
 		}
 	]
 }
