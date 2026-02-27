@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EvaLok/schema-org-json-ld.git",
-                "reference": "c9e68c69a235f8ea7bc5ce368316a78712b71b8e"
+                "reference": "56b0413db82cf72827b992aebd497e577306ba98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/c9e68c69a235f8ea7bc5ce368316a78712b71b8e",
-                "reference": "c9e68c69a235f8ea7bc5ce368316a78712b71b8e",
+                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/56b0413db82cf72827b992aebd497e577306ba98",
+                "reference": "56b0413db82cf72827b992aebd497e577306ba98",
                 "shasum": ""
             },
             "require": {
@@ -25,6 +25,7 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^10.5"
             },
             "default-branch": true,
@@ -43,6 +44,9 @@
                 ],
                 "cs-fix": [
                     "php-cs-fixer fix"
+                ],
+                "phpstan": [
+                    "phpstan analyse"
                 ]
             },
             "license": [
@@ -71,11 +75,7 @@
                 "structured data",
                 "video"
             ],
-            "support": {
-                "source": "https://github.com/EvaLok/schema-org-json-ld/tree/master",
-                "issues": "https://github.com/EvaLok/schema-org-json-ld/issues"
-            },
-            "time": "2026-02-26T21:30:07+00:00"
+            "time": "2026-02-27T06:33:33+00:00"
         }
     ],
     "packages-dev": [
