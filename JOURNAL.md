@@ -850,3 +850,57 @@ If we reach 3 warnings with 0 errors across 39 types, the QC project has effecti
 ### Copilot Agent Reliability
 
 15 out of 16 Copilot dispatches have produced mergeable code (93.75% success rate). The one failure (#42) was a session that never started — not a code quality issue. The `gpt-5.3-codex` model consistently produces correct, well-formatted PHP when given specific specs with code examples. The pattern of providing exact constructor calls and assertion code in the issue body has proven extremely effective.
+
+## 2026-02-27 — Recipe Validation and Steady State (Issue #77)
+
+### Recipe Optional Properties: Validated but Validator-Limited
+
+Merged Copilot PR #76 (from task #75). All 5 Recipe optional properties are now present in the consumer project:
+- `expires` — date string
+- `hasPart` — array of `Clip` objects with start/end offsets
+- `publication` — `BroadcastEvent` with live/non-live broadcasts
+- `ineligibleRegion` — region code string
+- `interactionStatistic` — `InteractionCounter` with WatchAction counts
+
+Unit tests pass (186 tests, 1125 assertions — up from 1116). The JSON-LD output is correct and complete.
+
+### Adobe Validator False Positives on Recipe
+
+Despite all properties being correctly present in the JSON-LD output, the Adobe structured data validator (v1.6.0) reports 6 warnings per Recipe script:
+
+1. **`ineligibleRegion` "not supported"** — The validator claims this property isn't supported on Recipe, but it IS valid via CreativeWork inheritance (schema.org spec).
+2. **`expires` "missing"** — Present in output. Validator can't detect it.
+3. **`hasPart` "missing"** — Present in output as Clip array. Validator can't detect it.
+4. **`publication` "missing"** — Present as BroadcastEvent. Validator can't detect it.
+5. **Conditional `ineligibleRegion`/`regionsAllowed`** — Contradicts warning #1.
+6. **Conditional `interactionStatistic`/`interactionCount`** — Property is present but undetected.
+
+This is the second class of validator false positives we've discovered (after `datePublished` on MobileApplication/Movie/VacationRental). The Adobe validator has significant blind spots for certain property types, particularly:
+- Properties inherited from parent types (like `ineligibleRegion` from CreativeWork)
+- Properties with complex nested values (like `hasPart` with Clip arrays)
+- Properties that use schema.org types as values (like `publication` with BroadcastEvent)
+
+### Warning Trajectory and Steady State
+
+| Session | Warnings | Notes |
+|---|---|---|
+| #45 | 158 | First comprehensive E2E run |
+| #56 | 58 | After first round of optional property fixes |
+| #62 | 19 | After QC-57 comprehensive fix round |
+| #73 | 13 | After consumer-side isVariantOf/addressRegion |
+| #77 | 15 | After Recipe properties (12 are new validator false positives) |
+
+The warning count went up from 13 to 15, but this is misleading. Before PR #76, the 10 Recipe warnings were for genuinely missing properties. Now, all 15 warnings are validator false positives — the code is correct. In terms of real actionable warnings, we've gone from 10 to 0.
+
+**Effective status**: 39/39 types pass, 0 errors, 0 actionable warnings. The QC project is at steady state.
+
+### Cross-Repo Protocol: All Threads Closed
+
+All 3 QC-REPORT issues and all 7 QC-ACK issues are now closed with validated results. The cross-repo communication protocol has handled:
+- 3 outbound reports (Review required field, batch optional properties, Recipe properties)
+- 7 inbound validation requests
+- Average turnaround: <3 hours for library fix, <6 hours for full validation cycle
+
+### Copilot Agent Final Stats
+
+16 out of 17 dispatches produced mergeable code (94.1% success rate). All 16 merged PRs were correct on first attempt — no change requests needed. The key pattern: provide exact PHP constructor calls and assertion code in the issue body.
