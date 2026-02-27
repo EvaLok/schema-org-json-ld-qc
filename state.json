@@ -1,10 +1,10 @@
 {
-	"last_updated": "2026-02-27T13:27:00Z",
+	"last_updated": "2026-02-27T19:15:00Z",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "e740929",
-		"last_updated": "2026-02-27T13:27:00Z"
+		"commit": "61de612",
+		"last_updated": "2026-02-27T19:15:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -70,8 +70,8 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-02-27T13:27:00Z",
-		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package e740929.",
+		"last_run": "2026-02-27T19:15:00Z",
+		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package 61de612.",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"]
 	},
 	"cross_repo": {
@@ -249,6 +249,18 @@
 			"date": "2026-02-27",
 			"type": "steady-state-validation",
 			"summary": "Twenty-third session. Package 6385ed7->e740929 (no functional changes). Full validation clean: 186 unit tests (1125 assertions), 39/39 E2E (0 errors, 15 warnings — all validator false positives). No new types, no QC requests, no open threads. Main orchestrator recommended v1.0.0 at commit 5836b38."
+		},
+		{
+			"issue": 81,
+			"date": "2026-02-27",
+			"type": "eva-requests-and-cleanup",
+			"summary": "Twenty-fourth session. Package 98b6931 (v1.0.0). Handled input-from-eva: PHP 8.5 CI (#79), journal alignment (#80). Cleaned up dead Playwright files. Full validation clean: 186 unit tests (1125 assertions), 39/39 E2E (0 errors, 15 warnings — all validator false positives)."
+		},
+		{
+			"issue": 82,
+			"date": "2026-02-27",
+			"type": "steady-state-validation",
+			"summary": "Twenty-fifth session. Package 98b6931->61de612 (no functional changes — main orchestrator worklog/state cycles 51-52). Full validation clean: 186 unit tests (1125 assertions), 39/39 E2E (0 errors, 15 warnings — all validator false positives). No new types, no QC requests, no open threads. Both repos in post-v1.0.0 steady state."
 		}
 	]
 }
