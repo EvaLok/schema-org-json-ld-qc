@@ -42,6 +42,7 @@ $product = new Product(
 	pattern: 'Solid',
 	size: 'One Size',
 	gtin: '0098765432101',
+	subjectOf: 'https://example.com/product-comparison-video',
 	audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 13),
 	review: [
 		new Review(

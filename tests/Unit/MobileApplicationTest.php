@@ -31,6 +31,7 @@ class MobileApplicationTest extends TestCase
 			),
 			applicationCategory: 'EducationApplication',
 			operatingSystem: 'ANDROID',
+			datePublished: '2025-03-15',
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($app);
@@ -41,6 +42,7 @@ class MobileApplicationTest extends TestCase
 		$this->assertSame('Duolingo', $data['name']);
 		$this->assertSame('EducationApplication', $data['applicationCategory']);
 		$this->assertSame('ANDROID', $data['operatingSystem']);
+		$this->assertSame('2025-03-15', $data['datePublished']);
 		$this->assertSame('Offer', $data['offers']['@type']);
 		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
 		$this->assertSame(1, $data['aggregateRating']['worstRating']);

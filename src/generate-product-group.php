@@ -35,6 +35,7 @@ $blueShirt = new Product(
 	material: '100% Premium Cotton',
 	pattern: 'Solid',
 	inProductGroupWithID: 'oxford-shirts',
+	subjectOf: 'https://example.com/shirt-review',
 	audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 16),
 	hasCertification: [
 		new Certification(
@@ -81,6 +82,7 @@ $whiteShirt = new Product(
 	material: '100% Premium Cotton',
 	pattern: 'Solid',
 	inProductGroupWithID: 'oxford-shirts',
+	subjectOf: 'https://example.com/shirt-review',
 	audience: new PeopleAudience(suggestedGender: 'unisex', suggestedMinAge: 16),
 	hasCertification: [
 		new Certification(

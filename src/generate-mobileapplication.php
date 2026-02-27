@@ -29,6 +29,7 @@ $app = new MobileApplication(
 	),
 	applicationCategory: 'HealthApplication',
 	operatingSystem: 'Android 10+',
+	datePublished: '2025-03-15',
 	review: new Review(
 		author: new Person(name: 'FitnessGuru'),
 		reviewRating: new Rating(
