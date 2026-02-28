@@ -19,8 +19,9 @@ Run `bash tools/validate-all.sh` to run the full test suite.
 6. **Discover new types** — `bash tools/discover-types.sh`.
 7. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E).
 8. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
-9. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches.
-10. **Plan session work** — Prioritise reviews and validation over new test development.
+9. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file.
+10. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches.
+11. **Plan session work** — Prioritise reviews and validation over new test development.
 
 ## Documentation conventions
 
