@@ -13,7 +13,7 @@ Run `bash tools/validate-all.sh` to run the full test suite.
 
 1. **Post opening comment** — `bash tools/session-init.sh <issue>` (captures timestamp, run ID).
 2. **Check for `input-from-eva` issues** — these take priority over everything else.
-3. **Recover context** — Read latest worklog entry and `state.json`.
+3. **Recover context** — Read latest worklog entry and `state.json`. Also check `question-for-eva` issues on the main repo — if a shared question has been answered there, apply the answer locally and close the equivalent issue.
 4. **Steady-state check** — After recovering context, compare current state against last cycle. If ALL of the following are true, this is an idle cycle:
    - (a) No new package commits since last cycle (`composer update` shows no change)
    - (b) No open issues/PRs requiring action (no input-from-eva, no qc-outbound requests, no unreviewed Copilot PRs)
@@ -28,7 +28,7 @@ Run `bash tools/validate-all.sh` to run the full test suite.
 9. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
 10. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
 11. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
-12. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches.
+12. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches. Review open `audit-inbound` issues — close any whose recommended changes have been verified or resolved, with a brief closing comment confirming what was implemented.
 13. **Plan session work** — Prioritise reviews and validation over new test development.
 
 ## Documentation conventions
