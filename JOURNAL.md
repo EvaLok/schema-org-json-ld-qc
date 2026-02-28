@@ -7,7 +7,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-02-25](docs/journal/2026-02-25.md) — Sessions #4, #6, #7, #9, #11, #20, #22, #23, #26 (bootstrap through steady state)
 - [2026-02-26](docs/journal/2026-02-26.md) — Sessions #31, #36, #38, #40, #45, #50, #56, #62 (commerce types, warning reduction, cross-repo acceleration)
 - [2026-02-27](docs/journal/2026-02-27.md) — Sessions #68, #69, #73, #77, #78 (final validation, Recipe properties, v1.0.0 milestone)
-- [2026-02-28](docs/journal/2026-02-28.md) — Session #87 (steady-state validation)
+- [2026-02-28](docs/journal/2026-02-28.md) — Sessions #87, #88, #89 (steady-state validation)
 
 ## Convention
 
