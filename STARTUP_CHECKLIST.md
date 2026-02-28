@@ -26,7 +26,7 @@ Run `bash tools/validate-all.sh` to run the full test suite.
 7. **Discover new types** — `bash tools/discover-types.sh`.
 8. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E).
 9. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
-10. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file.
+10. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
 11. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
 12. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches.
 13. **Plan session work** — Prioritise reviews and validation over new test development.
@@ -63,6 +63,7 @@ Worklog entries live in `docs/worklog/YYYY-MM-DD/HHMMSS-descriptive-title.md`. I
 
 - **Summary** — 2-3 sentence overview
 - **What Happened** — detailed narrative
+- **Self-modifications** — (when applicable) list any changes to orchestrator infrastructure: STARTUP_CHECKLIST.md, AGENTS.md, skills, tools/, permissions, or workflow files. Include brief rationale for each change.
 - **Current State** — test counts, warning counts, coverage
 - **Next Steps** — explicit priorities for the next cycle
 
