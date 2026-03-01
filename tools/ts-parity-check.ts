@@ -65,6 +65,8 @@ import { ShippingConditions } from '../vendor/evabee/schema-org-json-ld/ts/src/s
 import { ShippingService } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ShippingService';
 import { SoftwareApplication } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/SoftwareApplication';
 import { SolveMathAction } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/SolveMathAction';
+import { QAPage } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/QAPage';
+import { Restaurant } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Restaurant';
 import { Store } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Store';
 import { VideoObject } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/VideoObject';
 import { VirtualLocation } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/VirtualLocation';
@@ -1127,7 +1129,95 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	});
 
 	// ===================================================================
-	// 23. @graph — matches src/generate-graph.php
+	// 24. QAPage — matches src/generate-qapage.php
+	// ===================================================================
+	const qaPage = new QAPage(
+		new Question({
+			name: 'How do I validate JSON-LD structured data locally?',
+			text: 'I want to validate my JSON-LD output against Google Rich Results requirements without using a browser. Is there a local tool?',
+			answerCount: 2,
+			acceptedAnswer: new Answer(
+				'Use @adobe/structured-data-validator — it validates against Google requirements locally with deterministic results.',
+				new Person({ name: 'DevHelper' }),
+				null,
+				42,
+				'2025-02-20',
+			),
+			suggestedAnswer: [
+				new Answer(
+					'You can also use structured-data-testing-tool for basic structural checks, though it does not validate against Google-specific requirements.',
+					new Person({ name: 'SchemaFan' }),
+					null,
+					15,
+					'2025-02-21',
+				),
+			],
+			author: new Person({ name: 'NewDev123' }),
+			datePublished: '2025-02-19',
+		}),
+	);
+	results.set('QAPage', {
+		type: 'QAPage',
+		phpScript: 'src/generate-qapage.php',
+		json: JsonLdGenerator.schemaToJson(qaPage),
+	});
+
+	// ===================================================================
+	// 25. Restaurant — matches src/generate-restaurant.php
+	//     Inheritance chain: Restaurant -> FoodEstablishment -> LocalBusiness
+	// ===================================================================
+	const restaurant = new Restaurant({
+		name: 'Bella Napoli Trattoria',
+		address: new PostalAddress({
+			streetAddress: '88 Little Italy Lane',
+			addressLocality: 'New York',
+			addressRegion: 'NY',
+			postalCode: '10013',
+			addressCountry: 'US',
+		}),
+		url: 'https://bellanapoli.example.com',
+		telephone: '+1-212-555-0188',
+		description: 'Authentic Neapolitan pizza and pasta in the heart of Little Italy.',
+		image: ['https://example.com/photos/bella-napoli.jpg'],
+		priceRange: '$$',
+		geo: new GeoCoordinates(40.7191, -73.9973),
+		openingHoursSpecification: [
+			new OpeningHoursSpecification(DayOfWeek.Monday, '11:00', '22:00'),
+			new OpeningHoursSpecification(DayOfWeek.Tuesday, '11:00', '22:00'),
+			new OpeningHoursSpecification(DayOfWeek.Wednesday, '11:00', '22:00'),
+			new OpeningHoursSpecification(DayOfWeek.Thursday, '11:00', '22:00'),
+			new OpeningHoursSpecification(DayOfWeek.Friday, '11:00', '22:00'),
+			new OpeningHoursSpecification(DayOfWeek.Saturday, '10:00', '23:00'),
+			new OpeningHoursSpecification(DayOfWeek.Sunday, '10:00', '23:00'),
+		],
+		aggregateRating: new AggregateRating(4.5, 5, 1, null, 487),
+		review: [
+			new Review(
+				'Anthony R.',
+				new Rating(5, 5, 1),
+				'Best margherita pizza outside of Naples. The crust is perfection.',
+				'2025-12-01',
+			),
+			new Review(
+				'Lisa M.',
+				new Rating(4, 5, 1),
+				'Great food and atmosphere, but can get crowded on weekends.',
+				'2025-11-20',
+			),
+		],
+		menu: 'https://bellanapoli.example.com/menu',
+		servesCuisine: 'Italian',
+		logo: 'https://example.com/bella-napoli-logo.png',
+		acceptsReservations: 'https://bellanapoli.example.com/reservations',
+	});
+	results.set('Restaurant', {
+		type: 'Restaurant',
+		phpScript: 'src/generate-restaurant.php',
+		json: JsonLdGenerator.schemaToJson(restaurant),
+	});
+
+	// ===================================================================
+	// 26. @graph — matches src/generate-graph.php
 	//     Tests schemasToJson (plural) for multi-schema output
 	// ===================================================================
 	const graphArticle = new Article({
