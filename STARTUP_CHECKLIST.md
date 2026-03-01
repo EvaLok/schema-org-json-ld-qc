@@ -15,7 +15,7 @@ Run `bash tools/validate-all.sh` to run the full test suite.
 2. **Check for `input-from-eva` issues** — these take priority over everything else.
 3. **Recover context** — Read latest worklog entry and `state.json`. Also check `question-for-eva` issues on the main repo — if a shared question has been answered there, apply the answer locally and close the equivalent issue.
 4. **Update package and steady-state check** — Run `composer update evabee/schema-org-json-ld` and note the commit hash. Then compare current state against last cycle. If ALL of the following are true, this is an idle cycle:
-   - (a) No new package commits since last cycle (`composer update` shows no change), OR the new commits only modify non-source files (docs, worklogs, state files — no changes to `src/` PHP classes). Check with: `gh api repos/EvaLok/schema-org-json-ld/compare/OLD_HASH...NEW_HASH --jq '.files[].filename'` and look for files matching `src/*.php`.
+   - (a) No new package commits since last cycle (`composer update` shows no change), OR the new commits only modify non-source files (docs, worklogs, state files — no changes to PHP source classes). Check with: `gh api repos/EvaLok/schema-org-json-ld/compare/OLD_HASH...NEW_HASH --jq '.files[].filename'` and look for any `.php` files under source directories (post-Phase 0: `php/src/`, pre-Phase 0: `src/`). A resilient check: look for any changed `.php` file regardless of directory prefix.
    - (b) No open issues/PRs requiring action (no input-from-eva, no qc-outbound requests, no unreviewed Copilot PRs)
    - (c) No new QC reports or requests from the main repo
    - (d) No unprocessed audit recommendations

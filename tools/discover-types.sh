@@ -10,8 +10,13 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "=== Schema types in main repo ==="
-MAIN_TYPES=$(gh api "repos/EvaLok/schema-org-json-ld/contents/src/v1/Schema" \
+MAIN_TYPES=$(gh api "repos/EvaLok/schema-org-json-ld/contents/php/src/v1/Schema" \
   --jq '.[].name' | sed 's/\.php$//' | sort)
+if [ -z "$MAIN_TYPES" ]; then
+  # Fallback to pre-Phase 0 path
+  MAIN_TYPES=$(gh api "repos/EvaLok/schema-org-json-ld/contents/src/v1/Schema" \
+    --jq '.[].name' | sed 's/\.php$//' | sort)
+fi
 echo "$MAIN_TYPES"
 
 echo ""

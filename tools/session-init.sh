@@ -20,7 +20,9 @@ echo "run_id=$RUN_ID"
 echo "run_url=$RUN_URL"
 
 # Post opening comment
-gh issue comment "$ISSUE_NUM" -R "$REPO" -b "## QC Orchestrator Cycle — Issue #${ISSUE_NUM}
+gh issue comment "$ISSUE_NUM" -R "$REPO" -b "> **[qc-orchestrator]** | Session #${ISSUE_NUM}
+
+## QC Orchestrator Cycle — Issue #${ISSUE_NUM}
 
 **Model**: Claude Opus 4.6
 **Timestamp**: ${TIMESTAMP}
