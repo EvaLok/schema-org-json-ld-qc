@@ -1,11 +1,11 @@
 {
-	"last_updated": "2026-03-01T13:17:00Z",
+	"last_updated": "2026-03-01T16:38:00Z",
 	"consecutive_idle_cycles": 0,
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "a2a61bd",
-		"last_updated": "2026-03-01T13:17:00Z"
+		"commit": "f4c26c8",
+		"last_updated": "2026-03-01T16:38:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -71,24 +71,29 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-01T13:17:00Z",
-		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 86/86 Vitest pass (301 tests), 4/4 parity match + 0 E2E errors (Article, BreadcrumbList, FAQPage, Event). Package a2a61bd (no PHP source changes — all 98 TS types merged).",
+		"last_run": "2026-03-01T16:38:00Z",
+		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 23/23 parity match + 0 E2E errors + 14 warnings (all false positives). Package f4c26c8.",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"]
 	},
 	"ts_validation": {
-		"status": "operational",
+		"status": "complete",
 		"tool": "tools/ts-parity-check.ts",
 		"vitest_results": { "files": 86, "tests": 301, "pass": true },
 		"parity_results": {
-			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event"],
+			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event", "BlogPosting", "NewsArticle", "SoftwareApplication", "MobileApplication", "WebApplication", "Movie", "Product", "Product-AggregateOffer", "ProductGroup", "Recipe", "Recipe-Sections", "VideoObject", "Course", "LocalBusiness", "FoodEstablishment", "Store", "MathSolver", "ShippingService", "@graph"],
 			"all_match": true,
 			"e2e_errors": 0,
-			"e2e_warnings": 0
+			"e2e_warnings": 14,
+			"inheritance_chains_tested": ["BlogPosting->Article", "NewsArticle->Article", "MobileApplication->SoftwareApplication", "WebApplication->SoftwareApplication", "FoodEstablishment->LocalBusiness", "Store->LocalBusiness"],
+			"property_map_tested": ["SolveMathAction.mathExpressionInput->mathExpression-input"],
+			"schemas_to_json_tested": true
 		},
 		"ts_types_in_package": 84,
 		"ts_enums_in_package": 12,
-		"last_run": "2026-03-01T13:17:00Z",
-		"package_commit": "a2a61bd"
+		"last_run": "2026-03-01T16:38:00Z",
+		"package_commit": "f4c26c8",
+		"dod_status": "complete",
+		"qc_ack_122": "closed"
 	},
 	"cross_repo": {
 		"outbound_issues": [
@@ -233,16 +238,17 @@
 				"issue": 122,
 				"title": "[QC-ACK] Validate TypeScript port — Phase 3 complete, initial parity PASS",
 				"main_repo_issue": 299,
-				"status": "open",
+				"status": "closed",
 				"opened": "2026-03-01T13:17:00Z",
+				"closed": "2026-03-01T16:38:00Z",
 				"validation_complete": true,
-				"note": "TS validation operational. 86/86 Vitest, 4/4 parity match, 0 E2E errors. Expanding coverage in future cycles."
+				"note": "DoD complete. 23/23 parity match, 0 E2E errors, 6 inheritance chains, propertyMap validated, schemasToJson validated. All audit #35 criteria satisfied."
 			}
 		],
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -263,7 +269,8 @@
 			{ "issue": 116, "audit_issue": 24, "status": "closed", "decision": "accept", "note": "Implemented comment identity signing convention. All comments now prefixed with > **[qc-orchestrator]** | Session #N." },
 			{ "issue": 118, "audit_issue": 26, "status": "closed", "decision": "acknowledged", "note": "Phase 1 CI workflow gap targets main orchestrator. QC will verify TS CI health after Phase 1 merges." },
 			{ "issue": 120, "audit_issue": 29, "status": "closed", "decision": "acknowledged", "note": "Barrel file merge conflict risk targets main orchestrator's dispatch strategy, not QC. Verified ci-ts.yml is operational." },
-			{ "issue": 123, "audit_issue": 32, "status": "closed", "decision": "accept", "note": "Created tools/ts-parity-check.ts for TS/PHP parity validation. Added TS parity to STARTUP_CHECKLIST. Initial run: 4/4 match, 0 E2E errors." }
+			{ "issue": 123, "audit_issue": 32, "status": "closed", "decision": "accept", "note": "Created tools/ts-parity-check.ts for TS/PHP parity validation. Added TS parity to STARTUP_CHECKLIST. Initial run: 4/4 match, 0 E2E errors." },
+			{ "issue": 125, "audit_issue": 35, "status": "closed", "decision": "accept", "note": "Expanded parity to 23/23 types. All DoD criteria met: full coverage, propertyMap, 6 inheritance chains, E2E. Closed QC-ACK #122." }
 		]
 	},
 	"agent_sessions": {
@@ -436,6 +443,12 @@
 			"date": "2026-03-01",
 			"type": "ts-validation-bootstrap",
 			"summary": "Thirty-ninth session. Package 78e73e8->a2a61bd (no PHP source changes — all 98 TS types merged). Processed QC-REQUEST #299 (TS port complete), created QC-ACK #122 with parity validation results. Built tools/ts-parity-check.ts: 4/4 types match PHP output exactly, 0 E2E errors. Ran vendor Vitest: 86/86 files, 301 tests pass. Processed audit #32 (TS validation infra), created audit-inbound #123. Closed QC-ACK #98. Updated STARTUP_CHECKLIST with TS parity step. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives). 20 audit recommendations processed total."
+		},
+		{
+			"issue": 124,
+			"date": "2026-03-01",
+			"type": "ts-parity-complete",
+			"summary": "Fortieth session. Package a2a61bd->f4c26c8 (no PHP source changes — TS docs/tests only). Expanded ts-parity-check.ts from 4 to 23 types: ALL MATCH, 0 E2E errors, 14 warnings (all false positives). Validated 6 inheritance chains, SolveMathAction propertyMap, schemasToJson @graph. Processed audit #35 (TS exit criteria), created and closed audit-inbound #125. Updated and closed QC-ACK #122 with full DoD tracker. Phase 4c npm publish unblocked from QC side. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E. 21 audit recommendations processed total."
 		}
 	]
 }
