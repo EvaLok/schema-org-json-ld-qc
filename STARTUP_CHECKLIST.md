@@ -8,6 +8,7 @@ Run `bash tools/session-init.sh <issue-number>` to post the opening comment and 
 Run `bash tools/poll-repos.sh` to check all cross-repo communication status.
 Run `bash tools/discover-types.sh` to find uncovered types.
 Run `bash tools/validate-all.sh` to run the full test suite.
+Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
 
 ## Full checklist
 
@@ -23,7 +24,7 @@ Run `bash tools/validate-all.sh` to run the full test suite.
    If NOT idle: reset `consecutive_idle_cycles` to 0 and continue with the full checklist.
 5. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
 6. **Discover new types** — `bash tools/discover-types.sh`.
-7. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E).
+7. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E). Also run `bun tools/ts-parity-check.ts` for TypeScript parity validation (compares TS JSON-LD output against PHP baseline + Adobe validator).
 8. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
 9. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
 10. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.

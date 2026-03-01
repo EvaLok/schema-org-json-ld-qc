@@ -1,11 +1,11 @@
 {
-	"last_updated": "2026-03-01T10:06:00Z",
+	"last_updated": "2026-03-01T13:17:00Z",
 	"consecutive_idle_cycles": 0,
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "78e73e8",
-		"last_updated": "2026-03-01T10:06:00Z"
+		"commit": "a2a61bd",
+		"last_updated": "2026-03-01T13:17:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -71,9 +71,24 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-01T10:06:00Z",
-		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package 78e73e8 (no PHP source changes — TS Phases 1-3a merged). 188 unit tests (1133 assertions).",
+		"last_run": "2026-03-01T13:17:00Z",
+		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 86/86 Vitest pass (301 tests), 4/4 parity match + 0 E2E errors (Article, BreadcrumbList, FAQPage, Event). Package a2a61bd (no PHP source changes — all 98 TS types merged).",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"]
+	},
+	"ts_validation": {
+		"status": "operational",
+		"tool": "tools/ts-parity-check.ts",
+		"vitest_results": { "files": 86, "tests": 301, "pass": true },
+		"parity_results": {
+			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event"],
+			"all_match": true,
+			"e2e_errors": 0,
+			"e2e_warnings": 0
+		},
+		"ts_types_in_package": 84,
+		"ts_enums_in_package": 12,
+		"last_run": "2026-03-01T13:17:00Z",
+		"package_commit": "a2a61bd"
 	},
 	"cross_repo": {
 		"outbound_issues": [
@@ -188,10 +203,11 @@
 				"issue": 98,
 				"title": "[QC-ACK] TypeScript package validation strategy planning",
 				"main_repo_issue": 249,
-				"status": "open",
+				"status": "closed",
 				"opened": "2026-02-28T16:07:00Z",
-				"validation_complete": false,
-				"note": "Planning response only — no TS code to validate yet. Phase 0 validated in #114. Awaiting Phase 1 merge."
+				"closed": "2026-03-01T13:17:00Z",
+				"validation_complete": true,
+				"note": "Closed — superseded by QC-ACK #122. TS validation infrastructure now operational."
 			},
 			{
 				"issue": 110,
@@ -212,12 +228,21 @@
 				"closed": "2026-03-01T04:41:00Z",
 				"validation_complete": true,
 				"note": "Phase 0 restructure validated. 188 unit tests, 39/39 E2E. No consumer project changes needed."
+			},
+			{
+				"issue": 122,
+				"title": "[QC-ACK] Validate TypeScript port — Phase 3 complete, initial parity PASS",
+				"main_repo_issue": 299,
+				"status": "open",
+				"opened": "2026-03-01T13:17:00Z",
+				"validation_complete": true,
+				"note": "TS validation operational. 86/86 Vitest, 4/4 parity match, 0 E2E errors. Expanding coverage in future cycles."
 			}
 		],
-		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265]
+		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -237,7 +262,8 @@
 			{ "issue": 115, "audit_issue": 23, "status": "closed", "decision": "accept", "note": "Fixed idle detection path pattern and discover-types.sh for post-Phase 0 php/ prefix. Resilient pattern: check any .php file changes." },
 			{ "issue": 116, "audit_issue": 24, "status": "closed", "decision": "accept", "note": "Implemented comment identity signing convention. All comments now prefixed with > **[qc-orchestrator]** | Session #N." },
 			{ "issue": 118, "audit_issue": 26, "status": "closed", "decision": "acknowledged", "note": "Phase 1 CI workflow gap targets main orchestrator. QC will verify TS CI health after Phase 1 merges." },
-			{ "issue": 120, "audit_issue": 29, "status": "closed", "decision": "acknowledged", "note": "Barrel file merge conflict risk targets main orchestrator's dispatch strategy, not QC. Verified ci-ts.yml is operational." }
+			{ "issue": 120, "audit_issue": 29, "status": "closed", "decision": "acknowledged", "note": "Barrel file merge conflict risk targets main orchestrator's dispatch strategy, not QC. Verified ci-ts.yml is operational." },
+			{ "issue": 123, "audit_issue": 32, "status": "closed", "decision": "accept", "note": "Created tools/ts-parity-check.ts for TS/PHP parity validation. Added TS parity to STARTUP_CHECKLIST. Initial run: 4/4 match, 0 E2E errors." }
 		]
 	},
 	"agent_sessions": {
@@ -404,6 +430,12 @@
 			"date": "2026-03-01",
 			"type": "ts-progress-and-audit",
 			"summary": "Thirty-eighth session. Package 54eb3e8->78e73e8 (no PHP source changes — TS Phases 1-3a merged, Phase 3b PR #285 open). Processed audit #29 (barrel file merge conflicts — acknowledged, targets main orchestrator). Verified ci-ts.yml is operational (audit #26 follow-up). Updated QC-ACK #98 with TS progress assessment. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives). 19 audit recommendations processed total."
+		},
+		{
+			"issue": 121,
+			"date": "2026-03-01",
+			"type": "ts-validation-bootstrap",
+			"summary": "Thirty-ninth session. Package 78e73e8->a2a61bd (no PHP source changes — all 98 TS types merged). Processed QC-REQUEST #299 (TS port complete), created QC-ACK #122 with parity validation results. Built tools/ts-parity-check.ts: 4/4 types match PHP output exactly, 0 E2E errors. Ran vendor Vitest: 86/86 files, 301 tests pass. Processed audit #32 (TS validation infra), created audit-inbound #123. Closed QC-ACK #98. Updated STARTUP_CHECKLIST with TS parity step. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives). 20 audit recommendations processed total."
 		}
 	]
 }
