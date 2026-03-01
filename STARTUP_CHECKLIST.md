@@ -14,22 +14,21 @@ Run `bash tools/validate-all.sh` to run the full test suite.
 1. **Post opening comment** — `bash tools/session-init.sh <issue>` (captures timestamp, run ID).
 2. **Check for `input-from-eva` issues** — these take priority over everything else.
 3. **Recover context** — Read latest worklog entry and `state.json`. Also check `question-for-eva` issues on the main repo — if a shared question has been answered there, apply the answer locally and close the equivalent issue.
-4. **Steady-state check** — After recovering context, compare current state against last cycle. If ALL of the following are true, this is an idle cycle:
-   - (a) No new package commits since last cycle (`composer update` shows no change)
+4. **Update package and steady-state check** — Run `composer update evabee/schema-org-json-ld` and note the commit hash. Then compare current state against last cycle. If ALL of the following are true, this is an idle cycle:
+   - (a) No new package commits since last cycle (`composer update` shows no change), OR the new commits only modify non-source files (docs, worklogs, state files — no changes to `src/` PHP classes). Check with: `gh api repos/EvaLok/schema-org-json-ld/compare/OLD_HASH...NEW_HASH --jq '.files[].filename'` and look for files matching `src/*.php`.
    - (b) No open issues/PRs requiring action (no input-from-eva, no qc-outbound requests, no unreviewed Copilot PRs)
    - (c) No new QC reports or requests from the main repo
    - (d) No unprocessed audit recommendations
    If idle: post a brief comment "No changes detected since session N, skipping", increment `consecutive_idle_cycles` in state.json, close the issue, and exit. Do NOT write a worklog entry, journal entry, or commit. If `consecutive_idle_cycles` exceeds 3, note in the closing comment that cron frequency reduction should be considered.
    If NOT idle: reset `consecutive_idle_cycles` to 0 and continue with the full checklist.
-5. **Update package** — `composer update evabee/schema-org-json-ld` and note the commit hash.
-6. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
-7. **Discover new types** — `bash tools/discover-types.sh`.
-8. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E).
-9. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
-10. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
-11. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
-12. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches. Review open `audit-inbound` issues — close any whose recommended changes have been verified or resolved, with a brief closing comment confirming what was implemented.
-13. **Plan session work** — Prioritise reviews and validation over new test development.
+5. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
+6. **Discover new types** — `bash tools/discover-types.sh`.
+7. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E).
+8. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
+9. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
+10. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
+11. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches. Review open `audit-inbound` issues — close any whose recommended changes have been verified or resolved, with a brief closing comment confirming what was implemented.
+12. **Plan session work** — Prioritise reviews and validation over new test development.
 
 ## Documentation conventions
 

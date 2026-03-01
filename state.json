@@ -1,53 +1,53 @@
 {
-	"last_updated": "2026-02-28T22:05:00Z",
+	"last_updated": "2026-03-01T01:35:00Z",
 	"consecutive_idle_cycles": 0,
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "4478fbe",
-		"last_updated": "2026-02-28T22:05:00Z"
+		"commit": "a0d7ddc",
+		"last_updated": "2026-03-01T01:35:00Z"
 	},
 	"schema_types": {
 		"covered": {
-			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"MemberProgram": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"MerchantReturnPolicy": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"ShippingService": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" },
-			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-02-28", "package_commit": "4478fbe" }
+			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"MemberProgram": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"MerchantReturnPolicy": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"ShippingService": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" },
+			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "a0d7ddc" }
 		},
 		"uncovered": [
 			"Accommodation", "AdministrativeArea", "AggregateOffer", "AggregateRating", "AlignmentObject",
@@ -71,8 +71,8 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-02-28T22:05:00Z",
-		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package 4478fbe. 188 unit tests (1133 assertions).",
+		"last_run": "2026-03-01T01:35:00Z",
+		"summary": "39/39 E2E pass, 0 errors, 15 warnings (3 datePublished false positives + 12 Recipe validator false positives). All warnings are validator limitations, not code defects. Package a0d7ddc. 188 unit tests (1133 assertions).",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"]
 	},
 	"cross_repo": {
@@ -192,12 +192,22 @@
 				"opened": "2026-02-28T16:07:00Z",
 				"validation_complete": false,
 				"note": "Planning response only — no TS code to validate yet. Awaiting Phase 1 merge."
+			},
+			{
+				"issue": 110,
+				"title": "[QC-ACK] Implement smarter idle cycle detection (audit #18 via QC-REQUEST #261)",
+				"main_repo_issue": 261,
+				"status": "closed",
+				"opened": "2026-03-01T01:35:00Z",
+				"closed": "2026-03-01T01:35:00Z",
+				"validation_complete": true,
+				"note": "Accepted and implemented. STARTUP_CHECKLIST updated with smarter idle detection."
 			}
 		],
-		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249]
+		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -210,7 +220,10 @@
 			{ "issue": 104, "audit_issue": 12, "status": "closed", "decision": "accept", "note": "Closed 6 stale audit-inbound issues. Added lifecycle management to STARTUP_CHECKLIST.md housekeeping step." },
 			{ "issue": 105, "audit_issue": 13, "status": "closed", "decision": "accept", "note": "Closed #96 with Eva's answer. Added cross-repo question sync to STARTUP_CHECKLIST.md context recovery step." },
 			{ "issue": 107, "audit_issue": 15, "status": "closed", "decision": "accept", "note": "Phase 0 QC validation will be caught by normal startup checklist. Primary action on main orchestrator." },
-			{ "issue": 108, "audit_issue": 16, "status": "closed", "decision": "acknowledged", "note": "Already addressed — main repo created comprehensive AGENTS-ts.md in cycle 70 (commit 4478fbe)." }
+			{ "issue": 108, "audit_issue": 16, "status": "closed", "decision": "acknowledged", "note": "Already addressed — main repo created comprehensive AGENTS-ts.md in cycle 70 (commit 4478fbe)." },
+			{ "issue": 110, "audit_issue": 18, "status": "closed", "decision": "accept", "note": "Implemented smarter idle detection: STARTUP_CHECKLIST now checks commit diffs for PHP source changes, not just hash changes. Forwarded via QC-REQUEST #261." },
+			{ "issue": 111, "audit_issue": 19, "status": "closed", "decision": "not-applicable", "note": "Targets main orchestrator's plan approval workflow, not QC." },
+			{ "issue": 112, "audit_issue": 20, "status": "closed", "decision": "not-applicable", "note": "Targets main orchestrator's AGENTS-ts.md constructor patterns, not QC." }
 		]
 	},
 	"agent_sessions": {
@@ -353,6 +366,12 @@
 			"date": "2026-02-28",
 			"type": "audit-batch-4",
 			"summary": "Thirty-fourth session. Package 3808eca->4478fbe (main orchestrator cycles 69-70 — near-idle + audit batch 4/AGENTS-ts.md skeleton). Processed 2 audit recommendations (#15, #16): Phase 0 QC checkpoint (accepted), TS agent guardrails (acknowledged — already addressed). Created and closed audit-inbound #107-#108. Full validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives). 12 audit recommendations processed total."
+		},
+		{
+			"issue": 109,
+			"date": "2026-03-01",
+			"type": "audit-batch-5-and-idle-detection",
+			"summary": "Thirty-fifth session. Package 4478fbe->a0d7ddc (main orchestrator cycles 71-72 — TS implementation skill, Eva approved TS plan, Phase 0 dispatched). Processed QC-REQUEST #261 (forwarded audit #18): implemented smarter idle detection in STARTUP_CHECKLIST. Processed audit #19 and #20 (both target main orchestrator, not QC). Full validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives). 15 audit recommendations processed total."
 		}
 	]
 }
