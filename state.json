@@ -1,53 +1,53 @@
 {
-	"last_updated": "2026-03-01T19:07:00Z",
+	"last_updated": "2026-03-01T22:05:00Z",
 	"consecutive_idle_cycles": 0,
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "51f562f",
-		"last_updated": "2026-03-01T19:07:00Z"
+		"commit": "cd008f8",
+		"last_updated": "2026-03-01T22:05:00Z"
 	},
 	"schema_types": {
 		"covered": {
-			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"MemberProgram": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"MerchantReturnPolicy": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"ShippingService": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" },
-			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "51f562f" }
+			"Article": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"BlogPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"BreadcrumbList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Clip": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Course": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Dataset": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"DiscussionForumPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"EmployerAggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Event": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"FAQPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"FoodEstablishment": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"@graph (composite)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"ItemList": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"JobPosting": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"LocalBusiness": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"MathSolver": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"MemberProgram": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"MerchantReturnPolicy": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"MobileApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Movie": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"NewsArticle": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Organization": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Person": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Product": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Product (AggregateOffer)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"ProductGroup": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"ProfilePage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"QAPage": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Quiz": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Recipe": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Recipe (HowToSection)": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 6, "e2e_warnings_note": "Validator false positives: cannot detect expires/hasPart/publication/ineligibleRegion/interactionStatistic. Also incorrectly flags ineligibleRegion as unsupported.", "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Restaurant": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Review": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"ShippingService": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"SoftwareApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" }
 		},
 		"uncovered": [
 			"Accommodation", "AdministrativeArea", "AggregateOffer", "AggregateRating", "AlignmentObject",
@@ -71,8 +71,8 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-01T19:07:00Z",
-		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 25/25 parity match + 0 E2E errors + 14 warnings (all false positives). Package 51f562f. Class inventory: 86/86 PHP=TS.",
+		"last_run": "2026-03-01T22:05:00Z",
+		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 25/25 parity match + 0 E2E errors + 14 warnings (all false positives). Package cd008f8. Class inventory: 86/86 PHP=TS.",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"]
 	},
 	"ts_validation": {
@@ -91,8 +91,8 @@
 		},
 		"ts_types_in_package": 86,
 		"ts_enums_in_package": 12,
-		"last_run": "2026-03-01T19:07:00Z",
-		"package_commit": "51f562f",
+		"last_run": "2026-03-01T22:05:00Z",
+		"package_commit": "cd008f8",
 		"dod_status": "complete",
 		"qc_ack_122": "closed"
 	},
@@ -249,7 +249,7 @@
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -272,7 +272,8 @@
 			{ "issue": 120, "audit_issue": 29, "status": "closed", "decision": "acknowledged", "note": "Barrel file merge conflict risk targets main orchestrator's dispatch strategy, not QC. Verified ci-ts.yml is operational." },
 			{ "issue": 123, "audit_issue": 32, "status": "closed", "decision": "accept", "note": "Created tools/ts-parity-check.ts for TS/PHP parity validation. Added TS parity to STARTUP_CHECKLIST. Initial run: 4/4 match, 0 E2E errors." },
 			{ "issue": 125, "audit_issue": 35, "status": "closed", "decision": "accept", "note": "Expanded parity to 23/23 types. All DoD criteria met: full coverage, propertyMap, 6 inheritance chains, E2E. Closed QC-ACK #122." },
-			{ "issue": 127, "audit_issue": 37, "status": "closed", "decision": "accept", "note": "QAPage and Restaurant already ported by main orchestrator (51f562f). Expanded parity to 25/25. Class inventory 86/86 match. Added inventory reconciliation as validation criterion." }
+			{ "issue": 127, "audit_issue": 37, "status": "closed", "decision": "accept", "note": "QAPage and Restaurant already ported by main orchestrator (51f562f). Expanded parity to 25/25. Class inventory 86/86 match. Added inventory reconciliation as validation criterion." },
+			{ "issue": 129, "audit_issue": 39, "status": "closed", "decision": "accept", "note": "Added STARTUP_CHECKLIST step 8 (post-publish npm validation). Tool will be built when package is published." }
 		]
 	},
 	"agent_sessions": {
@@ -457,6 +458,12 @@
 			"date": "2026-03-01",
 			"type": "ts-parity-expansion-and-audit",
 			"summary": "Forty-first session. Package f4c26c8->51f562f (QAPage.ts and Restaurant.ts added). Expanded ts-parity-check.ts from 23 to 25 types including QAPage and Restaurant: ALL MATCH, 0 E2E errors, 14 warnings (all false positives). Class inventory reconciliation: 86/86 PHP=TS (gap from audit #37 resolved). 7 inheritance chains validated (added Restaurant->FoodEstablishment->LocalBusiness). Processed audit #37 (class inventory reconciliation), created audit-inbound #127. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E. 22 audit recommendations processed total."
+		},
+		{
+			"issue": 128,
+			"date": "2026-03-01",
+			"type": "audit-post-publish-validation",
+			"summary": "Forty-second session. Package 51f562f->cd008f8 (no PHP/TS source changes — main orchestrator housekeeping + audit #39 acceptance). Processed audit #39 (npm publish untested build artifact): added STARTUP_CHECKLIST step 8 for post-publish npm validation, created and closed audit-inbound #129. All validation clean: 188 unit tests (1133 assertions), 39/39 E2E, 25/25 TS parity. 23 audit recommendations processed total."
 		}
 	]
 }

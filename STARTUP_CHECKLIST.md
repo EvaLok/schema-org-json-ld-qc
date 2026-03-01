@@ -25,11 +25,12 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
 5. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
 6. **Discover new types** — `bash tools/discover-types.sh`.
 7. **Run validation suite** — `bash tools/validate-all.sh` (unit tests + E2E). Also run `bun tools/ts-parity-check.ts` for TypeScript parity validation (compares TS JSON-LD output against PHP baseline + Adobe validator).
-8. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
-9. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
-10. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
-11. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches. Review open `audit-inbound` issues — close any whose recommended changes have been verified or resolved, with a brief closing comment confirming what was implemented.
-12. **Plan session work** — Prioritise reviews and validation over new test development.
+8. **Check for npm publish** — If `@evabee/schema-org-json-ld` is published on npm, validate the built artifact: run `bun tools/npm-publish-check.ts` to verify ESM/CJS imports resolve, type declarations exist, and JSON-LD output from the installed package matches PHP baseline. Check with: `npm view @evabee/schema-org-json-ld version 2>/dev/null`. If not yet published, skip this step.
+9. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
+10. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
+11. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
+12. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches. Review open `audit-inbound` issues — close any whose recommended changes have been verified or resolved, with a brief closing comment confirming what was implemented.
+13. **Plan session work** — Prioritise reviews and validation over new test development.
 
 ## Documentation conventions
 
