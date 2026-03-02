@@ -73,6 +73,20 @@ Shell scripts for common operations. Invoke with `bash tools/<script>.sh` (not `
 - `tools/discover-types.sh` — Compare main repo types against our coverage
 - `tools/git-commit.sh <message-file> [files...]` — Commit using a message file (avoids `$()` sandbox restriction)
 
+## Coverage expansion tasks
+
+The orchestrator dispatches Copilot to expand test coverage for uncovered schema types. Each task should:
+
+- **Batch 4-6 related types** (e.g., all location types: Place, PostalAddress, GeoCoordinates, GeoShape)
+- **Create for each type**:
+  - `src/generate-<type>.php` — Instantiate with realistic data, output JSON-LD via `echo json_encode(...)`
+  - `src/Fixtures/<Type>Fixture.php` — Realistic test data (if complex enough to warrant a fixture)
+  - `tests/Unit/<Type>Test.php` — PHPUnit structural assertions on JSON-LD output
+  - `tests/E2E/<type>.spec.ts` — Adobe structured data validator test
+- **Follow existing patterns** — Look at `src/generate-product.php`, `tests/Unit/ProductTest.php`, and `tests/E2E/product.spec.ts` as reference
+- **Use the installed package** — `use Evabee\SchemaOrgJsonLd\v1\<Type>;` (check actual class names in `vendor/evabee/schema-org-json-ld/php/src/v1/`)
+- **Run `composer run test-unit`** before marking complete
+
 ## Claude Code sandbox notes
 
 The Claude Code sandbox blocks certain shell constructs:

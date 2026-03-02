@@ -20,6 +20,7 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
    - (b) No open issues/PRs requiring action (no input-from-eva, no qc-outbound requests, no unreviewed Copilot PRs)
    - (c) No new QC reports or requests from the main repo
    - (d) No unprocessed audit recommendations
+   - (e) No uncovered schema types with < 2 in-flight Copilot agents (if uncovered types exist AND agent slots are available, this is NOT idle — dispatch coverage expansion work)
    If idle: post a brief comment "No changes detected since session N, skipping", increment `consecutive_idle_cycles` in state.json, close the issue, and exit. Do NOT write a worklog entry, journal entry, or commit. If `consecutive_idle_cycles` exceeds 3, note in the closing comment that cron frequency reduction should be considered.
    If NOT idle: reset `consecutive_idle_cycles` to 0 and continue with the full checklist.
 5. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
@@ -34,7 +35,14 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
     b. **Stale `audit-inbound` issues**: Query open `audit-inbound` issues. For each, check whether the referenced audit recommendation appears in the `processed_audit_issues` list in state.json. If accepted and verified, close with a brief confirmation comment.
     c. **Orphan PRs and dead branches**: Close draft PRs from failed agent sessions. Delete remote branches from merged or closed PRs.
     d. **Resolved QC threads**: Ensure both sides of completed cross-repo threads are closed.
-13. **Plan session work** — Prioritise reviews and validation over new test development.
+13. **Dispatch Copilot for coverage expansion** — MANDATORY when uncovered types exist and < 2 agents are in-flight:
+    a. Check `schema_types.uncovered` in state.json for types without consumer project tests.
+    b. Batch 4-6 related types per issue spec (group by domain: commerce, content, location, etc.).
+    c. Each issue spec must include: the schema types to cover, what files to create (`src/generate-*.php`, `tests/Unit/*Test.php`, `tests/E2E/*.spec.ts`), example field values, and the existing patterns to follow.
+    d. Dispatch via `gh api /repos/EvaLok/schema-org-json-ld-qc/issues --method POST --input` with `agent_assignment` and `model: gpt-5.3-codex`.
+    e. Update `agent_sessions.in_flight` in state.json after dispatch.
+    f. **Never end a session with 0 in-flight agents when uncovered types exist.** Coverage expansion is core work, not optional.
+14. **Plan remaining session work** — After dispatch, prioritise: PR reviews > validation re-runs > cross-repo communication > process improvements.
 
 ## Documentation conventions
 

@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-02T22:08:51Z",
+	"last_updated": "2026-03-02T22:51:06Z",
 	"consecutive_idle_cycles": 0,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "c8b1c6f",
-		"last_updated": "2026-03-02T22:08:51Z"
+		"commit": "c4b4d88",
+		"last_updated": "2026-03-02T22:51:06Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -299,7 +299,10 @@
 		]
 	},
 	"agent_sessions": {
-		"in_flight": [],
+		"in_flight": [
+			{ "issue": 145, "title": "Coverage expansion: Place, PostalAddress, GeoCoordinates, ContactPoint, ImageObject", "model": "gpt-5.3-codex", "dispatched": "2026-03-02T22:55:00Z" },
+			{ "issue": 146, "title": "Coverage expansion: Question, Answer, Offer, BroadcastEvent, AggregateOffer", "model": "gpt-5.3-codex", "dispatched": "2026-03-02T22:55:00Z" }
+		],
 		"completed": [
 			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 28, "pr": 29, "status": "merged", "model": "gpt-5.3-codex" },
@@ -534,6 +537,12 @@
 			"date": "2026-03-02",
 			"type": "audit-cross-repo-skill",
 			"summary": "Fiftieth session. Package a7a5131->c8b1c6f (no PHP/TS source changes — main orchestrator cycles 99-102). Processed audit #53 (cross-repo communication skill): created .claude/skills/cross-repo-communication/SKILL.md, updated tools/poll-repos.sh with audit polling section. Created audit-inbound #142. State migration deferred pending coordination. All validation clean: 188 unit tests (1133 assertions), 39/39 E2E, 39/39 TS parity, 15 warnings (all false positives). 27 audit recommendations processed total."
+		},
+		{
+			"issue": 144,
+			"date": "2026-03-02",
+			"type": "eva-input-copilot-dispatch-fix",
+			"summary": "Fifty-first session. Package c8b1c6f->c4b4d88 (no PHP/TS source changes). Handled input-from-eva #143: identified and fixed Copilot dispatch gap. Updated STARTUP_CHECKLIST (added idle check condition (e), replaced step 13 with mandatory dispatch step) and AGENTS.md (added coverage expansion section). Dispatched 2 Copilot tasks: #145 (Place, PostalAddress, GeoCoordinates, ContactPoint, ImageObject) and #146 (Question, Answer, Offer, BroadcastEvent, AggregateOffer). Closed stale audit-inbound #142. All validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives)."
 		}
 	]
 }
