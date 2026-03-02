@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-02T04:36:00Z",
-	"consecutive_idle_cycles": 0,
+	"last_updated": "2026-03-02T07:22:50Z",
+	"consecutive_idle_cycles": 1,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "88453ac",
-		"last_updated": "2026-03-02T04:36:00Z"
+		"commit": "ad97aa1",
+		"last_updated": "2026-03-02T07:22:50Z"
 	},
 	"schema_types": {
 		"covered": {
