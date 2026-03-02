@@ -44,4 +44,18 @@ class AggregateOfferTest extends TestCase
 		$this->assertEquals(199.99, $data['highPrice']);
 		$this->assertSame(12, $data['offerCount']);
 	}
+
+	public function testAggregateOfferNullFieldsOmitted(): void
+	{
+		$offer = new AggregateOffer(
+			lowPrice: 19.99,
+			priceCurrency: 'USD',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($offer);
+		$data = json_decode($json, true);
+
+		$this->assertArrayNotHasKey('highPrice', $data);
+		$this->assertArrayNotHasKey('offerCount', $data);
+	}
 }
