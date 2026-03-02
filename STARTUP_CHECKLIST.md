@@ -29,7 +29,11 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
 9. **Report new failures** — Use `bash tools/gh-post.sh create-issue <title> <body-file> qc-outbound`.
 10. **Check audit repo** — Poll `EvaLok/schema-org-json-ld-audit` for `audit-outbound` issues (process recommendations). Evaluate, accept/reject, track in state file. For each processed recommendation, create an `audit-inbound` issue on this repo linking to the original audit-outbound issue URL (we cannot comment directly on the audit repo — no write access).
 11. **Check false positive documentation** — When false positives are tracked in state.json, verify they are documented in the main repo's user-facing docs. If not, file a QC-REPORT recommending documentation.
-12. **Housekeeping** — Clean up stale issues, orphan PRs, dead branches. Review open `audit-inbound` issues — close any whose recommended changes have been verified or resolved, with a brief closing comment confirming what was implemented.
+12. **Housekeeping** — Explicit self-healing for stale issues, plus general cleanup:
+    a. **Stale `orchestrator-run` issues**: Query `gh issue list --label orchestrator-run --state open`. Close any from previous sessions (not the current one) with a comment: "Stale — session completed but issue not closed. Superseded by session #N."
+    b. **Stale `audit-inbound` issues**: Query open `audit-inbound` issues. For each, check whether the referenced audit recommendation appears in the `processed_audit_issues` list in state.json. If accepted and verified, close with a brief confirmation comment.
+    c. **Orphan PRs and dead branches**: Close draft PRs from failed agent sessions. Delete remote branches from merged or closed PRs.
+    d. **Resolved QC threads**: Ensure both sides of completed cross-repo threads are closed.
 13. **Plan session work** — Prioritise reviews and validation over new test development.
 
 ## Documentation conventions

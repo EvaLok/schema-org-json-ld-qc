@@ -9,6 +9,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-02-27](docs/journal/2026-02-27.md) — Sessions #68, #69, #73, #77, #78 (final validation, Recipe properties, v1.0.0 milestone)
 - [2026-02-28](docs/journal/2026-02-28.md) — Sessions #87, #88, #89, #90 (steady-state validation)
 - [2026-03-01](docs/journal/2026-03-01.md) — Sessions #109, #113, #117, #119, #121, #124, #126 (audit batch 5, idle detection, Phase 0 validation, TS acceleration, TS parity complete, class inventory)
+- [2026-03-02](docs/journal/2026-03-02.md) — Session #130 (audit self-healing, steady-state validation)
 
 ## Convention
 
