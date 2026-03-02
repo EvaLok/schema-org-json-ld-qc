@@ -72,6 +72,27 @@ import { VideoObject } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/V
 import { VirtualLocation } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/VirtualLocation';
 import { WebApplication } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/WebApplication';
 
+// Additional schema types for expanded parity (25 → 39)
+import { Accommodation } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Accommodation';
+import { ContactPoint } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ContactPoint';
+import { AdministrativeArea } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/AdministrativeArea';
+import { Comment } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Comment';
+import { DataCatalog } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/DataCatalog';
+import { DataDownload } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/DataDownload';
+import { Dataset } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Dataset';
+import { DiscussionForumPosting } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/DiscussionForumPosting';
+import { EmployerAggregateRating } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/EmployerAggregateRating';
+import { ItemList } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ItemList';
+import { JobPosting } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/JobPosting';
+import { MemberProgram } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/MemberProgram';
+import { MemberProgramTier } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/MemberProgramTier';
+import { MerchantReturnPolicySeasonalOverride } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/MerchantReturnPolicySeasonalOverride';
+import { ProfilePage } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ProfilePage';
+import { PropertyValue } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/PropertyValue';
+import { Quiz } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Quiz';
+import { Thing } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Thing';
+import { VacationRental } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/VacationRental';
+
 // Enums
 import { DayOfWeek } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/DayOfWeek';
 import { EventAttendanceModeEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/EventAttendanceModeEnumeration';
@@ -81,7 +102,10 @@ import { ItemAvailability } from '../vendor/evabee/schema-org-json-ld/ts/src/enu
 import { MerchantReturnEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/MerchantReturnEnumeration';
 import { OfferItemCondition } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/OfferItemCondition';
 import { ReturnFeesEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/ReturnFeesEnumeration';
+import { RefundTypeEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/RefundTypeEnumeration';
+import { ReturnLabelSourceEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/ReturnLabelSourceEnumeration';
 import { ReturnMethodEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/ReturnMethodEnumeration';
+import { TierBenefitEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/TierBenefitEnumeration';
 
 interface ValidationIssue {
 	rootType: string;
@@ -1217,7 +1241,363 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	});
 
 	// ===================================================================
-	// 26. @graph — matches src/generate-graph.php
+	// 26. Clip — matches src/generate-clip.php
+	// ===================================================================
+	const clipStandalone = new Clip(
+		'Introduction to the Topic',
+		0,
+		'https://example.com/video/tutorial?t=0',
+		120,
+	);
+	results.set('Clip', {
+		type: 'Clip',
+		phpScript: 'src/generate-clip.php',
+		json: JsonLdGenerator.schemaToJson(clipStandalone),
+	});
+
+	// ===================================================================
+	// 27. Dataset — matches src/generate-dataset.php
+	// ===================================================================
+	const dataset = new Dataset({
+		name: 'Global Ocean Temperature Records 1950-2025',
+		description: 'Comprehensive dataset of ocean surface temperature measurements from 1950 to 2025, collected from buoys, satellites, and research vessels worldwide.',
+		url: 'https://example.com/datasets/ocean-temp',
+		creator: new Organization({ name: 'National Oceanographic Institute' }),
+		license: 'https://creativecommons.org/licenses/by/4.0/',
+		keywords: ['ocean temperature', 'climate data', 'marine science'],
+		isAccessibleForFree: true,
+		temporalCoverage: '1950/2025',
+		includedInDataCatalog: new DataCatalog('World Climate Data Repository'),
+		distribution: [new DataDownload('https://example.com/datasets/ocean-temp/download.csv', 'text/csv')],
+	});
+	results.set('Dataset', {
+		type: 'Dataset',
+		phpScript: 'src/generate-dataset.php',
+		json: JsonLdGenerator.schemaToJson(dataset),
+	});
+
+	// ===================================================================
+	// 28. DiscussionForumPosting — matches src/generate-discussionforumposting.php
+	// ===================================================================
+	const dfp = new DiscussionForumPosting({
+		author: new Person({ name: 'Alex Thompson' }),
+		datePublished: '2025-03-10T14:30:00Z',
+		text: 'Has anyone managed to get the new schema.org VacationRental type working with Google Rich Results? I keep getting validation warnings about missing fields.',
+		headline: 'VacationRental schema validation issues',
+		url: 'https://example.com/forum/posts/vacationrental-schema',
+		comment: [
+			new Comment({
+				text: 'Yes! Make sure you include the address and aggregateRating fields. Those are recommended by Google.',
+				author: new Person({ name: 'Sarah Dev' }),
+				datePublished: '2025-03-10T15:45:00Z',
+			}),
+			new Comment({
+				text: 'I found that the bestRating and worstRating fields on nested ratings also trigger warnings if omitted.',
+				author: new Person({ name: 'Mike Builder' }),
+				datePublished: '2025-03-10T16:20:00Z',
+			}),
+		],
+	});
+	results.set('DiscussionForumPosting', {
+		type: 'DiscussionForumPosting',
+		phpScript: 'src/generate-discussionforumposting.php',
+		json: JsonLdGenerator.schemaToJson(dfp),
+	});
+
+	// ===================================================================
+	// 29. EmployerAggregateRating — matches src/generate-employeraggregaterating.php
+	// ===================================================================
+	const ear = new EmployerAggregateRating(
+		new Organization({ name: 'TechCorp Industries' }),
+		4.2,
+		1847,
+		523,
+		5,
+		1,
+	);
+	results.set('EmployerAggregateRating', {
+		type: 'EmployerAggregateRating',
+		phpScript: 'src/generate-employeraggregaterating.php',
+		json: JsonLdGenerator.schemaToJson(ear),
+	});
+
+	// ===================================================================
+	// 30. ItemList — matches src/generate-itemlist.php
+	// ===================================================================
+	const itemList = new ItemList(
+		[
+			new ListItem(1, 'MacBook Pro 16-inch', null, 'https://example.com/best-laptops/macbook-pro'),
+			new ListItem(2, 'ThinkPad X1 Carbon', null, 'https://example.com/best-laptops/thinkpad-x1'),
+			new ListItem(3, 'Dell XPS 15', null, 'https://example.com/best-laptops/dell-xps-15'),
+		],
+		'https://schema.org/ItemListOrderDescending',
+		3,
+	);
+	results.set('ItemList', {
+		type: 'ItemList',
+		phpScript: 'src/generate-itemlist.php',
+		json: JsonLdGenerator.schemaToJson(itemList),
+	});
+
+	// ===================================================================
+	// 31. JobPosting — matches src/generate-jobposting.php
+	// ===================================================================
+	const jobPosting = new JobPosting({
+		title: 'Senior Software Engineer',
+		description: '<p>We are looking for a senior software engineer to lead our backend team. You will design and implement scalable APIs, mentor junior developers, and drive technical decisions.</p><p>Requirements: 5+ years experience with PHP or Python, experience with cloud infrastructure, strong communication skills.</p>',
+		datePosted: '2025-03-01',
+		hiringOrganization: new Organization({
+			name: 'ACME Corp',
+			url: 'https://acme.example.com',
+			logo: 'https://acme.example.com/logo.png',
+		}),
+		jobLocation: new Place(
+			'ACME Headquarters',
+			new PostalAddress({
+				streetAddress: '100 Innovation Way',
+				addressLocality: 'Austin',
+				addressRegion: 'TX',
+				postalCode: '78701',
+				addressCountry: 'US',
+			}),
+		),
+		baseSalary: new MonetaryAmount('USD', null, 150000, 200000),
+		employmentType: 'FULL_TIME',
+		validThrough: '2025-06-01',
+		applicantLocationRequirements: new AdministrativeArea('United States'),
+		jobLocationType: 'TELECOMMUTE',
+		directApply: true,
+		identifier: new PropertyValue('Internal Job ID', 'SE-2025-0042'),
+	});
+	results.set('JobPosting', {
+		type: 'JobPosting',
+		phpScript: 'src/generate-jobposting.php',
+		json: JsonLdGenerator.schemaToJson(jobPosting),
+	});
+
+	// ===================================================================
+	// 32. MemberProgram — matches src/generate-member-program.php
+	// ===================================================================
+	const memberProgram = new MemberProgram(
+		'ShopRewards Loyalty Program',
+		'Earn points on every purchase and unlock exclusive member benefits.',
+		[
+			new MemberProgramTier(
+				'Silver',
+				TierBenefitEnumeration.TierBenefitLoyaltyPoints,
+				'No minimum spend required',
+				new QuantitativeValue(1),
+			),
+			new MemberProgramTier(
+				'Gold',
+				[TierBenefitEnumeration.TierBenefitLoyaltyPoints, TierBenefitEnumeration.TierBenefitLoyaltyPrice],
+				'Spend $500 or more per year',
+				new QuantitativeValue(2),
+				'https://www.example.com/rewards/gold',
+			),
+		],
+		'https://www.example.com/rewards',
+	);
+	results.set('MemberProgram', {
+		type: 'MemberProgram',
+		phpScript: 'src/generate-member-program.php',
+		json: JsonLdGenerator.schemaToJson(memberProgram),
+	});
+
+	// ===================================================================
+	// 33. MerchantReturnPolicy — matches src/generate-merchant-return-policy.php
+	// ===================================================================
+	const mrp = new MerchantReturnPolicy({
+		applicableCountry: ['US', 'CA'],
+		returnPolicyCategory: MerchantReturnEnumeration.MerchantReturnFiniteReturnWindow,
+		merchantReturnDays: 30,
+		merchantReturnLink: 'https://www.example.com/returns',
+		returnMethod: ReturnMethodEnumeration.ReturnByMail,
+		returnFees: ReturnFeesEnumeration.FreeReturn,
+		refundType: RefundTypeEnumeration.FullRefund,
+		returnLabelSource: ReturnLabelSourceEnumeration.ReturnLabelDownloadAndPrint,
+		customerRemorseReturnFees: ReturnFeesEnumeration.FreeReturn,
+		customerRemorseReturnLabelSource: ReturnLabelSourceEnumeration.ReturnLabelDownloadAndPrint,
+		itemDefectReturnFees: ReturnFeesEnumeration.FreeReturn,
+		itemDefectReturnLabelSource: ReturnLabelSourceEnumeration.ReturnLabelInBox,
+		returnPolicySeasonalOverride: new MerchantReturnPolicySeasonalOverride(
+			'2026-11-29',
+			'2027-01-31',
+			MerchantReturnEnumeration.MerchantReturnFiniteReturnWindow,
+			60,
+		),
+	});
+	results.set('MerchantReturnPolicy', {
+		type: 'MerchantReturnPolicy',
+		phpScript: 'src/generate-merchant-return-policy.php',
+		json: JsonLdGenerator.schemaToJson(mrp),
+	});
+
+	// ===================================================================
+	// 34. Organization — matches src/generate-organization.php
+	// ===================================================================
+	const orgStandalone = new Organization({
+		name: 'TechStart Inc.',
+		url: 'https://techstart.example.com',
+		logo: 'https://techstart.example.com/logo.png',
+		description: 'Leading technology startup accelerator.',
+		email: 'info@techstart.example.com',
+		telephone: '+1-555-123-4567',
+		address: new PostalAddress({
+			streetAddress: '123 Innovation Drive',
+			addressLocality: 'San Francisco',
+			addressRegion: 'CA',
+			postalCode: '94105',
+			addressCountry: 'US',
+		}),
+		contactPoint: new ContactPoint('+1-555-987-6543', null, 'customer service'),
+		sameAs: ['https://twitter.com/techstart', 'https://linkedin.com/company/techstart'],
+		foundingDate: '2020-03-15',
+		legalName: 'TechStart Incorporated',
+		numberOfEmployees: new QuantitativeValue(150),
+		taxID: '94-3456789',
+		duns: '12-345-6789',
+	});
+	results.set('Organization', {
+		type: 'Organization',
+		phpScript: 'src/generate-organization.php',
+		json: JsonLdGenerator.schemaToJson(orgStandalone),
+	});
+
+	// ===================================================================
+	// 35. Person — matches src/generate-person.php
+	// ===================================================================
+	const personStandalone = new Person({
+		name: 'Dr. Emily Zhang',
+		url: 'https://emilyzhang.example.com',
+		image: 'https://emilyzhang.example.com/photo.jpg',
+		jobTitle: 'Senior Research Scientist',
+		worksFor: new Organization({ name: 'BioGen Labs' }),
+		sameAs: ['https://twitter.com/emilyzhang', 'https://linkedin.com/in/emilyzhang'],
+		description: 'Genomics researcher specializing in CRISPR applications.',
+		givenName: 'Emily',
+		familyName: 'Zhang',
+		address: new PostalAddress({
+			addressLocality: 'Boston',
+			addressRegion: 'MA',
+			addressCountry: 'US',
+		}),
+	});
+	results.set('Person', {
+		type: 'Person',
+		phpScript: 'src/generate-person.php',
+		json: JsonLdGenerator.schemaToJson(personStandalone),
+	});
+
+	// ===================================================================
+	// 36. ProfilePage — matches src/generate-profilepage.php
+	// ===================================================================
+	const profilePage = new ProfilePage(
+		new Person({
+			name: 'Ada Lovelace',
+			url: 'https://example.com/profiles/ada-lovelace',
+			sameAs: ['https://twitter.com/example_ada', 'https://www.linkedin.com/in/example-ada'],
+		}),
+		'2024-01-15',
+		'2025-03-20',
+	);
+	results.set('ProfilePage', {
+		type: 'ProfilePage',
+		phpScript: 'src/generate-profilepage.php',
+		json: JsonLdGenerator.schemaToJson(profilePage),
+	});
+
+	// ===================================================================
+	// 37. Quiz — matches src/generate-quiz.php
+	// ===================================================================
+	const quiz = new Quiz(
+		[
+			new Question({
+				name: 'What is the chemical symbol for water?',
+				acceptedAnswer: new Answer('H2O'),
+				eduQuestionType: 'Multiple choice',
+			}),
+			new Question({
+				name: 'What planet is closest to the Sun?',
+				acceptedAnswer: new Answer('Mercury'),
+				eduQuestionType: 'Multiple choice',
+			}),
+		],
+		'General Science',
+		null,
+		'Basic Science Quiz',
+		'Test your knowledge of basic science concepts.',
+	);
+	results.set('Quiz', {
+		type: 'Quiz',
+		phpScript: 'src/generate-quiz.php',
+		json: JsonLdGenerator.schemaToJson(quiz),
+	});
+
+	// ===================================================================
+	// 38. Review — matches src/generate-review.php
+	// ===================================================================
+	const reviewStandalone = new Review(
+		new Person({ name: 'James Wilson' }),
+		new Rating(4, 5, 1),
+		'Excellent product with great build quality. Minor issues with the manual.',
+		'2025-03-15',
+		'Great quality, minor documentation issues',
+		new Thing('Acme Wireless Headphones'),
+	);
+	results.set('Review', {
+		type: 'Review',
+		phpScript: 'src/generate-review.php',
+		json: JsonLdGenerator.schemaToJson(reviewStandalone),
+	});
+
+	// ===================================================================
+	// 39. VacationRental — matches src/generate-vacationrental.php
+	// ===================================================================
+	const vacationRental = new VacationRental({
+		name: 'Seaside Villa Retreat',
+		identifier: 'villa-seaside-42',
+		image: [
+			'https://example.com/villa-front.jpg',
+			'https://example.com/villa-pool.jpg',
+			'https://example.com/villa-interior.jpg',
+		],
+		latitude: 36.7783,
+		longitude: -119.4179,
+		containsPlace: new Accommodation({
+			occupancy: new QuantitativeValue(8),
+			numberOfBedrooms: 4,
+			numberOfBathroomsTotal: 3,
+			floorSize: new QuantitativeValue(250, 'MTK'),
+		}),
+		address: new PostalAddress({
+			streetAddress: '123 Ocean Boulevard',
+			addressLocality: 'Malibu',
+			addressRegion: 'CA',
+			postalCode: '90265',
+			addressCountry: 'US',
+		}),
+		aggregateRating: new AggregateRating(4.9, 5, 1, null, 87),
+		checkinTime: '15:00',
+		checkoutTime: '11:00',
+		datePublished: '2025-06-01',
+		description: 'A stunning oceanfront villa with private pool and panoramic sea views.',
+		review: [
+			new Review(
+				'Traveler Kate',
+				new Rating(5, 5, 1),
+				'Absolutely perfect. The views are incredible.',
+			),
+		],
+	});
+	results.set('VacationRental', {
+		type: 'VacationRental',
+		phpScript: 'src/generate-vacationrental.php',
+		json: JsonLdGenerator.schemaToJson(vacationRental),
+	});
+
+	// ===================================================================
+	// 40. @graph — matches src/generate-graph.php
 	//     Tests schemasToJson (plural) for multi-schema output
 	// ===================================================================
 	const graphArticle = new Article({

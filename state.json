@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-02T13:28:01Z",
-	"consecutive_idle_cycles": 3,
+	"last_updated": "2026-03-02T16:30:00Z",
+	"consecutive_idle_cycles": 0,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "b932fe0",
-		"last_updated": "2026-03-02T13:28:01Z"
+		"commit": "a7a5131",
+		"last_updated": "2026-03-02T16:30:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -73,14 +73,14 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-02T04:36:00Z",
-		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 25/25 parity match + 0 E2E errors + 14 warnings (all false positives). Package 88453ac. Class inventory: 86/86 PHP=TS.",
+		"last_run": "2026-03-02T16:30:00Z",
+		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 39/39 parity match + 0 E2E errors + 15 warnings (all false positives). Package a7a5131. Class inventory: 86/86 PHP=TS. Build validation: ESM+CJS+DTS all pass from packed tarball.",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"],
 		"warning_baselines": {
 			"php_e2e_total": 15,
-			"ts_e2e_total": 14,
-			"note": "All warnings are validator false positives. Investigate any increase before updating baselines.",
-			"last_verified": "2026-03-02T04:36:00Z"
+			"ts_e2e_total": 15,
+			"note": "All warnings are validator false positives. TS total increased from 14 to 15 due to VacationRental.datePublished false positive added in parity expansion. Investigate any increase before updating baselines.",
+			"last_verified": "2026-03-02T16:30:00Z"
 		}
 	},
 	"ts_validation": {
@@ -88,10 +88,12 @@
 		"tool": "tools/ts-parity-check.ts",
 		"vitest_results": { "files": 86, "tests": 301, "pass": true },
 		"parity_results": {
-			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event", "BlogPosting", "NewsArticle", "SoftwareApplication", "MobileApplication", "WebApplication", "Movie", "Product", "Product-AggregateOffer", "ProductGroup", "Recipe", "Recipe-Sections", "VideoObject", "Course", "LocalBusiness", "FoodEstablishment", "Store", "MathSolver", "ShippingService", "QAPage", "Restaurant", "@graph"],
+			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event", "BlogPosting", "NewsArticle", "SoftwareApplication", "MobileApplication", "WebApplication", "Movie", "Product", "Product-AggregateOffer", "ProductGroup", "Recipe", "Recipe-Sections", "VideoObject", "Course", "LocalBusiness", "FoodEstablishment", "Store", "MathSolver", "ShippingService", "QAPage", "Restaurant", "Clip", "Dataset", "DiscussionForumPosting", "EmployerAggregateRating", "ItemList", "JobPosting", "MemberProgram", "MerchantReturnPolicy", "Organization", "Person", "ProfilePage", "Quiz", "Review", "VacationRental", "@graph"],
+			"types_tested_count": 39,
+			"types_total_count": 86,
 			"all_match": true,
 			"e2e_errors": 0,
-			"e2e_warnings": 14,
+			"e2e_warnings": 15,
 			"inheritance_chains_tested": ["BlogPosting->Article", "NewsArticle->Article", "MobileApplication->SoftwareApplication", "WebApplication->SoftwareApplication", "FoodEstablishment->LocalBusiness", "Store->LocalBusiness", "Restaurant->FoodEstablishment->LocalBusiness"],
 			"property_map_tested": ["SolveMathAction.mathExpressionInput->mathExpression-input"],
 			"schemas_to_json_tested": true,
@@ -99,8 +101,8 @@
 		},
 		"ts_types_in_package": 86,
 		"ts_enums_in_package": 12,
-		"last_run": "2026-03-02T04:36:00Z",
-		"package_commit": "88453ac",
+		"last_run": "2026-03-02T16:30:00Z",
+		"package_commit": "a7a5131",
 		"dod_status": "complete",
 		"qc_ack_122": "closed"
 	},
@@ -252,12 +254,21 @@
 				"closed": "2026-03-01T16:38:00Z",
 				"validation_complete": true,
 				"note": "DoD complete. 23/23 parity match, 0 E2E errors, 6 inheritance chains, propertyMap validated, schemasToJson validated. All audit #35 criteria satisfied."
+			},
+			{
+				"issue": 138,
+				"title": "[QC-ACK] Comprehensive TypeScript build validation before npm publish",
+				"main_repo_issue": 331,
+				"status": "open",
+				"opened": "2026-03-02T16:15:00Z",
+				"validation_complete": false,
+				"note": "In progress. Build validation PASS (ESM+CJS+DTS from tarball). Parity expanded 25→39/86 (45%). Remaining: 47 building-block types need standalone parity."
 			}
 		],
-		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299]
+		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299, 331]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -486,6 +497,30 @@
 			"date": "2026-03-02",
 			"type": "audit-post-publish-transition",
 			"summary": "Forty-fourth session. Package d35913d->88453ac (no PHP/TS source changes — main orchestrator cycles 89-90). Processed audit #44 (post-publish transition plan): added warning_baselines and operational_mode to state.json, updated STARTUP_CHECKLIST steps 6/7/8 with dual-language consistency, warning baseline checks, recurring npm validation. Created and closed audit-inbound #133. All validation clean: 188 unit tests (1133 assertions), 39/39 E2E, 25/25 TS parity, 14 TS warnings (all false positives). 25 audit recommendations processed total."
+		},
+		{
+			"issue": 134,
+			"date": "2026-03-02",
+			"type": "idle-cycle",
+			"summary": "Forty-fifth session. Idle cycle — no PHP/TS source changes (ad97aa1), no cross-repo activity."
+		},
+		{
+			"issue": 135,
+			"date": "2026-03-02",
+			"type": "idle-cycle",
+			"summary": "Forty-sixth session. Idle cycle — no PHP/TS source changes (0543696), no cross-repo activity."
+		},
+		{
+			"issue": 136,
+			"date": "2026-03-02",
+			"type": "idle-cycle",
+			"summary": "Forty-seventh session. Idle cycle — no PHP/TS source changes (b932fe0), no cross-repo activity."
+		},
+		{
+			"issue": 137,
+			"date": "2026-03-02",
+			"type": "qc-request-ts-build-validation",
+			"summary": "Forty-eighth session. Package b932fe0->a7a5131 (docs/state changes only). Processed QC-REQUEST #331 (comprehensive TS build validation before npm publish): created QC-ACK #138, built tools/npm-build-check.sh (ESM+CJS+DTS validation from packed tarball). Expanded ts-parity-check.ts from 25 to 39 types — ALL MATCH, 0 E2E errors, 15 TS warnings (all false positives). Fixed ItemList (url vs item property) and Organization (ContactPoint positional params). Processed audit #49 (self-scoped parity denominators): now reporting 39/86 absolute coverage. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E. 26 audit recommendations processed total."
 		}
 	]
 }
