@@ -46,6 +46,11 @@ gh pr list -R "$QC_REPO" --state open --json number,title,author \
   --jq '.[] | "  #\(.number): \(.title) (by \(.author.login))"' || echo "  (none or error)"
 
 echo ""
+echo "=== Audit Repo: audit-outbound (recommendations TO us) ==="
+gh api "repos/EvaLok/schema-org-json-ld-audit/issues?labels=audit-outbound&state=open&creator=EvaLok&sort=created&direction=asc" \
+  --paginate --jq '.[] | "  #\(.number): \(.title) (\(.created_at))"' || echo "  (none or error)"
+
+echo ""
 echo "=== Package commit ==="
 COMMIT=$(grep -A5 '"evabee/schema-org-json-ld"' composer.lock | grep '"reference"' | head -1 | grep -oP '[a-f0-9]{40}')
 echo "  $COMMIT"
