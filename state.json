@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-02T16:30:00Z",
-	"consecutive_idle_cycles": 0,
+	"last_updated": "2026-03-02T19:16:46Z",
+	"consecutive_idle_cycles": 1,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "a7a5131",
-		"last_updated": "2026-03-02T16:30:00Z"
+		"commit": "bd525ed",
+		"last_updated": "2026-03-02T19:16:46Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -521,6 +521,12 @@
 			"date": "2026-03-02",
 			"type": "qc-request-ts-build-validation",
 			"summary": "Forty-eighth session. Package b932fe0->a7a5131 (docs/state changes only). Processed QC-REQUEST #331 (comprehensive TS build validation before npm publish): created QC-ACK #138, built tools/npm-build-check.sh (ESM+CJS+DTS validation from packed tarball). Expanded ts-parity-check.ts from 25 to 39 types — ALL MATCH, 0 E2E errors, 15 TS warnings (all false positives). Fixed ItemList (url vs item property) and Organization (ContactPoint positional params). Processed audit #49 (self-scoped parity denominators): now reporting 39/86 absolute coverage. PHP validation clean: 188 unit tests (1133 assertions), 39/39 E2E. 26 audit recommendations processed total."
+		},
+		{
+			"issue": 140,
+			"date": "2026-03-02",
+			"type": "idle-cycle",
+			"summary": "Forty-ninth session. Idle cycle — no PHP/TS source changes (bd525ed), no cross-repo activity."
 		}
 	]
 }
