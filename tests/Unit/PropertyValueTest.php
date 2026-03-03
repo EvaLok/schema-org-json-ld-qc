@@ -12,11 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class PropertyValueTest extends TestCase
 {
-	public function testBasicPropertyValue(): void
+	public function testMinimalPropertyValue(): void
 	{
 		$propertyValue = new PropertyValue(
-			name: 'Internal Job ID',
-			value: 'SE-2025-0042',
+			name: 'color',
+			value: 'Midnight Blue',
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($propertyValue);
@@ -24,11 +24,40 @@ class PropertyValueTest extends TestCase
 
 		$this->assertSame('https://schema.org/', $data['@context']);
 		$this->assertSame('PropertyValue', $data['@type']);
-		$this->assertSame('Internal Job ID', $data['name']);
-		$this->assertSame('SE-2025-0042', $data['value']);
+		$this->assertSame('color', $data['name']);
+		$this->assertSame('Midnight Blue', $data['value']);
 	}
 
-	public function testPropertyValueAsNestedType(): void
+	public function testPropertyValueWithAllFields(): void
+	{
+		$propertyValue = new PropertyValue(
+			name: 'sku',
+			value: 'WB-1000',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($propertyValue);
+		$data = json_decode($json, true);
+
+		$this->assertSame('PropertyValue', $data['@type']);
+		$this->assertSame('sku', $data['name']);
+		$this->assertSame('WB-1000', $data['value']);
+	}
+
+	public function testPropertyValueNullFieldsOmitted(): void
+	{
+		$propertyValue = new PropertyValue(
+			name: 'material',
+			value: 'stainless steel',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($propertyValue);
+		$data = json_decode($json, true);
+
+		$this->assertArrayNotHasKey('description', $data);
+		$this->assertArrayNotHasKey('url', $data);
+	}
+
+	public function testPropertyValueNestedObjectRendersCorrectly(): void
 	{
 		$job = new JobPosting(
 			title: 'Software Engineer',

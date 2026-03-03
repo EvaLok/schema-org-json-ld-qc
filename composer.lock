@@ -11,13 +11,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/EvaLok/schema-org-json-ld.git",
-                "reference": "a7a5131bf87c784812a6463ddf2387d8a4c9778a"
+                "url": "git@github.com:EvaLok/schema-org-json-ld.git",
+                "reference": "ce333eaa6ac907aa8a69db1e9b6e56eee889fdb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/a7a5131bf87c784812a6463ddf2387d8a4c9778a",
-                "reference": "a7a5131bf87c784812a6463ddf2387d8a4c9778a",
+                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/ce333eaa6ac907aa8a69db1e9b6e56eee889fdb0",
+                "reference": "ce333eaa6ac907aa8a69db1e9b6e56eee889fdb0",
                 "shasum": ""
             },
             "require": {
@@ -75,11 +75,7 @@
                 "structured data",
                 "video"
             ],
-            "support": {
-                "source": "https://github.com/EvaLok/schema-org-json-ld/tree/master",
-                "issues": "https://github.com/EvaLok/schema-org-json-ld/issues"
-            },
-            "time": "2026-03-02T15:20:34+00:00"
+            "time": "2026-03-03T04:30:06+00:00"
         }
     ],
     "packages-dev": [
