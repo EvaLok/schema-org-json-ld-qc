@@ -1711,6 +1711,10 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		worstRating: 1,
 		ratingCount: 1250,
 		reviewCount: 340,
+		itemReviewed: new Movie({
+			name: 'The Blueprint',
+			image: 'https://example.com/the-blueprint.jpg',
+		}),
 	});
 	results.set('AggregateRating', {
 		type: 'AggregateRating',
