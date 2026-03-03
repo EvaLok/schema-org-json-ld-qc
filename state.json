@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-03T13:30:00Z",
+	"last_updated": "2026-03-03T16:30:00Z",
 	"consecutive_idle_cycles": 0,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "9dbdaed",
-		"last_updated": "2026-03-03T13:28:00Z"
+		"commit": "310ac71",
+		"last_updated": "2026-03-03T16:16:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -60,7 +60,7 @@
 			"Offer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
 			"BroadcastEvent": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
 			"AggregateOffer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
-			"AggregateRating": { "unit_test": "pass", "e2e_test": "fail", "e2e_errors": 2, "e2e_errors_note": "Missing itemReviewed — building-block type, not standalone-valid. QC-REPORT #160 filed.", "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"AggregateRating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "310ac71" },
 			"Rating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
 			"Brand": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
 			"Certification": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
@@ -100,12 +100,12 @@
 			"SolveMathAction": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "9dbdaed", "note": "building-block" },
 			"Thing": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "9dbdaed", "note": "building-block" },
 			"VirtualLocation": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "9dbdaed", "note": "building-block" },
-			"WebPageElement": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "9dbdaed", "note": "building-block" }
+			"WebPageElement": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "9dbdaed", "note": "building-block" },
+			"SizeSpecification": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "310ac71", "note": "building-block" },
+			"UnitPriceSpecification": { "unit_test": "pass", "e2e_test": "n/a", "last_tested": "2026-03-03", "package_commit": "310ac71", "note": "building-block" }
 		},
 		"uncovered_standalone": [],
-		"uncovered_building_block": [
-			"SizeSpecification", "UnitPriceSpecification"
-		],
+		"uncovered_building_block": [],
 		"enums": [
 			"DayOfWeek", "EventAttendanceModeEnumeration", "EventStatusType",
 			"FulfillmentTypeEnumeration", "ItemAvailability", "MerchantReturnEnumeration",
@@ -118,14 +118,14 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-03T13:30:00Z",
-		"summary": "PHP: 72/73 E2E pass (AggregateRating fails standalone — missing itemReviewed, QC-REPORT #160), 2 errors, 25 warnings (all false positives). 382 unit tests (1829 assertions). TS: 73/73 parity match + 2 E2E errors + 25 warnings (all false positives). Package 9dbdaed. Class inventory: 88/88 PHP=TS. Coverage: 90/92 types covered (2 in-flight via #172).",
+		"last_run": "2026-03-03T16:21:00Z",
+		"summary": "PHP: 73/73 E2E pass (0 failures — AggregateRating fixed with itemReviewed), 0 errors, 25 warnings (all false positives). 383 unit tests (1846 assertions). TS: 73/73 parity match + 0 E2E errors + 25 warnings (all false positives). Package 310ac71. Class inventory: 88/88 PHP=TS. Coverage: 92/92 types (full coverage).",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic", "HowToSection.itemListElement", "HowToSection.image", "HowToSection.url", "HowToSection.video", "DefinedRegion.addressRegion/postalCode", "OfferShippingDetails.addressRegion/postalCode"],
 		"warning_baselines": {
 			"php_e2e_total": 25,
 			"ts_e2e_total": 25,
 			"note": "All 25 warnings are validator false positives. Increase from 23 to 25 due to 2 new DefinedRegion/OfferShippingDetails false positives (addressRegion/postalCode constraint). Investigate any increase before updating baselines.",
-			"last_verified": "2026-03-03T13:30:00Z"
+			"last_verified": "2026-03-03T16:21:00Z"
 		}
 	},
 	"ts_validation": {
@@ -137,7 +137,7 @@
 			"types_tested_count": 73,
 			"types_total_count": 88,
 			"all_match": true,
-			"e2e_errors": 2,
+			"e2e_errors": 0,
 			"e2e_warnings": 25,
 			"inheritance_chains_tested": ["BlogPosting->Article", "NewsArticle->Article", "MobileApplication->SoftwareApplication", "WebApplication->SoftwareApplication", "FoodEstablishment->LocalBusiness", "Store->LocalBusiness", "Restaurant->FoodEstablishment->LocalBusiness"],
 			"property_map_tested": ["SolveMathAction.mathExpressionInput->mathExpression-input"],
@@ -146,8 +146,8 @@
 		},
 		"ts_types_in_package": 88,
 		"ts_enums_in_package": 12,
-		"last_run": "2026-03-03T13:30:00Z",
-		"package_commit": "9dbdaed",
+		"last_run": "2026-03-03T16:21:00Z",
+		"package_commit": "310ac71",
 		"dod_status": "complete",
 		"qc_ack_122": "closed"
 	},
@@ -322,7 +322,7 @@
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299, 331]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60, 62],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60, 62, 71],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -353,22 +353,21 @@
 			{ "issue": 150, "audit_issue": 56, "status": "closed", "decision": "accept", "note": "Copilot PR review pipeline: expanded STARTUP_CHECKLIST step 14 into structured sub-steps (a-f) for PR discovery, validation, merge, state updates. Validated by reviewing/merging PRs #147 and #148." },
 			{ "issue": 154, "audit_issue": 58, "status": "closed", "decision": "accept", "note": "Parity lockstep: added STARTUP_CHECKLIST step 14g. Expanded ts-parity-check.ts from 39 to 49 types (+10 from PRs #147/#148). All match." },
 			{ "issue": 161, "audit_issue": 60, "status": "closed", "decision": "accept", "note": "Dispatch-to-PR metrics: added copilot_metrics to state.json, stale dispatch detection to STARTUP_CHECKLIST step 14a, failure context in re-dispatches." },
-			{ "issue": 168, "audit_issue": 62, "status": "closed", "decision": "accept", "note": "Type classification: restructured uncovered list into standalone/building-block/enum categories. Updated STARTUP_CHECKLIST step 13a. Batch sizing increased per Eva #166." }
+			{ "issue": 168, "audit_issue": 62, "status": "closed", "decision": "accept", "note": "Type classification: restructured uncovered list into standalone/building-block/enum categories. Updated STARTUP_CHECKLIST step 13a. Batch sizing increased per Eva #166." },
+			{ "issue": 175, "audit_issue": 71, "status": "closed", "decision": "accept", "note": "QC-REPORT feedback loop: added STARTUP_CHECKLIST step 5a to check open QC-REPORTs for upstream fixes. Closed QC-REPORT #160 with re-validation results." }
 		]
 	},
 	"copilot_metrics": {
-		"dispatch_to_pr_rate": "25/28 (89%)",
-		"pr_merge_rate": "25/25 (100%)",
+		"dispatch_to_pr_rate": "26/29 (90%)",
+		"pr_merge_rate": "26/26 (100%)",
 		"total_dispatches": 29,
-		"total_prs_created": 25,
-		"total_prs_merged": 25,
+		"total_prs_created": 26,
+		"total_prs_merged": 26,
 		"failed_dispatches": [42, 151, 152],
-		"last_updated": "2026-03-03T13:30:00Z"
+		"last_updated": "2026-03-03T16:30:00Z"
 	},
 	"agent_sessions": {
-		"in_flight": [
-			{ "issue": 172, "title": "Unit tests for SizeSpecification and UnitPriceSpecification", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T13:30:00Z" }
-		],
+		"in_flight": [],
 		"completed": [
 			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 28, "pr": 29, "status": "merged", "model": "gpt-5.3-codex" },
@@ -395,7 +394,8 @@
 			{ "issue": 156, "pr": 158, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 162, "pr": 164, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 163, "pr": 165, "status": "merged", "model": "gpt-5.3-codex" },
-			{ "issue": 169, "pr": 170, "status": "merged", "model": "gpt-5.3-codex" }
+			{ "issue": 169, "pr": 170, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 172, "pr": 173, "status": "merged", "model": "gpt-5.3-codex" }
 		]
 	},
 	"session_history": [
@@ -648,6 +648,12 @@
 			"date": "2026-03-03",
 			"type": "pr-review-near-complete-coverage",
 			"summary": "Fifty-sixth session. Package 5560247->9dbdaed (Question/Answer image+video properties, parity tool AST rewrite). Merged Copilot PR #170: 18 of 20 dispatched types (Accommodation standalone + 17 building-block unit tests). Missing: SizeSpecification, UnitPriceSpecification — dispatched follow-up #172. Expanded ts-parity-check.ts to 73 types (+Accommodation). 382 unit tests (1829 assertions), 72/73 E2E pass (AggregateRating known fail), 25 warnings stable. 73/73 TS parity match. 90/92 types covered (2 in-flight). Copilot: 25/28 dispatch-to-PR (89%), 25/25 merge (100%)."
+		},
+		{
+			"issue": 174,
+			"date": "2026-03-03",
+			"type": "full-coverage-milestone",
+			"summary": "Fifty-seventh session. Package 9dbdaed->310ac71 (edge-case parity tests from main). Merged Copilot PR #173 (SizeSpecification, UnitPriceSpecification building-block tests) — 92/92 FULL COVERAGE. Fixed AggregateRating generate script (added itemReviewed using upstream fix), resolving QC-REPORT #160 — 73/73 E2E PASS (0 failures for the first time). Processed audit #71 (QC-REPORT feedback loop): added STARTUP_CHECKLIST step 5a. 383 unit tests (1846 assertions), 73/73 E2E (0 errors, 25 warnings — all false positives), 73/73 TS parity match. Copilot: 26/29 dispatch-to-PR (90%), 26/26 merge (100%). 32 audit recommendations processed."
 		}
 	]
 }
