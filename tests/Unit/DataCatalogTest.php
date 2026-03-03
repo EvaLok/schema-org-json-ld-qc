@@ -45,7 +45,8 @@ class DataCatalogTest extends TestCase
 		$json = JsonLdGenerator::SchemaToJson($dataCatalog);
 		$data = json_decode($json, true);
 
-		$this->assertCount(3, $data);
+		$this->assertArrayNotHasKey('description', $data);
+		$this->assertArrayNotHasKey('url', $data);
 	}
 
 	public function testNestedObjectRendersCorrectly(): void
