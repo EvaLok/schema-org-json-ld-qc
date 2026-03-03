@@ -97,6 +97,13 @@ import { VacationRental } from '../vendor/evabee/schema-org-json-ld/ts/src/schem
 import { EducationalOccupationalCredential } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/EducationalOccupationalCredential';
 import { OccupationalExperienceRequirements } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/OccupationalExperienceRequirements';
 
+// Additional schema types for expanded parity (60 → 72)
+import { OfferShippingDetails } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/OfferShippingDetails';
+import { Schedule } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Schedule';
+import { ShippingDeliveryTime } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ShippingDeliveryTime';
+import { ShippingRateSettings } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ShippingRateSettings';
+import { SpeakableSpecification } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/SpeakableSpecification';
+
 // Enums
 import { DayOfWeek } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/DayOfWeek';
 import { EventAttendanceModeEnumeration } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/EventAttendanceModeEnumeration';
@@ -1859,7 +1866,180 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	});
 
 	// ===================================================================
-	// 61. @graph — matches src/generate-graph.php
+	// 61. Comment — matches src/generate-comment.php
+	// ===================================================================
+	const comment = new Comment({
+		text: 'This is really helpful, thank you!',
+		author: new Person({ name: 'Jane Reader' }),
+		datePublished: '2025-03-01',
+	});
+	results.set('Comment', {
+		type: 'Comment',
+		phpScript: 'src/generate-comment.php',
+		json: JsonLdGenerator.schemaToJson(comment),
+	});
+
+	// ===================================================================
+	// 62. CourseInstance — matches src/generate-courseinstance.php
+	// ===================================================================
+	const courseInstance = new CourseInstance({
+		courseMode: 'online',
+		instructor: new Person({ name: 'Dr. Emily Zhang' }),
+		courseSchedule: new Schedule({
+			repeatFrequency: 'P1W',
+			startDate: '2025-09-01',
+			endDate: '2025-12-15',
+		}),
+		courseWorkload: 'PT40H',
+	});
+	results.set('CourseInstance', {
+		type: 'CourseInstance',
+		phpScript: 'src/generate-courseinstance.php',
+		json: JsonLdGenerator.schemaToJson(courseInstance),
+	});
+
+	// ===================================================================
+	// 63. DataCatalog — matches src/generate-datacatalog.php
+	// ===================================================================
+	const dataCatalog = new DataCatalog({
+		name: 'Open Government Data Catalog',
+	});
+	results.set('DataCatalog', {
+		type: 'DataCatalog',
+		phpScript: 'src/generate-datacatalog.php',
+		json: JsonLdGenerator.schemaToJson(dataCatalog),
+	});
+
+	// ===================================================================
+	// 64. DataDownload — matches src/generate-datadownload.php
+	// ===================================================================
+	const dataDownload = new DataDownload({
+		contentUrl: 'https://example.com/data/climate-2025.csv',
+		encodingFormat: 'text/csv',
+	});
+	results.set('DataDownload', {
+		type: 'DataDownload',
+		phpScript: 'src/generate-datadownload.php',
+		json: JsonLdGenerator.schemaToJson(dataDownload),
+	});
+
+	// ===================================================================
+	// 65. NutritionInformation — matches src/generate-nutritioninformation.php
+	// ===================================================================
+	const nutritionInfo = new NutritionInformation({
+		calories: '250 calories',
+		fatContent: '8 grams',
+		proteinContent: '12 grams',
+		carbohydrateContent: '35 grams',
+	});
+	results.set('NutritionInformation', {
+		type: 'NutritionInformation',
+		phpScript: 'src/generate-nutritioninformation.php',
+		json: JsonLdGenerator.schemaToJson(nutritionInfo),
+	});
+
+	// ===================================================================
+	// 66. SpeakableSpecification — matches src/generate-speakablespecification.php
+	// ===================================================================
+	const speakable = new SpeakableSpecification({
+		cssSelector: ['.article-headline', '.article-summary'],
+	});
+	results.set('SpeakableSpecification', {
+		type: 'SpeakableSpecification',
+		phpScript: 'src/generate-speakablespecification.php',
+		json: JsonLdGenerator.schemaToJson(speakable),
+	});
+
+	// ===================================================================
+	// 67. DefinedRegion — matches src/generate-definedregion.php
+	// ===================================================================
+	const definedRegion = new DefinedRegion({
+		addressCountry: 'US',
+		addressRegion: ['CA', 'NY'],
+		postalCode: '10001',
+	});
+	results.set('DefinedRegion', {
+		type: 'DefinedRegion',
+		phpScript: 'src/generate-definedregion.php',
+		json: JsonLdGenerator.schemaToJson(definedRegion),
+	});
+
+	// ===================================================================
+	// 68. MonetaryAmount — matches src/generate-monetaryamount.php
+	// ===================================================================
+	const monetaryAmount = new MonetaryAmount({
+		currency: 'USD',
+		value: 29.99,
+		minValue: 19.99,
+		maxValue: 39.99,
+		unitText: 'per order',
+	});
+	results.set('MonetaryAmount', {
+		type: 'MonetaryAmount',
+		phpScript: 'src/generate-monetaryamount.php',
+		json: JsonLdGenerator.schemaToJson(monetaryAmount),
+	});
+
+	// ===================================================================
+	// 69. QuantitativeValue — matches src/generate-quantitativevalue.php
+	// ===================================================================
+	const quantValue = new QuantitativeValue({
+		minValue: 1,
+		maxValue: 10,
+		unitCode: 'DAY',
+		value: 5,
+	});
+	results.set('QuantitativeValue', {
+		type: 'QuantitativeValue',
+		phpScript: 'src/generate-quantitativevalue.php',
+		json: JsonLdGenerator.schemaToJson(quantValue),
+	});
+
+	// ===================================================================
+	// 70. OfferShippingDetails — matches src/generate-offershippingdetails.php
+	// ===================================================================
+	const offerShipping = new OfferShippingDetails({
+		shippingDestination: new DefinedRegion({ addressCountry: 'US' }),
+		shippingRate: new MonetaryAmount({ currency: 'USD', value: 5.99 }),
+		deliveryTime: new ShippingDeliveryTime({
+			handlingTime: new QuantitativeValue({ minValue: 0, maxValue: 1, unitCode: 'DAY' }),
+			transitTime: new QuantitativeValue({ minValue: 3, maxValue: 5, unitCode: 'DAY' }),
+		}),
+	});
+	results.set('OfferShippingDetails', {
+		type: 'OfferShippingDetails',
+		phpScript: 'src/generate-offershippingdetails.php',
+		json: JsonLdGenerator.schemaToJson(offerShipping),
+	});
+
+	// ===================================================================
+	// 71. ShippingDeliveryTime — matches src/generate-shippingdeliverytime.php
+	// ===================================================================
+	const shippingTime = new ShippingDeliveryTime({
+		handlingTime: new QuantitativeValue({ minValue: 0, maxValue: 1, unitCode: 'DAY' }),
+		transitTime: new QuantitativeValue({ minValue: 3, maxValue: 5, unitCode: 'DAY' }),
+	});
+	results.set('ShippingDeliveryTime', {
+		type: 'ShippingDeliveryTime',
+		phpScript: 'src/generate-shippingdeliverytime.php',
+		json: JsonLdGenerator.schemaToJson(shippingTime),
+	});
+
+	// ===================================================================
+	// 72. ShippingRateSettings — matches src/generate-shippingratesettings.php
+	// ===================================================================
+	const shippingRateSettings = new ShippingRateSettings({
+		orderPercentage: 10.0,
+		weightPercentage: 2.5,
+	});
+	results.set('ShippingRateSettings', {
+		type: 'ShippingRateSettings',
+		phpScript: 'src/generate-shippingratesettings.php',
+		json: JsonLdGenerator.schemaToJson(shippingRateSettings),
+	});
+
+	// ===================================================================
+	// 73. @graph — matches src/generate-graph.php
 	//     Tests schemasToJson (plural) for multi-schema output
 	// ===================================================================
 	const graphArticle = new Article({
