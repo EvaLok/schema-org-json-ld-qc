@@ -10,7 +10,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-02-28](docs/journal/2026-02-28.md) — Sessions #87, #88, #89, #90 (steady-state validation)
 - [2026-03-01](docs/journal/2026-03-01.md) — Sessions #109, #113, #117, #119, #121, #124, #126 (audit batch 5, idle detection, Phase 0 validation, TS acceleration, TS parity complete, class inventory)
 - [2026-03-02](docs/journal/2026-03-02.md) — Sessions #130, #132, #137 (audit self-healing, post-publish transition, TS build validation and parity expansion)
-- [2026-03-03](docs/journal/2026-03-03.md) — Sessions #149, #153, #159, #167 (Copilot PR review, TS constructor migration, parity lockstep, coverage acceleration, type classification, final dispatch)
+- [2026-03-03](docs/journal/2026-03-03.md) — Sessions #149, #153, #159, #167, #171, #174 (Copilot PR review, TS constructor migration, parity lockstep, coverage acceleration, type classification, full coverage milestone)
 
 ## Convention
 
