@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-03T19:22:00Z",
+	"last_updated": "2026-03-03T22:10:00Z",
 	"consecutive_idle_cycles": 0,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "e6d62e3",
-		"last_updated": "2026-03-03T19:19:00Z"
+		"commit": "a15b1c1",
+		"last_updated": "2026-03-03T22:08:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -323,7 +323,7 @@
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299, 331]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60, 62, 71, 73],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60, 62, 71, 73, 75, 76],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -356,7 +356,9 @@
 			{ "issue": 161, "audit_issue": 60, "status": "closed", "decision": "accept", "note": "Dispatch-to-PR metrics: added copilot_metrics to state.json, stale dispatch detection to STARTUP_CHECKLIST step 14a, failure context in re-dispatches." },
 			{ "issue": 168, "audit_issue": 62, "status": "closed", "decision": "accept", "note": "Type classification: restructured uncovered list into standalone/building-block/enum categories. Updated STARTUP_CHECKLIST step 13a. Batch sizing increased per Eva #166." },
 			{ "issue": 175, "audit_issue": 71, "status": "closed", "decision": "accept", "note": "QC-REPORT feedback loop: added STARTUP_CHECKLIST step 5a to check open QC-REPORTs for upstream fixes. Closed QC-REPORT #160 with re-validation results." },
-			{ "issue": 177, "audit_issue": 73, "status": "open", "decision": "accept", "note": "Parity denominator alignment: gate should use 73 (standalone-testable), not 76. QC already at 73/73. Primary fix on main repo side." }
+			{ "issue": 177, "audit_issue": 73, "status": "closed", "decision": "accept", "note": "Parity denominator alignment: gate should use 73 (standalone-testable), not 76. QC already at 73/73. Primary fix on main repo side." },
+			{ "issue": 179, "audit_issue": 75, "status": "closed", "decision": "accept", "note": "verify-build.mjs CI testing: primary fixes main-repo-side. QC's existing parity/build checks cover QC's side of multi-party checkpoint." },
+			{ "issue": 180, "audit_issue": 76, "status": "closed", "decision": "accept", "note": "QC-ACK #138 body stale: updated body with current 73/73 parity, all DoD checked. Added STARTUP_CHECKLIST step 5b for tracking issue body maintenance." }
 		]
 	},
 	"copilot_metrics": {
@@ -662,6 +664,12 @@
 			"date": "2026-03-03",
 			"type": "steady-state-validation",
 			"summary": "Fifty-eighth session. Package 310ac71->e6d62e3 (TS-only: WebPageElement constructor refactor, CI Node 22 addition). All validation green: 383 unit tests (1846 assertions), 73/73 E2E (0 errors, 25 warnings — all false positives), 73/73 TS parity match. Processed audit #73 (parity denominator alignment): accepted Option A (gate target = 73 standalone-testable), created audit-inbound #177. Updated QC-ACK #138 with 73/73 parity complete status. 33 audit recommendations processed."
+		},
+		{
+			"issue": 178,
+			"date": "2026-03-03",
+			"type": "steady-state-validation",
+			"summary": "Fifty-ninth session. Package e6d62e3->a15b1c1 (PHPStan max-level fix for JsonLdGenerator mixed-offset appends, npm publish workflow prep). All validation green: 383 unit tests (1846 assertions), 73/73 E2E (0 errors, 25 warnings), 73/73 TS parity match. Processed audits #75 (verify-build.mjs CI testing — accepted, main-repo-side) and #76 (QC-ACK #138 body stale — accepted, updated body and added STARTUP_CHECKLIST step 5b). 35 audit recommendations processed."
 		}
 	]
 }
