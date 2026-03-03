@@ -43,18 +43,20 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
     e. Update `agent_sessions.in_flight` in state.json after dispatch.
     f. **Never end a session with 0 in-flight agents when uncovered types exist.** Coverage expansion is core work, not optional.
 14. **Review completed Copilot PRs** — MANDATORY before any new dispatch (step 13):
-    a. Query open PRs from dispatched issues: `gh pr list -R EvaLok/schema-org-json-ld-qc --state open`.
-    b. For each Copilot PR with `copilot_work_finished`:
+    a. **Stale dispatch detection**: For each `in_flight` agent session in state.json, check if Copilot has created a PR or posted any comment on the issue. If no Copilot activity and the dispatch is >2 hours old: close the issue, move to `completed` with `status: "failed"`, log the failure, and re-dispatch immediately. When re-dispatching, link the new issue to the failed one and note the failure pattern (e.g. "Re-dispatch of #N which received no Copilot activity after X hours").
+    b. Query open PRs from dispatched issues: `gh pr list -R EvaLok/schema-org-json-ld-qc --state open`.
+    c. For each Copilot PR with `copilot_work_finished`:
        - Verify generate scripts produce valid JSON-LD (`php src/generate-*.php`)
        - Verify unit tests follow existing patterns and pass (`php vendor/bin/phpunit`)
        - Run full E2E validation (`bash tools/validate-all.sh`)
        - Run TS parity check (`bun tools/ts-parity-check.ts`) to confirm no regressions
        - Mark as ready and merge if passing, request changes if not (with specific feedback)
-    c. After merge: pull changes (`git pull origin master`), run full validation suite to catch integration issues.
-    d. Update `agent_sessions`: move from `in_flight` to `completed`, record PR number and outcome.
-    e. Update `schema_types`: move newly covered types from `uncovered` to `covered` in state.json.
-    f. Close the dispatching issue with a summary of what was delivered.
-    g. **Expand parity coverage**: For each newly covered type from the merged PR, add a parity entry to `tools/ts-parity-check.ts` matching the PHP generate script's data. Run `bun tools/ts-parity-check.ts` to verify. Update `ts_validation.parity_results.types_tested` and count in state.json. This ensures parity coverage advances in lockstep with E2E coverage.
+    d. After merge: pull changes (`git pull origin master`), run full validation suite to catch integration issues.
+    e. Update `agent_sessions`: move from `in_flight` to `completed`, record PR number and outcome.
+    f. Update `schema_types`: move newly covered types from `uncovered` to `covered` in state.json.
+    g. Close the dispatching issue with a summary of what was delivered.
+    h. **Expand parity coverage**: For each newly covered type from the merged PR, add a parity entry to `tools/ts-parity-check.ts` matching the PHP generate script's data. Run `bun tools/ts-parity-check.ts` to verify. Update `ts_validation.parity_results.types_tested` and count in state.json. This ensures parity coverage advances in lockstep with E2E coverage.
+    i. **Update Copilot metrics**: After processing all PRs and failed dispatches, update `copilot_metrics` in state.json with current `dispatch_to_pr_rate` and `pr_merge_rate`.
 15. **Plan remaining session work** — After reviews and dispatch, prioritise: validation re-runs > cross-repo communication > process improvements.
 
 ## Documentation conventions

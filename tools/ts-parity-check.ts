@@ -94,6 +94,8 @@ import { PropertyValue } from '../vendor/evabee/schema-org-json-ld/ts/src/schema
 import { Quiz } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Quiz';
 import { Thing } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Thing';
 import { VacationRental } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/VacationRental';
+import { EducationalOccupationalCredential } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/EducationalOccupationalCredential';
+import { OccupationalExperienceRequirements } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/OccupationalExperienceRequirements';
 
 // Enums
 import { DayOfWeek } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/DayOfWeek';
@@ -1692,7 +1694,172 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	});
 
 	// ===================================================================
-	// 50. @graph — matches src/generate-graph.php
+	// 50. AggregateRating — matches src/generate-aggregaterating.php
+	// ===================================================================
+	const aggregateRating = new AggregateRating({
+		ratingValue: 4.5,
+		bestRating: 5,
+		worstRating: 1,
+		ratingCount: 1250,
+		reviewCount: 340,
+	});
+	results.set('AggregateRating', {
+		type: 'AggregateRating',
+		phpScript: 'src/generate-aggregaterating.php',
+		json: JsonLdGenerator.schemaToJson(aggregateRating),
+	});
+
+	// ===================================================================
+	// 51. Rating — matches src/generate-rating.php
+	// ===================================================================
+	const rating = new Rating({
+		ratingValue: 4,
+		bestRating: 5,
+		worstRating: 1,
+	});
+	results.set('Rating', {
+		type: 'Rating',
+		phpScript: 'src/generate-rating.php',
+		json: JsonLdGenerator.schemaToJson(rating),
+	});
+
+	// ===================================================================
+	// 52. Brand — matches src/generate-brand.php
+	// ===================================================================
+	const brand = new Brand({
+		name: 'Acme Corporation',
+		description: 'Leading provider of quality goods since 1920',
+	});
+	results.set('Brand', {
+		type: 'Brand',
+		phpScript: 'src/generate-brand.php',
+		json: JsonLdGenerator.schemaToJson(brand),
+	});
+
+	// ===================================================================
+	// 53. Certification — matches src/generate-certification.php
+	// ===================================================================
+	const certification = new Certification({
+		name: 'ISO 9001:2015 Quality Management',
+		issuedBy: new Organization({ name: 'International Organization for Standardization' }),
+		certificationIdentification: 'ISO-9001-2025-00042',
+	});
+	results.set('Certification', {
+		type: 'Certification',
+		phpScript: 'src/generate-certification.php',
+		json: JsonLdGenerator.schemaToJson(certification),
+	});
+
+	// ===================================================================
+	// 54. PeopleAudience — matches src/generate-peopleaudience.php
+	// ===================================================================
+	const peopleAudience = new PeopleAudience({
+		suggestedGender: 'unisex',
+		suggestedMinAge: 18,
+		suggestedMaxAge: 65,
+	});
+	results.set('PeopleAudience', {
+		type: 'PeopleAudience',
+		phpScript: 'src/generate-peopleaudience.php',
+		json: JsonLdGenerator.schemaToJson(peopleAudience),
+	});
+
+	// ===================================================================
+	// 55. HowToStep — matches src/generate-howtostep.php
+	// ===================================================================
+	const howToStep = new HowToStep({
+		text: 'Preheat the oven to 350 degrees F.',
+		name: 'Preheat oven',
+		url: 'https://example.com/recipe#step1',
+		image: 'https://example.com/photos/step1.jpg',
+		video: new Clip({
+			name: 'Preheating',
+			startOffset: 0,
+			url: 'https://example.com/video.mp4?t=0',
+			endOffset: 30,
+		}),
+		itemListElement: [
+			'Set temperature dial to 350F.',
+			'Wait for preheat indicator light.',
+		],
+	});
+	results.set('HowToStep', {
+		type: 'HowToStep',
+		phpScript: 'src/generate-howtostep.php',
+		json: JsonLdGenerator.schemaToJson(howToStep),
+	});
+
+	// ===================================================================
+	// 56. HowToSection — matches src/generate-howtosection.php
+	// ===================================================================
+	const howToSection = new HowToSection({
+		name: 'Prepare the Ingredients',
+		itemListElement: [
+			new HowToStep({ text: 'Wash and chop the vegetables.', name: 'Prep vegetables' }),
+			new HowToStep({ text: 'Measure the dry ingredients.', name: 'Measure dry' }),
+		],
+	});
+	results.set('HowToSection', {
+		type: 'HowToSection',
+		phpScript: 'src/generate-howtosection.php',
+		json: JsonLdGenerator.schemaToJson(howToSection),
+	});
+
+	// ===================================================================
+	// 57. OpeningHoursSpecification — matches src/generate-openinghoursspecification.php
+	// ===================================================================
+	const openingHours = new OpeningHoursSpecification({
+		dayOfWeek: DayOfWeek.Monday,
+		opens: '09:00',
+		closes: '17:00',
+		validFrom: '2025-01-01',
+		validThrough: '2025-12-31',
+	});
+	results.set('OpeningHoursSpecification', {
+		type: 'OpeningHoursSpecification',
+		phpScript: 'src/generate-openinghoursspecification.php',
+		json: JsonLdGenerator.schemaToJson(openingHours),
+	});
+
+	// ===================================================================
+	// 58. PropertyValue — matches src/generate-propertyvalue.php
+	// ===================================================================
+	const propertyValue = new PropertyValue({
+		name: 'color',
+		value: 'Midnight Blue',
+	});
+	results.set('PropertyValue', {
+		type: 'PropertyValue',
+		phpScript: 'src/generate-propertyvalue.php',
+		json: JsonLdGenerator.schemaToJson(propertyValue),
+	});
+
+	// ===================================================================
+	// 59. EducationalOccupationalCredential — matches src/generate-educationaloccupationalcredential.php
+	// ===================================================================
+	const credential = new EducationalOccupationalCredential({
+		credentialCategory: 'bachelor degree',
+	});
+	results.set('EducationalOccupationalCredential', {
+		type: 'EducationalOccupationalCredential',
+		phpScript: 'src/generate-educationaloccupationalcredential.php',
+		json: JsonLdGenerator.schemaToJson(credential),
+	});
+
+	// ===================================================================
+	// 60. OccupationalExperienceRequirements — matches src/generate-occupationalexperiencerequirements.php
+	// ===================================================================
+	const experienceReq = new OccupationalExperienceRequirements({
+		monthsOfExperience: 24,
+	});
+	results.set('OccupationalExperienceRequirements', {
+		type: 'OccupationalExperienceRequirements',
+		phpScript: 'src/generate-occupationalexperiencerequirements.php',
+		json: JsonLdGenerator.schemaToJson(experienceReq),
+	});
+
+	// ===================================================================
+	// 61. @graph — matches src/generate-graph.php
 	//     Tests schemasToJson (plural) for multi-schema output
 	// ===================================================================
 	const graphArticle = new Article({

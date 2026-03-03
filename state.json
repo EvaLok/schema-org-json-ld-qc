@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-03T04:50:00Z",
+	"last_updated": "2026-03-03T07:30:00Z",
 	"consecutive_idle_cycles": 0,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "ce333ea",
-		"last_updated": "2026-03-03T04:50:00Z"
+		"commit": "9c044b5",
+		"last_updated": "2026-03-03T07:30:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -59,24 +59,32 @@
 			"Answer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
 			"Offer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
 			"BroadcastEvent": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
-			"AggregateOffer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" }
+			"AggregateOffer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"AggregateRating": { "unit_test": "pass", "e2e_test": "fail", "e2e_errors": 2, "e2e_errors_note": "Missing itemReviewed — building-block type, not standalone-valid. QC-REPORT #160 filed.", "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"Rating": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"Brand": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"Certification": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"PeopleAudience": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"HowToStep": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"HowToSection": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 8, "e2e_warnings_note": "False positives: validator flags missing optional fields on nested HowToStep items (image, url, video, itemListElement x2)", "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"OpeningHoursSpecification": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"PropertyValue": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"EducationalOccupationalCredential": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" },
+			"OccupationalExperienceRequirements": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "9c044b5" }
 		},
 		"uncovered": [
-			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
-			"BedDetails", "Brand", "Certification", "Comment",
+			"Accommodation", "AdministrativeArea", "AlignmentObject",
+			"BedDetails", "Comment",
 			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
-			"EducationalOccupationalCredential",
 			"EventAttendanceModeEnumeration", "EventStatusType", "FulfillmentTypeEnumeration",
-			"GeoShape", "HowToSection", "HowToStep", "InteractionCounter",
+			"GeoShape", "InteractionCounter",
 			"ItemAvailability", "ListItem", "LocationFeatureSpecification",
 			"MemberProgramTier", "MerchantReturnEnumeration",
 			"MerchantReturnPolicySeasonalOverride", "MonetaryAmount", "NutritionInformation",
-			"OccupationalExperienceRequirements",
-			"OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
-			"PeopleAudience", "PropertyValue",
-			"QuantitativeValue", "Rating",
+			"OfferItemCondition", "OfferShippingDetails",
+			"QuantitativeValue",
 			"RefundTypeEnumeration", "ReturnFeesEnumeration", "ReturnLabelSourceEnumeration", "ReturnMethodEnumeration",
-			"Schedule", "ServicePeriod", "ShippingConditions", "ShippingDeliveryTime", "ShippingRateSettings",
+			"Schedule", "SeekToAction", "ServicePeriod", "ShippingConditions", "ShippingDeliveryTime", "ShippingRateSettings",
 			"SizeSpecification", "SolveMathAction", "SpeakableSpecification",
 			"Thing", "TierBenefitEnumeration", "UnitPriceSpecification", "VirtualLocation", "WebPageElement"
 		]
@@ -85,14 +93,14 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-03T04:50:00Z",
-		"summary": "PHP: 49/49 E2E pass, 0 errors, 15 warnings (all false positives). 225 unit tests (1295 assertions). TS: 49/49 parity match + 0 E2E errors + 15 warnings (all false positives). Package ce333ea. Class inventory: 88/88 PHP=TS (2 new: EducationalOccupationalCredential, OccupationalExperienceRequirements). Build validation: ESM+CJS+DTS all pass from packed tarball.",
-		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"],
+		"last_run": "2026-03-03T07:30:00Z",
+		"summary": "PHP: 59/60 E2E pass (AggregateRating fails standalone — missing itemReviewed, QC-REPORT #160), 2 errors, 23 warnings (all false positives). 262 unit tests (1407 assertions). TS: 60/60 parity match + 2 E2E errors + 23 warnings (all false positives). Package 9c044b5. Class inventory: 88/88 PHP=TS (SeekToAction+VideoObject updated). Build validation: ESM+CJS+DTS all pass from packed tarball.",
+		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic", "HowToSection.itemListElement", "HowToSection.image", "HowToSection.url", "HowToSection.video"],
 		"warning_baselines": {
-			"php_e2e_total": 15,
-			"ts_e2e_total": 15,
-			"note": "All warnings are validator false positives. TS total increased from 14 to 15 due to VacationRental.datePublished false positive added in parity expansion. Investigate any increase before updating baselines.",
-			"last_verified": "2026-03-03T04:50:00Z"
+			"php_e2e_total": 23,
+			"ts_e2e_total": 23,
+			"note": "All 23 warnings are validator false positives. Increase from 15 to 23 due to 8 HowToSection false positives (nested HowToStep optional fields). Investigate any increase before updating baselines.",
+			"last_verified": "2026-03-03T07:30:00Z"
 		}
 	},
 	"ts_validation": {
@@ -100,12 +108,12 @@
 		"tool": "tools/ts-parity-check.ts",
 		"vitest_results": { "files": 88, "tests": 301, "pass": true },
 		"parity_results": {
-			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event", "BlogPosting", "NewsArticle", "SoftwareApplication", "MobileApplication", "WebApplication", "Movie", "Product", "Product-AggregateOffer", "ProductGroup", "Recipe", "Recipe-Sections", "VideoObject", "Course", "LocalBusiness", "FoodEstablishment", "Store", "MathSolver", "ShippingService", "QAPage", "Restaurant", "Clip", "Dataset", "DiscussionForumPosting", "EmployerAggregateRating", "ItemList", "JobPosting", "MemberProgram", "MerchantReturnPolicy", "Organization", "Person", "ProfilePage", "Quiz", "Review", "VacationRental", "Place", "PostalAddress", "GeoCoordinates", "ContactPoint", "ImageObject", "Question", "Answer", "Offer", "BroadcastEvent", "AggregateOffer", "@graph"],
-			"types_tested_count": 49,
+			"types_tested": ["Article", "BreadcrumbList", "FAQPage", "Event", "BlogPosting", "NewsArticle", "SoftwareApplication", "MobileApplication", "WebApplication", "Movie", "Product", "Product-AggregateOffer", "ProductGroup", "Recipe", "Recipe-Sections", "VideoObject", "Course", "LocalBusiness", "FoodEstablishment", "Store", "MathSolver", "ShippingService", "QAPage", "Restaurant", "Clip", "Dataset", "DiscussionForumPosting", "EmployerAggregateRating", "ItemList", "JobPosting", "MemberProgram", "MerchantReturnPolicy", "Organization", "Person", "ProfilePage", "Quiz", "Review", "VacationRental", "Place", "PostalAddress", "GeoCoordinates", "ContactPoint", "ImageObject", "Question", "Answer", "Offer", "BroadcastEvent", "AggregateOffer", "AggregateRating", "Rating", "Brand", "Certification", "PeopleAudience", "HowToStep", "HowToSection", "OpeningHoursSpecification", "PropertyValue", "EducationalOccupationalCredential", "OccupationalExperienceRequirements", "@graph"],
+			"types_tested_count": 60,
 			"types_total_count": 88,
 			"all_match": true,
-			"e2e_errors": 0,
-			"e2e_warnings": 15,
+			"e2e_errors": 2,
+			"e2e_warnings": 23,
 			"inheritance_chains_tested": ["BlogPosting->Article", "NewsArticle->Article", "MobileApplication->SoftwareApplication", "WebApplication->SoftwareApplication", "FoodEstablishment->LocalBusiness", "Store->LocalBusiness", "Restaurant->FoodEstablishment->LocalBusiness"],
 			"property_map_tested": ["SolveMathAction.mathExpressionInput->mathExpression-input"],
 			"schemas_to_json_tested": true,
@@ -113,8 +121,8 @@
 		},
 		"ts_types_in_package": 88,
 		"ts_enums_in_package": 12,
-		"last_run": "2026-03-03T04:50:00Z",
-		"package_commit": "ce333ea",
+		"last_run": "2026-03-03T07:30:00Z",
+		"package_commit": "9c044b5",
 		"dod_status": "complete",
 		"qc_ack_122": "closed"
 	},
@@ -155,6 +163,15 @@
 				"main_repo_issue": 213,
 				"resolved": "2026-02-27T10:17:00Z",
 				"note": "All 5 properties validated. Remaining warnings are Adobe validator false positives."
+			},
+			{
+				"issue": 160,
+				"title": "[QC-REPORT] AggregateRating class missing itemReviewed property (required by Google validator)",
+				"schema_type": "AggregateRating",
+				"status": "open",
+				"opened": "2026-03-03T07:30:00Z",
+				"acknowledged": false,
+				"note": "Low severity — AggregateRating is a building-block type, only valid when nested."
 			}
 		],
 		"inbound_issues": [
@@ -274,13 +291,13 @@
 				"status": "open",
 				"opened": "2026-03-02T16:15:00Z",
 				"validation_complete": false,
-				"note": "In progress. Build validation PASS (ESM+CJS+DTS from tarball). Parity expanded 25→39/86 (45%). Remaining: 47 building-block types need standalone parity."
+				"note": "In progress. Build validation PASS (ESM+CJS+DTS from tarball). Parity expanded to 60/88 (68%). AggregateRating E2E fails (itemReviewed)."
 			}
 		],
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299, 331]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -309,13 +326,23 @@
 			{ "issue": 133, "audit_issue": 44, "status": "closed", "decision": "accept", "note": "Post-publish transition plan: added warning_baselines, operational_mode to state.json. Updated STARTUP_CHECKLIST steps 6/7/8 with dual-language consistency, warning baseline checks, recurring npm validation." },
 			{ "issue": 142, "audit_issue": 53, "status": "closed", "decision": "accept", "note": "Cross-repo communication skill: created .claude/skills/cross-repo-communication/SKILL.md, updated tools/poll-repos.sh with audit polling. State migration deferred pending coordination." },
 			{ "issue": 150, "audit_issue": 56, "status": "closed", "decision": "accept", "note": "Copilot PR review pipeline: expanded STARTUP_CHECKLIST step 14 into structured sub-steps (a-f) for PR discovery, validation, merge, state updates. Validated by reviewing/merging PRs #147 and #148." },
-			{ "issue": 154, "audit_issue": 58, "status": "closed", "decision": "accept", "note": "Parity lockstep: added STARTUP_CHECKLIST step 14g. Expanded ts-parity-check.ts from 39 to 49 types (+10 from PRs #147/#148). All match." }
+			{ "issue": 154, "audit_issue": 58, "status": "closed", "decision": "accept", "note": "Parity lockstep: added STARTUP_CHECKLIST step 14g. Expanded ts-parity-check.ts from 39 to 49 types (+10 from PRs #147/#148). All match." },
+			{ "issue": 161, "audit_issue": 60, "status": "closed", "decision": "accept", "note": "Dispatch-to-PR metrics: added copilot_metrics to state.json, stale dispatch detection to STARTUP_CHECKLIST step 14a, failure context in re-dispatches." }
 		]
+	},
+	"copilot_metrics": {
+		"dispatch_to_pr_rate": "22/25 (88%)",
+		"pr_merge_rate": "22/22 (100%)",
+		"total_dispatches": 25,
+		"total_prs_created": 22,
+		"total_prs_merged": 22,
+		"failed_dispatches": [42, 151, 152],
+		"last_updated": "2026-03-03T07:30:00Z"
 	},
 	"agent_sessions": {
 		"in_flight": [
-			{ "issue": 155, "title": "Coverage expansion: AggregateRating, Rating, Brand, Certification, PeopleAudience", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T04:50:00Z" },
-			{ "issue": 156, "title": "Coverage expansion: HowToStep, HowToSection, OpeningHoursSpecification, PropertyValue, EducationalOccupationalCredential, OccupationalExperienceRequirements", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T04:50:00Z" }
+			{ "issue": 162, "title": "Coverage expansion: CourseInstance, DataCatalog, DataDownload, Comment, NutritionInformation, SpeakableSpecification", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T07:30:00Z" },
+			{ "issue": 163, "title": "Coverage expansion: OfferShippingDetails, ShippingDeliveryTime, ShippingRateSettings, DefinedRegion, MonetaryAmount, QuantitativeValue", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T07:30:00Z" }
 		],
 		"completed": [
 			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
@@ -338,7 +365,9 @@
 			{ "issue": 145, "pr": 147, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 146, "pr": 148, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 151, "pr": null, "status": "failed", "model": "gpt-5.3-codex", "note": "Copilot never started. Re-dispatched as #155." },
-			{ "issue": 152, "pr": null, "status": "failed", "model": "gpt-5.3-codex", "note": "Copilot never started. Re-dispatched as #156." }
+			{ "issue": 152, "pr": null, "status": "failed", "model": "gpt-5.3-codex", "note": "Copilot never started. Re-dispatched as #156." },
+			{ "issue": 155, "pr": 157, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 156, "pr": 158, "status": "merged", "model": "gpt-5.3-codex" }
 		]
 	},
 	"session_history": [
@@ -573,6 +602,12 @@
 			"date": "2026-03-03",
 			"type": "parity-expansion-and-redispatch",
 			"summary": "Fifty-third session. Package bd5e129->ce333ea (2 new classes: EducationalOccupationalCredential, OccupationalExperienceRequirements; updated JobPosting beta properties, Review positiveNotes/negativeNotes, JsonLdGenerator PHPStan max). Expanded ts-parity-check.ts from 39 to 49 types (+10: Place, PostalAddress, GeoCoordinates, ContactPoint, ImageObject, Question, Answer, Offer, BroadcastEvent, AggregateOffer). Processed audit #58 (parity lockstep): added STARTUP_CHECKLIST step 14g. Failed Copilot dispatches #151/#152 closed and re-dispatched as #155/#156 (11 types total). Cleaned 2 stale branches. 225 unit tests (1295 assertions), 49/49 E2E (0 errors, 15 warnings — all false positives), 49/49 TS parity match. 88 classes in package (+2). 29 audit recommendations processed. 19/22 Copilot sessions merged (86% success rate)."
+		},
+		{
+			"issue": 159,
+			"date": "2026-03-03",
+			"type": "pr-review-parity-expansion-and-audit",
+			"summary": "Fifty-fourth session. Package ce333ea->9c044b5 (SeekToAction+VideoObject updated). Merged 2 Copilot PRs: #157 (AggregateRating, Rating, Brand, Certification, PeopleAudience) and #158 (HowToStep, HowToSection, OpeningHoursSpecification, PropertyValue, EducationalOccupationalCredential, OccupationalExperienceRequirements). Expanded ts-parity-check.ts from 49 to 60 types (+11). Filed QC-REPORT #160 (AggregateRating missing itemReviewed). Processed audit #60 (dispatch-to-PR metrics): added copilot_metrics to state.json, stale dispatch detection to STARTUP_CHECKLIST step 14a. Dispatched 2 new Copilot tasks: #162 (CourseInstance, DataCatalog, DataDownload, Comment, NutritionInformation, SpeakableSpecification) and #163 (OfferShippingDetails, ShippingDeliveryTime, ShippingRateSettings, DefinedRegion, MonetaryAmount, QuantitativeValue). 262 unit tests (1407 assertions), 59/60 E2E (1 fail: AggregateRating standalone, 23 warnings — all false positives), 60/60 TS parity match. 60 covered types (+11), 44 uncovered. 30 audit recommendations processed. Copilot: 22/25 dispatch-to-PR (88%), 22/22 merge (100%)."
 		}
 	]
 }
