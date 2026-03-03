@@ -1,0 +1,946 @@
+{
+  "timestamp": "2026-03-03T13:29:51.682Z",
+  "packageCommit": "9dbdaeda68b60220c1cbb659162c307375963cd9",
+  "summary": {
+    "total": 73,
+    "passed": 72,
+    "failed": 1,
+    "totalErrors": 2,
+    "totalWarnings": 25
+  },
+  "results": [
+    {
+      "schemaType": "Accommodation",
+      "script": "src/generate-accommodation.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Accommodation\",\n    \"occupancy\": {\n        \"@type\": \"QuantitativeValue\",\n        \"unitCode\": \"C62\",\n        \"minValue\": 1,\n        \"maxValue\": 4\n    },\n    \"additionalType\": \"https://schema.org/Hotel\",\n    \"numberOfBedrooms\": 2,\n    \"numberOfBathroomsTotal\": 1,\n    \"numberOfRooms\": 3,\n    \"floorSize\": {\n        \"@type\": \"QuantitativeValue\",\n        \"value\": 85,\n        \"unitCode\": \"MTK\"\n    },\n    \"bed\": [\n        {\n            \"@type\": \"BedDetails\",\n            \"numberOfBeds\": 1,\n            \"typeOfBed\": \"King\"\n        },\n        {\n            \"@type\": \"BedDetails\",\n            \"numberOfBeds\": 2,\n            \"typeOfBed\": \"Twin\"\n        }\n    ],\n    \"amenityFeature\": [\n        {\n            \"@type\": \"LocationFeatureSpecification\",\n            \"name\": \"WiFi\",\n            \"value\": true\n        },\n        {\n            \"@type\": \"LocationFeatureSpecification\",\n            \"name\": \"Pool\",\n            \"value\": true\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "AggregateOffer",
+      "script": "src/generate-aggregateoffer.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"AggregateOffer\",\n    \"lowPrice\": 9.99,\n    \"priceCurrency\": \"USD\",\n    \"highPrice\": 49.99,\n    \"offerCount\": 12\n}"
+    },
+    {
+      "schemaType": "AggregateRating",
+      "script": "src/generate-aggregaterating.php",
+      "success": false,
+      "errorCount": 2,
+      "warningCount": 0,
+      "errors": [
+        {
+          "type": "AggregateRating",
+          "message": "Required attribute \"itemReviewed\" is missing",
+          "fields": [
+            "itemReviewed"
+          ]
+        },
+        {
+          "type": "AggregateRating",
+          "message": "Required attribute \"itemReviewed.name\" is missing",
+          "fields": [
+            "itemReviewed.name"
+          ]
+        }
+      ],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"AggregateRating\",\n    \"ratingValue\": 4.5,\n    \"bestRating\": 5,\n    \"worstRating\": 1,\n    \"ratingCount\": 1250,\n    \"reviewCount\": 340\n}"
+    },
+    {
+      "schemaType": "Answer",
+      "script": "src/generate-answer.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Answer\",\n    \"text\": \"Navigate to Settings > Security > Reset Password and follow the prompts.\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Support Agent Mike\"\n    },\n    \"url\": \"https://example.com/answers/12345\",\n    \"upvoteCount\": 87,\n    \"datePublished\": \"2025-01-16\",\n    \"dateModified\": \"2025-02-10\"\n}"
+    },
+    {
+      "schemaType": "Article",
+      "script": "src/generate-article.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Article\",\n    \"headline\": \"Understanding Tidal Patterns in the North Sea\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Dr. Sarah Chen\"\n    },\n    \"datePublished\": \"2025-01-15\",\n    \"dateModified\": \"2025-02-01\",\n    \"image\": [\n        \"https://example.com/tidal-1x1.jpg\",\n        \"https://example.com/tidal-4x3.jpg\",\n        \"https://example.com/tidal-16x9.jpg\"\n    ],\n    \"description\": \"A comprehensive guide to tidal patterns and their impact on coastal ecosystems.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Nature Weekly\",\n        \"logo\": \"https://example.com/logo.png\"\n    }\n}"
+    },
+    {
+      "schemaType": "BlogPosting",
+      "script": "src/generate-blogposting.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"BlogPosting\",\n    \"headline\": \"Understanding Dependency Injection in PHP\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Marcus Rivera\"\n    },\n    \"datePublished\": \"2025-11-20\",\n    \"dateModified\": \"2025-12-01\",\n    \"image\": [\n        \"https://example.com/di-php.jpg\",\n        \"https://example.com/di-diagram.png\"\n    ],\n    \"description\": \"A practical guide to dependency injection patterns in modern PHP applications.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"PHP Weekly\",\n        \"logo\": \"https://example.com/phpweekly-logo.png\"\n    }\n}"
+    },
+    {
+      "schemaType": "Brand",
+      "script": "src/generate-brand.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Brand\",\n    \"name\": \"Acme Corporation\",\n    \"description\": \"Leading provider of quality goods since 1920\"\n}"
+    },
+    {
+      "schemaType": "BreadcrumbList",
+      "script": "src/generate-breadcrumblist.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://example.com/\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"Electronics\",\n            \"item\": \"https://example.com/electronics\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Phones\",\n            \"item\": \"https://example.com/electronics/phones\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 4,\n            \"name\": \"Pixel 9 Pro\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "BroadcastEvent",
+      "script": "src/generate-broadcastevent.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"BroadcastEvent\",\n    \"isLiveBroadcast\": true,\n    \"startDate\": \"2025-06-15T20:00:00+00:00\",\n    \"endDate\": \"2025-06-15T22:00:00+00:00\"\n}"
+    },
+    {
+      "schemaType": "Certification",
+      "script": "src/generate-certification.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Certification\",\n    \"name\": \"ISO 9001:2015 Quality Management\",\n    \"issuedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"International Organization for Standardization\"\n    },\n    \"certificationIdentification\": \"ISO-9001-2025-00042\"\n}"
+    },
+    {
+      "schemaType": "Clip",
+      "script": "src/generate-clip.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Clip\",\n    \"name\": \"Introduction to the Topic\",\n    \"startOffset\": 0,\n    \"url\": \"https://example.com/video/tutorial?t=0\",\n    \"endOffset\": 120\n}"
+    },
+    {
+      "schemaType": "Comment",
+      "script": "src/generate-comment.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Comment\",\n    \"text\": \"This is really helpful, thank you!\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Jane Reader\"\n    },\n    \"datePublished\": \"2025-03-01\"\n}"
+    },
+    {
+      "schemaType": "ContactPoint",
+      "script": "src/generate-contactpoint.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ContactPoint\",\n    \"telephone\": \"+1-800-555-0199\",\n    \"email\": \"support@example.com\",\n    \"contactType\": \"customer service\",\n    \"areaServed\": \"US\",\n    \"availableLanguage\": \"English\"\n}"
+    },
+    {
+      "schemaType": "Course",
+      "script": "src/generate-course.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Course\",\n    \"name\": \"Introduction to Machine Learning\",\n    \"description\": \"A comprehensive introduction to machine learning concepts, algorithms, and practical applications using Python.\",\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"name\": \"DataScience Academy\"\n    },\n    \"offers\": [\n        {\n            \"@type\": \"Offer\",\n            \"url\": \"https://example.com/courses/ml-intro\",\n            \"priceCurrency\": \"USD\",\n            \"price\": 199.99,\n            \"availability\": \"https://schema.org/InStock\",\n            \"itemCondition\": \"https://schema.org/NewCondition\"\n        }\n    ],\n    \"hasCourseInstance\": [\n        {\n            \"@type\": \"CourseInstance\",\n            \"courseMode\": \"online\",\n            \"instructor\": {\n                \"@type\": \"Person\",\n                \"name\": \"Dr. Emily Zhang\"\n            }\n        }\n    ],\n    \"inLanguage\": \"en\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.8,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 1024\n    },\n    \"image\": \"https://example.com/photos/ml-course.jpg\"\n}"
+    },
+    {
+      "schemaType": "CourseInstance",
+      "script": "src/generate-courseinstance.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"CourseInstance\",\n    \"courseMode\": \"online\",\n    \"instructor\": {\n        \"@type\": \"Person\",\n        \"name\": \"Dr. Emily Zhang\"\n    },\n    \"courseSchedule\": {\n        \"@type\": \"Schedule\",\n        \"repeatFrequency\": \"P1W\",\n        \"startDate\": \"2025-09-01\",\n        \"endDate\": \"2025-12-15\"\n    },\n    \"courseWorkload\": \"PT40H\"\n}"
+    },
+    {
+      "schemaType": "DataCatalog",
+      "script": "src/generate-datacatalog.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"DataCatalog\",\n    \"name\": \"Open Government Data Catalog\"\n}"
+    },
+    {
+      "schemaType": "DataDownload",
+      "script": "src/generate-datadownload.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"DataDownload\",\n    \"contentUrl\": \"https://example.com/data/climate-2025.csv\",\n    \"encodingFormat\": \"text/csv\"\n}"
+    },
+    {
+      "schemaType": "Dataset",
+      "script": "src/generate-dataset.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Dataset\",\n    \"name\": \"Global Ocean Temperature Records 1950-2025\",\n    \"description\": \"Comprehensive dataset of ocean surface temperature measurements from 1950 to 2025, collected from buoys, satellites, and research vessels worldwide.\",\n    \"url\": \"https://example.com/datasets/ocean-temp\",\n    \"creator\": {\n        \"@type\": \"Organization\",\n        \"name\": \"National Oceanographic Institute\"\n    },\n    \"license\": \"https://creativecommons.org/licenses/by/4.0/\",\n    \"keywords\": [\n        \"ocean temperature\",\n        \"climate data\",\n        \"marine science\"\n    ],\n    \"isAccessibleForFree\": true,\n    \"temporalCoverage\": \"1950/2025\",\n    \"includedInDataCatalog\": {\n        \"@type\": \"DataCatalog\",\n        \"name\": \"World Climate Data Repository\"\n    },\n    \"distribution\": [\n        {\n            \"@type\": \"DataDownload\",\n            \"contentUrl\": \"https://example.com/datasets/ocean-temp/download.csv\",\n            \"encodingFormat\": \"text/csv\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "DefinedRegion",
+      "script": "src/generate-definedregion.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "DefinedRegion",
+          "message": "Only one of addressRegion or postalCode can be used",
+          "fields": [
+            "addressRegion",
+            "postalCode"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"DefinedRegion\",\n    \"addressCountry\": \"US\",\n    \"addressRegion\": [\n        \"CA\",\n        \"NY\"\n    ],\n    \"postalCode\": \"10001\"\n}"
+    },
+    {
+      "schemaType": "DiscussionForumPosting",
+      "script": "src/generate-discussionforumposting.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"DiscussionForumPosting\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Alex Thompson\"\n    },\n    \"datePublished\": \"2025-03-10T14:30:00Z\",\n    \"text\": \"Has anyone managed to get the new schema.org VacationRental type working with Google Rich Results? I keep getting validation warnings about missing fields.\",\n    \"headline\": \"VacationRental schema validation issues\",\n    \"url\": \"https://example.com/forum/posts/vacationrental-schema\",\n    \"comment\": [\n        {\n            \"@type\": \"Comment\",\n            \"text\": \"Yes! Make sure you include the address and aggregateRating fields. Those are recommended by Google.\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Sarah Dev\"\n            },\n            \"datePublished\": \"2025-03-10T15:45:00Z\"\n        },\n        {\n            \"@type\": \"Comment\",\n            \"text\": \"I found that the bestRating and worstRating fields on nested ratings also trigger warnings if omitted.\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Mike Builder\"\n            },\n            \"datePublished\": \"2025-03-10T16:20:00Z\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "EducationalOccupationalCredential",
+      "script": "src/generate-educationaloccupationalcredential.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"EducationalOccupationalCredential\",\n    \"credentialCategory\": \"bachelor degree\"\n}"
+    },
+    {
+      "schemaType": "EmployerAggregateRating",
+      "script": "src/generate-employeraggregaterating.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"EmployerAggregateRating\",\n    \"itemReviewed\": {\n        \"@type\": \"Organization\",\n        \"name\": \"TechCorp Industries\"\n    },\n    \"ratingValue\": 4.2,\n    \"ratingCount\": 1847,\n    \"reviewCount\": 523,\n    \"bestRating\": 5,\n    \"worstRating\": 1\n}"
+    },
+    {
+      "schemaType": "Event",
+      "script": "src/generate-event.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Event\",\n    \"name\": \"The Rolling Stones - Hackney Diamonds Tour\",\n    \"startDate\": \"2025-07-21T19:00-05:00\",\n    \"location\": [\n        {\n            \"@type\": \"Place\",\n            \"name\": \"Soldier Field\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"streetAddress\": \"1410 Special Olympics Dr\",\n                \"addressLocality\": \"Chicago\",\n                \"addressRegion\": \"IL\",\n                \"postalCode\": \"60605\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"VirtualLocation\",\n            \"url\": \"https://livestream.example.com/rolling-stones\",\n            \"name\": \"Official Livestream\"\n        }\n    ],\n    \"description\": \"The Rolling Stones return to Chicago for one night only. Available in-person and via livestream.\",\n    \"endDate\": \"2025-07-21T23:00-05:00\",\n    \"eventAttendanceMode\": \"https://schema.org/MixedEventAttendanceMode\",\n    \"eventStatus\": \"https://schema.org/EventScheduled\",\n    \"image\": [\n        \"https://example.com/rolling-stones-tour.jpg\"\n    ],\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/tickets/rolling-stones\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 125,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"organizer\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Live Nation\",\n        \"url\": \"https://www.livenation.com\"\n    },\n    \"performer\": {\n        \"@type\": \"Person\",\n        \"name\": \"The Rolling Stones\"\n    }\n}"
+    },
+    {
+      "schemaType": "FAQPage",
+      "script": "src/generate-faqpage.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"FAQPage\",\n    \"mainEntity\": [\n        {\n            \"@type\": \"Question\",\n            \"name\": \"What is JSON-LD?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"JSON-LD is a method of encoding Linked Data using JSON. It allows data to be serialized in a way that is familiar to developers.\"\n            }\n        },\n        {\n            \"@type\": \"Question\",\n            \"name\": \"Why should I use structured data on my website?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"Structured data helps search engines understand your content better and can enable rich results in search, such as FAQ snippets, recipe cards, and product listings.\"\n            }\n        },\n        {\n            \"@type\": \"Question\",\n            \"name\": \"How do I validate my structured data?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"You can use the Google Rich Results Test at search.google.com/test/rich-results to validate your structured data and see which rich result types it supports.\"\n            }\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "FoodEstablishment",
+      "script": "src/generate-foodestablishment.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"FoodEstablishment\",\n    \"name\": \"The Golden Spoon Bistro\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"742 Evergreen Terrace\",\n        \"addressLocality\": \"Portland\",\n        \"addressRegion\": \"OR\",\n        \"postalCode\": \"97205\",\n        \"addressCountry\": \"US\"\n    },\n    \"url\": \"https://goldenspoonbistro.example.com\",\n    \"telephone\": \"+1-503-555-0199\",\n    \"description\": \"Farm-to-table bistro featuring seasonal Pacific Northwest cuisine.\",\n    \"image\": [\n        \"https://example.com/photos/golden-spoon-exterior.jpg\",\n        \"https://example.com/photos/golden-spoon-interior.jpg\"\n    ],\n    \"priceRange\": \"$$$\",\n    \"geo\": {\n        \"@type\": \"GeoCoordinates\",\n        \"latitude\": 45.5231,\n        \"longitude\": -122.6765\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.7,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"reviewCount\": 312\n    },\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": \"Maria G.\",\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 5,\n            \"bestRating\": 5,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"The tasting menu was extraordinary. Every course was a masterpiece.\",\n        \"datePublished\": \"2025-11-15\"\n    },\n    \"servesCuisine\": \"Pacific Northwest\",\n    \"logo\": \"https://example.com/golden-spoon-logo.png\",\n    \"acceptsReservations\": true\n}"
+    },
+    {
+      "schemaType": "GeoCoordinates",
+      "script": "src/generate-geocoordinates.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"GeoCoordinates\",\n    \"latitude\": 37.7749,\n    \"longitude\": -122.4194\n}"
+    },
+    {
+      "script": "src/generate-graph.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@graph\": [\n        {\n            \"@type\": \"Article\",\n            \"headline\": \"Understanding JSON-LD and Structured Data\",\n            \"author\": [\n                {\n                    \"@type\": \"Person\",\n                    \"name\": \"Sarah Chen\",\n                    \"url\": \"https://example.com/authors/sarah-chen\"\n                }\n            ],\n            \"datePublished\": \"2026-02-20\",\n            \"dateModified\": \"2026-02-25\",\n            \"image\": [\n                \"https://example.com/images/jsonld-guide.jpg\",\n                \"https://example.com/images/jsonld-guide-wide.jpg\"\n            ],\n            \"publisher\": {\n                \"@type\": \"Organization\",\n                \"name\": \"TechBlog Inc\",\n                \"logo\": \"https://example.com/logo.png\"\n            }\n        },\n        {\n            \"@type\": \"BreadcrumbList\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"ListItem\",\n                    \"position\": 1,\n                    \"name\": \"Home\",\n                    \"item\": \"https://example.com/\"\n                },\n                {\n                    \"@type\": \"ListItem\",\n                    \"position\": 2,\n                    \"name\": \"Blog\",\n                    \"item\": \"https://example.com/blog/\"\n                },\n                {\n                    \"@type\": \"ListItem\",\n                    \"position\": 3,\n                    \"name\": \"Understanding JSON-LD\",\n                    \"item\": \"https://example.com/blog/jsonld-guide\"\n                }\n            ]\n        },\n        {\n            \"@type\": \"Organization\",\n            \"name\": \"TechBlog Inc\",\n            \"url\": \"https://example.com\",\n            \"logo\": \"https://example.com/logo.png\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "HowToSection",
+      "script": "src/generate-howtosection.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 8,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"itemListElement\" (optional)",
+          "fields": [
+            "itemListElement"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"image\" (optional)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"url\" (optional)",
+          "fields": [
+            "url"
+          ]
+        },
+        {
+          "type": "HowToSection",
+          "message": "Missing field \"video\" (optional)",
+          "fields": [
+            "video"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"HowToSection\",\n    \"name\": \"Prepare the Ingredients\",\n    \"itemListElement\": [\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Wash and chop the vegetables.\",\n            \"name\": \"Prep vegetables\"\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Measure the dry ingredients.\",\n            \"name\": \"Measure dry\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "HowToStep",
+      "script": "src/generate-howtostep.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"HowToStep\",\n    \"text\": \"Preheat the oven to 350 degrees F.\",\n    \"name\": \"Preheat oven\",\n    \"url\": \"https://example.com/recipe#step1\",\n    \"image\": \"https://example.com/photos/step1.jpg\",\n    \"video\": {\n        \"@type\": \"Clip\",\n        \"name\": \"Preheating\",\n        \"startOffset\": 0,\n        \"url\": \"https://example.com/video.mp4?t=0\",\n        \"endOffset\": 30\n    },\n    \"itemListElement\": [\n        \"Set temperature dial to 350F.\",\n        \"Wait for preheat indicator light.\"\n    ]\n}"
+    },
+    {
+      "schemaType": "ImageObject",
+      "script": "src/generate-imageobject.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ImageObject\",\n    \"contentUrl\": \"https://example.com/photos/sunset.jpg\",\n    \"url\": \"https://example.com/gallery/sunset\",\n    \"name\": \"Sunset over the Pacific\",\n    \"caption\": \"A vivid sunset captured from Ocean Beach\",\n    \"description\": \"High-resolution photograph of a sunset over the Pacific Ocean\",\n    \"width\": \"1920\",\n    \"height\": \"1080\",\n    \"license\": \"https://creativecommons.org/licenses/by/4.0/\",\n    \"acquireLicensePage\": \"https://example.com/licensing\",\n    \"creditText\": \"Photo by Jane Doe\",\n    \"copyrightNotice\": \"Copyright 2025 Jane Doe\",\n    \"creator\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Example Photography\"\n    },\n    \"datePublished\": \"2025-06-15\",\n    \"uploadDate\": \"2025-06-16\"\n}"
+    },
+    {
+      "schemaType": "ItemList",
+      "script": "src/generate-itemlist.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ItemList\",\n    \"itemListElement\": [\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"MacBook Pro 16-inch\",\n            \"url\": \"https://example.com/best-laptops/macbook-pro\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"ThinkPad X1 Carbon\",\n            \"url\": \"https://example.com/best-laptops/thinkpad-x1\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Dell XPS 15\",\n            \"url\": \"https://example.com/best-laptops/dell-xps-15\"\n        }\n    ],\n    \"itemListOrder\": \"https://schema.org/ItemListOrderDescending\",\n    \"numberOfItems\": 3\n}"
+    },
+    {
+      "schemaType": "JobPosting",
+      "script": "src/generate-jobposting.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"JobPosting\",\n    \"title\": \"Senior Software Engineer\",\n    \"description\": \"<p>We are looking for a senior software engineer to lead our backend team. You will design and implement scalable APIs, mentor junior developers, and drive technical decisions.</p><p>Requirements: 5+ years experience with PHP or Python, experience with cloud infrastructure, strong communication skills.</p>\",\n    \"datePosted\": \"2025-03-01\",\n    \"hiringOrganization\": {\n        \"@type\": \"Organization\",\n        \"name\": \"ACME Corp\",\n        \"url\": \"https://acme.example.com\",\n        \"logo\": \"https://acme.example.com/logo.png\"\n    },\n    \"jobLocation\": {\n        \"@type\": \"Place\",\n        \"name\": \"ACME Headquarters\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"streetAddress\": \"100 Innovation Way\",\n            \"addressLocality\": \"Austin\",\n            \"addressRegion\": \"TX\",\n            \"postalCode\": \"78701\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"baseSalary\": {\n        \"@type\": \"MonetaryAmount\",\n        \"currency\": \"USD\",\n        \"minValue\": 150000,\n        \"maxValue\": 200000\n    },\n    \"employmentType\": \"FULL_TIME\",\n    \"validThrough\": \"2025-06-01\",\n    \"applicantLocationRequirements\": {\n        \"@type\": \"AdministrativeArea\",\n        \"name\": \"United States\"\n    },\n    \"jobLocationType\": \"TELECOMMUTE\",\n    \"directApply\": true,\n    \"identifier\": {\n        \"@type\": \"PropertyValue\",\n        \"name\": \"Internal Job ID\",\n        \"value\": \"SE-2025-0042\"\n    }\n}"
+    },
+    {
+      "schemaType": "LocalBusiness",
+      "script": "src/generate-localbusiness.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"LocalBusiness\",\n    \"name\": \"Dave's Steak House\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"148 W 51st St\",\n        \"addressLocality\": \"New York\",\n        \"addressRegion\": \"NY\",\n        \"postalCode\": \"10019\",\n        \"addressCountry\": \"US\"\n    },\n    \"url\": \"https://davessteakhouse.example.com\",\n    \"telephone\": \"+1-212-555-0100\",\n    \"description\": \"Classic American steakhouse in the heart of Midtown Manhattan.\",\n    \"image\": [\n        \"https://example.com/photos/daves-exterior.jpg\"\n    ],\n    \"priceRange\": \"$$$\",\n    \"geo\": {\n        \"@type\": \"GeoCoordinates\",\n        \"latitude\": 40.7614,\n        \"longitude\": -73.9826\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.4,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"reviewCount\": 267\n    },\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": \"James T.\",\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 5,\n            \"bestRating\": 5,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"Best steak I have had in years. The service was impeccable.\",\n        \"datePublished\": \"2025-02-01\"\n    },\n    \"servesCuisine\": \"American\",\n    \"logo\": \"https://example.com/daves-logo.png\"\n}"
+    },
+    {
+      "schemaType": "MathSolver, LearningResource",
+      "script": "src/generate-mathsolver.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": [\n        \"MathSolver\",\n        \"LearningResource\"\n    ],\n    \"url\": \"https://math.example.com/solver\",\n    \"usageInfo\": \"https://math.example.com/terms\",\n    \"potentialAction\": [\n        {\n            \"@type\": \"SolveMathAction\",\n            \"target\": \"https://math.example.com/solve-algebra\",\n            \"eduQuestionType\": [\n                \"Polynomial\",\n                \"Linear Equation\"\n            ],\n            \"mathExpression-input\": \"text\"\n        },\n        {\n            \"@type\": \"SolveMathAction\",\n            \"target\": \"https://math.example.com/solve-calculus\",\n            \"eduQuestionType\": \"Integral\",\n            \"mathExpression-input\": \"latex\"\n        }\n    ],\n    \"name\": \"MathWay Solver\",\n    \"inLanguage\": \"en\",\n    \"learningResourceType\": \"Math Solver\",\n    \"assesses\": [\n        \"Algebra\",\n        \"Calculus\"\n    ]\n}"
+    },
+    {
+      "schemaType": "MemberProgram",
+      "script": "src/generate-member-program.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"MemberProgram\",\n    \"name\": \"ShopRewards Loyalty Program\",\n    \"description\": \"Earn points on every purchase and unlock exclusive member benefits.\",\n    \"hasTiers\": [\n        {\n            \"@type\": \"MemberProgramTier\",\n            \"name\": \"Silver\",\n            \"hasTierBenefit\": \"https://schema.org/TierBenefitLoyaltyPoints\",\n            \"hasTierRequirement\": \"No minimum spend required\",\n            \"membershipPointsEarned\": {\n                \"@type\": \"QuantitativeValue\",\n                \"value\": 1\n            }\n        },\n        {\n            \"@type\": \"MemberProgramTier\",\n            \"name\": \"Gold\",\n            \"hasTierBenefit\": [\n                \"https://schema.org/TierBenefitLoyaltyPoints\",\n                \"https://schema.org/TierBenefitLoyaltyPrice\"\n            ],\n            \"hasTierRequirement\": \"Spend $500 or more per year\",\n            \"membershipPointsEarned\": {\n                \"@type\": \"QuantitativeValue\",\n                \"value\": 2\n            },\n            \"url\": \"https://www.example.com/rewards/gold\"\n        }\n    ],\n    \"url\": \"https://www.example.com/rewards\"\n}"
+    },
+    {
+      "schemaType": "MerchantReturnPolicy",
+      "script": "src/generate-merchant-return-policy.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"MerchantReturnPolicy\",\n    \"applicableCountry\": [\n        \"US\",\n        \"CA\"\n    ],\n    \"returnPolicyCategory\": \"https://schema.org/MerchantReturnFiniteReturnWindow\",\n    \"merchantReturnDays\": 30,\n    \"merchantReturnLink\": \"https://www.example.com/returns\",\n    \"returnMethod\": \"https://schema.org/ReturnByMail\",\n    \"returnFees\": \"https://schema.org/FreeReturn\",\n    \"refundType\": \"https://schema.org/FullRefund\",\n    \"returnLabelSource\": \"https://schema.org/ReturnLabelDownloadAndPrint\",\n    \"customerRemorseReturnFees\": \"https://schema.org/FreeReturn\",\n    \"customerRemorseReturnLabelSource\": \"https://schema.org/ReturnLabelDownloadAndPrint\",\n    \"itemDefectReturnFees\": \"https://schema.org/FreeReturn\",\n    \"itemDefectReturnLabelSource\": \"https://schema.org/ReturnLabelInBox\",\n    \"returnPolicySeasonalOverride\": {\n        \"@type\": \"MerchantReturnPolicySeasonalOverride\",\n        \"startDate\": \"2026-11-29\",\n        \"endDate\": \"2027-01-31\",\n        \"returnPolicyCategory\": \"https://schema.org/MerchantReturnFiniteReturnWindow\",\n        \"merchantReturnDays\": 60\n    }\n}"
+    },
+    {
+      "schemaType": "MobileApplication",
+      "script": "src/generate-mobileapplication.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "MobileApplication",
+          "message": "Missing field \"datePublished\" (optional)",
+          "fields": [
+            "datePublished"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"MobileApplication\",\n    \"name\": \"FitTracker\",\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://play.google.com/store/apps/details?id=com.example.fittracker\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 0,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.5,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 32100\n    },\n    \"applicationCategory\": \"HealthApplication\",\n    \"operatingSystem\": \"Android 10+\",\n    \"datePublished\": \"2025-03-15\",\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"FitnessGuru\"\n        },\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 5,\n            \"bestRating\": 5,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"Best fitness tracking app I have ever used. Accurate heart rate monitoring.\"\n    },\n    \"description\": \"Track your workouts, heart rate, and daily steps with precision.\"\n}"
+    },
+    {
+      "schemaType": "MonetaryAmount",
+      "script": "src/generate-monetaryamount.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"MonetaryAmount\",\n    \"currency\": \"USD\",\n    \"value\": 29.99,\n    \"minValue\": 19.99,\n    \"maxValue\": 39.99,\n    \"unitText\": \"per order\"\n}"
+    },
+    {
+      "schemaType": "Movie",
+      "script": "src/generate-movie.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Movie",
+          "message": "Missing field \"datePublished\" (optional)",
+          "fields": [
+            "datePublished"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Movie\",\n    \"name\": \"The Algorithmic Garden\",\n    \"image\": \"https://example.com/photos/algorithmic-garden.jpg\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 8.1,\n        \"bestRating\": 10,\n        \"worstRating\": 1,\n        \"ratingCount\": 45230\n    },\n    \"dateCreated\": \"2025-06-15\",\n    \"datePublished\": \"2025-11-21\",\n    \"director\": {\n        \"@type\": \"Person\",\n        \"name\": \"Sofia Castellano\"\n    },\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"Roger Chen\"\n        },\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 9,\n            \"bestRating\": 10,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"A stunning visual exploration of mathematics in nature.\"\n    },\n    \"description\": \"A mathematician discovers that the patterns in an ancient garden hold the key to a revolutionary algorithm.\",\n    \"actor\": [\n        {\n            \"@type\": \"Person\",\n            \"name\": \"Elena Voss\"\n        },\n        {\n            \"@type\": \"Person\",\n            \"name\": \"Marcus Reid\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "NewsArticle",
+      "script": "src/generate-newsarticle.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"NewsArticle\",\n    \"headline\": \"City Council Approves $50M Green Infrastructure Plan\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Sarah Greenfield\"\n    },\n    \"datePublished\": \"2025-03-10T09:00:00Z\",\n    \"dateModified\": \"2025-03-10T14:30:00Z\",\n    \"image\": [\n        \"https://example.com/photos/green-plan-1x1.jpg\",\n        \"https://example.com/photos/green-plan-4x3.jpg\",\n        \"https://example.com/photos/green-plan-16x9.jpg\"\n    ],\n    \"description\": \"The city council voted unanimously to approve a $50 million plan for green infrastructure improvements including urban forests, rain gardens, and permeable pavements.\",\n    \"publisher\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Metro Daily News\",\n        \"url\": \"https://metrodaily.example.com\",\n        \"logo\": \"https://metrodaily.example.com/logo.png\"\n    }\n}"
+    },
+    {
+      "schemaType": "NutritionInformation",
+      "script": "src/generate-nutritioninformation.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"NutritionInformation\",\n    \"calories\": \"250 calories\",\n    \"fatContent\": \"8 grams\",\n    \"carbohydrateContent\": \"35 grams\",\n    \"proteinContent\": \"12 grams\"\n}"
+    },
+    {
+      "schemaType": "OccupationalExperienceRequirements",
+      "script": "src/generate-occupationalexperiencerequirements.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"OccupationalExperienceRequirements\",\n    \"monthsOfExperience\": 24\n}"
+    },
+    {
+      "schemaType": "Offer",
+      "script": "src/generate-offer.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Offer\",\n    \"url\": \"https://example.com/products/widget-pro\",\n    \"priceCurrency\": \"USD\",\n    \"price\": 29.99,\n    \"availability\": \"https://schema.org/InStock\",\n    \"itemCondition\": \"https://schema.org/NewCondition\",\n    \"validFrom\": \"2025-01-01\",\n    \"priceValidUntil\": \"2025-12-31\"\n}"
+    },
+    {
+      "schemaType": "OfferShippingDetails",
+      "script": "src/generate-offershippingdetails.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "OfferShippingDetails",
+          "message": "One of the following conditions needs to be met: Missing field \"addressRegion\" (optional) or Missing field \"postalCode\" (optional)",
+          "fields": [
+            "addressRegion",
+            "postalCode"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"OfferShippingDetails\",\n    \"shippingDestination\": {\n        \"@type\": \"DefinedRegion\",\n        \"addressCountry\": \"US\"\n    },\n    \"shippingRate\": {\n        \"@type\": \"MonetaryAmount\",\n        \"currency\": \"USD\",\n        \"value\": 5.99\n    },\n    \"deliveryTime\": {\n        \"@type\": \"ShippingDeliveryTime\",\n        \"handlingTime\": {\n            \"@type\": \"QuantitativeValue\",\n            \"unitCode\": \"DAY\",\n            \"minValue\": 0,\n            \"maxValue\": 1\n        },\n        \"transitTime\": {\n            \"@type\": \"QuantitativeValue\",\n            \"unitCode\": \"DAY\",\n            \"minValue\": 3,\n            \"maxValue\": 5\n        }\n    }\n}"
+    },
+    {
+      "schemaType": "OpeningHoursSpecification",
+      "script": "src/generate-openinghoursspecification.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"OpeningHoursSpecification\",\n    \"dayOfWeek\": \"https://schema.org/Monday\",\n    \"opens\": \"09:00\",\n    \"closes\": \"17:00\",\n    \"validFrom\": \"2025-01-01\",\n    \"validThrough\": \"2025-12-31\"\n}"
+    },
+    {
+      "schemaType": "Organization",
+      "script": "src/generate-organization.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Organization\",\n    \"name\": \"TechStart Inc.\",\n    \"url\": \"https://techstart.example.com\",\n    \"logo\": \"https://techstart.example.com/logo.png\",\n    \"description\": \"Leading technology startup accelerator.\",\n    \"email\": \"info@techstart.example.com\",\n    \"telephone\": \"+1-555-123-4567\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"123 Innovation Drive\",\n        \"addressLocality\": \"San Francisco\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"94105\",\n        \"addressCountry\": \"US\"\n    },\n    \"contactPoint\": {\n        \"@type\": \"ContactPoint\",\n        \"telephone\": \"+1-555-987-6543\",\n        \"contactType\": \"customer service\"\n    },\n    \"sameAs\": [\n        \"https://twitter.com/techstart\",\n        \"https://linkedin.com/company/techstart\"\n    ],\n    \"foundingDate\": \"2020-03-15\",\n    \"legalName\": \"TechStart Incorporated\",\n    \"numberOfEmployees\": {\n        \"@type\": \"QuantitativeValue\",\n        \"value\": 150\n    },\n    \"taxID\": \"94-3456789\",\n    \"duns\": \"12-345-6789\"\n}"
+    },
+    {
+      "schemaType": "PeopleAudience",
+      "script": "src/generate-peopleaudience.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"PeopleAudience\",\n    \"suggestedGender\": \"unisex\",\n    \"suggestedMinAge\": 18,\n    \"suggestedMaxAge\": 65\n}"
+    },
+    {
+      "schemaType": "Person",
+      "script": "src/generate-person.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Person\",\n    \"name\": \"Dr. Emily Zhang\",\n    \"url\": \"https://emilyzhang.example.com\",\n    \"image\": \"https://emilyzhang.example.com/photo.jpg\",\n    \"jobTitle\": \"Senior Research Scientist\",\n    \"worksFor\": {\n        \"@type\": \"Organization\",\n        \"name\": \"BioGen Labs\"\n    },\n    \"sameAs\": [\n        \"https://twitter.com/emilyzhang\",\n        \"https://linkedin.com/in/emilyzhang\"\n    ],\n    \"description\": \"Genomics researcher specializing in CRISPR applications.\",\n    \"givenName\": \"Emily\",\n    \"familyName\": \"Zhang\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Boston\",\n        \"addressRegion\": \"MA\",\n        \"addressCountry\": \"US\"\n    }\n}"
+    },
+    {
+      "schemaType": "Place",
+      "script": "src/generate-place.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Place\",\n    \"name\": \"Golden Gate Park\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"501 Stanyan St\",\n        \"addressLocality\": \"San Francisco\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"94117\",\n        \"addressCountry\": \"US\"\n    },\n    \"geo\": {\n        \"@type\": \"GeoCoordinates\",\n        \"latitude\": 37.7694,\n        \"longitude\": -122.4862\n    }\n}"
+    },
+    {
+      "schemaType": "PostalAddress",
+      "script": "src/generate-postaladdress.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"PostalAddress\",\n    \"streetAddress\": \"123 Main St\",\n    \"addressLocality\": \"San Francisco\",\n    \"addressRegion\": \"CA\",\n    \"postalCode\": \"94102\",\n    \"addressCountry\": \"US\"\n}"
+    },
+    {
+      "schemaType": "Product",
+      "script": "src/generate-product-aggregate-offer.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Wireless Bluetooth Headphones\",\n    \"image\": [\n        \"https://example.com/photos/headphones-front.jpg\",\n        \"https://example.com/photos/headphones-side.jpg\"\n    ],\n    \"description\": \"Premium noise-cancelling wireless headphones with 30-hour battery life.\",\n    \"sku\": \"WBH-PRO-2025\",\n    \"offers\": {\n        \"@type\": \"AggregateOffer\",\n        \"lowPrice\": 149.99,\n        \"priceCurrency\": \"USD\",\n        \"highPrice\": 249.99,\n        \"offerCount\": 8\n    },\n    \"brand\": {\n        \"@type\": \"Brand\",\n        \"name\": \"AudioTech\"\n    },\n    \"mpn\": \"AT-WBH-PRO\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.6,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 234,\n        \"reviewCount\": 45\n    },\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Alex Chen\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Incredible noise cancellation and battery life.\",\n            \"datePublished\": \"2025-06-15\",\n            \"name\": \"Best headphones ever\"\n        }\n    ],\n    \"color\": \"Matte Black\",\n    \"material\": \"Premium ABS Plastic\",\n    \"pattern\": \"Solid\",\n    \"size\": \"One Size\",\n    \"inProductGroupWithID\": \"audio-headphones-pro\",\n    \"gtin\": \"0098765432101\",\n    \"isVariantOf\": {\n        \"@type\": \"ProductGroup\",\n        \"name\": \"AudioTech Pro Series\",\n        \"productGroupID\": \"audio-headphones-pro\"\n    },\n    \"audience\": {\n        \"@type\": \"PeopleAudience\",\n        \"suggestedGender\": \"unisex\",\n        \"suggestedMinAge\": 13\n    },\n    \"hasCertification\": [\n        {\n            \"@type\": \"Certification\",\n            \"name\": \"Bluetooth 5.3 Certified\",\n            \"issuedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Bluetooth SIG\"\n            },\n            \"certificationIdentification\": \"BT53-WBH-2025\"\n        }\n    ],\n    \"subjectOf\": \"https://example.com/product-comparison-video\"\n}"
+    },
+    {
+      "schemaType": "ProductGroup",
+      "script": "src/generate-product-group.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ProductGroup\",\n    \"name\": \"Classic Oxford Shirt Collection\",\n    \"productGroupID\": \"oxford-shirts\",\n    \"variesBy\": [\n        \"https://schema.org/color\",\n        \"https://schema.org/size\"\n    ],\n    \"hasVariant\": [\n        {\n            \"@type\": \"Product\",\n            \"name\": \"Classic Oxford Shirt - Blue\",\n            \"image\": [\n                \"https://example.com/shirts/blue.jpg\"\n            ],\n            \"description\": \"Classic oxford button-down shirt in blue.\",\n            \"sku\": \"SHIRT-OX-BLUE-M\",\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"url\": \"https://example.com/shirts/blue\",\n                    \"priceCurrency\": \"USD\",\n                    \"price\": 89,\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"priceValidUntil\": \"2026-12-31\"\n                }\n            ],\n            \"brand\": {\n                \"@type\": \"Brand\",\n                \"name\": \"ClassicWear\"\n            },\n            \"mpn\": \"OX-BLUE-M\",\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": 4.6,\n                \"bestRating\": 5,\n                \"worstRating\": 1,\n                \"ratingCount\": 156\n            },\n            \"review\": [\n                {\n                    \"@type\": \"Review\",\n                    \"author\": {\n                        \"@type\": \"Person\",\n                        \"name\": \"Sam T.\"\n                    },\n                    \"reviewRating\": {\n                        \"@type\": \"Rating\",\n                        \"ratingValue\": 5,\n                        \"bestRating\": 5,\n                        \"worstRating\": 1\n                    },\n                    \"reviewBody\": \"Perfect fit and great quality cotton.\",\n                    \"datePublished\": \"2025-08-15\"\n                }\n            ],\n            \"color\": \"Blue\",\n            \"material\": \"100% Premium Cotton\",\n            \"pattern\": \"Solid\",\n            \"size\": \"M\",\n            \"inProductGroupWithID\": \"oxford-shirts\",\n            \"gtin\": \"0012345678905\",\n            \"isVariantOf\": {\n                \"@type\": \"ProductGroup\",\n                \"name\": \"Classic Oxford Shirt Collection\",\n                \"productGroupID\": \"oxford-shirts\",\n                \"variesBy\": [\n                    \"https://schema.org/color\",\n                    \"https://schema.org/size\"\n                ],\n                \"url\": \"https://example.com/shirts/oxford\"\n            },\n            \"audience\": {\n                \"@type\": \"PeopleAudience\",\n                \"suggestedGender\": \"unisex\",\n                \"suggestedMinAge\": 16\n            },\n            \"hasCertification\": [\n                {\n                    \"@type\": \"Certification\",\n                    \"name\": \"OEKO-TEX Standard 100\",\n                    \"issuedBy\": {\n                        \"@type\": \"Organization\",\n                        \"name\": \"OEKO-TEX Association\"\n                    },\n                    \"certificationIdentification\": \"OT-12345\"\n                }\n            ],\n            \"subjectOf\": \"https://example.com/shirt-review\"\n        },\n        {\n            \"@type\": \"Product\",\n            \"name\": \"Classic Oxford Shirt - White\",\n            \"image\": [\n                \"https://example.com/shirts/white.jpg\"\n            ],\n            \"description\": \"Classic oxford button-down shirt in white.\",\n            \"sku\": \"SHIRT-OX-WHITE-M\",\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"url\": \"https://example.com/shirts/white\",\n                    \"priceCurrency\": \"USD\",\n                    \"price\": 89,\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"priceValidUntil\": \"2026-12-31\"\n                }\n            ],\n            \"brand\": {\n                \"@type\": \"Brand\",\n                \"name\": \"ClassicWear\"\n            },\n            \"mpn\": \"OX-WHITE-M\",\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": 4.5,\n                \"bestRating\": 5,\n                \"worstRating\": 1,\n                \"ratingCount\": 142\n            },\n            \"review\": [\n                {\n                    \"@type\": \"Review\",\n                    \"author\": {\n                        \"@type\": \"Person\",\n                        \"name\": \"Jordan K.\"\n                    },\n                    \"reviewRating\": {\n                        \"@type\": \"Rating\",\n                        \"ratingValue\": 5,\n                        \"bestRating\": 5,\n                        \"worstRating\": 1\n                    },\n                    \"reviewBody\": \"Crisp look and comfortable all day.\",\n                    \"datePublished\": \"2025-09-03\"\n                }\n            ],\n            \"color\": \"White\",\n            \"material\": \"100% Premium Cotton\",\n            \"pattern\": \"Solid\",\n            \"size\": \"M\",\n            \"inProductGroupWithID\": \"oxford-shirts\",\n            \"gtin\": \"0012345678912\",\n            \"isVariantOf\": {\n                \"@type\": \"ProductGroup\",\n                \"name\": \"Classic Oxford Shirt Collection\",\n                \"productGroupID\": \"oxford-shirts\",\n                \"variesBy\": [\n                    \"https://schema.org/color\",\n                    \"https://schema.org/size\"\n                ],\n                \"url\": \"https://example.com/shirts/oxford\"\n            },\n            \"audience\": {\n                \"@type\": \"PeopleAudience\",\n                \"suggestedGender\": \"unisex\",\n                \"suggestedMinAge\": 16\n            },\n            \"hasCertification\": [\n                {\n                    \"@type\": \"Certification\",\n                    \"name\": \"OEKO-TEX Standard 100\",\n                    \"issuedBy\": {\n                        \"@type\": \"Organization\",\n                        \"name\": \"OEKO-TEX Association\"\n                    },\n                    \"certificationIdentification\": \"OT-12345\"\n                }\n            ],\n            \"subjectOf\": \"https://example.com/shirt-review\"\n        }\n    ],\n    \"url\": \"https://example.com/shirts/oxford\",\n    \"description\": \"Our classic oxford button-down shirts, available in multiple colors and sizes.\",\n    \"brand\": {\n        \"@type\": \"Brand\",\n        \"name\": \"ClassicWear\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.7,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 312,\n        \"reviewCount\": 89\n    }\n}"
+    },
+    {
+      "schemaType": "Product",
+      "script": "src/generate-product.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Executive Anvil\",\n    \"image\": [\n        \"https://example.com/photos/1x1/anvil.jpg\",\n        \"https://example.com/photos/4x3/anvil.jpg\",\n        \"https://example.com/photos/16x9/anvil.jpg\"\n    ],\n    \"description\": \"Sleek and deadly, this anvil is the epitome of executive style.\",\n    \"sku\": \"0446310786\",\n    \"offers\": [\n        {\n            \"@type\": \"Offer\",\n            \"url\": \"https://example.com/anvil\",\n            \"priceCurrency\": \"USD\",\n            \"price\": 119.99,\n            \"availability\": \"https://schema.org/InStock\",\n            \"itemCondition\": \"https://schema.org/NewCondition\",\n            \"priceValidUntil\": \"2026-12-31\",\n            \"hasMerchantReturnPolicy\": {\n                \"@type\": \"MerchantReturnPolicy\",\n                \"applicableCountry\": \"US\",\n                \"returnPolicyCategory\": \"https://schema.org/MerchantReturnFiniteReturnWindow\",\n                \"merchantReturnDays\": 30,\n                \"returnMethod\": \"https://schema.org/ReturnByMail\",\n                \"returnFees\": \"https://schema.org/FreeReturn\"\n            }\n        }\n    ],\n    \"brand\": {\n        \"@type\": \"Brand\",\n        \"name\": \"ACME\"\n    },\n    \"mpn\": \"925872\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.4,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 89,\n        \"reviewCount\": 12\n    },\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Fred Benson\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"This is the best anvil I have ever used. Heavy duty and well built.\",\n            \"datePublished\": \"2025-04-01\",\n            \"name\": \"Best anvil ever\"\n        },\n        {\n            \"@type\": \"Review\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"Sara Mitchell\"\n            },\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 4,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Great quality but a bit pricey for what you get.\",\n            \"datePublished\": \"2025-05-10\",\n            \"name\": \"Good but expensive\"\n        }\n    ],\n    \"color\": \"Slate Gray\",\n    \"material\": \"Hardened Steel\",\n    \"pattern\": \"Solid\",\n    \"size\": \"Standard\",\n    \"inProductGroupWithID\": \"pg-executive-tools\",\n    \"gtin\": \"0012345678905\",\n    \"isVariantOf\": {\n        \"@type\": \"ProductGroup\",\n        \"name\": \"Executive Tools Collection\",\n        \"productGroupID\": \"pg-executive-tools\"\n    },\n    \"audience\": {\n        \"@type\": \"PeopleAudience\",\n        \"suggestedGender\": \"unisex\",\n        \"suggestedMinAge\": 18\n    },\n    \"hasCertification\": [\n        {\n            \"@type\": \"Certification\",\n            \"name\": \"ACME Safety Certified\",\n            \"issuedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"ACME Safety Council\"\n            },\n            \"certificationIdentification\": \"ASC-2025-0042\"\n        }\n    ],\n    \"subjectOf\": \"https://example.com/product-review-video\"\n}"
+    },
+    {
+      "schemaType": "ProfilePage",
+      "script": "src/generate-profilepage.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ProfilePage\",\n    \"mainEntity\": {\n        \"@type\": \"Person\",\n        \"name\": \"Ada Lovelace\",\n        \"url\": \"https://example.com/profiles/ada-lovelace\",\n        \"sameAs\": [\n            \"https://twitter.com/example_ada\",\n            \"https://www.linkedin.com/in/example-ada\"\n        ]\n    },\n    \"dateCreated\": \"2024-01-15\",\n    \"dateModified\": \"2025-03-20\"\n}"
+    },
+    {
+      "schemaType": "PropertyValue",
+      "script": "src/generate-propertyvalue.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"PropertyValue\",\n    \"name\": \"color\",\n    \"value\": \"Midnight Blue\"\n}"
+    },
+    {
+      "schemaType": "QAPage",
+      "script": "src/generate-qapage.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"QAPage\",\n    \"mainEntity\": {\n        \"@type\": \"Question\",\n        \"name\": \"How do I validate JSON-LD structured data locally?\",\n        \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Use @adobe/structured-data-validator \\u2014 it validates against Google requirements locally with deterministic results.\",\n            \"author\": {\n                \"@type\": \"Person\",\n                \"name\": \"DevHelper\"\n            },\n            \"upvoteCount\": 42,\n            \"datePublished\": \"2025-02-20\"\n        },\n        \"suggestedAnswer\": [\n            {\n                \"@type\": \"Answer\",\n                \"text\": \"You can also use structured-data-testing-tool for basic structural checks, though it does not validate against Google-specific requirements.\",\n                \"author\": {\n                    \"@type\": \"Person\",\n                    \"name\": \"SchemaFan\"\n                },\n                \"upvoteCount\": 15,\n                \"datePublished\": \"2025-02-21\"\n            }\n        ],\n        \"answerCount\": 2,\n        \"text\": \"I want to validate my JSON-LD output against Google Rich Results requirements without using a browser. Is there a local tool?\",\n        \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"NewDev123\"\n        },\n        \"datePublished\": \"2025-02-19\"\n    }\n}"
+    },
+    {
+      "schemaType": "QuantitativeValue",
+      "script": "src/generate-quantitativevalue.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"QuantitativeValue\",\n    \"value\": 5,\n    \"unitCode\": \"DAY\",\n    \"minValue\": 1,\n    \"maxValue\": 10\n}"
+    },
+    {
+      "schemaType": "Question",
+      "script": "src/generate-question.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Question\",\n    \"name\": \"How do I reset my password?\",\n    \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Go to Settings > Security > Reset Password\"\n    },\n    \"suggestedAnswer\": [\n        {\n            \"@type\": \"Answer\",\n            \"text\": \"Try the forgot password link on the login page\"\n        },\n        {\n            \"@type\": \"Answer\",\n            \"text\": \"Contact support for a manual reset\"\n        }\n    ],\n    \"answerCount\": 3,\n    \"text\": \"I cannot remember my password and need to regain access to my account.\",\n    \"upvoteCount\": 42,\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Sarah Tech\"\n    },\n    \"datePublished\": \"2025-01-15\",\n    \"dateModified\": \"2025-03-20\"\n}"
+    },
+    {
+      "schemaType": "Quiz",
+      "script": "src/generate-quiz.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Quiz\",\n    \"hasPart\": [\n        {\n            \"@type\": \"Question\",\n            \"name\": \"What is the chemical symbol for water?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"H2O\"\n            },\n            \"eduQuestionType\": \"Multiple choice\"\n        },\n        {\n            \"@type\": \"Question\",\n            \"name\": \"What planet is closest to the Sun?\",\n            \"acceptedAnswer\": {\n                \"@type\": \"Answer\",\n                \"text\": \"Mercury\"\n            },\n            \"eduQuestionType\": \"Multiple choice\"\n        }\n    ],\n    \"about\": \"General Science\",\n    \"name\": \"Basic Science Quiz\",\n    \"description\": \"Test your knowledge of basic science concepts.\"\n}"
+    },
+    {
+      "schemaType": "Rating",
+      "script": "src/generate-rating.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Rating\",\n    \"ratingValue\": 4,\n    \"bestRating\": 5,\n    \"worstRating\": 1\n}"
+    },
+    {
+      "schemaType": "Recipe",
+      "script": "src/generate-recipe-sections.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 6,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Recipe",
+          "message": "Property \"ineligibleRegion\" for type \"Recipe\" is not supported by the schema.org specification",
+          "fields": [
+            "ineligibleRegion"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"expires\" (optional)",
+          "fields": [
+            "expires"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"hasPart\" (optional)",
+          "fields": [
+            "hasPart"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"publication\" (optional)",
+          "fields": [
+            "publication"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "One of the following conditions needs to be met: Missing field \"ineligibleRegion\" (optional) or Missing field \"regionsAllowed\" (optional)",
+          "fields": [
+            "ineligibleRegion",
+            "regionsAllowed"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "One of the following conditions needs to be met: Missing field \"interactionStatistic\" (optional) or Missing field \"interactionCount\" (optional)",
+          "fields": [
+            "interactionStatistic",
+            "interactionCount"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Recipe\",\n    \"name\": \"Classic Tiramisu\",\n    \"image\": [\n        \"https://example.com/photos/1x1/tiramisu.jpg\",\n        \"https://example.com/photos/4x3/tiramisu.jpg\",\n        \"https://example.com/photos/16x9/tiramisu.jpg\"\n    ],\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Chef Marco\"\n    },\n    \"datePublished\": \"2025-03-15\",\n    \"description\": \"An authentic Italian tiramisu with espresso-soaked ladyfingers and mascarpone cream.\",\n    \"prepTime\": \"PT30M\",\n    \"cookTime\": \"PT0M\",\n    \"totalTime\": \"PT4H30M\",\n    \"keywords\": \"tiramisu, italian, dessert, no-bake\",\n    \"recipeYield\": \"8 servings\",\n    \"recipeCategory\": \"Dessert\",\n    \"recipeCuisine\": \"Italian\",\n    \"recipeIngredient\": [\n        \"6 egg yolks\",\n        \"3/4 cup sugar\",\n        \"500g mascarpone cheese\",\n        \"2 cups heavy cream\",\n        \"2 cups strong espresso, cooled\",\n        \"3 tbsp coffee liqueur\",\n        \"300g ladyfinger biscuits\",\n        \"Unsweetened cocoa powder\"\n    ],\n    \"recipeInstructions\": [\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Prepare the Mascarpone Cream\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Whisk egg yolks and sugar until thick and pale yellow.\",\n                    \"name\": \"Whisk yolks and sugar\",\n                    \"url\": \"https://example.com/tiramisu#cream-step1\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-1.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Whisking Yolks and Sugar\",\n                        \"startOffset\": 0,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=0\",\n                        \"endOffset\": 30\n                    },\n                    \"itemListElement\": [\n                        \"Add egg yolks and sugar to a mixing bowl.\",\n                        \"Whisk continuously until the mixture is pale and thick.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Add mascarpone cheese and mix until smooth.\",\n                    \"name\": \"Blend in mascarpone\",\n                    \"url\": \"https://example.com/tiramisu#cream-step2\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-2.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Blending in Mascarpone\",\n                        \"startOffset\": 30,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=30\",\n                        \"endOffset\": 90\n                    },\n                    \"itemListElement\": [\n                        \"Add mascarpone to the yolk mixture in portions.\",\n                        \"Mix until the cream is smooth with no lumps.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"In a separate bowl, whip heavy cream to stiff peaks.\",\n                    \"name\": \"Whip heavy cream\",\n                    \"url\": \"https://example.com/tiramisu#cream-step3\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-3.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Whipping Heavy Cream\",\n                        \"startOffset\": 90,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=90\",\n                        \"endOffset\": 150\n                    },\n                    \"itemListElement\": [\n                        \"Pour cold heavy cream into a chilled bowl.\",\n                        \"Whip until the cream holds firm peaks.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Gently fold whipped cream into the mascarpone mixture.\",\n                    \"name\": \"Fold cream mixture\",\n                    \"url\": \"https://example.com/tiramisu#cream-step4\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-4.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Folding the Cream Mixture\",\n                        \"startOffset\": 150,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=150\",\n                        \"endOffset\": 210\n                    },\n                    \"itemListElement\": [\n                        \"Add whipped cream to the mascarpone base in batches.\",\n                        \"Fold gently to keep the mixture airy and smooth.\"\n                    ]\n                }\n            ]\n        },\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Assemble the Tiramisu\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Combine espresso and coffee liqueur in a shallow dish.\",\n                    \"name\": \"Prepare espresso dip\",\n                    \"url\": \"https://example.com/tiramisu#assemble-step1\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-5.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Preparing the Espresso Dip\",\n                        \"startOffset\": 210,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=210\",\n                        \"endOffset\": 270\n                    },\n                    \"itemListElement\": [\n                        \"Pour cooled espresso into a shallow dish.\",\n                        \"Stir in coffee liqueur until fully combined.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Quickly dip each ladyfinger into the espresso mixture.\",\n                    \"name\": \"Dip ladyfingers\",\n                    \"url\": \"https://example.com/tiramisu#assemble-step2\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-6.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Dipping Ladyfingers\",\n                        \"startOffset\": 270,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=270\",\n                        \"endOffset\": 330\n                    },\n                    \"itemListElement\": [\n                        \"Dip each ladyfinger briefly on both sides.\",\n                        \"Avoid soaking too long so the cookies stay structured.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Arrange a layer of soaked ladyfingers in a 9x13 dish.\",\n                    \"name\": \"Layer ladyfingers\",\n                    \"url\": \"https://example.com/tiramisu#assemble-step3\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-7.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Layering Ladyfingers\",\n                        \"startOffset\": 330,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=330\",\n                        \"endOffset\": 390\n                    },\n                    \"itemListElement\": [\n                        \"Place soaked ladyfingers tightly in a single layer.\",\n                        \"Trim or break pieces to fill any gaps in the dish.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Spread half the mascarpone cream over the ladyfingers.\",\n                    \"name\": \"Add first cream layer\",\n                    \"url\": \"https://example.com/tiramisu#assemble-step4\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-8.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Adding the First Cream Layer\",\n                        \"startOffset\": 390,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=390\",\n                        \"endOffset\": 450\n                    },\n                    \"itemListElement\": [\n                        \"Spoon half of the mascarpone cream over the cookies.\",\n                        \"Spread evenly to cover the entire ladyfinger layer.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Repeat with a second layer of ladyfingers and cream.\",\n                    \"name\": \"Repeat layers\",\n                    \"url\": \"https://example.com/tiramisu#assemble-step5\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-9.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Building the Second Layer\",\n                        \"startOffset\": 450,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=450\",\n                        \"endOffset\": 510\n                    },\n                    \"itemListElement\": [\n                        \"Add a second layer of dipped ladyfingers.\",\n                        \"Top with the remaining mascarpone cream and smooth the surface.\"\n                    ]\n                }\n            ]\n        },\n        {\n            \"@type\": \"HowToSection\",\n            \"name\": \"Chill and Serve\",\n            \"itemListElement\": [\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Cover with plastic wrap and refrigerate for at least 4 hours.\",\n                    \"name\": \"Chill tiramisu\",\n                    \"url\": \"https://example.com/tiramisu#serve-step1\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-10.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Chilling the Tiramisu\",\n                        \"startOffset\": 510,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=510\",\n                        \"endOffset\": 690\n                    },\n                    \"itemListElement\": [\n                        \"Cover the dish tightly with plastic wrap.\",\n                        \"Refrigerate for at least 4 hours so layers can set.\"\n                    ]\n                },\n                {\n                    \"@type\": \"HowToStep\",\n                    \"text\": \"Dust generously with cocoa powder before serving.\",\n                    \"name\": \"Finish with cocoa\",\n                    \"url\": \"https://example.com/tiramisu#serve-step2\",\n                    \"image\": \"https://example.com/photos/tiramisu/step-11.jpg\",\n                    \"video\": {\n                        \"@type\": \"Clip\",\n                        \"name\": \"Finishing with Cocoa\",\n                        \"startOffset\": 690,\n                        \"url\": \"https://example.com/videos/tiramisu.mp4?t=690\",\n                        \"endOffset\": 765\n                    },\n                    \"itemListElement\": [\n                        \"Use a fine sieve to dust cocoa powder over the top.\",\n                        \"Slice and serve chilled for the best texture.\"\n                    ]\n                }\n            ]\n        }\n    ],\n    \"nutrition\": {\n        \"@type\": \"NutritionInformation\",\n        \"calories\": \"450 calories\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.9,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 184\n    },\n    \"video\": {\n        \"@type\": \"VideoObject\",\n        \"name\": \"Classic Tiramisu Tutorial\",\n        \"thumbnailUrl\": [\n            \"https://example.com/photos/tiramisu/video-thumbnail.jpg\"\n        ],\n        \"uploadDate\": \"2025-03-15\",\n        \"description\": \"Learn how to make authentic Italian tiramisu from scratch.\",\n        \"contentUrl\": \"https://example.com/videos/tiramisu.mp4\",\n        \"embedUrl\": \"https://example.com/embed/tiramisu\",\n        \"duration\": \"PT12M45S\"\n    },\n    \"expires\": \"2027-03-15\",\n    \"hasPart\": [\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Preparing the Cream\",\n            \"startOffset\": 0,\n            \"url\": \"https://example.com/videos/tiramisu.mp4?t=0\",\n            \"endOffset\": 210\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Assembling Layers\",\n            \"startOffset\": 210,\n            \"url\": \"https://example.com/videos/tiramisu.mp4?t=210\",\n            \"endOffset\": 510\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Finishing Touches\",\n            \"startOffset\": 510,\n            \"url\": \"https://example.com/videos/tiramisu.mp4?t=510\",\n            \"endOffset\": 765\n        }\n    ],\n    \"publication\": {\n        \"@type\": \"BroadcastEvent\",\n        \"isLiveBroadcast\": false,\n        \"startDate\": \"2025-03-15T14:00:00+01:00\",\n        \"endDate\": \"2025-03-15T14:30:00+01:00\"\n    },\n    \"ineligibleRegion\": \"GB-NIR\",\n    \"interactionStatistic\": {\n        \"@type\": \"InteractionCounter\",\n        \"interactionType\": \"https://schema.org/WatchAction\",\n        \"userInteractionCount\": 31500\n    }\n}"
+    },
+    {
+      "schemaType": "Recipe",
+      "script": "src/generate-recipe.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 6,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "Recipe",
+          "message": "Property \"ineligibleRegion\" for type \"Recipe\" is not supported by the schema.org specification",
+          "fields": [
+            "ineligibleRegion"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"expires\" (optional)",
+          "fields": [
+            "expires"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"hasPart\" (optional)",
+          "fields": [
+            "hasPart"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "Missing field \"publication\" (optional)",
+          "fields": [
+            "publication"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "One of the following conditions needs to be met: Missing field \"ineligibleRegion\" (optional) or Missing field \"regionsAllowed\" (optional)",
+          "fields": [
+            "ineligibleRegion",
+            "regionsAllowed"
+          ]
+        },
+        {
+          "type": "Recipe",
+          "message": "One of the following conditions needs to be met: Missing field \"interactionStatistic\" (optional) or Missing field \"interactionCount\" (optional)",
+          "fields": [
+            "interactionStatistic",
+            "interactionCount"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Recipe\",\n    \"name\": \"Classic Banana Bread\",\n    \"image\": [\n        \"https://example.com/photos/1x1/banana-bread.jpg\",\n        \"https://example.com/photos/4x3/banana-bread.jpg\",\n        \"https://example.com/photos/16x9/banana-bread.jpg\"\n    ],\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"Mary Baker\"\n    },\n    \"datePublished\": \"2025-01-10\",\n    \"description\": \"This classic banana bread recipe is moist, delicious, and easy to make.\",\n    \"prepTime\": \"PT15M\",\n    \"cookTime\": \"PT60M\",\n    \"totalTime\": \"PT75M\",\n    \"keywords\": \"banana bread, baking, dessert, snack\",\n    \"recipeYield\": \"1 loaf (10 slices)\",\n    \"recipeCategory\": \"Dessert\",\n    \"recipeCuisine\": \"American\",\n    \"recipeIngredient\": [\n        \"3 ripe bananas\",\n        \"1/3 cup melted butter\",\n        \"3/4 cup sugar\",\n        \"1 egg, beaten\",\n        \"1 tsp vanilla extract\",\n        \"1 tsp baking soda\",\n        \"Pinch of salt\",\n        \"1 1/2 cups all-purpose flour\"\n    ],\n    \"recipeInstructions\": [\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Preheat oven to 350\\u00b0F (175\\u00b0C). Grease a 4x8 inch loaf pan.\",\n            \"name\": \"Preheat the oven\",\n            \"url\": \"https://example.com/banana-bread#step1\",\n            \"image\": \"https://example.com/photos/banana-bread/step1.jpg\",\n            \"video\": {\n                \"@type\": \"Clip\",\n                \"name\": \"Preheating the Oven\",\n                \"startOffset\": 0,\n                \"url\": \"https://example.com/videos/banana-bread.mp4?t=0\",\n                \"endOffset\": 30\n            },\n            \"itemListElement\": [\n                \"Set oven temperature to 350\\u00b0F (175\\u00b0C).\",\n                \"Lightly grease a 4x8 inch loaf pan with butter or cooking spray.\"\n            ]\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Mash the bananas in a mixing bowl with a fork.\",\n            \"name\": \"Mash bananas\",\n            \"url\": \"https://example.com/banana-bread#step2\",\n            \"image\": \"https://example.com/photos/banana-bread/step2.jpg\",\n            \"video\": {\n                \"@type\": \"Clip\",\n                \"name\": \"Mashing the Bananas\",\n                \"startOffset\": 30,\n                \"url\": \"https://example.com/videos/banana-bread.mp4?t=30\",\n                \"endOffset\": 90\n            },\n            \"itemListElement\": [\n                \"Peel all ripe bananas and place them in a large bowl.\",\n                \"Mash with a fork until mostly smooth with a few small lumps.\"\n            ]\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Mix in the melted butter, sugar, egg, and vanilla.\",\n            \"name\": \"Mix wet ingredients\",\n            \"url\": \"https://example.com/banana-bread#step3\",\n            \"image\": \"https://example.com/photos/banana-bread/step3.jpg\",\n            \"video\": {\n                \"@type\": \"Clip\",\n                \"name\": \"Combining the Wet Ingredients\",\n                \"startOffset\": 90,\n                \"url\": \"https://example.com/videos/banana-bread.mp4?t=90\",\n                \"endOffset\": 150\n            },\n            \"itemListElement\": [\n                \"Stir melted butter into the mashed bananas.\",\n                \"Add sugar, beaten egg, and vanilla extract.\",\n                \"Mix until the batter looks evenly combined.\"\n            ]\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Stir in the baking soda and salt. Mix in the flour.\",\n            \"name\": \"Add dry ingredients\",\n            \"url\": \"https://example.com/banana-bread#step4\",\n            \"image\": \"https://example.com/photos/banana-bread/step4.jpg\",\n            \"video\": {\n                \"@type\": \"Clip\",\n                \"name\": \"Adding Dry Ingredients\",\n                \"startOffset\": 150,\n                \"url\": \"https://example.com/videos/banana-bread.mp4?t=150\",\n                \"endOffset\": 210\n            },\n            \"itemListElement\": [\n                \"Sprinkle baking soda and salt over the wet batter.\",\n                \"Add flour and fold gently just until no dry streaks remain.\"\n            ]\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Pour batter into prepared loaf pan.\",\n            \"name\": \"Fill loaf pan\",\n            \"url\": \"https://example.com/banana-bread#step5\",\n            \"image\": \"https://example.com/photos/banana-bread/step5.jpg\",\n            \"video\": {\n                \"@type\": \"Clip\",\n                \"name\": \"Filling the Loaf Pan\",\n                \"startOffset\": 210,\n                \"url\": \"https://example.com/videos/banana-bread.mp4?t=210\",\n                \"endOffset\": 270\n            },\n            \"itemListElement\": [\n                \"Scrape the batter from the bowl into the greased loaf pan.\",\n                \"Spread the top evenly with a spatula for even baking.\"\n            ]\n        },\n        {\n            \"@type\": \"HowToStep\",\n            \"text\": \"Bake for 60 minutes or until a toothpick inserted comes out clean.\",\n            \"name\": \"Bake banana bread\",\n            \"url\": \"https://example.com/banana-bread#step6\",\n            \"image\": \"https://example.com/photos/banana-bread/step6.jpg\",\n            \"video\": {\n                \"@type\": \"Clip\",\n                \"name\": \"Baking and Checking Doneness\",\n                \"startOffset\": 270,\n                \"url\": \"https://example.com/videos/banana-bread.mp4?t=270\",\n                \"endOffset\": 510\n            },\n            \"itemListElement\": [\n                \"Place the pan on the center rack and bake for about 60 minutes.\",\n                \"Check doneness by inserting a toothpick into the center.\",\n                \"Cool in the pan for 10 minutes before transferring to a rack.\"\n            ]\n        }\n    ],\n    \"nutrition\": {\n        \"@type\": \"NutritionInformation\",\n        \"calories\": \"240 calories\",\n        \"fatContent\": \"8 g\",\n        \"carbohydrateContent\": \"40 g\",\n        \"proteinContent\": \"3 g\",\n        \"servingSize\": \"1 slice\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.7,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 256\n    },\n    \"video\": {\n        \"@type\": \"VideoObject\",\n        \"name\": \"How to Make Banana Bread\",\n        \"thumbnailUrl\": [\n            \"https://example.com/photos/banana-bread/video-thumbnail.jpg\"\n        ],\n        \"uploadDate\": \"2025-02-05\",\n        \"description\": \"Watch our step-by-step guide to making the best banana bread.\",\n        \"contentUrl\": \"https://example.com/videos/banana-bread.mp4\",\n        \"embedUrl\": \"https://example.com/embed/banana-bread\",\n        \"duration\": \"PT8M30S\"\n    },\n    \"expires\": \"2027-01-10\",\n    \"hasPart\": [\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Preparing Ingredients\",\n            \"startOffset\": 0,\n            \"url\": \"https://example.com/videos/banana-bread.mp4?t=0\",\n            \"endOffset\": 90\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Mixing and Baking\",\n            \"startOffset\": 90,\n            \"url\": \"https://example.com/videos/banana-bread.mp4?t=90\",\n            \"endOffset\": 510\n        }\n    ],\n    \"publication\": {\n        \"@type\": \"BroadcastEvent\",\n        \"isLiveBroadcast\": true,\n        \"startDate\": \"2025-01-10T10:00:00-05:00\",\n        \"endDate\": \"2025-01-10T11:00:00-05:00\"\n    },\n    \"ineligibleRegion\": \"US-PR\",\n    \"interactionStatistic\": {\n        \"@type\": \"InteractionCounter\",\n        \"interactionType\": \"https://schema.org/WatchAction\",\n        \"userInteractionCount\": 48250\n    }\n}"
+    },
+    {
+      "schemaType": "Restaurant",
+      "script": "src/generate-restaurant.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Restaurant\",\n    \"name\": \"Bella Napoli Trattoria\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"88 Little Italy Lane\",\n        \"addressLocality\": \"New York\",\n        \"addressRegion\": \"NY\",\n        \"postalCode\": \"10013\",\n        \"addressCountry\": \"US\"\n    },\n    \"url\": \"https://bellanapoli.example.com\",\n    \"telephone\": \"+1-212-555-0188\",\n    \"description\": \"Authentic Neapolitan pizza and pasta in the heart of Little Italy.\",\n    \"image\": [\n        \"https://example.com/photos/bella-napoli.jpg\"\n    ],\n    \"priceRange\": \"$$\",\n    \"geo\": {\n        \"@type\": \"GeoCoordinates\",\n        \"latitude\": 40.7191,\n        \"longitude\": -73.9973\n    },\n    \"openingHoursSpecification\": [\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Monday\",\n            \"opens\": \"11:00\",\n            \"closes\": \"22:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Tuesday\",\n            \"opens\": \"11:00\",\n            \"closes\": \"22:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Wednesday\",\n            \"opens\": \"11:00\",\n            \"closes\": \"22:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Thursday\",\n            \"opens\": \"11:00\",\n            \"closes\": \"22:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Friday\",\n            \"opens\": \"11:00\",\n            \"closes\": \"22:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Saturday\",\n            \"opens\": \"10:00\",\n            \"closes\": \"23:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Sunday\",\n            \"opens\": \"10:00\",\n            \"closes\": \"23:00\"\n        }\n    ],\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.5,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"reviewCount\": 487\n    },\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": \"Anthony R.\",\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Best margherita pizza outside of Naples. The crust is perfection.\",\n            \"datePublished\": \"2025-12-01\"\n        },\n        {\n            \"@type\": \"Review\",\n            \"author\": \"Lisa M.\",\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 4,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Great food and atmosphere, but can get crowded on weekends.\",\n            \"datePublished\": \"2025-11-20\"\n        }\n    ],\n    \"menu\": \"https://bellanapoli.example.com/menu\",\n    \"servesCuisine\": \"Italian\",\n    \"logo\": \"https://example.com/bella-napoli-logo.png\",\n    \"acceptsReservations\": \"https://bellanapoli.example.com/reservations\"\n}"
+    },
+    {
+      "schemaType": "Review",
+      "script": "src/generate-review.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Review\",\n    \"author\": {\n        \"@type\": \"Person\",\n        \"name\": \"James Wilson\"\n    },\n    \"reviewRating\": {\n        \"@type\": \"Rating\",\n        \"ratingValue\": 4,\n        \"bestRating\": 5,\n        \"worstRating\": 1\n    },\n    \"reviewBody\": \"Excellent product with great build quality. Minor issues with the manual.\",\n    \"datePublished\": \"2025-03-15\",\n    \"name\": \"Great quality, minor documentation issues\",\n    \"itemReviewed\": {\n        \"@type\": \"Thing\",\n        \"name\": \"Acme Wireless Headphones\"\n    }\n}"
+    },
+    {
+      "schemaType": "ShippingService",
+      "script": "src/generate-shipping-service.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ShippingService\",\n    \"shippingConditions\": {\n        \"@type\": \"ShippingConditions\",\n        \"shippingDestination\": {\n            \"@type\": \"DefinedRegion\",\n            \"addressCountry\": \"US\",\n            \"addressRegion\": [\n                \"CA\",\n                \"NY\",\n                \"TX\"\n            ]\n        },\n        \"shippingRate\": {\n            \"@type\": \"MonetaryAmount\",\n            \"currency\": \"USD\",\n            \"value\": 5.99\n        },\n        \"transitTime\": {\n            \"@type\": \"ServicePeriod\",\n            \"duration\": {\n                \"@type\": \"QuantitativeValue\",\n                \"unitCode\": \"DAY\",\n                \"minValue\": 3,\n                \"maxValue\": 7\n            }\n        }\n    },\n    \"name\": \"Standard Shipping\",\n    \"description\": \"Standard ground shipping within the US.\",\n    \"fulfillmentType\": \"https://schema.org/FulfillmentTypeDelivery\",\n    \"handlingTime\": {\n        \"@type\": \"ServicePeriod\",\n        \"duration\": {\n            \"@type\": \"QuantitativeValue\",\n            \"unitCode\": \"DAY\",\n            \"minValue\": 0,\n            \"maxValue\": 1\n        },\n        \"cutoffTime\": \"14:00:00-05:00\"\n    }\n}"
+    },
+    {
+      "schemaType": "ShippingDeliveryTime",
+      "script": "src/generate-shippingdeliverytime.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ShippingDeliveryTime\",\n    \"handlingTime\": {\n        \"@type\": \"QuantitativeValue\",\n        \"unitCode\": \"DAY\",\n        \"minValue\": 0,\n        \"maxValue\": 1\n    },\n    \"transitTime\": {\n        \"@type\": \"QuantitativeValue\",\n        \"unitCode\": \"DAY\",\n        \"minValue\": 3,\n        \"maxValue\": 5\n    }\n}"
+    },
+    {
+      "schemaType": "ShippingRateSettings",
+      "script": "src/generate-shippingratesettings.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"ShippingRateSettings\",\n    \"orderPercentage\": 10,\n    \"weightPercentage\": 2.5\n}"
+    },
+    {
+      "schemaType": "SoftwareApplication",
+      "script": "src/generate-softwareapplication.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"SoftwareApplication\",\n    \"name\": \"TaskFlow Pro\",\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/taskflow-pro\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 4.99,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.6,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 8250\n    },\n    \"applicationCategory\": \"BusinessApplication\",\n    \"operatingSystem\": \"Android, iOS\",\n    \"description\": \"A powerful task management app for professionals.\"\n}"
+    },
+    {
+      "schemaType": "SpeakableSpecification",
+      "script": "src/generate-speakablespecification.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"SpeakableSpecification\",\n    \"cssSelector\": [\n        \".article-headline\",\n        \".article-summary\"\n    ]\n}"
+    },
+    {
+      "schemaType": "Store",
+      "script": "src/generate-store.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Store\",\n    \"name\": \"GreenLeaf Garden Center\",\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"500 Nursery Road\",\n        \"addressLocality\": \"Austin\",\n        \"addressRegion\": \"TX\",\n        \"postalCode\": \"78745\",\n        \"addressCountry\": \"US\"\n    },\n    \"url\": \"https://greenleafgarden.example.com\",\n    \"telephone\": \"+1-512-555-0150\",\n    \"description\": \"Family-owned garden center specializing in native Texas plants and organic gardening supplies.\",\n    \"image\": [\n        \"https://example.com/photos/greenleaf-storefront.jpg\"\n    ],\n    \"priceRange\": \"$$\",\n    \"geo\": {\n        \"@type\": \"GeoCoordinates\",\n        \"latitude\": 30.2087,\n        \"longitude\": -97.7796\n    },\n    \"openingHoursSpecification\": [\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Monday\",\n            \"opens\": \"08:00\",\n            \"closes\": \"18:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Tuesday\",\n            \"opens\": \"08:00\",\n            \"closes\": \"18:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Wednesday\",\n            \"opens\": \"08:00\",\n            \"closes\": \"18:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Thursday\",\n            \"opens\": \"08:00\",\n            \"closes\": \"18:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Friday\",\n            \"opens\": \"08:00\",\n            \"closes\": \"18:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Saturday\",\n            \"opens\": \"08:00\",\n            \"closes\": \"18:00\"\n        },\n        {\n            \"@type\": \"OpeningHoursSpecification\",\n            \"dayOfWeek\": \"https://schema.org/Sunday\",\n            \"opens\": \"10:00\",\n            \"closes\": \"16:00\"\n        }\n    ],\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.8,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"reviewCount\": 156\n    },\n    \"review\": {\n        \"@type\": \"Review\",\n        \"author\": \"Carlos D.\",\n        \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": 5,\n            \"bestRating\": 5,\n            \"worstRating\": 1\n        },\n        \"reviewBody\": \"Incredible selection of native plants. The staff really knows their stuff.\",\n        \"datePublished\": \"2025-10-20\"\n    },\n    \"logo\": \"https://example.com/greenleaf-logo.png\"\n}"
+    },
+    {
+      "schemaType": "VacationRental",
+      "script": "src/generate-vacationrental.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 1,
+      "errors": [],
+      "warnings": [
+        {
+          "type": "VacationRental",
+          "message": "Missing field \"datePublished\" (optional)",
+          "fields": [
+            "datePublished"
+          ]
+        }
+      ],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"VacationRental\",\n    \"name\": \"Seaside Villa Retreat\",\n    \"identifier\": \"villa-seaside-42\",\n    \"image\": [\n        \"https://example.com/villa-front.jpg\",\n        \"https://example.com/villa-pool.jpg\",\n        \"https://example.com/villa-interior.jpg\"\n    ],\n    \"latitude\": 36.7783,\n    \"longitude\": -119.4179,\n    \"containsPlace\": {\n        \"@type\": \"Accommodation\",\n        \"occupancy\": {\n            \"@type\": \"QuantitativeValue\",\n            \"value\": 8\n        },\n        \"numberOfBedrooms\": 4,\n        \"numberOfBathroomsTotal\": 3,\n        \"floorSize\": {\n            \"@type\": \"QuantitativeValue\",\n            \"value\": 250,\n            \"unitCode\": \"MTK\"\n        }\n    },\n    \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"123 Ocean Boulevard\",\n        \"addressLocality\": \"Malibu\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"90265\",\n        \"addressCountry\": \"US\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.9,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"reviewCount\": 87\n    },\n    \"checkinTime\": \"15:00\",\n    \"checkoutTime\": \"11:00\",\n    \"datePublished\": \"2025-06-01\",\n    \"description\": \"A stunning oceanfront villa with private pool and panoramic sea views.\",\n    \"review\": [\n        {\n            \"@type\": \"Review\",\n            \"author\": \"Traveler Kate\",\n            \"reviewRating\": {\n                \"@type\": \"Rating\",\n                \"ratingValue\": 5,\n                \"bestRating\": 5,\n                \"worstRating\": 1\n            },\n            \"reviewBody\": \"Absolutely perfect. The views are incredible.\"\n        }\n    ]\n}"
+    },
+    {
+      "schemaType": "VideoObject",
+      "script": "src/generate-videoobject.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"VideoObject\",\n    \"name\": \"How to Make Sourdough Bread from Scratch\",\n    \"thumbnailUrl\": [\n        \"https://example.com/photos/sourdough-1x1.jpg\",\n        \"https://example.com/photos/sourdough-4x3.jpg\",\n        \"https://example.com/photos/sourdough-16x9.jpg\"\n    ],\n    \"uploadDate\": \"2025-02-05T08:00:00+00:00\",\n    \"description\": \"A step-by-step guide to making artisan sourdough bread at home, from creating your starter to baking the perfect loaf.\",\n    \"contentUrl\": \"https://example.com/video/sourdough-guide.mp4\",\n    \"embedUrl\": \"https://example.com/embed/sourdough-guide\",\n    \"duration\": \"PT23M15S\",\n    \"expires\": \"2027-02-05T08:00:00+00:00\",\n    \"regionsAllowed\": \"US,CA,GB,AU\",\n    \"interactionStatistic\": {\n        \"@type\": \"InteractionCounter\",\n        \"interactionType\": \"WatchAction\",\n        \"userInteractionCount\": 14503\n    },\n    \"hasPart\": [\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Creating the Starter\",\n            \"startOffset\": 0,\n            \"url\": \"https://example.com/video/sourdough-guide?t=0\",\n            \"endOffset\": 180\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Mixing the Dough\",\n            \"startOffset\": 180,\n            \"url\": \"https://example.com/video/sourdough-guide?t=180\",\n            \"endOffset\": 420\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Shaping and Proofing\",\n            \"startOffset\": 420,\n            \"url\": \"https://example.com/video/sourdough-guide?t=420\",\n            \"endOffset\": 840\n        },\n        {\n            \"@type\": \"Clip\",\n            \"name\": \"Baking the Loaf\",\n            \"startOffset\": 840,\n            \"url\": \"https://example.com/video/sourdough-guide?t=840\",\n            \"endOffset\": 1395\n        }\n    ],\n    \"publication\": {\n        \"@type\": \"BroadcastEvent\",\n        \"isLiveBroadcast\": false,\n        \"startDate\": \"2025-02-05T08:00:00+00:00\",\n        \"endDate\": \"2025-02-05T09:00:00+00:00\"\n    }\n}"
+    },
+    {
+      "schemaType": "WebApplication",
+      "script": "src/generate-webapplication.php",
+      "success": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "errors": [],
+      "warnings": [],
+      "jsonLd": "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"WebApplication\",\n    \"name\": \"CloudNote Editor\",\n    \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://example.com/cloudnote\",\n        \"priceCurrency\": \"USD\",\n        \"price\": 9.99,\n        \"availability\": \"https://schema.org/InStock\",\n        \"itemCondition\": \"https://schema.org/NewCondition\"\n    },\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": 4.3,\n        \"bestRating\": 5,\n        \"worstRating\": 1,\n        \"ratingCount\": 5670\n    },\n    \"applicationCategory\": \"ProductivityApplication\",\n    \"operatingSystem\": \"All\",\n    \"description\": \"A collaborative note-taking and document editing web application.\",\n    \"screenshot\": \"https://example.com/screenshots/cloudnote-editor.png\"\n}"
+    }
+  ]
+}

@@ -98,6 +98,8 @@ import { EducationalOccupationalCredential } from '../vendor/evabee/schema-org-j
 import { OccupationalExperienceRequirements } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/OccupationalExperienceRequirements';
 
 // Additional schema types for expanded parity (60 → 72)
+import { BedDetails } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/BedDetails';
+import { LocationFeatureSpecification } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/LocationFeatureSpecification';
 import { OfferShippingDetails } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/OfferShippingDetails';
 import { Schedule } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Schedule';
 import { ShippingDeliveryTime } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ShippingDeliveryTime';
@@ -2078,6 +2080,38 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		type: '@graph',
 		phpScript: 'src/generate-graph.php',
 		json: JsonLdGenerator.schemasToJson(graphArticle, graphBreadcrumbs, graphPublisher),
+	});
+
+	// ===================================================================
+	// 73. Accommodation — matches src/generate-accommodation.php
+	// ===================================================================
+	const accommodation = new Accommodation({
+		occupancy: new QuantitativeValue({
+			minValue: 1,
+			maxValue: 4,
+			unitCode: 'C62',
+		}),
+		additionalType: 'https://schema.org/Hotel',
+		numberOfBedrooms: 2,
+		numberOfBathroomsTotal: 1,
+		numberOfRooms: 3,
+		floorSize: new QuantitativeValue({
+			value: 85,
+			unitCode: 'MTK',
+		}),
+		bed: [
+			new BedDetails({ numberOfBeds: 1, typeOfBed: 'King' }),
+			new BedDetails({ numberOfBeds: 2, typeOfBed: 'Twin' }),
+		],
+		amenityFeature: [
+			new LocationFeatureSpecification({ name: 'WiFi', value: true }),
+			new LocationFeatureSpecification({ name: 'Pool', value: true }),
+		],
+	});
+	results.set('Accommodation', {
+		type: 'Accommodation',
+		phpScript: 'src/generate-accommodation.php',
+		json: JsonLdGenerator.schemaToJson(accommodation),
 	});
 
 	return results;
