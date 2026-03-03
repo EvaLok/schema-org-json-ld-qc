@@ -28,6 +28,10 @@ class AggregateRatingTest extends TestCase
 			worstRating: 1,
 			ratingCount: 1250,
 			reviewCount: 340,
+			itemReviewed: new Movie(
+				name: 'The Blueprint',
+				image: 'https://example.com/the-blueprint.jpg',
+			),
 		);
 		$json = JsonLdGenerator::SchemaToJson($aggregateRating);
 		$data = json_decode($json, true);
@@ -36,6 +40,8 @@ class AggregateRatingTest extends TestCase
 		$this->assertSame(1, $data['worstRating']);
 		$this->assertSame(1250, $data['ratingCount']);
 		$this->assertSame(340, $data['reviewCount']);
+		$this->assertSame('Movie', $data['itemReviewed']['@type']);
+		$this->assertSame('The Blueprint', $data['itemReviewed']['name']);
 	}
 
 	public function testAggregateRatingNullFieldsOmitted(): void
@@ -48,6 +54,7 @@ class AggregateRatingTest extends TestCase
 		$this->assertArrayNotHasKey('worstRating', $data);
 		$this->assertArrayNotHasKey('ratingCount', $data);
 		$this->assertArrayNotHasKey('reviewCount', $data);
+		$this->assertArrayNotHasKey('itemReviewed', $data);
 	}
 
 	public function testAggregateRatingNestedInMovie(): void
