@@ -24,7 +24,7 @@ class EducationalOccupationalCredentialTest extends TestCase
 		$this->assertSame('bachelor degree', $data['credentialCategory']);
 	}
 
-	public function testEducationalOccupationalCredentialWithAllFields(): void
+	public function testEducationalOccupationalCredentialWithRequiredFieldsOnly(): void
 	{
 		$credential = new EducationalOccupationalCredential(
 			credentialCategory: 'state registered nurse license',

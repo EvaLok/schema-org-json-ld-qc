@@ -24,7 +24,7 @@ class OccupationalExperienceRequirementsTest extends TestCase
 		$this->assertSame(24, $data['monthsOfExperience']);
 	}
 
-	public function testOccupationalExperienceRequirementsWithAllFields(): void
+	public function testOccupationalExperienceRequirementsWithRequiredFieldsOnly(): void
 	{
 		$requirements = new OccupationalExperienceRequirements(
 			monthsOfExperience: 60,

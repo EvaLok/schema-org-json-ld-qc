@@ -28,7 +28,7 @@ class PropertyValueTest extends TestCase
 		$this->assertSame('Midnight Blue', $data['value']);
 	}
 
-	public function testPropertyValueWithAllFields(): void
+	public function testPropertyValueWithRequiredFieldsOnly(): void
 	{
 		$propertyValue = new PropertyValue(
 			name: 'sku',
