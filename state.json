@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-02T22:51:06Z",
+	"last_updated": "2026-03-03T01:57:00Z",
 	"consecutive_idle_cycles": 0,
 	"operational_mode": "dual_language_pre_publish",
 	"operational_mode_note": "TS port complete (86/86 classes). Awaiting npm publish (PR main#305 + NPM_TOKEN main#304). After publish: transition to dual_language_maintenance — all validation steps become permanent regression checks, not one-time verifications.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "c4b4d88",
-		"last_updated": "2026-03-02T22:51:06Z"
+		"commit": "bd5e129",
+		"last_updated": "2026-03-03T01:57:00Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -49,20 +49,30 @@
 			"Store": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
 			"VacationRental": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 1, "e2e_warnings_note": "datePublished false positive", "last_tested": "2026-03-01", "package_commit": "cd008f8" },
 			"VideoObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
-			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" }
+			"WebApplication": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-01", "package_commit": "cd008f8" },
+			"Place": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"PostalAddress": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"GeoCoordinates": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"ContactPoint": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"ImageObject": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"Question": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"Answer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"Offer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"BroadcastEvent": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" },
+			"AggregateOffer": { "unit_test": "pass", "e2e_test": "pass", "e2e_warnings": 0, "last_tested": "2026-03-03", "package_commit": "bd5e129" }
 		},
 		"uncovered": [
-			"Accommodation", "AdministrativeArea", "AggregateOffer", "AggregateRating", "AlignmentObject",
-			"Answer", "BedDetails", "Brand", "BroadcastEvent", "Certification", "Comment", "ContactPoint",
+			"Accommodation", "AdministrativeArea", "AggregateRating", "AlignmentObject",
+			"BedDetails", "Brand", "Certification", "Comment",
 			"CourseInstance", "DataCatalog", "DataDownload", "DayOfWeek", "DefinedRegion",
 			"EventAttendanceModeEnumeration", "EventStatusType", "FulfillmentTypeEnumeration",
-			"GeoCoordinates", "GeoShape", "HowToSection", "HowToStep", "ImageObject", "InteractionCounter",
+			"GeoShape", "HowToSection", "HowToStep", "InteractionCounter",
 			"ItemAvailability", "ListItem", "LocationFeatureSpecification",
 			"MemberProgramTier", "MerchantReturnEnumeration",
 			"MerchantReturnPolicySeasonalOverride", "MonetaryAmount", "NutritionInformation",
-			"Offer", "OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
-			"PeopleAudience", "Place", "PostalAddress", "PropertyValue",
-			"QuantitativeValue", "Question", "Rating",
+			"OfferItemCondition", "OfferShippingDetails", "OpeningHoursSpecification",
+			"PeopleAudience", "PropertyValue",
+			"QuantitativeValue", "Rating",
 			"RefundTypeEnumeration", "ReturnFeesEnumeration", "ReturnLabelSourceEnumeration", "ReturnMethodEnumeration",
 			"Schedule", "ServicePeriod", "ShippingConditions", "ShippingDeliveryTime", "ShippingRateSettings",
 			"SizeSpecification", "SolveMathAction", "SpeakableSpecification",
@@ -73,14 +83,14 @@
 		"adobe_structured_data_validator": "operational",
 		"validator_version": "1.6.0",
 		"web_auto_extractor_version": "2.2.1",
-		"last_run": "2026-03-02T16:30:00Z",
-		"summary": "PHP: 39/39 E2E pass, 0 errors, 15 warnings (all false positives). 188 unit tests (1133 assertions). TS: 39/39 parity match + 0 E2E errors + 15 warnings (all false positives). Package a7a5131. Class inventory: 86/86 PHP=TS. Build validation: ESM+CJS+DTS all pass from packed tarball.",
+		"last_run": "2026-03-03T01:57:00Z",
+		"summary": "PHP: 49/49 E2E pass, 0 errors, 15 warnings (all false positives). 225 unit tests (1295 assertions). TS: 39/39 parity match + 0 E2E errors + 15 warnings (all false positives). Package bd5e129. Class inventory: 86/86 PHP=TS. Build validation: ESM+CJS+DTS all pass from packed tarball.",
 		"false_positives": ["MobileApplication.datePublished", "Movie.datePublished", "VacationRental.datePublished", "Recipe.expires", "Recipe.hasPart", "Recipe.publication", "Recipe.ineligibleRegion", "Recipe.interactionStatistic"],
 		"warning_baselines": {
 			"php_e2e_total": 15,
 			"ts_e2e_total": 15,
 			"note": "All warnings are validator false positives. TS total increased from 14 to 15 due to VacationRental.datePublished false positive added in parity expansion. Investigate any increase before updating baselines.",
-			"last_verified": "2026-03-02T16:30:00Z"
+			"last_verified": "2026-03-03T01:57:00Z"
 		}
 	},
 	"ts_validation": {
@@ -101,8 +111,8 @@
 		},
 		"ts_types_in_package": 86,
 		"ts_enums_in_package": 12,
-		"last_run": "2026-03-02T16:30:00Z",
-		"package_commit": "a7a5131",
+		"last_run": "2026-03-03T01:57:00Z",
+		"package_commit": "bd5e129",
 		"dod_status": "complete",
 		"qc_ack_122": "closed"
 	},
@@ -268,7 +278,7 @@
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299, 331]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -295,13 +305,14 @@
 			{ "issue": 129, "audit_issue": 39, "status": "closed", "decision": "accept", "note": "Added STARTUP_CHECKLIST step 8 (post-publish npm validation). Tool will be built when package is published." },
 			{ "issue": 131, "audit_issue": 42, "status": "closed", "decision": "accept", "note": "Updated STARTUP_CHECKLIST step 12 with explicit self-healing sub-steps. Closed stale #123 and #124." },
 			{ "issue": 133, "audit_issue": 44, "status": "closed", "decision": "accept", "note": "Post-publish transition plan: added warning_baselines, operational_mode to state.json. Updated STARTUP_CHECKLIST steps 6/7/8 with dual-language consistency, warning baseline checks, recurring npm validation." },
-			{ "issue": 142, "audit_issue": 53, "status": "open", "decision": "accept", "note": "Cross-repo communication skill: created .claude/skills/cross-repo-communication/SKILL.md, updated tools/poll-repos.sh with audit polling. State migration deferred pending coordination." }
+			{ "issue": 142, "audit_issue": 53, "status": "closed", "decision": "accept", "note": "Cross-repo communication skill: created .claude/skills/cross-repo-communication/SKILL.md, updated tools/poll-repos.sh with audit polling. State migration deferred pending coordination." },
+			{ "issue": 150, "audit_issue": 56, "status": "closed", "decision": "accept", "note": "Copilot PR review pipeline: expanded STARTUP_CHECKLIST step 14 into structured sub-steps (a-f) for PR discovery, validation, merge, state updates. Validated by reviewing/merging PRs #147 and #148." }
 		]
 	},
 	"agent_sessions": {
 		"in_flight": [
-			{ "issue": 145, "title": "Coverage expansion: Place, PostalAddress, GeoCoordinates, ContactPoint, ImageObject", "model": "gpt-5.3-codex", "dispatched": "2026-03-02T22:55:00Z" },
-			{ "issue": 146, "title": "Coverage expansion: Question, Answer, Offer, BroadcastEvent, AggregateOffer", "model": "gpt-5.3-codex", "dispatched": "2026-03-02T22:55:00Z" }
+			{ "issue": 151, "title": "Coverage expansion: AggregateRating, Rating, Brand, Certification, PeopleAudience", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T02:00:00Z" },
+			{ "issue": 152, "title": "Coverage expansion: HowToStep, HowToSection, InteractionCounter, OpeningHoursSpecification, PropertyValue", "model": "gpt-5.3-codex", "dispatched": "2026-03-03T02:00:00Z" }
 		],
 		"completed": [
 			{ "issue": 24, "pr": 25, "status": "merged", "model": "gpt-5.3-codex" },
@@ -320,7 +331,9 @@
 			{ "issue": 65, "pr": 66, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 70, "pr": 71, "status": "merged", "model": "gpt-5.3-codex" },
 			{ "issue": 75, "pr": 76, "status": "merged", "model": "gpt-5.3-codex" },
-			{ "issue": 85, "pr": 86, "status": "merged", "model": "gpt-5.3-codex" }
+			{ "issue": 85, "pr": 86, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 145, "pr": 147, "status": "merged", "model": "gpt-5.3-codex" },
+			{ "issue": 146, "pr": 148, "status": "merged", "model": "gpt-5.3-codex" }
 		]
 	},
 	"session_history": [
@@ -543,6 +556,12 @@
 			"date": "2026-03-02",
 			"type": "eva-input-copilot-dispatch-fix",
 			"summary": "Fifty-first session. Package c8b1c6f->c4b4d88 (no PHP/TS source changes). Handled input-from-eva #143: identified and fixed Copilot dispatch gap. Updated STARTUP_CHECKLIST (added idle check condition (e), replaced step 13 with mandatory dispatch step) and AGENTS.md (added coverage expansion section). Dispatched 2 Copilot tasks: #145 (Place, PostalAddress, GeoCoordinates, ContactPoint, ImageObject) and #146 (Question, Answer, Offer, BroadcastEvent, AggregateOffer). Closed stale audit-inbound #142. All validation clean: 188 unit tests (1133 assertions), 39/39 E2E (0 errors, 15 warnings — all false positives)."
+		},
+		{
+			"issue": 149,
+			"date": "2026-03-03",
+			"type": "copilot-pr-review-and-ts-parity-fix",
+			"summary": "Fifty-second session. Package c4b4d88->bd5e129 (TS constructor migration: all classes changed from positional to options-based). Reviewed and merged 2 Copilot PRs: #147 (Place, PostalAddress, GeoCoordinates, ContactPoint, ImageObject) and #148 (Question, Answer, Offer, BroadcastEvent, AggregateOffer). Fixed ts-parity-check.ts for upstream TS constructor migration (40+ class constructor calls updated). Resolved BreadcrumbList item/url field mismatch and ProductGroup Brand constructor. Processed audit #56 (Copilot PR review pipeline): expanded STARTUP_CHECKLIST step 14 with structured sub-steps. 225 unit tests (1295 assertions), 49/49 E2E (0 errors, 15 warnings — all false positives), 39/39 TS parity match. 49 covered types (+10), 53 uncovered types. 28 audit recommendations processed. 19/20 Copilot sessions merged (95% success rate)."
 		}
 	]
 }

@@ -160,12 +160,12 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 2. BreadcrumbList — matches src/generate-breadcrumblist.php
 	// ===================================================================
-	const breadcrumb = new BreadcrumbList([
-		new ListItem(1, 'Home', 'https://example.com/'),
-		new ListItem(2, 'Electronics', 'https://example.com/electronics'),
-		new ListItem(3, 'Phones', 'https://example.com/electronics/phones'),
-		new ListItem(4, 'Pixel 9 Pro'),
-	]);
+	const breadcrumb = new BreadcrumbList({ itemListElement: [
+		new ListItem({ position: 1, name: 'Home', item: 'https://example.com/' }),
+		new ListItem({ position: 2, name: 'Electronics', item: 'https://example.com/electronics' }),
+		new ListItem({ position: 3, name: 'Phones', item: 'https://example.com/electronics/phones' }),
+		new ListItem({ position: 4, name: 'Pixel 9 Pro' }),
+	] });
 	results.set('BreadcrumbList', {
 		type: 'BreadcrumbList',
 		phpScript: 'src/generate-breadcrumblist.php',
@@ -175,26 +175,26 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 3. FAQPage — matches src/generate-faqpage.php
 	// ===================================================================
-	const faq = new FAQPage([
+	const faq = new FAQPage({ mainEntity: [
 		new Question({
 			name: 'What is JSON-LD?',
-			acceptedAnswer: new Answer(
-				'JSON-LD is a method of encoding Linked Data using JSON. It allows data to be serialized in a way that is familiar to developers.',
-			),
+			acceptedAnswer: new Answer({
+				text: 'JSON-LD is a method of encoding Linked Data using JSON. It allows data to be serialized in a way that is familiar to developers.',
+			}),
 		}),
 		new Question({
 			name: 'Why should I use structured data on my website?',
-			acceptedAnswer: new Answer(
-				'Structured data helps search engines understand your content better and can enable rich results in search, such as FAQ snippets, recipe cards, and product listings.',
-			),
+			acceptedAnswer: new Answer({
+				text: 'Structured data helps search engines understand your content better and can enable rich results in search, such as FAQ snippets, recipe cards, and product listings.',
+			}),
 		}),
 		new Question({
 			name: 'How do I validate my structured data?',
-			acceptedAnswer: new Answer(
-				'You can use the Google Rich Results Test at search.google.com/test/rich-results to validate your structured data and see which rich result types it supports.',
-			),
+			acceptedAnswer: new Answer({
+				text: 'You can use the Google Rich Results Test at search.google.com/test/rich-results to validate your structured data and see which rich result types it supports.',
+			}),
 		}),
-	]);
+	] });
 	results.set('FAQPage', {
 		type: 'FAQPage',
 		phpScript: 'src/generate-faqpage.php',
@@ -208,20 +208,20 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		name: 'The Rolling Stones - Hackney Diamonds Tour',
 		startDate: '2025-07-21T19:00-05:00',
 		location: [
-			new Place(
-				'Soldier Field',
-				new PostalAddress({
+			new Place({
+				name: 'Soldier Field',
+				address: new PostalAddress({
 					streetAddress: '1410 Special Olympics Dr',
 					addressLocality: 'Chicago',
 					addressRegion: 'IL',
 					postalCode: '60605',
 					addressCountry: 'US',
 				}),
-			),
-			new VirtualLocation(
-				'https://livestream.example.com/rolling-stones',
-				'Official Livestream',
-			),
+			}),
+			new VirtualLocation({
+				url: 'https://livestream.example.com/rolling-stones',
+				name: 'Official Livestream',
+			}),
 		],
 		description: 'The Rolling Stones return to Chicago for one night only. Available in-person and via livestream.',
 		endDate: '2025-07-21T23:00-05:00',
@@ -308,7 +308,7 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			itemCondition: OfferItemCondition.NewCondition,
 			availability: ItemAvailability.InStock,
 		}),
-		aggregateRating: new AggregateRating(4.6, 5, 1, 8250),
+		aggregateRating: new AggregateRating({ ratingValue: 4.6, bestRating: 5, worstRating: 1, ratingCount: 8250 }),
 		applicationCategory: 'BusinessApplication',
 		operatingSystem: 'Android, iOS',
 		description: 'A powerful task management app for professionals.',
@@ -332,15 +332,15 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			itemCondition: OfferItemCondition.NewCondition,
 			availability: ItemAvailability.InStock,
 		}),
-		aggregateRating: new AggregateRating(4.5, 5, 1, 32100),
+		aggregateRating: new AggregateRating({ ratingValue: 4.5, bestRating: 5, worstRating: 1, ratingCount: 32100 }),
 		applicationCategory: 'HealthApplication',
 		operatingSystem: 'Android 10+',
 		datePublished: '2025-03-15',
-		review: new Review(
-			new Person({ name: 'FitnessGuru' }),
-			new Rating(5, 5, 1),
-			'Best fitness tracking app I have ever used. Accurate heart rate monitoring.',
-		),
+		review: new Review({
+			author: new Person({ name: 'FitnessGuru' }),
+			reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+			reviewBody: 'Best fitness tracking app I have ever used. Accurate heart rate monitoring.',
+		}),
 		description: 'Track your workouts, heart rate, and daily steps with precision.',
 	});
 	results.set('MobileApplication', {
@@ -362,7 +362,7 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			itemCondition: OfferItemCondition.NewCondition,
 			availability: ItemAvailability.InStock,
 		}),
-		aggregateRating: new AggregateRating(4.3, 5, 1, 5670),
+		aggregateRating: new AggregateRating({ ratingValue: 4.3, bestRating: 5, worstRating: 1, ratingCount: 5670 }),
 		applicationCategory: 'ProductivityApplication',
 		operatingSystem: 'All',
 		description: 'A collaborative note-taking and document editing web application.',
@@ -380,15 +380,15 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	const movie = new Movie({
 		name: 'The Algorithmic Garden',
 		image: 'https://example.com/photos/algorithmic-garden.jpg',
-		aggregateRating: new AggregateRating(8.1, 10, 1, 45230),
+		aggregateRating: new AggregateRating({ ratingValue: 8.1, bestRating: 10, worstRating: 1, ratingCount: 45230 }),
 		dateCreated: '2025-06-15',
 		datePublished: '2025-11-21',
 		director: new Person({ name: 'Sofia Castellano' }),
-		review: new Review(
-			new Person({ name: 'Roger Chen' }),
-			new Rating(9, 10, 1),
-			'A stunning visual exploration of mathematics in nature.',
-		),
+		review: new Review({
+			author: new Person({ name: 'Roger Chen' }),
+			reviewRating: new Rating({ ratingValue: 9, bestRating: 10, worstRating: 1 }),
+			reviewBody: 'A stunning visual exploration of mathematics in nature.',
+		}),
 		description: 'A mathematician discovers that the patterns in an ancient garden hold the key to a revolutionary algorithm.',
 		actor: [
 			new Person({ name: 'Elena Voss' }),
@@ -430,7 +430,7 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 				}),
 			}),
 		],
-		brand: new Brand('ACME'),
+		brand: new Brand({ name: 'ACME' }),
 		mpn: '925872',
 		color: 'Slate Gray',
 		material: 'Hardened Steel',
@@ -443,30 +443,30 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			productGroupID: 'pg-executive-tools',
 		}),
 		subjectOf: 'https://example.com/product-review-video',
-		audience: new PeopleAudience('unisex', 18),
+		audience: new PeopleAudience({ suggestedGender: 'unisex', suggestedMinAge: 18 }),
 		hasCertification: [
-			new Certification(
-				'ACME Safety Certified',
-				new Organization({ name: 'ACME Safety Council' }),
-				'ASC-2025-0042',
-			),
+			new Certification({
+				name: 'ACME Safety Certified',
+				issuedBy: new Organization({ name: 'ACME Safety Council' }),
+				certificationIdentification: 'ASC-2025-0042',
+			}),
 		],
-		aggregateRating: new AggregateRating(4.4, 5, 1, 89, 12),
+		aggregateRating: new AggregateRating({ ratingValue: 4.4, bestRating: 5, worstRating: 1, ratingCount: 89, reviewCount: 12 }),
 		review: [
-			new Review(
-				new Person({ name: 'Fred Benson' }),
-				new Rating(5, 5, 1),
-				'This is the best anvil I have ever used. Heavy duty and well built.',
-				'2025-04-01',
-				'Best anvil ever',
-			),
-			new Review(
-				new Person({ name: 'Sara Mitchell' }),
-				new Rating(4, 5, 1),
-				'Great quality but a bit pricey for what you get.',
-				'2025-05-10',
-				'Good but expensive',
-			),
+			new Review({
+				author: new Person({ name: 'Fred Benson' }),
+				reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'This is the best anvil I have ever used. Heavy duty and well built.',
+				datePublished: '2025-04-01',
+				name: 'Best anvil ever',
+			}),
+			new Review({
+				author: new Person({ name: 'Sara Mitchell' }),
+				reviewRating: new Rating({ ratingValue: 4, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Great quality but a bit pricey for what you get.',
+				datePublished: '2025-05-10',
+				name: 'Good but expensive',
+			}),
 		],
 	});
 	results.set('Product', {
@@ -486,9 +486,9 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		],
 		description: 'Premium noise-cancelling wireless headphones with 30-hour battery life.',
 		sku: 'WBH-PRO-2025',
-		offers: new AggregateOffer(149.99, 'USD', 249.99, 8),
-		brand: new Brand('AudioTech'),
-		aggregateRating: new AggregateRating(4.6, 5, 1, 234, 45),
+		offers: new AggregateOffer({ lowPrice: 149.99, priceCurrency: 'USD', highPrice: 249.99, offerCount: 8 }),
+		brand: new Brand({ name: 'AudioTech' }),
+		aggregateRating: new AggregateRating({ ratingValue: 4.6, bestRating: 5, worstRating: 1, ratingCount: 234, reviewCount: 45 }),
 		mpn: 'AT-WBH-PRO',
 		color: 'Matte Black',
 		material: 'Premium ABS Plastic',
@@ -501,22 +501,22 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			productGroupID: 'audio-headphones-pro',
 		}),
 		subjectOf: 'https://example.com/product-comparison-video',
-		audience: new PeopleAudience('unisex', 13),
+		audience: new PeopleAudience({ suggestedGender: 'unisex', suggestedMinAge: 13 }),
 		review: [
-			new Review(
-				new Person({ name: 'Alex Chen' }),
-				new Rating(5, 5, 1),
-				'Incredible noise cancellation and battery life.',
-				'2025-06-15',
-				'Best headphones ever',
-			),
+			new Review({
+				author: new Person({ name: 'Alex Chen' }),
+				reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Incredible noise cancellation and battery life.',
+				datePublished: '2025-06-15',
+				name: 'Best headphones ever',
+			}),
 		],
 		hasCertification: [
-			new Certification(
-				'Bluetooth 5.3 Certified',
-				new Organization({ name: 'Bluetooth SIG' }),
-				'BT53-WBH-2025',
-			),
+			new Certification({
+				name: 'Bluetooth 5.3 Certified',
+				issuedBy: new Organization({ name: 'Bluetooth SIG' }),
+				certificationIdentification: 'BT53-WBH-2025',
+			}),
 		],
 	});
 	results.set('Product-AggregateOffer', {
@@ -549,28 +549,28 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 				priceValidUntil: '2026-12-31',
 			}),
 		],
-		brand: new Brand('ClassicWear'),
+		brand: new Brand({ name: 'ClassicWear' }),
 		mpn: 'OX-BLUE-M',
 		material: '100% Premium Cotton',
 		pattern: 'Solid',
 		inProductGroupWithID: 'oxford-shirts',
 		subjectOf: 'https://example.com/shirt-review',
-		audience: new PeopleAudience('unisex', 16),
+		audience: new PeopleAudience({ suggestedGender: 'unisex', suggestedMinAge: 16 }),
 		hasCertification: [
-			new Certification(
-				'OEKO-TEX Standard 100',
-				new Organization({ name: 'OEKO-TEX Association' }),
-				'OT-12345',
-			),
+			new Certification({
+				name: 'OEKO-TEX Standard 100',
+				issuedBy: new Organization({ name: 'OEKO-TEX Association' }),
+				certificationIdentification: 'OT-12345',
+			}),
 		],
-		aggregateRating: new AggregateRating(4.6, 5, 1, 156),
+		aggregateRating: new AggregateRating({ ratingValue: 4.6, bestRating: 5, worstRating: 1, ratingCount: 156 }),
 		review: [
-			new Review(
-				new Person({ name: 'Sam T.' }),
-				new Rating(5, 5, 1),
-				'Perfect fit and great quality cotton.',
-				'2025-08-15',
-			),
+			new Review({
+				author: new Person({ name: 'Sam T.' }),
+				reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Perfect fit and great quality cotton.',
+				datePublished: '2025-08-15',
+			}),
 		],
 		color: 'Blue',
 		size: 'M',
@@ -592,28 +592,28 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 				priceValidUntil: '2026-12-31',
 			}),
 		],
-		brand: new Brand('ClassicWear'),
+		brand: new Brand({ name: 'ClassicWear' }),
 		mpn: 'OX-WHITE-M',
 		material: '100% Premium Cotton',
 		pattern: 'Solid',
 		inProductGroupWithID: 'oxford-shirts',
 		subjectOf: 'https://example.com/shirt-review',
-		audience: new PeopleAudience('unisex', 16),
+		audience: new PeopleAudience({ suggestedGender: 'unisex', suggestedMinAge: 16 }),
 		hasCertification: [
-			new Certification(
-				'OEKO-TEX Standard 100',
-				new Organization({ name: 'OEKO-TEX Association' }),
-				'OT-12345',
-			),
+			new Certification({
+				name: 'OEKO-TEX Standard 100',
+				issuedBy: new Organization({ name: 'OEKO-TEX Association' }),
+				certificationIdentification: 'OT-12345',
+			}),
 		],
-		aggregateRating: new AggregateRating(4.5, 5, 1, 142),
+		aggregateRating: new AggregateRating({ ratingValue: 4.5, bestRating: 5, worstRating: 1, ratingCount: 142 }),
 		review: [
-			new Review(
-				new Person({ name: 'Jordan K.' }),
-				new Rating(5, 5, 1),
-				'Crisp look and comfortable all day.',
-				'2025-09-03',
-			),
+			new Review({
+				author: new Person({ name: 'Jordan K.' }),
+				reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Crisp look and comfortable all day.',
+				datePublished: '2025-09-03',
+			}),
 		],
 		color: 'White',
 		size: 'M',
@@ -628,8 +628,8 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		hasVariant: [blueShirt, whiteShirt],
 		url: 'https://example.com/shirts/oxford',
 		description: 'Our classic oxford button-down shirts, available in multiple colors and sizes.',
-		brand: new Brand('ClassicWear'),
-		aggregateRating: new AggregateRating(4.7, 5, 1, 312, 89),
+		brand: new Brand({ name: 'ClassicWear' }),
+		aggregateRating: new AggregateRating({ ratingValue: 4.7, bestRating: 5, worstRating: 1, ratingCount: 312, reviewCount: 89 }),
 	});
 	results.set('ProductGroup', {
 		type: 'ProductGroup',
@@ -668,74 +668,74 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			'1 1/2 cups all-purpose flour',
 		],
 		recipeInstructions: [
-			new HowToStep(
-				'Preheat oven to 350\u00B0F (175\u00B0C). Grease a 4x8 inch loaf pan.',
-				'Preheat the oven',
-				'https://example.com/banana-bread#step1',
-				'https://example.com/photos/banana-bread/step1.jpg',
-				new Clip('Preheating the Oven', 0, 'https://example.com/videos/banana-bread.mp4?t=0', 30),
-				[
+			new HowToStep({
+				text: 'Preheat oven to 350\u00B0F (175\u00B0C). Grease a 4x8 inch loaf pan.',
+				name: 'Preheat the oven',
+				url: 'https://example.com/banana-bread#step1',
+				image: 'https://example.com/photos/banana-bread/step1.jpg',
+				video: new Clip({ name: 'Preheating the Oven', startOffset: 0, url: 'https://example.com/videos/banana-bread.mp4?t=0', endOffset: 30 }),
+				itemListElement: [
 					'Set oven temperature to 350\u00B0F (175\u00B0C).',
 					'Lightly grease a 4x8 inch loaf pan with butter or cooking spray.',
 				],
-			),
-			new HowToStep(
-				'Mash the bananas in a mixing bowl with a fork.',
-				'Mash bananas',
-				'https://example.com/banana-bread#step2',
-				'https://example.com/photos/banana-bread/step2.jpg',
-				new Clip('Mashing the Bananas', 30, 'https://example.com/videos/banana-bread.mp4?t=30', 90),
-				[
+			}),
+			new HowToStep({
+				text: 'Mash the bananas in a mixing bowl with a fork.',
+				name: 'Mash bananas',
+				url: 'https://example.com/banana-bread#step2',
+				image: 'https://example.com/photos/banana-bread/step2.jpg',
+				video: new Clip({ name: 'Mashing the Bananas', startOffset: 30, url: 'https://example.com/videos/banana-bread.mp4?t=30', endOffset: 90 }),
+				itemListElement: [
 					'Peel all ripe bananas and place them in a large bowl.',
 					'Mash with a fork until mostly smooth with a few small lumps.',
 				],
-			),
-			new HowToStep(
-				'Mix in the melted butter, sugar, egg, and vanilla.',
-				'Mix wet ingredients',
-				'https://example.com/banana-bread#step3',
-				'https://example.com/photos/banana-bread/step3.jpg',
-				new Clip('Combining the Wet Ingredients', 90, 'https://example.com/videos/banana-bread.mp4?t=90', 150),
-				[
+			}),
+			new HowToStep({
+				text: 'Mix in the melted butter, sugar, egg, and vanilla.',
+				name: 'Mix wet ingredients',
+				url: 'https://example.com/banana-bread#step3',
+				image: 'https://example.com/photos/banana-bread/step3.jpg',
+				video: new Clip({ name: 'Combining the Wet Ingredients', startOffset: 90, url: 'https://example.com/videos/banana-bread.mp4?t=90', endOffset: 150 }),
+				itemListElement: [
 					'Stir melted butter into the mashed bananas.',
 					'Add sugar, beaten egg, and vanilla extract.',
 					'Mix until the batter looks evenly combined.',
 				],
-			),
-			new HowToStep(
-				'Stir in the baking soda and salt. Mix in the flour.',
-				'Add dry ingredients',
-				'https://example.com/banana-bread#step4',
-				'https://example.com/photos/banana-bread/step4.jpg',
-				new Clip('Adding Dry Ingredients', 150, 'https://example.com/videos/banana-bread.mp4?t=150', 210),
-				[
+			}),
+			new HowToStep({
+				text: 'Stir in the baking soda and salt. Mix in the flour.',
+				name: 'Add dry ingredients',
+				url: 'https://example.com/banana-bread#step4',
+				image: 'https://example.com/photos/banana-bread/step4.jpg',
+				video: new Clip({ name: 'Adding Dry Ingredients', startOffset: 150, url: 'https://example.com/videos/banana-bread.mp4?t=150', endOffset: 210 }),
+				itemListElement: [
 					'Sprinkle baking soda and salt over the wet batter.',
 					'Add flour and fold gently just until no dry streaks remain.',
 				],
-			),
-			new HowToStep(
-				'Pour batter into prepared loaf pan.',
-				'Fill loaf pan',
-				'https://example.com/banana-bread#step5',
-				'https://example.com/photos/banana-bread/step5.jpg',
-				new Clip('Filling the Loaf Pan', 210, 'https://example.com/videos/banana-bread.mp4?t=210', 270),
-				[
+			}),
+			new HowToStep({
+				text: 'Pour batter into prepared loaf pan.',
+				name: 'Fill loaf pan',
+				url: 'https://example.com/banana-bread#step5',
+				image: 'https://example.com/photos/banana-bread/step5.jpg',
+				video: new Clip({ name: 'Filling the Loaf Pan', startOffset: 210, url: 'https://example.com/videos/banana-bread.mp4?t=210', endOffset: 270 }),
+				itemListElement: [
 					'Scrape the batter from the bowl into the greased loaf pan.',
 					'Spread the top evenly with a spatula for even baking.',
 				],
-			),
-			new HowToStep(
-				'Bake for 60 minutes or until a toothpick inserted comes out clean.',
-				'Bake banana bread',
-				'https://example.com/banana-bread#step6',
-				'https://example.com/photos/banana-bread/step6.jpg',
-				new Clip('Baking and Checking Doneness', 270, 'https://example.com/videos/banana-bread.mp4?t=270', 510),
-				[
+			}),
+			new HowToStep({
+				text: 'Bake for 60 minutes or until a toothpick inserted comes out clean.',
+				name: 'Bake banana bread',
+				url: 'https://example.com/banana-bread#step6',
+				image: 'https://example.com/photos/banana-bread/step6.jpg',
+				video: new Clip({ name: 'Baking and Checking Doneness', startOffset: 270, url: 'https://example.com/videos/banana-bread.mp4?t=270', endOffset: 510 }),
+				itemListElement: [
 					'Place the pan on the center rack and bake for about 60 minutes.',
 					'Check doneness by inserting a toothpick into the center.',
 					'Cool in the pan for 10 minutes before transferring to a rack.',
 				],
-			),
+			}),
 		],
 		nutrition: new NutritionInformation({
 			calories: '240 calories',
@@ -744,7 +744,7 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			proteinContent: '3 g',
 			servingSize: '1 slice',
 		}),
-		aggregateRating: new AggregateRating(4.7, 5, 1, 256),
+		aggregateRating: new AggregateRating({ ratingValue: 4.7, bestRating: 5, worstRating: 1, ratingCount: 256 }),
 		video: new VideoObject({
 			name: 'How to Make Banana Bread',
 			thumbnailUrl: ['https://example.com/photos/banana-bread/video-thumbnail.jpg'],
@@ -756,12 +756,12 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		}),
 		expires: '2027-01-10',
 		hasPart: [
-			new Clip('Preparing Ingredients', 0, 'https://example.com/videos/banana-bread.mp4?t=0', 90),
-			new Clip('Mixing and Baking', 90, 'https://example.com/videos/banana-bread.mp4?t=90', 510),
+			new Clip({ name: 'Preparing Ingredients', startOffset: 0, url: 'https://example.com/videos/banana-bread.mp4?t=0', endOffset: 90 }),
+			new Clip({ name: 'Mixing and Baking', startOffset: 90, url: 'https://example.com/videos/banana-bread.mp4?t=90', endOffset: 510 }),
 		],
-		publication: new BroadcastEvent(true, '2025-01-10T10:00:00-05:00', '2025-01-10T11:00:00-05:00'),
+		publication: new BroadcastEvent({ isLiveBroadcast: true, startDate: '2025-01-10T10:00:00-05:00', endDate: '2025-01-10T11:00:00-05:00' }),
 		ineligibleRegion: 'US-PR',
-		interactionStatistic: new InteractionCounter('https://schema.org/WatchAction', 48250),
+		interactionStatistic: new InteractionCounter({ interactionType: 'https://schema.org/WatchAction', userInteractionCount: 48250 }),
 	});
 	results.set('Recipe', {
 		type: 'Recipe',
@@ -800,102 +800,25 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			'Unsweetened cocoa powder',
 		],
 		recipeInstructions: [
-			new HowToSection('Prepare the Mascarpone Cream', [
-				new HowToStep(
-					'Whisk egg yolks and sugar until thick and pale yellow.',
-					'Whisk yolks and sugar',
-					'https://example.com/tiramisu#cream-step1',
-					'https://example.com/photos/tiramisu/step-1.jpg',
-					new Clip('Whisking Yolks and Sugar', 0, 'https://example.com/videos/tiramisu.mp4?t=0', 30),
-					['Add egg yolks and sugar to a mixing bowl.', 'Whisk continuously until the mixture is pale and thick.'],
-				),
-				new HowToStep(
-					'Add mascarpone cheese and mix until smooth.',
-					'Blend in mascarpone',
-					'https://example.com/tiramisu#cream-step2',
-					'https://example.com/photos/tiramisu/step-2.jpg',
-					new Clip('Blending in Mascarpone', 30, 'https://example.com/videos/tiramisu.mp4?t=30', 90),
-					['Add mascarpone to the yolk mixture in portions.', 'Mix until the cream is smooth with no lumps.'],
-				),
-				new HowToStep(
-					'In a separate bowl, whip heavy cream to stiff peaks.',
-					'Whip heavy cream',
-					'https://example.com/tiramisu#cream-step3',
-					'https://example.com/photos/tiramisu/step-3.jpg',
-					new Clip('Whipping Heavy Cream', 90, 'https://example.com/videos/tiramisu.mp4?t=90', 150),
-					['Pour cold heavy cream into a chilled bowl.', 'Whip until the cream holds firm peaks.'],
-				),
-				new HowToStep(
-					'Gently fold whipped cream into the mascarpone mixture.',
-					'Fold cream mixture',
-					'https://example.com/tiramisu#cream-step4',
-					'https://example.com/photos/tiramisu/step-4.jpg',
-					new Clip('Folding the Cream Mixture', 150, 'https://example.com/videos/tiramisu.mp4?t=150', 210),
-					['Add whipped cream to the mascarpone base in batches.', 'Fold gently to keep the mixture airy and smooth.'],
-				),
-			]),
-			new HowToSection('Assemble the Tiramisu', [
-				new HowToStep(
-					'Combine espresso and coffee liqueur in a shallow dish.',
-					'Prepare espresso dip',
-					'https://example.com/tiramisu#assemble-step1',
-					'https://example.com/photos/tiramisu/step-5.jpg',
-					new Clip('Preparing the Espresso Dip', 210, 'https://example.com/videos/tiramisu.mp4?t=210', 270),
-					['Pour cooled espresso into a shallow dish.', 'Stir in coffee liqueur until fully combined.'],
-				),
-				new HowToStep(
-					'Quickly dip each ladyfinger into the espresso mixture.',
-					'Dip ladyfingers',
-					'https://example.com/tiramisu#assemble-step2',
-					'https://example.com/photos/tiramisu/step-6.jpg',
-					new Clip('Dipping Ladyfingers', 270, 'https://example.com/videos/tiramisu.mp4?t=270', 330),
-					['Dip each ladyfinger briefly on both sides.', 'Avoid soaking too long so the cookies stay structured.'],
-				),
-				new HowToStep(
-					'Arrange a layer of soaked ladyfingers in a 9x13 dish.',
-					'Layer ladyfingers',
-					'https://example.com/tiramisu#assemble-step3',
-					'https://example.com/photos/tiramisu/step-7.jpg',
-					new Clip('Layering Ladyfingers', 330, 'https://example.com/videos/tiramisu.mp4?t=330', 390),
-					['Place soaked ladyfingers tightly in a single layer.', 'Trim or break pieces to fill any gaps in the dish.'],
-				),
-				new HowToStep(
-					'Spread half the mascarpone cream over the ladyfingers.',
-					'Add first cream layer',
-					'https://example.com/tiramisu#assemble-step4',
-					'https://example.com/photos/tiramisu/step-8.jpg',
-					new Clip('Adding the First Cream Layer', 390, 'https://example.com/videos/tiramisu.mp4?t=390', 450),
-					['Spoon half of the mascarpone cream over the cookies.', 'Spread evenly to cover the entire ladyfinger layer.'],
-				),
-				new HowToStep(
-					'Repeat with a second layer of ladyfingers and cream.',
-					'Repeat layers',
-					'https://example.com/tiramisu#assemble-step5',
-					'https://example.com/photos/tiramisu/step-9.jpg',
-					new Clip('Building the Second Layer', 450, 'https://example.com/videos/tiramisu.mp4?t=450', 510),
-					['Add a second layer of dipped ladyfingers.', 'Top with the remaining mascarpone cream and smooth the surface.'],
-				),
-			]),
-			new HowToSection('Chill and Serve', [
-				new HowToStep(
-					'Cover with plastic wrap and refrigerate for at least 4 hours.',
-					'Chill tiramisu',
-					'https://example.com/tiramisu#serve-step1',
-					'https://example.com/photos/tiramisu/step-10.jpg',
-					new Clip('Chilling the Tiramisu', 510, 'https://example.com/videos/tiramisu.mp4?t=510', 690),
-					['Cover the dish tightly with plastic wrap.', 'Refrigerate for at least 4 hours so layers can set.'],
-				),
-				new HowToStep(
-					'Dust generously with cocoa powder before serving.',
-					'Finish with cocoa',
-					'https://example.com/tiramisu#serve-step2',
-					'https://example.com/photos/tiramisu/step-11.jpg',
-					new Clip('Finishing with Cocoa', 690, 'https://example.com/videos/tiramisu.mp4?t=690', 765),
-					['Use a fine sieve to dust cocoa powder over the top.', 'Slice and serve chilled for the best texture.'],
-				),
-			]),
+			new HowToSection({ name: 'Prepare the Mascarpone Cream', itemListElement: [
+				new HowToStep({ text: 'Whisk egg yolks and sugar until thick and pale yellow.', name: 'Whisk yolks and sugar', url: 'https://example.com/tiramisu#cream-step1', image: 'https://example.com/photos/tiramisu/step-1.jpg', video: new Clip({ name: 'Whisking Yolks and Sugar', startOffset: 0, url: 'https://example.com/videos/tiramisu.mp4?t=0', endOffset: 30 }), itemListElement: ['Add egg yolks and sugar to a mixing bowl.', 'Whisk continuously until the mixture is pale and thick.'] }),
+				new HowToStep({ text: 'Add mascarpone cheese and mix until smooth.', name: 'Blend in mascarpone', url: 'https://example.com/tiramisu#cream-step2', image: 'https://example.com/photos/tiramisu/step-2.jpg', video: new Clip({ name: 'Blending in Mascarpone', startOffset: 30, url: 'https://example.com/videos/tiramisu.mp4?t=30', endOffset: 90 }), itemListElement: ['Add mascarpone to the yolk mixture in portions.', 'Mix until the cream is smooth with no lumps.'] }),
+				new HowToStep({ text: 'In a separate bowl, whip heavy cream to stiff peaks.', name: 'Whip heavy cream', url: 'https://example.com/tiramisu#cream-step3', image: 'https://example.com/photos/tiramisu/step-3.jpg', video: new Clip({ name: 'Whipping Heavy Cream', startOffset: 90, url: 'https://example.com/videos/tiramisu.mp4?t=90', endOffset: 150 }), itemListElement: ['Pour cold heavy cream into a chilled bowl.', 'Whip until the cream holds firm peaks.'] }),
+				new HowToStep({ text: 'Gently fold whipped cream into the mascarpone mixture.', name: 'Fold cream mixture', url: 'https://example.com/tiramisu#cream-step4', image: 'https://example.com/photos/tiramisu/step-4.jpg', video: new Clip({ name: 'Folding the Cream Mixture', startOffset: 150, url: 'https://example.com/videos/tiramisu.mp4?t=150', endOffset: 210 }), itemListElement: ['Add whipped cream to the mascarpone base in batches.', 'Fold gently to keep the mixture airy and smooth.'] }),
+			] }),
+			new HowToSection({ name: 'Assemble the Tiramisu', itemListElement: [
+				new HowToStep({ text: 'Combine espresso and coffee liqueur in a shallow dish.', name: 'Prepare espresso dip', url: 'https://example.com/tiramisu#assemble-step1', image: 'https://example.com/photos/tiramisu/step-5.jpg', video: new Clip({ name: 'Preparing the Espresso Dip', startOffset: 210, url: 'https://example.com/videos/tiramisu.mp4?t=210', endOffset: 270 }), itemListElement: ['Pour cooled espresso into a shallow dish.', 'Stir in coffee liqueur until fully combined.'] }),
+				new HowToStep({ text: 'Quickly dip each ladyfinger into the espresso mixture.', name: 'Dip ladyfingers', url: 'https://example.com/tiramisu#assemble-step2', image: 'https://example.com/photos/tiramisu/step-6.jpg', video: new Clip({ name: 'Dipping Ladyfingers', startOffset: 270, url: 'https://example.com/videos/tiramisu.mp4?t=270', endOffset: 330 }), itemListElement: ['Dip each ladyfinger briefly on both sides.', 'Avoid soaking too long so the cookies stay structured.'] }),
+				new HowToStep({ text: 'Arrange a layer of soaked ladyfingers in a 9x13 dish.', name: 'Layer ladyfingers', url: 'https://example.com/tiramisu#assemble-step3', image: 'https://example.com/photos/tiramisu/step-7.jpg', video: new Clip({ name: 'Layering Ladyfingers', startOffset: 330, url: 'https://example.com/videos/tiramisu.mp4?t=330', endOffset: 390 }), itemListElement: ['Place soaked ladyfingers tightly in a single layer.', 'Trim or break pieces to fill any gaps in the dish.'] }),
+				new HowToStep({ text: 'Spread half the mascarpone cream over the ladyfingers.', name: 'Add first cream layer', url: 'https://example.com/tiramisu#assemble-step4', image: 'https://example.com/photos/tiramisu/step-8.jpg', video: new Clip({ name: 'Adding the First Cream Layer', startOffset: 390, url: 'https://example.com/videos/tiramisu.mp4?t=390', endOffset: 450 }), itemListElement: ['Spoon half of the mascarpone cream over the cookies.', 'Spread evenly to cover the entire ladyfinger layer.'] }),
+				new HowToStep({ text: 'Repeat with a second layer of ladyfingers and cream.', name: 'Repeat layers', url: 'https://example.com/tiramisu#assemble-step5', image: 'https://example.com/photos/tiramisu/step-9.jpg', video: new Clip({ name: 'Building the Second Layer', startOffset: 450, url: 'https://example.com/videos/tiramisu.mp4?t=450', endOffset: 510 }), itemListElement: ['Add a second layer of dipped ladyfingers.', 'Top with the remaining mascarpone cream and smooth the surface.'] }),
+			] }),
+			new HowToSection({ name: 'Chill and Serve', itemListElement: [
+				new HowToStep({ text: 'Cover with plastic wrap and refrigerate for at least 4 hours.', name: 'Chill tiramisu', url: 'https://example.com/tiramisu#serve-step1', image: 'https://example.com/photos/tiramisu/step-10.jpg', video: new Clip({ name: 'Chilling the Tiramisu', startOffset: 510, url: 'https://example.com/videos/tiramisu.mp4?t=510', endOffset: 690 }), itemListElement: ['Cover the dish tightly with plastic wrap.', 'Refrigerate for at least 4 hours so layers can set.'] }),
+				new HowToStep({ text: 'Dust generously with cocoa powder before serving.', name: 'Finish with cocoa', url: 'https://example.com/tiramisu#serve-step2', image: 'https://example.com/photos/tiramisu/step-11.jpg', video: new Clip({ name: 'Finishing with Cocoa', startOffset: 690, url: 'https://example.com/videos/tiramisu.mp4?t=690', endOffset: 765 }), itemListElement: ['Use a fine sieve to dust cocoa powder over the top.', 'Slice and serve chilled for the best texture.'] }),
+			] }),
 		],
-		aggregateRating: new AggregateRating(4.9, 5, 1, 184),
+		aggregateRating: new AggregateRating({ ratingValue: 4.9, bestRating: 5, worstRating: 1, ratingCount: 184 }),
 		nutrition: new NutritionInformation({ calories: '450 calories' }),
 		video: new VideoObject({
 			name: 'Classic Tiramisu Tutorial',
@@ -908,13 +831,13 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		}),
 		expires: '2027-03-15',
 		hasPart: [
-			new Clip('Preparing the Cream', 0, 'https://example.com/videos/tiramisu.mp4?t=0', 210),
-			new Clip('Assembling Layers', 210, 'https://example.com/videos/tiramisu.mp4?t=210', 510),
-			new Clip('Finishing Touches', 510, 'https://example.com/videos/tiramisu.mp4?t=510', 765),
+			new Clip({ name: 'Preparing the Cream', startOffset: 0, url: 'https://example.com/videos/tiramisu.mp4?t=0', endOffset: 210 }),
+			new Clip({ name: 'Assembling Layers', startOffset: 210, url: 'https://example.com/videos/tiramisu.mp4?t=210', endOffset: 510 }),
+			new Clip({ name: 'Finishing Touches', startOffset: 510, url: 'https://example.com/videos/tiramisu.mp4?t=510', endOffset: 765 }),
 		],
-		publication: new BroadcastEvent(false, '2025-03-15T14:00:00+01:00', '2025-03-15T14:30:00+01:00'),
+		publication: new BroadcastEvent({ isLiveBroadcast: false, startDate: '2025-03-15T14:00:00+01:00', endDate: '2025-03-15T14:30:00+01:00' }),
 		ineligibleRegion: 'GB-NIR',
-		interactionStatistic: new InteractionCounter('https://schema.org/WatchAction', 31500),
+		interactionStatistic: new InteractionCounter({ interactionType: 'https://schema.org/WatchAction', userInteractionCount: 31500 }),
 	});
 	results.set('Recipe-Sections', {
 		type: 'Recipe',
@@ -939,13 +862,13 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		duration: 'PT23M15S',
 		expires: '2027-02-05T08:00:00+00:00',
 		regionsAllowed: 'US,CA,GB,AU',
-		interactionStatistic: new InteractionCounter('WatchAction', 14503),
-		publication: new BroadcastEvent(false, '2025-02-05T08:00:00+00:00', '2025-02-05T09:00:00+00:00'),
+		interactionStatistic: new InteractionCounter({ interactionType: 'WatchAction', userInteractionCount: 14503 }),
+		publication: new BroadcastEvent({ isLiveBroadcast: false, startDate: '2025-02-05T08:00:00+00:00', endDate: '2025-02-05T09:00:00+00:00' }),
 		hasPart: [
-			new Clip('Creating the Starter', 0, 'https://example.com/video/sourdough-guide?t=0', 180),
-			new Clip('Mixing the Dough', 180, 'https://example.com/video/sourdough-guide?t=180', 420),
-			new Clip('Shaping and Proofing', 420, 'https://example.com/video/sourdough-guide?t=420', 840),
-			new Clip('Baking the Loaf', 840, 'https://example.com/video/sourdough-guide?t=840', 1395),
+			new Clip({ name: 'Creating the Starter', startOffset: 0, url: 'https://example.com/video/sourdough-guide?t=0', endOffset: 180 }),
+			new Clip({ name: 'Mixing the Dough', startOffset: 180, url: 'https://example.com/video/sourdough-guide?t=180', endOffset: 420 }),
+			new Clip({ name: 'Shaping and Proofing', startOffset: 420, url: 'https://example.com/video/sourdough-guide?t=420', endOffset: 840 }),
+			new Clip({ name: 'Baking the Loaf', startOffset: 840, url: 'https://example.com/video/sourdough-guide?t=840', endOffset: 1395 }),
 		],
 	});
 	results.set('VideoObject', {
@@ -971,10 +894,10 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			}),
 		],
 		hasCourseInstance: [
-			new CourseInstance('online', new Person({ name: 'Dr. Emily Zhang' })),
+			new CourseInstance({ courseMode: 'online', instructor: new Person({ name: 'Dr. Emily Zhang' }) }),
 		],
 		inLanguage: 'en',
-		aggregateRating: new AggregateRating(4.8, 5, 1, 1024),
+		aggregateRating: new AggregateRating({ ratingValue: 4.8, bestRating: 5, worstRating: 1, ratingCount: 1024 }),
 		image: 'https://example.com/photos/ml-course.jpg',
 	});
 	results.set('Course', {
@@ -1000,14 +923,14 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		description: 'Classic American steakhouse in the heart of Midtown Manhattan.',
 		image: ['https://example.com/photos/daves-exterior.jpg'],
 		priceRange: '$$$',
-		geo: new GeoCoordinates(40.7614, -73.9826),
-		aggregateRating: new AggregateRating(4.4, 5, 1, null, 267),
-		review: new Review(
-			'James T.',
-			new Rating(5, 5, 1),
-			'Best steak I have had in years. The service was impeccable.',
-			'2025-02-01',
-		),
+		geo: new GeoCoordinates({ latitude: 40.7614, longitude: -73.9826 }),
+		aggregateRating: new AggregateRating({ ratingValue: 4.4, bestRating: 5, worstRating: 1, reviewCount: 267 }),
+		review: new Review({
+			author: 'James T.',
+			reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+			reviewBody: 'Best steak I have had in years. The service was impeccable.',
+			datePublished: '2025-02-01',
+		}),
 		servesCuisine: 'American',
 		logo: 'https://example.com/daves-logo.png',
 	});
@@ -1035,14 +958,14 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		description: 'Farm-to-table bistro featuring seasonal Pacific Northwest cuisine.',
 		image: ['https://example.com/photos/golden-spoon-exterior.jpg', 'https://example.com/photos/golden-spoon-interior.jpg'],
 		priceRange: '$$$',
-		geo: new GeoCoordinates(45.5231, -122.6765),
-		aggregateRating: new AggregateRating(4.7, 5, 1, null, 312),
-		review: new Review(
-			'Maria G.',
-			new Rating(5, 5, 1),
-			'The tasting menu was extraordinary. Every course was a masterpiece.',
-			'2025-11-15',
-		),
+		geo: new GeoCoordinates({ latitude: 45.5231, longitude: -122.6765 }),
+		aggregateRating: new AggregateRating({ ratingValue: 4.7, bestRating: 5, worstRating: 1, reviewCount: 312 }),
+		review: new Review({
+			author: 'Maria G.',
+			reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+			reviewBody: 'The tasting menu was extraordinary. Every course was a masterpiece.',
+			datePublished: '2025-11-15',
+		}),
 		servesCuisine: 'Pacific Northwest',
 		logo: 'https://example.com/golden-spoon-logo.png',
 		acceptsReservations: true,
@@ -1071,23 +994,23 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		description: 'Family-owned garden center specializing in native Texas plants and organic gardening supplies.',
 		image: ['https://example.com/photos/greenleaf-storefront.jpg'],
 		priceRange: '$$',
-		geo: new GeoCoordinates(30.2087, -97.7796),
+		geo: new GeoCoordinates({ latitude: 30.2087, longitude: -97.7796 }),
 		openingHoursSpecification: [
-			new OpeningHoursSpecification(DayOfWeek.Monday, '08:00', '18:00'),
-			new OpeningHoursSpecification(DayOfWeek.Tuesday, '08:00', '18:00'),
-			new OpeningHoursSpecification(DayOfWeek.Wednesday, '08:00', '18:00'),
-			new OpeningHoursSpecification(DayOfWeek.Thursday, '08:00', '18:00'),
-			new OpeningHoursSpecification(DayOfWeek.Friday, '08:00', '18:00'),
-			new OpeningHoursSpecification(DayOfWeek.Saturday, '08:00', '18:00'),
-			new OpeningHoursSpecification(DayOfWeek.Sunday, '10:00', '16:00'),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Monday, opens: '08:00', closes: '18:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Tuesday, opens: '08:00', closes: '18:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Wednesday, opens: '08:00', closes: '18:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Thursday, opens: '08:00', closes: '18:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Friday, opens: '08:00', closes: '18:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Saturday, opens: '08:00', closes: '18:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Sunday, opens: '10:00', closes: '16:00' }),
 		],
-		aggregateRating: new AggregateRating(4.8, 5, 1, null, 156),
-		review: new Review(
-			'Carlos D.',
-			new Rating(5, 5, 1),
-			'Incredible selection of native plants. The staff really knows their stuff.',
-			'2025-10-20',
-		),
+		aggregateRating: new AggregateRating({ ratingValue: 4.8, bestRating: 5, worstRating: 1, reviewCount: 156 }),
+		review: new Review({
+			author: 'Carlos D.',
+			reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+			reviewBody: 'Incredible selection of native plants. The staff really knows their stuff.',
+			datePublished: '2025-10-20',
+		}),
 		logo: 'https://example.com/greenleaf-logo.png',
 	});
 	results.set('Store', {
@@ -1100,26 +1023,26 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// 21. MathSolver — matches src/generate-mathsolver.php
 	//     Tests propertyMap: mathExpressionInput -> mathExpression-input
 	// ===================================================================
-	const mathSolver = new MathSolver(
-		'https://math.example.com/solver',
-		'https://math.example.com/terms',
-		[
-			new SolveMathAction(
-				'https://math.example.com/solve-algebra',
-				'text',
-				['Polynomial', 'Linear Equation'],
-			),
-			new SolveMathAction(
-				'https://math.example.com/solve-calculus',
-				'latex',
-				'Integral',
-			),
+	const mathSolver = new MathSolver({
+		url: 'https://math.example.com/solver',
+		usageInfo: 'https://math.example.com/terms',
+		potentialAction: [
+			new SolveMathAction({
+				target: 'https://math.example.com/solve-algebra',
+				mathExpressionInput: 'text',
+				eduQuestionType: ['Polynomial', 'Linear Equation'],
+			}),
+			new SolveMathAction({
+				target: 'https://math.example.com/solve-calculus',
+				mathExpressionInput: 'latex',
+				eduQuestionType: 'Integral',
+			}),
 		],
-		'MathWay Solver',
-		'en',
-		'Math Solver',
-		['Algebra', 'Calculus'],
-	);
+		name: 'MathWay Solver',
+		inLanguage: 'en',
+		learningResourceType: 'Math Solver',
+		assesses: ['Algebra', 'Calculus'],
+	});
 	results.set('MathSolver', {
 		type: 'MathSolver',
 		phpScript: 'src/generate-mathsolver.php',
@@ -1129,23 +1052,22 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 22. ShippingService — matches src/generate-shipping-service.php
 	// ===================================================================
-	const shippingService = new ShippingService(
-		new ShippingConditions({
-			shippingDestination: new DefinedRegion('US', ['CA', 'NY', 'TX']),
-			shippingRate: new MonetaryAmount('USD', 5.99),
-			transitTime: new ServicePeriod(
-				new QuantitativeValue(null, 'DAY', 3, 7),
-			),
+	const shippingService = new ShippingService({
+		shippingConditions: new ShippingConditions({
+			shippingDestination: new DefinedRegion({ addressCountry: 'US', addressRegion: ['CA', 'NY', 'TX'] }),
+			shippingRate: new MonetaryAmount({ currency: 'USD', value: 5.99 }),
+			transitTime: new ServicePeriod({
+				duration: new QuantitativeValue({ unitCode: 'DAY', minValue: 3, maxValue: 7 }),
+			}),
 		}),
-		'Standard Shipping',
-		'Standard ground shipping within the US.',
-		FulfillmentTypeEnumeration.FulfillmentTypeDelivery,
-		new ServicePeriod(
-			new QuantitativeValue(null, 'DAY', 0, 1),
-			null,
-			'14:00:00-05:00',
-		),
-	);
+		name: 'Standard Shipping',
+		description: 'Standard ground shipping within the US.',
+		fulfillmentType: FulfillmentTypeEnumeration.FulfillmentTypeDelivery,
+		handlingTime: new ServicePeriod({
+			duration: new QuantitativeValue({ unitCode: 'DAY', minValue: 0, maxValue: 1 }),
+			cutoffTime: '14:00:00-05:00',
+		}),
+	});
 	results.set('ShippingService', {
 		type: 'ShippingService',
 		phpScript: 'src/generate-shipping-service.php',
@@ -1155,31 +1077,29 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 24. QAPage — matches src/generate-qapage.php
 	// ===================================================================
-	const qaPage = new QAPage(
-		new Question({
+	const qaPage = new QAPage({
+		mainEntity: new Question({
 			name: 'How do I validate JSON-LD structured data locally?',
 			text: 'I want to validate my JSON-LD output against Google Rich Results requirements without using a browser. Is there a local tool?',
 			answerCount: 2,
-			acceptedAnswer: new Answer(
-				'Use @adobe/structured-data-validator — it validates against Google requirements locally with deterministic results.',
-				new Person({ name: 'DevHelper' }),
-				null,
-				42,
-				'2025-02-20',
-			),
+			acceptedAnswer: new Answer({
+				text: 'Use @adobe/structured-data-validator — it validates against Google requirements locally with deterministic results.',
+				author: new Person({ name: 'DevHelper' }),
+				upvoteCount: 42,
+				datePublished: '2025-02-20',
+			}),
 			suggestedAnswer: [
-				new Answer(
-					'You can also use structured-data-testing-tool for basic structural checks, though it does not validate against Google-specific requirements.',
-					new Person({ name: 'SchemaFan' }),
-					null,
-					15,
-					'2025-02-21',
-				),
+				new Answer({
+					text: 'You can also use structured-data-testing-tool for basic structural checks, though it does not validate against Google-specific requirements.',
+					author: new Person({ name: 'SchemaFan' }),
+					upvoteCount: 15,
+					datePublished: '2025-02-21',
+				}),
 			],
 			author: new Person({ name: 'NewDev123' }),
 			datePublished: '2025-02-19',
 		}),
-	);
+	});
 	results.set('QAPage', {
 		type: 'QAPage',
 		phpScript: 'src/generate-qapage.php',
@@ -1204,30 +1124,30 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		description: 'Authentic Neapolitan pizza and pasta in the heart of Little Italy.',
 		image: ['https://example.com/photos/bella-napoli.jpg'],
 		priceRange: '$$',
-		geo: new GeoCoordinates(40.7191, -73.9973),
+		geo: new GeoCoordinates({ latitude: 40.7191, longitude: -73.9973 }),
 		openingHoursSpecification: [
-			new OpeningHoursSpecification(DayOfWeek.Monday, '11:00', '22:00'),
-			new OpeningHoursSpecification(DayOfWeek.Tuesday, '11:00', '22:00'),
-			new OpeningHoursSpecification(DayOfWeek.Wednesday, '11:00', '22:00'),
-			new OpeningHoursSpecification(DayOfWeek.Thursday, '11:00', '22:00'),
-			new OpeningHoursSpecification(DayOfWeek.Friday, '11:00', '22:00'),
-			new OpeningHoursSpecification(DayOfWeek.Saturday, '10:00', '23:00'),
-			new OpeningHoursSpecification(DayOfWeek.Sunday, '10:00', '23:00'),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Monday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Tuesday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Wednesday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Thursday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Friday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Saturday, opens: '10:00', closes: '23:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Sunday, opens: '10:00', closes: '23:00' }),
 		],
-		aggregateRating: new AggregateRating(4.5, 5, 1, null, 487),
+		aggregateRating: new AggregateRating({ ratingValue: 4.5, bestRating: 5, worstRating: 1, reviewCount: 487 }),
 		review: [
-			new Review(
-				'Anthony R.',
-				new Rating(5, 5, 1),
-				'Best margherita pizza outside of Naples. The crust is perfection.',
-				'2025-12-01',
-			),
-			new Review(
-				'Lisa M.',
-				new Rating(4, 5, 1),
-				'Great food and atmosphere, but can get crowded on weekends.',
-				'2025-11-20',
-			),
+			new Review({
+				author: 'Anthony R.',
+				reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Best margherita pizza outside of Naples. The crust is perfection.',
+				datePublished: '2025-12-01',
+			}),
+			new Review({
+				author: 'Lisa M.',
+				reviewRating: new Rating({ ratingValue: 4, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Great food and atmosphere, but can get crowded on weekends.',
+				datePublished: '2025-11-20',
+			}),
 		],
 		menu: 'https://bellanapoli.example.com/menu',
 		servesCuisine: 'Italian',
@@ -1243,12 +1163,12 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 26. Clip — matches src/generate-clip.php
 	// ===================================================================
-	const clipStandalone = new Clip(
-		'Introduction to the Topic',
-		0,
-		'https://example.com/video/tutorial?t=0',
-		120,
-	);
+	const clipStandalone = new Clip({
+		name: 'Introduction to the Topic',
+		startOffset: 0,
+		url: 'https://example.com/video/tutorial?t=0',
+		endOffset: 120,
+	});
 	results.set('Clip', {
 		type: 'Clip',
 		phpScript: 'src/generate-clip.php',
@@ -1267,8 +1187,8 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		keywords: ['ocean temperature', 'climate data', 'marine science'],
 		isAccessibleForFree: true,
 		temporalCoverage: '1950/2025',
-		includedInDataCatalog: new DataCatalog('World Climate Data Repository'),
-		distribution: [new DataDownload('https://example.com/datasets/ocean-temp/download.csv', 'text/csv')],
+		includedInDataCatalog: new DataCatalog({ name: 'World Climate Data Repository' }),
+		distribution: [new DataDownload({ contentUrl: 'https://example.com/datasets/ocean-temp/download.csv', encodingFormat: 'text/csv' })],
 	});
 	results.set('Dataset', {
 		type: 'Dataset',
@@ -1307,14 +1227,14 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 29. EmployerAggregateRating — matches src/generate-employeraggregaterating.php
 	// ===================================================================
-	const ear = new EmployerAggregateRating(
-		new Organization({ name: 'TechCorp Industries' }),
-		4.2,
-		1847,
-		523,
-		5,
-		1,
-	);
+	const ear = new EmployerAggregateRating({
+		itemReviewed: new Organization({ name: 'TechCorp Industries' }),
+		ratingValue: 4.2,
+		ratingCount: 1847,
+		reviewCount: 523,
+		bestRating: 5,
+		worstRating: 1,
+	});
 	results.set('EmployerAggregateRating', {
 		type: 'EmployerAggregateRating',
 		phpScript: 'src/generate-employeraggregaterating.php',
@@ -1324,15 +1244,15 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 30. ItemList — matches src/generate-itemlist.php
 	// ===================================================================
-	const itemList = new ItemList(
-		[
-			new ListItem(1, 'MacBook Pro 16-inch', null, 'https://example.com/best-laptops/macbook-pro'),
-			new ListItem(2, 'ThinkPad X1 Carbon', null, 'https://example.com/best-laptops/thinkpad-x1'),
-			new ListItem(3, 'Dell XPS 15', null, 'https://example.com/best-laptops/dell-xps-15'),
+	const itemList = new ItemList({
+		itemListElement: [
+			new ListItem({ position: 1, name: 'MacBook Pro 16-inch', url: 'https://example.com/best-laptops/macbook-pro' }),
+			new ListItem({ position: 2, name: 'ThinkPad X1 Carbon', url: 'https://example.com/best-laptops/thinkpad-x1' }),
+			new ListItem({ position: 3, name: 'Dell XPS 15', url: 'https://example.com/best-laptops/dell-xps-15' }),
 		],
-		'https://schema.org/ItemListOrderDescending',
-		3,
-	);
+		itemListOrder: 'https://schema.org/ItemListOrderDescending',
+		numberOfItems: 3,
+	});
 	results.set('ItemList', {
 		type: 'ItemList',
 		phpScript: 'src/generate-itemlist.php',
@@ -1351,23 +1271,23 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			url: 'https://acme.example.com',
 			logo: 'https://acme.example.com/logo.png',
 		}),
-		jobLocation: new Place(
-			'ACME Headquarters',
-			new PostalAddress({
+		jobLocation: new Place({
+			name: 'ACME Headquarters',
+			address: new PostalAddress({
 				streetAddress: '100 Innovation Way',
 				addressLocality: 'Austin',
 				addressRegion: 'TX',
 				postalCode: '78701',
 				addressCountry: 'US',
 			}),
-		),
-		baseSalary: new MonetaryAmount('USD', null, 150000, 200000),
+		}),
+		baseSalary: new MonetaryAmount({ currency: 'USD', minValue: 150000, maxValue: 200000 }),
 		employmentType: 'FULL_TIME',
 		validThrough: '2025-06-01',
-		applicantLocationRequirements: new AdministrativeArea('United States'),
+		applicantLocationRequirements: new AdministrativeArea({ name: 'United States' }),
 		jobLocationType: 'TELECOMMUTE',
 		directApply: true,
-		identifier: new PropertyValue('Internal Job ID', 'SE-2025-0042'),
+		identifier: new PropertyValue({ name: 'Internal Job ID', value: 'SE-2025-0042' }),
 	});
 	results.set('JobPosting', {
 		type: 'JobPosting',
@@ -1378,26 +1298,26 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 32. MemberProgram — matches src/generate-member-program.php
 	// ===================================================================
-	const memberProgram = new MemberProgram(
-		'ShopRewards Loyalty Program',
-		'Earn points on every purchase and unlock exclusive member benefits.',
-		[
-			new MemberProgramTier(
-				'Silver',
-				TierBenefitEnumeration.TierBenefitLoyaltyPoints,
-				'No minimum spend required',
-				new QuantitativeValue(1),
-			),
-			new MemberProgramTier(
-				'Gold',
-				[TierBenefitEnumeration.TierBenefitLoyaltyPoints, TierBenefitEnumeration.TierBenefitLoyaltyPrice],
-				'Spend $500 or more per year',
-				new QuantitativeValue(2),
-				'https://www.example.com/rewards/gold',
-			),
+	const memberProgram = new MemberProgram({
+		name: 'ShopRewards Loyalty Program',
+		description: 'Earn points on every purchase and unlock exclusive member benefits.',
+		hasTiers: [
+			new MemberProgramTier({
+				name: 'Silver',
+				hasTierBenefit: TierBenefitEnumeration.TierBenefitLoyaltyPoints,
+				hasTierRequirement: 'No minimum spend required',
+				membershipPointsEarned: new QuantitativeValue({ value: 1 }),
+			}),
+			new MemberProgramTier({
+				name: 'Gold',
+				hasTierBenefit: [TierBenefitEnumeration.TierBenefitLoyaltyPoints, TierBenefitEnumeration.TierBenefitLoyaltyPrice],
+				hasTierRequirement: 'Spend $500 or more per year',
+				membershipPointsEarned: new QuantitativeValue({ value: 2 }),
+				url: 'https://www.example.com/rewards/gold',
+			}),
 		],
-		'https://www.example.com/rewards',
-	);
+		url: 'https://www.example.com/rewards',
+	});
 	results.set('MemberProgram', {
 		type: 'MemberProgram',
 		phpScript: 'src/generate-member-program.php',
@@ -1420,12 +1340,12 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		customerRemorseReturnLabelSource: ReturnLabelSourceEnumeration.ReturnLabelDownloadAndPrint,
 		itemDefectReturnFees: ReturnFeesEnumeration.FreeReturn,
 		itemDefectReturnLabelSource: ReturnLabelSourceEnumeration.ReturnLabelInBox,
-		returnPolicySeasonalOverride: new MerchantReturnPolicySeasonalOverride(
-			'2026-11-29',
-			'2027-01-31',
-			MerchantReturnEnumeration.MerchantReturnFiniteReturnWindow,
-			60,
-		),
+		returnPolicySeasonalOverride: new MerchantReturnPolicySeasonalOverride({
+			startDate: '2026-11-29',
+			endDate: '2027-01-31',
+			returnPolicyCategory: MerchantReturnEnumeration.MerchantReturnFiniteReturnWindow,
+			merchantReturnDays: 60,
+		}),
 	});
 	results.set('MerchantReturnPolicy', {
 		type: 'MerchantReturnPolicy',
@@ -1450,11 +1370,11 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			postalCode: '94105',
 			addressCountry: 'US',
 		}),
-		contactPoint: new ContactPoint('+1-555-987-6543', null, 'customer service'),
+		contactPoint: new ContactPoint({ telephone: '+1-555-987-6543', contactType: 'customer service' }),
 		sameAs: ['https://twitter.com/techstart', 'https://linkedin.com/company/techstart'],
 		foundingDate: '2020-03-15',
 		legalName: 'TechStart Incorporated',
-		numberOfEmployees: new QuantitativeValue(150),
+		numberOfEmployees: new QuantitativeValue({ value: 150 }),
 		taxID: '94-3456789',
 		duns: '12-345-6789',
 	});
@@ -1492,15 +1412,15 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 36. ProfilePage — matches src/generate-profilepage.php
 	// ===================================================================
-	const profilePage = new ProfilePage(
-		new Person({
+	const profilePage = new ProfilePage({
+		mainEntity: new Person({
 			name: 'Ada Lovelace',
 			url: 'https://example.com/profiles/ada-lovelace',
 			sameAs: ['https://twitter.com/example_ada', 'https://www.linkedin.com/in/example-ada'],
 		}),
-		'2024-01-15',
-		'2025-03-20',
-	);
+		dateCreated: '2024-01-15',
+		dateModified: '2025-03-20',
+	});
 	results.set('ProfilePage', {
 		type: 'ProfilePage',
 		phpScript: 'src/generate-profilepage.php',
@@ -1510,24 +1430,23 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 37. Quiz — matches src/generate-quiz.php
 	// ===================================================================
-	const quiz = new Quiz(
-		[
+	const quiz = new Quiz({
+		hasPart: [
 			new Question({
 				name: 'What is the chemical symbol for water?',
-				acceptedAnswer: new Answer('H2O'),
+				acceptedAnswer: new Answer({ text: 'H2O' }),
 				eduQuestionType: 'Multiple choice',
 			}),
 			new Question({
 				name: 'What planet is closest to the Sun?',
-				acceptedAnswer: new Answer('Mercury'),
+				acceptedAnswer: new Answer({ text: 'Mercury' }),
 				eduQuestionType: 'Multiple choice',
 			}),
 		],
-		'General Science',
-		null,
-		'Basic Science Quiz',
-		'Test your knowledge of basic science concepts.',
-	);
+		about: 'General Science',
+		name: 'Basic Science Quiz',
+		description: 'Test your knowledge of basic science concepts.',
+	});
 	results.set('Quiz', {
 		type: 'Quiz',
 		phpScript: 'src/generate-quiz.php',
@@ -1537,14 +1456,14 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	// ===================================================================
 	// 38. Review — matches src/generate-review.php
 	// ===================================================================
-	const reviewStandalone = new Review(
-		new Person({ name: 'James Wilson' }),
-		new Rating(4, 5, 1),
-		'Excellent product with great build quality. Minor issues with the manual.',
-		'2025-03-15',
-		'Great quality, minor documentation issues',
-		new Thing('Acme Wireless Headphones'),
-	);
+	const reviewStandalone = new Review({
+		author: new Person({ name: 'James Wilson' }),
+		reviewRating: new Rating({ ratingValue: 4, bestRating: 5, worstRating: 1 }),
+		reviewBody: 'Excellent product with great build quality. Minor issues with the manual.',
+		datePublished: '2025-03-15',
+		name: 'Great quality, minor documentation issues',
+		itemReviewed: new Thing({ name: 'Acme Wireless Headphones' }),
+	});
 	results.set('Review', {
 		type: 'Review',
 		phpScript: 'src/generate-review.php',
@@ -1565,10 +1484,10 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		latitude: 36.7783,
 		longitude: -119.4179,
 		containsPlace: new Accommodation({
-			occupancy: new QuantitativeValue(8),
+			occupancy: new QuantitativeValue({ value: 8 }),
 			numberOfBedrooms: 4,
 			numberOfBathroomsTotal: 3,
-			floorSize: new QuantitativeValue(250, 'MTK'),
+			floorSize: new QuantitativeValue({ value: 250, unitCode: 'MTK' }),
 		}),
 		address: new PostalAddress({
 			streetAddress: '123 Ocean Boulevard',
@@ -1577,17 +1496,17 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			postalCode: '90265',
 			addressCountry: 'US',
 		}),
-		aggregateRating: new AggregateRating(4.9, 5, 1, null, 87),
+		aggregateRating: new AggregateRating({ ratingValue: 4.9, bestRating: 5, worstRating: 1, reviewCount: 87 }),
 		checkinTime: '15:00',
 		checkoutTime: '11:00',
 		datePublished: '2025-06-01',
 		description: 'A stunning oceanfront villa with private pool and panoramic sea views.',
 		review: [
-			new Review(
-				'Traveler Kate',
-				new Rating(5, 5, 1),
-				'Absolutely perfect. The views are incredible.',
-			),
+			new Review({
+				author: 'Traveler Kate',
+				reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
+				reviewBody: 'Absolutely perfect. The views are incredible.',
+			}),
 		],
 	});
 	results.set('VacationRental', {
@@ -1620,11 +1539,11 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		dateModified: '2026-02-25',
 	});
 
-	const graphBreadcrumbs = new BreadcrumbList([
-		new ListItem(1, 'Home', 'https://example.com/'),
-		new ListItem(2, 'Blog', 'https://example.com/blog/'),
-		new ListItem(3, 'Understanding JSON-LD', 'https://example.com/blog/jsonld-guide'),
-	]);
+	const graphBreadcrumbs = new BreadcrumbList({ itemListElement: [
+		new ListItem({ position: 1, name: 'Home', item: 'https://example.com/' }),
+		new ListItem({ position: 2, name: 'Blog', item: 'https://example.com/blog/' }),
+		new ListItem({ position: 3, name: 'Understanding JSON-LD', item: 'https://example.com/blog/jsonld-guide' }),
+	] });
 
 	const graphPublisher = new Organization({
 		name: 'TechBlog Inc',

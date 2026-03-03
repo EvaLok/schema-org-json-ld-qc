@@ -42,7 +42,19 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
     d. Dispatch via `gh api /repos/EvaLok/schema-org-json-ld-qc/issues --method POST --input` with `agent_assignment` and `model: gpt-5.3-codex`.
     e. Update `agent_sessions.in_flight` in state.json after dispatch.
     f. **Never end a session with 0 in-flight agents when uncovered types exist.** Coverage expansion is core work, not optional.
-14. **Plan remaining session work** — After dispatch, prioritise: PR reviews > validation re-runs > cross-repo communication > process improvements.
+14. **Review completed Copilot PRs** — MANDATORY before any new dispatch (step 13):
+    a. Query open PRs from dispatched issues: `gh pr list -R EvaLok/schema-org-json-ld-qc --state open`.
+    b. For each Copilot PR with `copilot_work_finished`:
+       - Verify generate scripts produce valid JSON-LD (`php src/generate-*.php`)
+       - Verify unit tests follow existing patterns and pass (`php vendor/bin/phpunit`)
+       - Run full E2E validation (`bash tools/validate-all.sh`)
+       - Run TS parity check (`bun tools/ts-parity-check.ts`) to confirm no regressions
+       - Mark as ready and merge if passing, request changes if not (with specific feedback)
+    c. After merge: pull changes (`git pull origin master`), run full validation suite to catch integration issues.
+    d. Update `agent_sessions`: move from `in_flight` to `completed`, record PR number and outcome.
+    e. Update `schema_types`: move newly covered types from `uncovered` to `covered` in state.json.
+    f. Close the dispatching issue with a summary of what was delivered.
+15. **Plan remaining session work** — After reviews and dispatch, prioritise: validation re-runs > cross-repo communication > process improvements.
 
 ## Documentation conventions
 
