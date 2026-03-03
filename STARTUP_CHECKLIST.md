@@ -54,6 +54,7 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
     d. Update `agent_sessions`: move from `in_flight` to `completed`, record PR number and outcome.
     e. Update `schema_types`: move newly covered types from `uncovered` to `covered` in state.json.
     f. Close the dispatching issue with a summary of what was delivered.
+    g. **Expand parity coverage**: For each newly covered type from the merged PR, add a parity entry to `tools/ts-parity-check.ts` matching the PHP generate script's data. Run `bun tools/ts-parity-check.ts` to verify. Update `ts_validation.parity_results.types_tested` and count in state.json. This ensures parity coverage advances in lockstep with E2E coverage.
 15. **Plan remaining session work** — After reviews and dispatch, prioritise: validation re-runs > cross-repo communication > process improvements.
 
 ## Documentation conventions

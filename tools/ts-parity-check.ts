@@ -72,6 +72,8 @@ import { VideoObject } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/V
 import { VirtualLocation } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/VirtualLocation';
 import { WebApplication } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/WebApplication';
 
+import { ImageObject } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ImageObject';
+
 // Additional schema types for expanded parity (25 → 39)
 import { Accommodation } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Accommodation';
 import { ContactPoint } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ContactPoint';
@@ -1516,7 +1518,181 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 	});
 
 	// ===================================================================
-	// 40. @graph — matches src/generate-graph.php
+	// 40. Place — matches src/generate-place.php
+	// ===================================================================
+	const place = new Place({
+		name: 'Golden Gate Park',
+		address: new PostalAddress({
+			streetAddress: '501 Stanyan St',
+			addressLocality: 'San Francisco',
+			addressRegion: 'CA',
+			postalCode: '94117',
+			addressCountry: 'US',
+		}),
+		geo: new GeoCoordinates({ latitude: 37.7694, longitude: -122.4862 }),
+	});
+	results.set('Place', {
+		type: 'Place',
+		phpScript: 'src/generate-place.php',
+		json: JsonLdGenerator.schemaToJson(place),
+	});
+
+	// ===================================================================
+	// 41. PostalAddress — matches src/generate-postaladdress.php
+	// ===================================================================
+	const postalAddress = new PostalAddress({
+		streetAddress: '123 Main St',
+		addressLocality: 'San Francisco',
+		addressRegion: 'CA',
+		postalCode: '94102',
+		addressCountry: 'US',
+	});
+	results.set('PostalAddress', {
+		type: 'PostalAddress',
+		phpScript: 'src/generate-postaladdress.php',
+		json: JsonLdGenerator.schemaToJson(postalAddress),
+	});
+
+	// ===================================================================
+	// 42. GeoCoordinates — matches src/generate-geocoordinates.php
+	// ===================================================================
+	const geoCoords = new GeoCoordinates({ latitude: 37.7749, longitude: -122.4194 });
+	results.set('GeoCoordinates', {
+		type: 'GeoCoordinates',
+		phpScript: 'src/generate-geocoordinates.php',
+		json: JsonLdGenerator.schemaToJson(geoCoords),
+	});
+
+	// ===================================================================
+	// 43. ContactPoint — matches src/generate-contactpoint.php
+	// ===================================================================
+	const contactPt = new ContactPoint({
+		telephone: '+1-800-555-0199',
+		email: 'support@example.com',
+		contactType: 'customer service',
+		areaServed: 'US',
+		availableLanguage: 'English',
+	});
+	results.set('ContactPoint', {
+		type: 'ContactPoint',
+		phpScript: 'src/generate-contactpoint.php',
+		json: JsonLdGenerator.schemaToJson(contactPt),
+	});
+
+	// ===================================================================
+	// 44. ImageObject — matches src/generate-imageobject.php
+	// ===================================================================
+	const imageObj = new ImageObject({
+		contentUrl: 'https://example.com/photos/sunset.jpg',
+		url: 'https://example.com/gallery/sunset',
+		name: 'Sunset over the Pacific',
+		caption: 'A vivid sunset captured from Ocean Beach',
+		description: 'High-resolution photograph of a sunset over the Pacific Ocean',
+		width: '1920',
+		height: '1080',
+		license: 'https://creativecommons.org/licenses/by/4.0/',
+		acquireLicensePage: 'https://example.com/licensing',
+		creditText: 'Photo by Jane Doe',
+		copyrightNotice: 'Copyright 2025 Jane Doe',
+		creator: new Organization({ name: 'Example Photography' }),
+		datePublished: '2025-06-15',
+		uploadDate: '2025-06-16',
+	});
+	results.set('ImageObject', {
+		type: 'ImageObject',
+		phpScript: 'src/generate-imageobject.php',
+		json: JsonLdGenerator.schemaToJson(imageObj),
+	});
+
+	// ===================================================================
+	// 45. Question — matches src/generate-question.php
+	// ===================================================================
+	const question = new Question({
+		name: 'How do I reset my password?',
+		acceptedAnswer: new Answer({ text: 'Go to Settings > Security > Reset Password' }),
+		suggestedAnswer: [
+			new Answer({ text: 'Try the forgot password link on the login page' }),
+			new Answer({ text: 'Contact support for a manual reset' }),
+		],
+		answerCount: 3,
+		text: 'I cannot remember my password and need to regain access to my account.',
+		upvoteCount: 42,
+		author: new Person({ name: 'Sarah Tech' }),
+		datePublished: '2025-01-15',
+		dateModified: '2025-03-20',
+	});
+	results.set('Question', {
+		type: 'Question',
+		phpScript: 'src/generate-question.php',
+		json: JsonLdGenerator.schemaToJson(question),
+	});
+
+	// ===================================================================
+	// 46. Answer — matches src/generate-answer.php
+	// ===================================================================
+	const answer = new Answer({
+		text: 'Navigate to Settings > Security > Reset Password and follow the prompts.',
+		author: new Person({ name: 'Support Agent Mike' }),
+		url: 'https://example.com/answers/12345',
+		upvoteCount: 87,
+		datePublished: '2025-01-16',
+		dateModified: '2025-02-10',
+	});
+	results.set('Answer', {
+		type: 'Answer',
+		phpScript: 'src/generate-answer.php',
+		json: JsonLdGenerator.schemaToJson(answer),
+	});
+
+	// ===================================================================
+	// 47. Offer — matches src/generate-offer.php
+	// ===================================================================
+	const offerStandalone = new Offer({
+		url: 'https://example.com/products/widget-pro',
+		priceCurrency: 'USD',
+		price: 29.99,
+		availability: ItemAvailability.InStock,
+		itemCondition: OfferItemCondition.NewCondition,
+		validFrom: '2025-01-01',
+		priceValidUntil: '2025-12-31',
+	});
+	results.set('Offer', {
+		type: 'Offer',
+		phpScript: 'src/generate-offer.php',
+		json: JsonLdGenerator.schemaToJson(offerStandalone),
+	});
+
+	// ===================================================================
+	// 48. BroadcastEvent — matches src/generate-broadcastevent.php
+	// ===================================================================
+	const broadcastEvt = new BroadcastEvent({
+		isLiveBroadcast: true,
+		startDate: '2025-06-15T20:00:00+00:00',
+		endDate: '2025-06-15T22:00:00+00:00',
+	});
+	results.set('BroadcastEvent', {
+		type: 'BroadcastEvent',
+		phpScript: 'src/generate-broadcastevent.php',
+		json: JsonLdGenerator.schemaToJson(broadcastEvt),
+	});
+
+	// ===================================================================
+	// 49. AggregateOffer — matches src/generate-aggregateoffer.php
+	// ===================================================================
+	const aggOffer = new AggregateOffer({
+		lowPrice: 9.99,
+		highPrice: 49.99,
+		priceCurrency: 'USD',
+		offerCount: 12,
+	});
+	results.set('AggregateOffer', {
+		type: 'AggregateOffer',
+		phpScript: 'src/generate-aggregateoffer.php',
+		json: JsonLdGenerator.schemaToJson(aggOffer),
+	});
+
+	// ===================================================================
+	// 50. @graph — matches src/generate-graph.php
 	//     Tests schemasToJson (plural) for multi-schema output
 	// ===================================================================
 	const graphArticle = new Article({
