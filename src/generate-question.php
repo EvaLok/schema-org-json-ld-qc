@@ -4,10 +4,16 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Answer;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Comment;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Question;
 
-$question = new Question(
+final class QuestionWithComment extends Question
+{
+	public ?array $comment = null;
+}
+
+$question = new QuestionWithComment(
 	name: 'How do I reset my password?',
 	acceptedAnswer: new Answer(text: 'Go to Settings > Security > Reset Password'),
 	suggestedAnswer: [
@@ -22,5 +28,8 @@ $question = new Question(
 	dateModified: '2025-03-20',
 	eduQuestionType: null,
 );
+$question->comment = [
+	new Comment(text: 'Great question, I had the same issue!', author: new Person(name: 'Fellow User')),
+];
 
 echo JsonLdGenerator::SchemaToJson($question) . "\n";
