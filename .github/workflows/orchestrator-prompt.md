@@ -34,7 +34,7 @@ If a change touches more than ~5 lines of consumer project code, it MUST go thro
 - **Run tests**: `composer run test-unit`, `bunx playwright test` — you run these to validate, that's core orchestrator work
 - **Orchestrator infrastructure**: `tools/`, `scripts/`, AGENTS.md, STARTUP_CHECKLIST.md, CLAUDE.md, state files, worklogs, journal
 - **Issue specs**: the body text of `agent-task` issues
-- **Custom tooling**: shell scripts, helper utilities, and process automation you create to improve your own workflow
+- **Custom tooling — preferably in Rust**: When you need tools for automation, verification, or report generation, build them as compiled Rust binaries. A Cargo workspace exists at `tools/rust/` — new crates are auto-discovered via `members = ["crates/*"]`. Use `clap` for CLI parsing and `serde_json` for JSON. Create a shell wrapper at `tools/<name>` so you can invoke it as `bash tools/<name>`. Both `cargo` and `bash` are in your allowed commands. CI pre-builds all Rust tools before your session starts. See `.claude/skills/rust-tooling/SKILL.md` for the full recipe. **Do not use shell scripts for complex logic** — they hit sandbox restrictions (pipes, `$()`, redirects are all blocked). Rust tools avoid these limitations entirely. Simple shell wrappers that just invoke a binary are fine.
 
 ### Multi-cycle workflow
 

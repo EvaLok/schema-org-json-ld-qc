@@ -1,5 +1,6 @@
 /vendor/
 /node_modules/
+tools/rust/target/
 /.playwright/
 /.phpunit.cache/
 /test-results/

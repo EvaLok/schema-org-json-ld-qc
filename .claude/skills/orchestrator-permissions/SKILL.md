@@ -25,6 +25,7 @@ The QC orchestrator workflow permits these commands:
 | `wc *` | `wc -l file` |
 | `sort *` | `sort file` |
 | `grep *` | `grep -A5 '"evabee/schema-org-json-ld"' composer.lock` |
+| `cargo *` | `cargo build --release --manifest-path tools/rust/Cargo.toml` |
 
 ## BLOCKED constructs (will cause denial and waste turns)
 
