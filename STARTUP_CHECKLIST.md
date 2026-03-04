@@ -27,6 +27,10 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
    1. **Property depth check**: Pick a standalone type. Verify its parity test covers all non-trivial properties (not just constructor + toArray). If gaps found, dispatch a Copilot task to expand the test.
    2. **Minimal data audit**: Check whether any E2E test relies on minimal/empty data that wouldn't exercise optional property paths. If found, dispatch enrichment.
    3. **Building-block integration check**: Pick a building-block type and verify its integration within a parent type's E2E test exercises its key properties.
+   **Mandatory follow-through** (per [audit #90](https://github.com/EvaLok/schema-org-json-ld-audit/issues/90)) — When a quality check identifies a gap:
+   a. **Actionable this session**: Create a Copilot dispatch issue (proceed to step 13) to address the gap.
+   b. **Requires upstream changes**: File a QC-REPORT or note it in `quality_checks.backlog` in state.json with the type, finding, and session number.
+   c. **Log the finding**: Add an entry to `quality_checks.history` in state.json with: check type, target type, finding, action taken, session number.
    This converts idle time from repetitive green confirmation into incremental quality improvement. Track which check was performed in the session worklog.
 5. **Poll repos** — `bash tools/poll-repos.sh` (checks qc-outbound, qc-inbound, input-from-eva, open PRs).
 5a. **Check open QC-REPORTs for upstream fixes** — For each open `qc-outbound` issue on this repo, check whether the main repo has acknowledged it (look for `qc-inbound` issues on the main repo referencing ours). If an acknowledgment exists, check whether the fix has been merged and is in the latest package version. If so, re-validate the affected type and close the QC-REPORT with results. This closes the feedback loop — don't leave QC-REPORTs open after fixes are deployed.
