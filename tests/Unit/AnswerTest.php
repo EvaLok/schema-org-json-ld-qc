@@ -8,11 +8,6 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Comment;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use PHPUnit\Framework\TestCase;
 
-final class AnswerWithComment extends Answer
-{
-	public ?array $comment = null;
-}
-
 class AnswerTest extends TestCase
 {
 	public function testMinimalAnswer(): void
@@ -29,18 +24,18 @@ class AnswerTest extends TestCase
 
 	public function testAnswerWithAllFields(): void
 	{
-		$answer = new AnswerWithComment(
+		$answer = new Answer(
 			text: 'Navigate to Settings > Security > Reset Password and follow the prompts.',
 			author: new Person(name: 'Support Agent Mike'),
 			url: 'https://example.com/answers/12345',
 			upvoteCount: 87,
 			datePublished: '2025-01-16',
 			dateModified: '2025-02-10',
+			comment: [
+				new Comment(text: 'This was very helpful, thanks!', author: new Person(name: 'Grateful User')),
+				new Comment(text: 'Worked for me too.', author: new Person(name: 'Another User')),
+			],
 		);
-		$answer->comment = [
-			new Comment(text: 'This was very helpful, thanks!', author: new Person(name: 'Grateful User')),
-			new Comment(text: 'Worked for me too.', author: new Person(name: 'Another User')),
-		];
 
 		$json = JsonLdGenerator::SchemaToJson($answer);
 		$data = json_decode($json, true);

@@ -9,11 +9,6 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Question;
 use PHPUnit\Framework\TestCase;
 
-final class QuestionWithComment extends Question
-{
-	public ?array $comment = null;
-}
-
 class QuestionTest extends TestCase
 {
 	public function testMinimalQuestion(): void
@@ -30,7 +25,7 @@ class QuestionTest extends TestCase
 
 	public function testQuestionWithAllFields(): void
 	{
-		$question = new QuestionWithComment(
+		$question = new Question(
 			name: 'How do I reset my password?',
 			acceptedAnswer: new Answer(text: 'Go to Settings > Security > Reset Password'),
 			suggestedAnswer: [
@@ -43,10 +38,10 @@ class QuestionTest extends TestCase
 			author: new Person(name: 'Sarah Tech'),
 			datePublished: '2025-01-15',
 			dateModified: '2025-03-20',
+			comment: [
+				new Comment(text: 'Great question, I had the same issue!', author: new Person(name: 'Fellow User')),
+			],
 		);
-		$question->comment = [
-			new Comment(text: 'Great question, I had the same issue!', author: new Person(name: 'Fellow User')),
-		];
 
 		$json = JsonLdGenerator::SchemaToJson($question);
 		$data = json_decode($json, true);

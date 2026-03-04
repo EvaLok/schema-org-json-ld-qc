@@ -8,12 +8,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\Comment;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Question;
 
-final class QuestionWithComment extends Question
-{
-	public ?array $comment = null;
-}
-
-$question = new QuestionWithComment(
+$question = new Question(
 	name: 'How do I reset my password?',
 	acceptedAnswer: new Answer(text: 'Go to Settings > Security > Reset Password'),
 	suggestedAnswer: [
@@ -26,10 +21,10 @@ $question = new QuestionWithComment(
 	author: new Person(name: 'Sarah Tech'),
 	datePublished: '2025-01-15',
 	dateModified: '2025-03-20',
+	comment: [
+		new Comment(text: 'Great question, I had the same issue!', author: new Person(name: 'Fellow User')),
+	],
 	eduQuestionType: null,
 );
-$question->comment = [
-	new Comment(text: 'Great question, I had the same issue!', author: new Person(name: 'Fellow User')),
-];
 
 echo JsonLdGenerator::SchemaToJson($question) . "\n";
