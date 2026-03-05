@@ -253,6 +253,7 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			url: 'https://www.livenation.com',
 		}),
 		performer: new Person({ name: 'The Rolling Stones' }),
+		previousStartDate: '2025-06-15T19:00-05:00',
 	});
 	results.set('Event', {
 		type: 'Event',
@@ -1631,6 +1632,9 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		author: new Person({ name: 'Sarah Tech' }),
 		datePublished: '2025-01-15',
 		dateModified: '2025-03-20',
+		comment: [
+			new Comment({ text: 'Great question, I had the same issue!', author: new Person({ name: 'Fellow User' }) }),
+		],
 	});
 	results.set('Question', {
 		type: 'Question',
@@ -1648,6 +1652,10 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		upvoteCount: 87,
 		datePublished: '2025-01-16',
 		dateModified: '2025-02-10',
+		comment: [
+			new Comment({ text: 'This was very helpful, thanks!', author: new Person({ name: 'Grateful User' }) }),
+			new Comment({ text: 'Worked for me too.', author: new Person({ name: 'Another User' }) }),
+		],
 	});
 	results.set('Answer', {
 		type: 'Answer',
