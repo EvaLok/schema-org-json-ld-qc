@@ -73,11 +73,28 @@ Shell scripts for common operations. Invoke with `bash tools/<script>.sh` (not `
 - `tools/discover-types.sh` — Compare main repo types against our coverage
 - `tools/git-commit.sh <message-file> [files...]` — Commit using a message file (avoids `$()` sandbox restriction)
 
+## Agent environment
+
+The Copilot coding agent's setup steps (`.github/copilot-setup-steps.yml`) pre-install:
+
+- **PHP 8.3** + Composer + `composer install`
+- **`composer update evabee/schema-org-json-ld`** — the agent always has the latest library version
+- **Bun** + `bun install` — all Bun/TypeScript dependencies are available
+- **Node.js 22** — for Playwright and Adobe validator
+
+All setup runs before the Copilot firewall activates, so the agent can:
+- Inspect actual class constructors and properties in `vendor/`
+- Run `composer run test-unit` to verify PHPUnit tests pass
+- Run `bunx playwright test` for E2E validation
+- Run `bun run validate` for Adobe structured data validation
+
+**Dispatch specs no longer need constructor signatures** — the agent can read them from the installed package directly.
+
 ## Coverage expansion tasks
 
 The orchestrator dispatches Copilot to expand test coverage for uncovered schema types. Each task should:
 
-- **Batch 4-6 related types** (e.g., all location types: Place, PostalAddress, GeoCoordinates, GeoShape)
+- **Batch 10-15 related types** per issue spec (gpt-5.3-codex handles large batches well)
 - **Create for each type**:
   - `src/generate-<type>.php` — Instantiate with realistic data, output JSON-LD via `echo json_encode(...)`
   - `src/Fixtures/<Type>Fixture.php` — Realistic test data (if complex enough to warrant a fixture)
@@ -85,7 +102,8 @@ The orchestrator dispatches Copilot to expand test coverage for uncovered schema
   - `tests/E2E/<type>.spec.ts` — Adobe structured data validator test
 - **Follow existing patterns** — Look at `src/generate-product.php`, `tests/Unit/ProductTest.php`, and `tests/E2E/product.spec.ts` as reference
 - **Use the installed package** — `use Evabee\SchemaOrgJsonLd\v1\<Type>;` (check actual class names in `vendor/evabee/schema-org-json-ld/php/src/v1/`)
-- **Run `composer run test-unit`** before marking complete
+- **Run `composer run test-unit`** to verify before marking complete
+- **Run `bunx playwright test`** to verify E2E tests pass
 
 ## Claude Code sandbox notes
 
