@@ -1,9 +1,23 @@
 steps:
   - uses: actions/checkout@v4
+
+  # PHP + Composer
   - uses: shivammathur/setup-php@v2
     with:
       php-version: '8.3'
       tools: composer:v2
   - run: composer install --no-interaction --prefer-dist
+
+  # Pull latest main library (dev-master tracks HEAD)
+  # This ensures the agent always has the newest schema classes
+  # available, even if composer.lock is behind master.
+  - run: composer update evabee/schema-org-json-ld --no-interaction --prefer-dist
+
+  # Bun (TS runtime, E2E tests, package manager)
   - uses: oven-sh/setup-bun@v2
   - run: bun install
+
+  # Node.js (for Playwright / Adobe validator)
+  - uses: actions/setup-node@v4
+    with:
+      node-version: '22'
