@@ -4,6 +4,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Answer;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\Comment;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Question;
 use PHPUnit\Framework\TestCase;
@@ -37,6 +38,9 @@ class QuestionTest extends TestCase
 			author: new Person(name: 'Sarah Tech'),
 			datePublished: '2025-01-15',
 			dateModified: '2025-03-20',
+			comment: [
+				new Comment(text: 'Great question, I had the same issue!', author: new Person(name: 'Fellow User')),
+			],
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($question);
@@ -53,6 +57,13 @@ class QuestionTest extends TestCase
 		$this->assertCount(2, $data['suggestedAnswer']);
 		$this->assertSame('Person', $data['author']['@type']);
 		$this->assertSame('Sarah Tech', $data['author']['name']);
+		$this->assertArrayHasKey('comment', $data);
+		$this->assertIsArray($data['comment']);
+		$this->assertCount(1, $data['comment']);
+		$this->assertSame('Comment', $data['comment'][0]['@type']);
+		$this->assertSame('Great question, I had the same issue!', $data['comment'][0]['text']);
+		$this->assertSame('Person', $data['comment'][0]['author']['@type']);
+		$this->assertSame('Fellow User', $data['comment'][0]['author']['name']);
 	}
 
 	public function testQuestionNullFieldsOmitted(): void
@@ -71,6 +82,7 @@ class QuestionTest extends TestCase
 		$this->assertArrayNotHasKey('datePublished', $data);
 		$this->assertArrayNotHasKey('dateModified', $data);
 		$this->assertArrayNotHasKey('eduQuestionType', $data);
+		$this->assertArrayNotHasKey('comment', $data);
 	}
 
 	public function testQuestionNestedAnswersRenderCorrectly(): void

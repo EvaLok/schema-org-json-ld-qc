@@ -188,4 +188,34 @@ class EventTest extends TestCase
 		$this->assertSame('https://schema.org/EventPostponed', $data['eventStatus']);
 		$this->assertSame('2025-06-15T20:00', $data['previousStartDate']);
 	}
+
+	public function testPreviousStartDateIncludedWhenSet(): void
+	{
+		$event = new Event(
+			name: 'Rescheduled Concert',
+			startDate: '2025-07-21T19:00-05:00',
+			location: new Place(name: 'Soldier Field'),
+			previousStartDate: '2025-06-15T19:00-05:00',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($event);
+		$data = json_decode($json, true);
+
+		$this->assertArrayHasKey('previousStartDate', $data);
+		$this->assertSame('2025-06-15T19:00-05:00', $data['previousStartDate']);
+	}
+
+	public function testPreviousStartDateOmittedWhenNull(): void
+	{
+		$event = new Event(
+			name: 'Scheduled Concert',
+			startDate: '2025-07-21T19:00-05:00',
+			location: new Place(name: 'Soldier Field'),
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($event);
+		$data = json_decode($json, true);
+
+		$this->assertArrayNotHasKey('previousStartDate', $data);
+	}
 }

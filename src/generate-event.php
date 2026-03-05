@@ -51,6 +51,7 @@ $event = new Event(
 		url: 'https://www.livenation.com',
 	),
 	performer: new Person(name: 'The Rolling Stones'),
+	previousStartDate: '2025-06-15T19:00-05:00',
 );
 
 echo JsonLdGenerator::SchemaToJson($event) . "\n";
