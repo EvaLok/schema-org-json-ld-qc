@@ -302,7 +302,7 @@ gh api /repos/EvaLok/schema-org-json-ld-qc/issues --method POST --input - <<'JSO
   "agent_assignment": {
     "target_repo": "EvaLok/schema-org-json-ld-qc",
     "base_branch": "master",
-    "model": "gpt-5.3-codex",
+    "model": "gpt-5.4",
     "custom_instructions": ""
   }
 }
@@ -311,11 +311,11 @@ JSON
 
 Do NOT use `gh issue create --assignee Copilot` — it doesn't support model selection.
 
-Prefer `gpt-5.3-codex` for routine work. Use higher-capability models only when a task genuinely requires it.
+Prefer `gpt-5.4` for routine work. Use higher-capability models only when a task genuinely requires it.
 
 ### Model restriction
 
-**Do not use Anthropic models** (`claude-*`) for coding agent tasks. Use OpenAI/GitHub models only (`gpt-5.3-codex`, `gpt-5.2-codex`, or `Auto`). This is a deliberate experiment in cross-vendor orchestration — a Claude orchestrator directing non-Claude agents.
+**Do not use Anthropic models** (`claude-*`) for coding agent tasks. Use OpenAI/GitHub models only (`gpt-5.4`, `gpt-5.3-codex`, or `Auto`). This is a deliberate experiment in cross-vendor orchestration — a Claude orchestrator directing non-Claude agents.
 
 ### Requesting changes on a Copilot PR
 

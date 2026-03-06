@@ -69,9 +69,9 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
        - **Standalone types**: Can produce valid standalone rich results (e.g., Accommodation, Article). Full pipeline: generate script + unit test + E2E test + parity entry.
        - **Building-block types**: Designed to be nested inside parent types (e.g., QuantitativeValue, GeoShape, Schedule). Reduced pipeline: unit test only. No standalone generate script or E2E test — these types are validated through their parent types.
        - **Enum types**: Pure enumerations (DayOfWeek, ItemAvailability, etc.). Skip entirely — validated through parent types. Track in `schema_types.enums`, not in the uncovered list.
-    b. Batch 10-15 types per issue spec. gpt-5.3-codex handles large, complex tasks well — give it volume and complexity rather than small simple tasks.
+    b. Batch 10-15 types per issue spec. gpt-5.4 handles large, complex tasks well — give it volume and complexity rather than small simple tasks.
     c. Each issue spec must include: type classification (standalone vs building-block), files to create, example field values, patterns to follow, and explicit instructions on what NOT to create for building-block types.
-    d. Dispatch via `gh api /repos/EvaLok/schema-org-json-ld-qc/issues --method POST --input` with `agent_assignment` and `model: gpt-5.3-codex`.
+    d. Dispatch via `gh api /repos/EvaLok/schema-org-json-ld-qc/issues --method POST --input` with `agent_assignment` and `model: gpt-5.4`.
     e. Update `agent_sessions.in_flight` in state.json after dispatch.
     f. **Never end a session with 0 in-flight agents when uncovered types exist.** Coverage expansion is core work, not optional.
 14. **Review completed Copilot PRs** — MANDATORY before any new dispatch (step 13):
