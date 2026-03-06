@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\OfferItemCondition;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicySeasonalOverride;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
@@ -19,12 +20,30 @@ $policy = new MerchantReturnPolicy(
 	merchantReturnLink: 'https://www.example.com/returns',
 	returnMethod: ReturnMethodEnumeration::ReturnByMail,
 	returnFees: ReturnFeesEnumeration::FreeReturn,
+	returnShippingFeesAmount: new MonetaryAmount(
+		value: 5.99,
+		currency: 'USD',
+	),
 	refundType: RefundTypeEnumeration::FullRefund,
+	itemCondition: OfferItemCondition::NewCondition,
 	returnLabelSource: ReturnLabelSourceEnumeration::ReturnLabelDownloadAndPrint,
+	returnPolicyCountry: 'US',
+	restockingFee: new MonetaryAmount(
+		value: 0,
+		currency: 'USD',
+	),
 	customerRemorseReturnFees: ReturnFeesEnumeration::FreeReturn,
 	customerRemorseReturnLabelSource: ReturnLabelSourceEnumeration::ReturnLabelDownloadAndPrint,
+	customerRemorseReturnShippingFeesAmount: new MonetaryAmount(
+		value: 7.99,
+		currency: 'USD',
+	),
 	itemDefectReturnFees: ReturnFeesEnumeration::FreeReturn,
 	itemDefectReturnLabelSource: ReturnLabelSourceEnumeration::ReturnLabelInBox,
+	itemDefectReturnShippingFeesAmount: new MonetaryAmount(
+		value: 0,
+		currency: 'USD',
+	),
 	returnPolicySeasonalOverride: new MerchantReturnPolicySeasonalOverride(
 		startDate: '2026-11-29',
 		endDate: '2027-01-31',
