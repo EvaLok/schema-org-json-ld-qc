@@ -27,6 +27,11 @@ Run `bun tools/ts-parity-check.ts` to run TypeScript parity validation.
    1. **Property depth check**: Pick a standalone type. Verify its parity test covers all non-trivial properties (not just constructor + toArray). If gaps found, dispatch a Copilot task to expand the test.
    2. **Minimal data audit**: Check whether any E2E test relies on minimal/empty data that wouldn't exercise optional property paths. If found, dispatch enrichment.
    3. **Building-block integration check**: Pick a building-block type and verify its integration within a parent type's E2E test exercises its key properties.
+   **Type selection priority** (per [audit #114](https://github.com/EvaLok/schema-org-json-ld-audit/issues/114)) — Weight type selection by complexity:
+   - **Prioritize** types with 10+ properties — these are most likely to have undiscovered coverage gaps.
+   - **Deprioritize** types with fewer than 6 properties unless they haven't been checked in 10+ sessions.
+   - Rotate through unchecked complex types before revisiting simple ones.
+   **Minimum coverage threshold** (per [audit #114](https://github.com/EvaLok/schema-org-json-ld-audit/issues/114)) — If a quality check finds <70% property coverage, it is a **mandatory backlog entry**. Do not dismiss low coverage as "diminishing returns" — register it in `quality_checks.backlog` for dispatch evaluation.
    **Mandatory follow-through** (per [audit #90](https://github.com/EvaLok/schema-org-json-ld-audit/issues/90)) — When a quality check identifies a gap:
    a. **Actionable this session**: Create a Copilot dispatch issue (proceed to step 13) to address the gap.
    b. **Requires upstream changes**: File a QC-REPORT or note it in `quality_checks.backlog` in state.json with the type, finding, and session number.
