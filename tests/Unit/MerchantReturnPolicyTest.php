@@ -4,6 +4,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\OfferItemCondition;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicySeasonalOverride;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
@@ -59,8 +60,26 @@ class MerchantReturnPolicyTest extends TestCase
 			merchantReturnLink: 'https://www.example.com/returns',
 			returnMethod: ReturnMethodEnumeration::ReturnByMail,
 			returnFees: ReturnFeesEnumeration::FreeReturn,
+			returnShippingFeesAmount: new MonetaryAmount(
+				value: 5.99,
+				currency: 'USD',
+			),
 			refundType: RefundTypeEnumeration::FullRefund,
+			itemCondition: OfferItemCondition::NewCondition,
 			returnLabelSource: ReturnLabelSourceEnumeration::ReturnLabelDownloadAndPrint,
+			returnPolicyCountry: 'US',
+			restockingFee: new MonetaryAmount(
+				value: 0,
+				currency: 'USD',
+			),
+			customerRemorseReturnShippingFeesAmount: new MonetaryAmount(
+				value: 7.99,
+				currency: 'USD',
+			),
+			itemDefectReturnShippingFeesAmount: new MonetaryAmount(
+				value: 0,
+				currency: 'USD',
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($policy);
@@ -74,8 +93,18 @@ class MerchantReturnPolicyTest extends TestCase
 		$this->assertSame('https://www.example.com/returns', $data['merchantReturnLink']);
 		$this->assertSame('https://schema.org/ReturnByMail', $data['returnMethod']);
 		$this->assertSame('https://schema.org/FreeReturn', $data['returnFees']);
+		$this->assertSame('MonetaryAmount', $data['returnShippingFeesAmount']['@type']);
+		$this->assertEquals(5.99, $data['returnShippingFeesAmount']['value']);
 		$this->assertSame('https://schema.org/FullRefund', $data['refundType']);
+		$this->assertSame('https://schema.org/NewCondition', $data['itemCondition']);
 		$this->assertSame('https://schema.org/ReturnLabelDownloadAndPrint', $data['returnLabelSource']);
+		$this->assertSame('US', $data['returnPolicyCountry']);
+		$this->assertSame('MonetaryAmount', $data['restockingFee']['@type']);
+		$this->assertEquals(0, $data['restockingFee']['value']);
+		$this->assertSame('MonetaryAmount', $data['customerRemorseReturnShippingFeesAmount']['@type']);
+		$this->assertEquals(7.99, $data['customerRemorseReturnShippingFeesAmount']['value']);
+		$this->assertSame('MonetaryAmount', $data['itemDefectReturnShippingFeesAmount']['@type']);
+		$this->assertEquals(0, $data['itemDefectReturnShippingFeesAmount']['value']);
 	}
 
 	public function testReturnPolicyWithSeasonalOverride(): void

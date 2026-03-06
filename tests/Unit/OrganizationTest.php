@@ -4,6 +4,8 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ContactPoint;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\ImageObject;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\InteractionCounter;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgram;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MemberProgramTier;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\MerchantReturnEnumeration;
@@ -11,6 +13,7 @@ use EvaLok\SchemaOrgJsonLd\v1\Schema\MerchantReturnPolicy;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\MonetaryAmount;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\QuantitativeValue;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\ReturnFeesEnumeration;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ShippingConditions;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\ShippingService;
@@ -61,6 +64,44 @@ class OrganizationTest extends TestCase
 			foundingDate: '2020-03-15',
 			legalName: 'TechStart Incorporated',
 			alternateName: 'TechStart',
+			numberOfEmployees: new QuantitativeValue(value: 150),
+			taxID: '94-3456789',
+			duns: '12-345-6789',
+			vatID: 'DE123456789',
+			naics: '541512',
+			identifier: 'techstart-2020',
+			image: new ImageObject(
+				contentUrl: 'https://techstart.example.com/office.jpg',
+				url: 'https://techstart.example.com/office.jpg',
+				width: '1200',
+				height: '800',
+			),
+			interactionStatistic: new InteractionCounter(
+				interactionType: 'https://schema.org/FollowAction',
+				userInteractionCount: 15000,
+			),
+			agentInteractionStatistic: new InteractionCounter(
+				interactionType: 'https://schema.org/WriteAction',
+				userInteractionCount: 500,
+			),
+			leiCode: '529900T8BM49AURSDO55',
+			iso6523Code: '0060:123456789',
+			globalLocationNumber: '1234567890128',
+			hasMerchantReturnPolicy: new MerchantReturnPolicy(
+				applicableCountry: 'US',
+				returnPolicyCategory: MerchantReturnEnumeration::MerchantReturnFiniteReturnWindow,
+				merchantReturnDays: 30,
+			),
+			hasMemberProgram: new MemberProgram(
+				name: 'TechStart Partners',
+				description: 'Partner membership program for strategic collaborators.',
+				hasTiers: [
+					new MemberProgramTier(
+						name: 'Silver',
+						hasTierBenefit: TierBenefitEnumeration::TierBenefitLoyaltyPoints,
+					),
+				],
+			),
 		);
 
 		$json = JsonLdGenerator::SchemaToJson($org);
@@ -84,6 +125,28 @@ class OrganizationTest extends TestCase
 		$this->assertSame('2020-03-15', $data['foundingDate']);
 		$this->assertSame('TechStart Incorporated', $data['legalName']);
 		$this->assertSame('TechStart', $data['alternateName']);
+		$this->assertSame('DE123456789', $data['vatID']);
+		$this->assertSame('541512', $data['naics']);
+		$this->assertSame('techstart-2020', $data['identifier']);
+		$this->assertSame('ImageObject', $data['image']['@type']);
+		$this->assertSame('https://techstart.example.com/office.jpg', $data['image']['url']);
+		$this->assertSame('1200', $data['image']['width']);
+		$this->assertSame('800', $data['image']['height']);
+		$this->assertSame('InteractionCounter', $data['interactionStatistic']['@type']);
+		$this->assertSame('https://schema.org/FollowAction', $data['interactionStatistic']['interactionType']);
+		$this->assertSame(15000, $data['interactionStatistic']['userInteractionCount']);
+		$this->assertSame('InteractionCounter', $data['agentInteractionStatistic']['@type']);
+		$this->assertSame('https://schema.org/WriteAction', $data['agentInteractionStatistic']['interactionType']);
+		$this->assertSame(500, $data['agentInteractionStatistic']['userInteractionCount']);
+		$this->assertSame('529900T8BM49AURSDO55', $data['leiCode']);
+		$this->assertSame('0060:123456789', $data['iso6523Code']);
+		$this->assertSame('1234567890128', $data['globalLocationNumber']);
+		$this->assertSame('MerchantReturnPolicy', $data['hasMerchantReturnPolicy']['@type']);
+		$this->assertSame(30, $data['hasMerchantReturnPolicy']['merchantReturnDays']);
+		$this->assertSame('MemberProgram', $data['hasMemberProgram']['@type']);
+		$this->assertSame('TechStart Partners', $data['hasMemberProgram']['name']);
+		$this->assertCount(1, $data['hasMemberProgram']['hasTiers']);
+		$this->assertSame('Silver', $data['hasMemberProgram']['hasTiers'][0]['name']);
 	}
 
 	public function testOrganizationNullFieldsOmitted(): void

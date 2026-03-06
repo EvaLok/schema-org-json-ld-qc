@@ -31,8 +31,8 @@ class PersonTest extends TestCase
 			name: 'Dr. Emily Zhang',
 			url: 'https://emilyzhang.example.com',
 			image: 'https://emilyzhang.example.com/photo.jpg',
-			email: 'emily@example.com',
-			telephone: '+1-555-222-3333',
+			email: 'emily.zhang@biogenlabs.example.com',
+			telephone: '+1-617-555-0142',
 			jobTitle: 'Senior Research Scientist',
 			worksFor: new Organization(name: 'BioGen Labs'),
 			sameAs: [
@@ -43,6 +43,15 @@ class PersonTest extends TestCase
 			description: 'Genomics researcher specializing in CRISPR applications.',
 			givenName: 'Emily',
 			familyName: 'Zhang',
+			interactionStatistic: new InteractionCounter(
+				interactionType: 'https://schema.org/FollowAction',
+				userInteractionCount: 8500,
+			),
+			agentInteractionStatistic: new InteractionCounter(
+				interactionType: 'https://schema.org/WriteAction',
+				userInteractionCount: 120,
+			),
+			identifier: 'orcid:0000-0002-1234-5678',
 			address: new PostalAddress(
 				addressLocality: 'Boston',
 				addressRegion: 'MA',
@@ -58,12 +67,19 @@ class PersonTest extends TestCase
 		$this->assertSame('Dr. Emily Zhang', $data['name']);
 		$this->assertSame('https://emilyzhang.example.com', $data['url']);
 		$this->assertSame('https://emilyzhang.example.com/photo.jpg', $data['image']);
+		$this->assertSame('emily.zhang@biogenlabs.example.com', $data['email']);
+		$this->assertSame('+1-617-555-0142', $data['telephone']);
 		$this->assertSame('Senior Research Scientist', $data['jobTitle']);
 		$this->assertSame('Organization', $data['worksFor']['@type']);
 		$this->assertSame('BioGen Labs', $data['worksFor']['name']);
 		$this->assertCount(3, $data['sameAs']);
 		$this->assertSame('Emily', $data['givenName']);
 		$this->assertSame('Zhang', $data['familyName']);
+		$this->assertSame('InteractionCounter', $data['interactionStatistic']['@type']);
+		$this->assertSame(8500, $data['interactionStatistic']['userInteractionCount']);
+		$this->assertSame('InteractionCounter', $data['agentInteractionStatistic']['@type']);
+		$this->assertSame(120, $data['agentInteractionStatistic']['userInteractionCount']);
+		$this->assertSame('orcid:0000-0002-1234-5678', $data['identifier']);
 		$this->assertSame('PostalAddress', $data['address']['@type']);
 		$this->assertSame('Boston', $data['address']['addressLocality']);
 		$this->assertSame('E. Zhang', $data['alternateName']);
