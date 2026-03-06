@@ -13,7 +13,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-03](docs/journal/2026-03-03.md) — Sessions #149, #153, #159, #167, #171, #174, #176, #178 (Copilot PR review, TS constructor migration, parity lockstep, coverage acceleration, type classification, full coverage milestone, denominator alignment, audit body hygiene)
 - [2026-03-04](docs/journal/2026-03-04.md) — Sessions #181, #183, #185, #188, #190, #194, #196, #200 (steady-state validation, metric freshness, comprehensive aggregate verification, field_inventory, dispatch post-mortem, programmatic enforcement tool, Rust tooling, backlog dispatch, PR review)
 - [2026-03-05](docs/journal/2026-03-05.md) — Session #202 (PR merge, audit #96 constructor signatures, parity update)
-- [2026-03-06](docs/journal/2026-03-06.md) — Session #221 (audit #114 quality check rotation bias fix)
+- [2026-03-06](docs/journal/2026-03-06.md) — Sessions #221, #224, #228, #229, #232, #234, #237, #240 (audit #114 rotation fix, v1.0.1 re-validation, backlog enrichment, steady-state)
 
 ## Convention
 
