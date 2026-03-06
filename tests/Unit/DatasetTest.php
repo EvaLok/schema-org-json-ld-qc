@@ -32,35 +32,35 @@ class DatasetTest extends TestCase
 	public function testFullDataset(): void
 	{
 		$dataset = new Dataset(
-			name: 'US Census Population Data 2020',
-			description: 'Complete population counts by state and county from the 2020 US Census.',
-			url: 'https://data.census.gov/datasets/population-2020',
+			name: 'Global Ocean Temperature Records 1950-2025',
+			description: 'Comprehensive dataset of ocean surface temperature measurements from 1950 to 2025, collected from buoys, satellites, and research vessels worldwide.',
+			url: 'https://example.com/datasets/ocean-temp',
 			sameAs: 'https://doi.org/10.1234/ocean-temp',
 			creator: new Organization(
-				name: 'US Census Bureau',
-				url: 'https://www.census.gov',
+				name: 'National Oceanographic Institute',
+				url: 'https://example.com/organizations/noi',
 			),
 			funder: new Organization(name: 'National Science Foundation'),
-			license: 'https://creativecommons.org/publicdomain/zero/1.0/',
-			keywords: ['census', 'population', 'demographics', 'United States'],
+			license: 'https://creativecommons.org/licenses/by/4.0/',
+			keywords: ['ocean temperature', 'climate data', 'marine science', 'environment'],
 			identifier: ['doi:10.1234/ocean-temp', 'NOAA-OT-2025'],
 			isAccessibleForFree: true,
-			temporalCoverage: '2020',
+			temporalCoverage: '1950/2025',
 			spatialCoverage: new Place(name: 'Global Oceans'),
-			includedInDataCatalog: new DataCatalog(name: 'US Government Open Data'),
+			includedInDataCatalog: new DataCatalog(name: 'World Climate Data Repository'),
 			distribution: [
 				new DataDownload(
-					contentUrl: 'https://data.census.gov/download/population-2020.csv',
+					contentUrl: 'https://example.com/datasets/ocean-temp/download.csv',
 					encodingFormat: 'text/csv',
 				),
 				new DataDownload(
-					contentUrl: 'https://data.census.gov/download/population-2020.json',
+					contentUrl: 'https://example.com/datasets/ocean-temp/download.json',
 					encodingFormat: 'application/json',
 				),
 			],
 			variableMeasured: 'Sea Surface Temperature',
 			measurementTechnique: 'Satellite remote sensing and in-situ buoy measurements',
-			version: '1.0',
+			version: '3.2',
 			alternateName: 'GOTR 1950-2025',
 			citation: 'Zhang et al. (2024). Global Ocean Temperature Trends. Nature Climate Change.',
 			hasPart: [
@@ -75,16 +75,16 @@ class DatasetTest extends TestCase
 		$data = json_decode($json, true);
 
 		$this->assertSame('Dataset', $data['@type']);
-		$this->assertSame('https://data.census.gov/datasets/population-2020', $data['url']);
+		$this->assertSame('https://example.com/datasets/ocean-temp', $data['url']);
 		$this->assertSame('https://doi.org/10.1234/ocean-temp', $data['sameAs']);
 		$this->assertSame('Organization', $data['creator']['@type']);
 		$this->assertSame('Organization', $data['funder']['@type']);
 		$this->assertSame('National Science Foundation', $data['funder']['name']);
-		$this->assertSame('https://creativecommons.org/publicdomain/zero/1.0/', $data['license']);
+		$this->assertSame('https://creativecommons.org/licenses/by/4.0/', $data['license']);
 		$this->assertCount(4, $data['keywords']);
 		$this->assertCount(2, $data['identifier']);
 		$this->assertTrue($data['isAccessibleForFree']);
-		$this->assertSame('2020', $data['temporalCoverage']);
+		$this->assertSame('1950/2025', $data['temporalCoverage']);
 		$this->assertSame('Place', $data['spatialCoverage']['@type']);
 		$this->assertSame('Global Oceans', $data['spatialCoverage']['name']);
 		$this->assertSame('DataCatalog', $data['includedInDataCatalog']['@type']);
@@ -93,7 +93,7 @@ class DatasetTest extends TestCase
 		$this->assertSame('text/csv', $data['distribution'][0]['encodingFormat']);
 		$this->assertSame('Sea Surface Temperature', $data['variableMeasured']);
 		$this->assertSame('Satellite remote sensing and in-situ buoy measurements', $data['measurementTechnique']);
-		$this->assertSame('1.0', $data['version']);
+		$this->assertSame('3.2', $data['version']);
 		$this->assertSame('GOTR 1950-2025', $data['alternateName']);
 		$this->assertSame('Zhang et al. (2024). Global Ocean Temperature Trends. Nature Climate Change.', $data['citation']);
 		$this->assertCount(1, $data['hasPart']);
