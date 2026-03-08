@@ -325,7 +325,14 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		aggregateRating: new AggregateRating({ ratingValue: 4.6, bestRating: 5, worstRating: 1, ratingCount: 8250 }),
 		applicationCategory: 'BusinessApplication',
 		operatingSystem: 'Android, iOS',
+		datePublished: '2024-06-15',
+		review: new Review({
+			author: 'App Reviewer Weekly',
+			reviewRating: new Rating({ ratingValue: 5, bestRating: 5 }),
+			reviewBody: 'An indispensable productivity tool for managing complex projects.',
+		}),
 		description: 'A powerful task management app for professionals.',
+		screenshot: 'https://example.com/taskflow-pro/screenshot.png',
 	});
 	results.set('SoftwareApplication', {
 		type: 'SoftwareApplication',
@@ -1229,6 +1236,19 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		text: 'Has anyone managed to get the new schema.org VacationRental type working with Google Rich Results? I keep getting validation warnings about missing fields.',
 		headline: 'VacationRental schema validation issues',
 		url: 'https://example.com/forum/posts/vacationrental-schema',
+		dateModified: '2025-03-10T16:30:00Z',
+		image: new ImageObject({
+			contentUrl: 'https://example.com/forum/posts/vacationrental-schema/screenshot.png',
+			width: '800',
+			height: '600',
+		}),
+		video: new VideoObject({
+			name: 'VacationRental Schema Tutorial',
+			thumbnailUrl: ['https://example.com/videos/schema-tutorial-thumb.jpg'],
+			uploadDate: '2025-03-09T10:00:00Z',
+			description: 'Step-by-step guide to implementing VacationRental schema',
+			contentUrl: 'https://example.com/videos/schema-tutorial.mp4',
+		}),
 		comment: [
 			new Comment({
 				text: 'Yes! Make sure you include the address and aggregateRating fields. Those are recommended by Google.',
@@ -1241,6 +1261,20 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 				datePublished: '2025-03-10T16:20:00Z',
 			}),
 		],
+		interactionStatistic: [
+			new InteractionCounter({
+				interactionType: 'https://schema.org/LikeAction',
+				userInteractionCount: 42,
+			}),
+			new InteractionCounter({
+				interactionType: 'https://schema.org/CommentAction',
+				userInteractionCount: 2,
+			}),
+		],
+		isPartOf: 'https://example.com/forum/schema-org-discussion',
+		sharedContent: 'https://developers.google.com/search/docs/appearance/structured-data/vacation-rental',
+		creativeWorkStatus: 'Published',
+		mainEntityOfPage: 'https://example.com/forum/posts/vacationrental-schema',
 	});
 	results.set('DiscussionForumPosting', {
 		type: 'DiscussionForumPosting',

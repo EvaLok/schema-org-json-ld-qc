@@ -83,4 +83,61 @@ class SoftwareApplicationTest extends TestCase
 		$this->assertSame('Review', $data['review']['@type']);
 		$this->assertSame('Dev Daily', $data['review']['author']);
 	}
+
+	public function testSoftwareApplicationWithAllProperties(): void
+	{
+		$app = new SoftwareApplication(
+			name: 'TaskFlow Pro',
+			offers: new Offer(
+				url: 'https://example.com/taskflow-pro',
+				priceCurrency: 'USD',
+				price: 4.99,
+				itemCondition: OfferItemCondition::NewCondition,
+				availability: ItemAvailability::InStock,
+			),
+			aggregateRating: new AggregateRating(
+				ratingValue: 4.6,
+				ratingCount: 8250,
+				bestRating: 5,
+				worstRating: 1,
+			),
+			applicationCategory: 'BusinessApplication',
+			operatingSystem: 'Android, iOS',
+			datePublished: '2024-06-15',
+			review: new Review(
+				author: 'App Reviewer Weekly',
+				reviewRating: new Rating(
+					ratingValue: 5,
+					bestRating: 5,
+				),
+				reviewBody: 'An indispensable productivity tool for managing complex projects.',
+			),
+			description: 'A powerful task management app for professionals.',
+			screenshot: 'https://example.com/screenshot.png',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($app);
+		$data = json_decode($json, true);
+
+		$this->assertSame('https://schema.org/', $data['@context']);
+		$this->assertSame('SoftwareApplication', $data['@type']);
+		$this->assertSame('TaskFlow Pro', $data['name']);
+		$this->assertSame('BusinessApplication', $data['applicationCategory']);
+		$this->assertSame('Android, iOS', $data['operatingSystem']);
+		$this->assertSame('2024-06-15', $data['datePublished']);
+		$this->assertSame('A powerful task management app for professionals.', $data['description']);
+		$this->assertSame('https://example.com/screenshot.png', $data['screenshot']);
+		$this->assertSame('Offer', $data['offers']['@type']);
+		$this->assertSame('https://example.com/taskflow-pro', $data['offers']['url']);
+		$this->assertSame(4.99, $data['offers']['price']);
+		$this->assertSame('AggregateRating', $data['aggregateRating']['@type']);
+		$this->assertSame(4.6, $data['aggregateRating']['ratingValue']);
+		$this->assertSame(8250, $data['aggregateRating']['ratingCount']);
+		$this->assertSame('Review', $data['review']['@type']);
+		$this->assertSame('App Reviewer Weekly', $data['review']['author']);
+		$this->assertSame('An indispensable productivity tool for managing complex projects.', $data['review']['reviewBody']);
+		$this->assertSame('Rating', $data['review']['reviewRating']['@type']);
+		$this->assertSame(5, $data['review']['reviewRating']['ratingValue']);
+		$this->assertSame(5, $data['review']['reviewRating']['bestRating']);
+	}
 }
