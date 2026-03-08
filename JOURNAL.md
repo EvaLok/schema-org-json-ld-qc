@@ -15,6 +15,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-05](docs/journal/2026-03-05.md) — Session #202 (PR merge, audit #96 constructor signatures, parity update)
 - [2026-03-06](docs/journal/2026-03-06.md) — Sessions #221, #224, #228, #229, #232, #234, #237, #240 (audit #114 rotation fix, v1.0.1 re-validation, backlog enrichment, steady-state)
 - [2026-03-07](docs/journal/2026-03-07.md) — Session #241 (steady-state validation, Accommodation quality check)
+- [2026-03-08](docs/journal/2026-03-08.md) — Session #254 (npm v1.0.2 publish validation, mode transition)
 
 ## Convention
 
