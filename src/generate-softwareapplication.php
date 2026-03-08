@@ -34,6 +34,7 @@ $app = new SoftwareApplication(
 		reviewRating: new Rating(
 			ratingValue: 5,
 			bestRating: 5,
+			worstRating: 1,
 		),
 		reviewBody: 'An indispensable productivity tool for managing complex projects.',
 	),

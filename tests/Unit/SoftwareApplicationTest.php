@@ -109,6 +109,7 @@ class SoftwareApplicationTest extends TestCase
 				reviewRating: new Rating(
 					ratingValue: 5,
 					bestRating: 5,
+					worstRating: 1,
 				),
 				reviewBody: 'An indispensable productivity tool for managing complex projects.',
 			),
@@ -139,5 +140,6 @@ class SoftwareApplicationTest extends TestCase
 		$this->assertSame('Rating', $data['review']['reviewRating']['@type']);
 		$this->assertSame(5, $data['review']['reviewRating']['ratingValue']);
 		$this->assertSame(5, $data['review']['reviewRating']['bestRating']);
+		$this->assertSame(1, $data['review']['reviewRating']['worstRating']);
 	}
 }

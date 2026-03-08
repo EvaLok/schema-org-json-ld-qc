@@ -328,7 +328,7 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		datePublished: '2024-06-15',
 		review: new Review({
 			author: 'App Reviewer Weekly',
-			reviewRating: new Rating({ ratingValue: 5, bestRating: 5 }),
+			reviewRating: new Rating({ ratingValue: 5, bestRating: 5, worstRating: 1 }),
 			reviewBody: 'An indispensable productivity tool for managing complex projects.',
 		}),
 		description: 'A powerful task management app for professionals.',
