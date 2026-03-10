@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-10T10:20:00Z",
-	"consecutive_idle_cycles": 0,
+	"last_updated": "2026-03-10T13:29:40Z",
+	"consecutive_idle_cycles": 1,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "25bcd9b",
-		"last_updated": "2026-03-10T10:20:00Z"
+		"commit": "48c827b",
+		"last_updated": "2026-03-10T13:29:40Z"
 	},
 	"schema_types": {
 		"covered": {
