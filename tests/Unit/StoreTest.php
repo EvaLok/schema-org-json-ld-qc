@@ -6,6 +6,7 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\GeoCoordinates;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\LocalBusiness;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
@@ -113,5 +114,46 @@ class StoreTest extends TestCase
 		$this->assertArrayNotHasKey('aggregateRating', $data);
 		$this->assertArrayNotHasKey('review', $data);
 		$this->assertArrayNotHasKey('logo', $data);
+	}
+
+	public function testStoreWithEmailAndSameAs(): void
+	{
+		$store = new Store(
+			name: 'Connected Store',
+			address: new PostalAddress(streetAddress: '44 Commerce Way'),
+			email: 'contact@connectedstore.example.com',
+			sameAs: [
+				'https://www.facebook.com/connectedstore',
+				'https://www.instagram.com/connectedstore',
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($store);
+		$data = json_decode($json, true);
+
+		$this->assertSame('contact@connectedstore.example.com', $data['email']);
+		$this->assertCount(2, $data['sameAs']);
+		$this->assertSame('https://www.facebook.com/connectedstore', $data['sameAs'][0]);
+	}
+
+	public function testStoreWithDepartment(): void
+	{
+		$store = new Store(
+			name: 'Tech Plaza',
+			address: new PostalAddress(streetAddress: '88 Retail Row'),
+			department: [
+				new LocalBusiness(
+					name: 'Tech Plaza Electronics',
+					address: new PostalAddress(streetAddress: '88 Retail Row, Electronics'),
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($store);
+		$data = json_decode($json, true);
+
+		$this->assertCount(1, $data['department']);
+		$this->assertSame('LocalBusiness', $data['department'][0]['@type']);
+		$this->assertSame('Tech Plaza Electronics', $data['department'][0]['name']);
 	}
 }

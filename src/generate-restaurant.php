@@ -5,6 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\GeoCoordinates;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\LocalBusiness;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
@@ -62,6 +63,24 @@ $restaurant = new Restaurant(
 	menu: 'https://bellanapoli.example.com/menu',
 	servesCuisine: 'Italian',
 	logo: 'https://example.com/bella-napoli-logo.png',
+	email: 'info@bellanapoli.example.com',
+	sameAs: [
+		'https://www.facebook.com/bellanapoli',
+		'https://www.instagram.com/bellanapoli',
+	],
+	department: [
+		new LocalBusiness(
+			name: 'Bella Napoli Lounge',
+			address: new PostalAddress(
+				streetAddress: '88 Little Italy Lane, Upstairs',
+				addressLocality: 'New York',
+				addressRegion: 'NY',
+				postalCode: '10013',
+				addressCountry: 'US',
+			),
+			telephone: '+1-212-555-0189',
+		),
+	],
 	acceptsReservations: 'https://bellanapoli.example.com/reservations',
 );
 

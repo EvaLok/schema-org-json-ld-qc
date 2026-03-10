@@ -945,6 +945,11 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		image: ['https://example.com/photos/daves-exterior.jpg'],
 		priceRange: '$$$',
 		geo: new GeoCoordinates({ latitude: 40.7614, longitude: -73.9826 }),
+		openingHoursSpecification: [
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Monday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Tuesday, opens: '11:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Wednesday, opens: '11:00', closes: '22:00' }),
+		],
 		aggregateRating: new AggregateRating({ ratingValue: 4.4, bestRating: 5, worstRating: 1, reviewCount: 267 }),
 		review: new Review({
 			author: 'James T.',
@@ -954,6 +959,35 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		}),
 		servesCuisine: 'American',
 		logo: 'https://example.com/daves-logo.png',
+		email: 'info@davessteakhouse.example.com',
+		sameAs: [
+			'https://www.facebook.com/davessteakhouse',
+			'https://twitter.com/davessteakhouse',
+		],
+		department: [
+			new LocalBusiness({
+				name: "Dave's Steak House Bar",
+				address: new PostalAddress({
+					streetAddress: '148 W 51st St, Lower Level',
+					addressLocality: 'New York',
+					addressRegion: 'NY',
+					postalCode: '10019',
+					addressCountry: 'US',
+				}),
+				telephone: '+1-212-555-0101',
+			}),
+			new LocalBusiness({
+				name: "Dave's Steak House Private Dining",
+				address: new PostalAddress({
+					streetAddress: '148 W 51st St, 2nd Floor',
+					addressLocality: 'New York',
+					addressRegion: 'NY',
+					postalCode: '10019',
+					addressCountry: 'US',
+				}),
+				telephone: '+1-212-555-0102',
+			}),
+		],
 	});
 	results.set('LocalBusiness', {
 		type: 'LocalBusiness',
@@ -980,6 +1014,11 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		image: ['https://example.com/photos/golden-spoon-exterior.jpg', 'https://example.com/photos/golden-spoon-interior.jpg'],
 		priceRange: '$$$',
 		geo: new GeoCoordinates({ latitude: 45.5231, longitude: -122.6765 }),
+		openingHoursSpecification: [
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Tuesday, opens: '17:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Wednesday, opens: '17:00', closes: '22:00' }),
+			new OpeningHoursSpecification({ dayOfWeek: DayOfWeek.Thursday, opens: '17:00', closes: '22:00' }),
+		],
 		aggregateRating: new AggregateRating({ ratingValue: 4.7, bestRating: 5, worstRating: 1, reviewCount: 312 }),
 		review: new Review({
 			author: 'Maria G.',
@@ -989,6 +1028,24 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		}),
 		servesCuisine: 'Pacific Northwest',
 		logo: 'https://example.com/golden-spoon-logo.png',
+		email: 'reservations@goldenspoonbistro.example.com',
+		sameAs: [
+			'https://www.facebook.com/goldenspoonbistro',
+			'https://www.instagram.com/goldenspoonbistro',
+		],
+		department: [
+			new LocalBusiness({
+				name: 'The Golden Spoon Bakery',
+				address: new PostalAddress({
+					streetAddress: '742 Evergreen Terrace, Bakery Counter',
+					addressLocality: 'Portland',
+					addressRegion: 'OR',
+					postalCode: '97205',
+					addressCountry: 'US',
+				}),
+				telephone: '+1-503-555-0200',
+			}),
+		],
 		acceptsReservations: true,
 	});
 	results.set('FoodEstablishment', {
@@ -1033,6 +1090,24 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			datePublished: '2025-10-20',
 		}),
 		logo: 'https://example.com/greenleaf-logo.png',
+		email: 'contact@greenleafgarden.example.com',
+		sameAs: [
+			'https://www.facebook.com/greenleafgarden',
+			'https://www.instagram.com/greenleafgarden',
+		],
+		department: [
+			new LocalBusiness({
+				name: 'GreenLeaf Outdoor Decor',
+				address: new PostalAddress({
+					streetAddress: '500 Nursery Road, Building B',
+					addressLocality: 'Austin',
+					addressRegion: 'TX',
+					postalCode: '78745',
+					addressCountry: 'US',
+				}),
+				telephone: '+1-512-555-0151',
+			}),
+		],
 	});
 	results.set('Store', {
 		type: 'Store',
@@ -1173,6 +1248,24 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		menu: 'https://bellanapoli.example.com/menu',
 		servesCuisine: 'Italian',
 		logo: 'https://example.com/bella-napoli-logo.png',
+		email: 'info@bellanapoli.example.com',
+		sameAs: [
+			'https://www.facebook.com/bellanapoli',
+			'https://www.instagram.com/bellanapoli',
+		],
+		department: [
+			new LocalBusiness({
+				name: 'Bella Napoli Lounge',
+				address: new PostalAddress({
+					streetAddress: '88 Little Italy Lane, Upstairs',
+					addressLocality: 'New York',
+					addressRegion: 'NY',
+					postalCode: '10013',
+					addressCountry: 'US',
+				}),
+				telephone: '+1-212-555-0189',
+			}),
+		],
 		acceptsReservations: 'https://bellanapoli.example.com/reservations',
 	});
 	results.set('Restaurant', {
