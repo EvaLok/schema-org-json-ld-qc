@@ -5,6 +5,7 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\LocalBusiness;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
@@ -126,5 +127,46 @@ class RestaurantTest extends TestCase
 		$this->assertArrayNotHasKey('menu', $data);
 		$this->assertArrayNotHasKey('servesCuisine', $data);
 		$this->assertArrayNotHasKey('openingHoursSpecification', $data);
+	}
+
+	public function testRestaurantWithEmailAndSameAs(): void
+	{
+		$restaurant = new Restaurant(
+			name: 'Connected Restaurant',
+			address: new PostalAddress(streetAddress: '700 Dining Ave'),
+			email: 'info@connectedrestaurant.example.com',
+			sameAs: [
+				'https://www.facebook.com/connectedrestaurant',
+				'https://www.instagram.com/connectedrestaurant',
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($restaurant);
+		$data = json_decode($json, true);
+
+		$this->assertSame('info@connectedrestaurant.example.com', $data['email']);
+		$this->assertCount(2, $data['sameAs']);
+		$this->assertSame('https://www.facebook.com/connectedrestaurant', $data['sameAs'][0]);
+	}
+
+	public function testRestaurantWithDepartment(): void
+	{
+		$restaurant = new Restaurant(
+			name: 'Downtown Bistro',
+			address: new PostalAddress(streetAddress: '50 Main Plaza'),
+			department: [
+				new LocalBusiness(
+					name: 'Downtown Bistro Lounge',
+					address: new PostalAddress(streetAddress: '50 Main Plaza, Lounge'),
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($restaurant);
+		$data = json_decode($json, true);
+
+		$this->assertCount(1, $data['department']);
+		$this->assertSame('LocalBusiness', $data['department'][0]['@type']);
+		$this->assertSame('Downtown Bistro Lounge', $data['department'][0]['name']);
 	}
 }

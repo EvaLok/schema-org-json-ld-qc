@@ -5,6 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\GeoCoordinates;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\LocalBusiness;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
@@ -52,6 +53,24 @@ $store = new Store(
 		datePublished: '2025-10-20',
 	),
 	logo: 'https://example.com/greenleaf-logo.png',
+	email: 'contact@greenleafgarden.example.com',
+	sameAs: [
+		'https://www.facebook.com/greenleafgarden',
+		'https://www.instagram.com/greenleafgarden',
+	],
+	department: [
+		new LocalBusiness(
+			name: 'GreenLeaf Outdoor Decor',
+			address: new PostalAddress(
+				streetAddress: '500 Nursery Road, Building B',
+				addressLocality: 'Austin',
+				addressRegion: 'TX',
+				postalCode: '78745',
+				addressCountry: 'US',
+			),
+			telephone: '+1-512-555-0151',
+		),
+	],
 );
 
 echo JsonLdGenerator::SchemaToJson($store) . "\n";

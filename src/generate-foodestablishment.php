@@ -3,9 +3,12 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\FoodEstablishment;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\GeoCoordinates;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\LocalBusiness;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
@@ -28,6 +31,11 @@ $food = new FoodEstablishment(
 		latitude: 45.5231,
 		longitude: -122.6765,
 	),
+	openingHoursSpecification: [
+		new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Tuesday, opens: '17:00', closes: '22:00'),
+		new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Wednesday, opens: '17:00', closes: '22:00'),
+		new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Thursday, opens: '17:00', closes: '22:00'),
+	],
 	aggregateRating: new AggregateRating(
 		ratingValue: 4.7,
 		bestRating: 5,
@@ -42,6 +50,24 @@ $food = new FoodEstablishment(
 	),
 	servesCuisine: 'Pacific Northwest',
 	logo: 'https://example.com/golden-spoon-logo.png',
+	email: 'reservations@goldenspoonbistro.example.com',
+	sameAs: [
+		'https://www.facebook.com/goldenspoonbistro',
+		'https://www.instagram.com/goldenspoonbistro',
+	],
+	department: [
+		new LocalBusiness(
+			name: 'The Golden Spoon Bakery',
+			address: new PostalAddress(
+				streetAddress: '742 Evergreen Terrace, Bakery Counter',
+				addressLocality: 'Portland',
+				addressRegion: 'OR',
+				postalCode: '97205',
+				addressCountry: 'US',
+			),
+			telephone: '+1-503-555-0200',
+		),
+	],
 	acceptsReservations: true,
 );
 

@@ -4,8 +4,11 @@ namespace Evabee\SchemaOrgQc\Tests\Unit;
 
 use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\AggregateRating;
+use EvaLok\SchemaOrgJsonLd\v1\Enum\DayOfWeek;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\FoodEstablishment;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\GeoCoordinates;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\LocalBusiness;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\OpeningHoursSpecification;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\PostalAddress;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Rating;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Review;
@@ -149,5 +152,66 @@ class FoodEstablishmentTest extends TestCase
 		$this->assertSame(1, $data['review']['reviewRating']['worstRating']);
 		$this->assertSame('Review', $data['review']['@type']);
 		$this->assertSame('GeoCoordinates', $data['geo']['@type']);
+	}
+
+	public function testFoodEstablishmentWithOpeningHoursSpecification(): void
+	{
+		$food = new FoodEstablishment(
+			name: 'Early Bird Cafe',
+			address: new PostalAddress(streetAddress: '25 Sunrise Way'),
+			openingHoursSpecification: [
+				new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Monday, opens: '07:00', closes: '15:00'),
+				new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Tuesday, opens: '07:00', closes: '15:00'),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($food);
+		$data = json_decode($json, true);
+
+		$this->assertCount(2, $data['openingHoursSpecification']);
+		$this->assertSame('OpeningHoursSpecification', $data['openingHoursSpecification'][0]['@type']);
+		$this->assertSame('https://schema.org/Monday', $data['openingHoursSpecification'][0]['dayOfWeek']);
+		$this->assertSame('15:00', $data['openingHoursSpecification'][1]['closes']);
+	}
+
+	public function testFoodEstablishmentWithEmailAndSameAs(): void
+	{
+		$food = new FoodEstablishment(
+			name: 'Connected Cafe',
+			address: new PostalAddress(streetAddress: '9 Social Plaza'),
+			email: 'reservations@connectedcafe.example.com',
+			sameAs: [
+				'https://www.facebook.com/connectedcafe',
+				'https://www.instagram.com/connectedcafe',
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($food);
+		$data = json_decode($json, true);
+
+		$this->assertSame('reservations@connectedcafe.example.com', $data['email']);
+		$this->assertCount(2, $data['sameAs']);
+		$this->assertSame('https://www.facebook.com/connectedcafe', $data['sameAs'][0]);
+	}
+
+	public function testFoodEstablishmentWithDepartment(): void
+	{
+		$food = new FoodEstablishment(
+			name: 'Market Hall',
+			address: new PostalAddress(streetAddress: '12 Market Square'),
+			department: [
+				new LocalBusiness(
+					name: 'Market Hall Bakery',
+					address: new PostalAddress(streetAddress: '12 Market Square, Bakery'),
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($food);
+		$data = json_decode($json, true);
+
+		$this->assertCount(1, $data['department']);
+		$this->assertSame('LocalBusiness', $data['department'][0]['@type']);
+		$this->assertSame('Market Hall Bakery', $data['department'][0]['name']);
 	}
 }

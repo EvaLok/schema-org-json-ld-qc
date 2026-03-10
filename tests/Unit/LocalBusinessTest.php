@@ -188,4 +188,39 @@ class LocalBusinessTest extends TestCase
 		$this->assertCount(2, $data['sameAs']);
 		$this->assertSame('https://facebook.com/connectedbiz', $data['sameAs'][0]);
 	}
+
+	public function testLocalBusinessWithOpeningHoursSpecification(): void
+	{
+		$biz = new LocalBusiness(
+			name: 'Hours Test',
+			address: new PostalAddress(streetAddress: '200 Schedule Ave'),
+			openingHoursSpecification: [
+				new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Monday, opens: '09:00', closes: '17:00'),
+				new OpeningHoursSpecification(dayOfWeek: DayOfWeek::Tuesday, opens: '10:00', closes: '18:00'),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($biz);
+		$data = json_decode($json, true);
+
+		$this->assertCount(2, $data['openingHoursSpecification']);
+		$this->assertSame('OpeningHoursSpecification', $data['openingHoursSpecification'][0]['@type']);
+		$this->assertSame('https://schema.org/Monday', $data['openingHoursSpecification'][0]['dayOfWeek']);
+		$this->assertSame('09:00', $data['openingHoursSpecification'][0]['opens']);
+		$this->assertSame('18:00', $data['openingHoursSpecification'][1]['closes']);
+	}
+
+	public function testLocalBusinessWithMenu(): void
+	{
+		$biz = new LocalBusiness(
+			name: 'Menu Test',
+			address: new PostalAddress(streetAddress: '300 Menu Ave'),
+			menu: 'https://menus.example.com/localbusiness',
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($biz);
+		$data = json_decode($json, true);
+
+		$this->assertSame('https://menus.example.com/localbusiness', $data['menu']);
+	}
 }
