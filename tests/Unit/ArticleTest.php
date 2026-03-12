@@ -156,5 +156,7 @@ class ArticleTest extends TestCase
 		$this->assertSame('WebPageElement', $data['hasPart'][0]['@type']);
 		$this->assertTrue($data['hasPart'][0]['isAccessibleForFree']);
 		$this->assertSame('.free-section', $data['hasPart'][0]['cssSelector']);
+		$this->assertFalse($data['hasPart'][1]['isAccessibleForFree']);
+		$this->assertSame('.paywalled-section', $data['hasPart'][1]['cssSelector']);
 	}
 }
