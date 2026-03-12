@@ -105,6 +105,7 @@ import { Schedule } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/Sche
 import { ShippingDeliveryTime } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ShippingDeliveryTime';
 import { ShippingRateSettings } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/ShippingRateSettings';
 import { SpeakableSpecification } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/SpeakableSpecification';
+import { WebPageElement } from '../vendor/evabee/schema-org-json-ld/ts/src/schema/WebPageElement';
 
 // Enums
 import { DayOfWeek } from '../vendor/evabee/schema-org-json-ld/ts/src/enum/DayOfWeek';
@@ -158,6 +159,21 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			name: 'Nature Weekly',
 			logo: 'https://example.com/logo.png',
 		}),
+		speakable: new SpeakableSpecification({
+			cssSelector: ['.article-headline', '.article-summary'],
+			xpath: ['/html/head/title'],
+		}),
+		isAccessibleForFree: true,
+		hasPart: [
+			new WebPageElement({
+				isAccessibleForFree: true,
+				cssSelector: '.article-body',
+			}),
+			new WebPageElement({
+				isAccessibleForFree: false,
+				cssSelector: '.premium-content',
+			}),
+		],
 		image: [
 			'https://example.com/tidal-1x1.jpg',
 			'https://example.com/tidal-4x3.jpg',
@@ -275,6 +291,16 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			name: 'PHP Weekly',
 			logo: 'https://example.com/phpweekly-logo.png',
 		}),
+		speakable: new SpeakableSpecification({
+			cssSelector: ['.post-title', '.post-excerpt'],
+		}),
+		isAccessibleForFree: true,
+		hasPart: [
+			new WebPageElement({
+				isAccessibleForFree: true,
+				cssSelector: '.post-content',
+			}),
+		],
 		image: ['https://example.com/di-php.jpg', 'https://example.com/di-diagram.png'],
 	});
 	results.set('BlogPosting', {
@@ -298,6 +324,21 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 			logo: 'https://metrodaily.example.com/logo.png',
 			url: 'https://metrodaily.example.com',
 		}),
+		speakable: new SpeakableSpecification({
+			cssSelector: ['.article-headline', '.article-summary'],
+			xpath: ['/html/head/title', '//meta[@name="description"]/@content'],
+		}),
+		isAccessibleForFree: false,
+		hasPart: [
+			new WebPageElement({
+				isAccessibleForFree: true,
+				cssSelector: '.article-lead',
+			}),
+			new WebPageElement({
+				isAccessibleForFree: false,
+				cssSelector: '.article-body',
+			}),
+		],
 		image: [
 			'https://example.com/photos/green-plan-1x1.jpg',
 			'https://example.com/photos/green-plan-4x3.jpg',
