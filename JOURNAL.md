@@ -18,6 +18,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-08](docs/journal/2026-03-08.md) — Sessions #254, #257, #258, #263, #265, #267 (npm v1.0.2 publish validation, mode transition, backlog dispatch, PR review, steady-state)
 - [2026-03-10](docs/journal/2026-03-10.md) — Session #290 (steady-state validation, audit #175, quality checks)
 - [2026-03-11](docs/journal/2026-03-11.md) — Sessions #304, #307, #317, #319 (steady-state validation, audit processing, quality checks)
+- [2026-03-12](docs/journal/2026-03-12.md) — Session #321 (steady-state validation, audit processing, quality checks)
 
 ## Convention
 
