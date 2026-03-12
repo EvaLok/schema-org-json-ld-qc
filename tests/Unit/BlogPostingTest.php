@@ -6,6 +6,8 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\BlogPosting;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SpeakableSpecification;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\WebPageElement;
 use PHPUnit\Framework\TestCase;
 
 class BlogPostingTest extends TestCase
@@ -84,5 +86,35 @@ class BlogPostingTest extends TestCase
 		$this->assertSame('BlogPosting', $data['@type'], 'Type should be BlogPosting, not Article');
 		$this->assertCount(2, $data['author']);
 		$this->assertSame('Author A', $data['author'][0]['name']);
+	}
+
+	public function testBlogPostingWithSpeakableAndHasPart(): void
+	{
+		$post = new BlogPosting(
+			headline: 'Speakable Blog Post',
+			speakable: new SpeakableSpecification(
+				cssSelector: ['.post-title', '.post-excerpt'],
+			),
+			isAccessibleForFree: true,
+			hasPart: [
+				new WebPageElement(
+					isAccessibleForFree: true,
+					cssSelector: '.post-content',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($post);
+		$data = json_decode($json, true);
+
+		$this->assertArrayHasKey('speakable', $data);
+		$this->assertSame('SpeakableSpecification', $data['speakable']['@type']);
+		$this->assertSame(['.post-title', '.post-excerpt'], $data['speakable']['cssSelector']);
+		$this->assertTrue($data['isAccessibleForFree']);
+		$this->assertArrayHasKey('hasPart', $data);
+		$this->assertCount(1, $data['hasPart']);
+		$this->assertSame('WebPageElement', $data['hasPart'][0]['@type']);
+		$this->assertTrue($data['hasPart'][0]['isAccessibleForFree']);
+		$this->assertSame('.post-content', $data['hasPart'][0]['cssSelector']);
 	}
 }

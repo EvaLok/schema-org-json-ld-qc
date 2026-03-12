@@ -6,6 +6,8 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NewsArticle;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SpeakableSpecification;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\WebPageElement;
 use PHPUnit\Framework\TestCase;
 
 class NewsArticleTest extends TestCase
@@ -74,5 +76,43 @@ class NewsArticleTest extends TestCase
 		$this->assertCount(2, $data['author']);
 		$this->assertSame('2025-04-15T14:30:00Z', $data['dateModified']);
 		$this->assertCount(2, $data['image']);
+	}
+
+	public function testNewsArticleWithSpeakableAndPaywall(): void
+	{
+		$article = new NewsArticle(
+			headline: 'Premium News Story',
+			speakable: new SpeakableSpecification(
+				cssSelector: ['.article-headline', '.article-summary'],
+				xpath: ['/html/head/title', '//meta[@name="description"]/@content'],
+			),
+			isAccessibleForFree: false,
+			hasPart: [
+				new WebPageElement(
+					isAccessibleForFree: true,
+					cssSelector: '.article-lead',
+				),
+				new WebPageElement(
+					isAccessibleForFree: false,
+					cssSelector: '.article-body',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($article);
+		$data = json_decode($json, true);
+
+		$this->assertArrayHasKey('speakable', $data);
+		$this->assertSame('SpeakableSpecification', $data['speakable']['@type']);
+		$this->assertSame(['.article-headline', '.article-summary'], $data['speakable']['cssSelector']);
+		$this->assertSame(['/html/head/title', '//meta[@name="description"]/@content'], $data['speakable']['xpath']);
+		$this->assertFalse($data['isAccessibleForFree']);
+		$this->assertArrayHasKey('hasPart', $data);
+		$this->assertCount(2, $data['hasPart']);
+		$this->assertSame('WebPageElement', $data['hasPart'][0]['@type']);
+		$this->assertTrue($data['hasPart'][0]['isAccessibleForFree']);
+		$this->assertSame('.article-lead', $data['hasPart'][0]['cssSelector']);
+		$this->assertFalse($data['hasPart'][1]['isAccessibleForFree']);
+		$this->assertSame('.article-body', $data['hasPart'][1]['cssSelector']);
 	}
 }

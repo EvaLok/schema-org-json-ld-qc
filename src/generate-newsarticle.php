@@ -6,6 +6,8 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\NewsArticle;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SpeakableSpecification;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\WebPageElement;
 
 $article = new NewsArticle(
 	headline: 'City Council Approves $50M Green Infrastructure Plan',
@@ -18,6 +20,21 @@ $article = new NewsArticle(
 		logo: 'https://metrodaily.example.com/logo.png',
 		url: 'https://metrodaily.example.com',
 	),
+	speakable: new SpeakableSpecification(
+		cssSelector: ['.article-headline', '.article-summary'],
+		xpath: ['/html/head/title', '//meta[@name="description"]/@content'],
+	),
+	isAccessibleForFree: false,
+	hasPart: [
+		new WebPageElement(
+			isAccessibleForFree: true,
+			cssSelector: '.article-lead',
+		),
+		new WebPageElement(
+			isAccessibleForFree: false,
+			cssSelector: '.article-body',
+		),
+	],
 	image: [
 		'https://example.com/photos/green-plan-1x1.jpg',
 		'https://example.com/photos/green-plan-4x3.jpg',

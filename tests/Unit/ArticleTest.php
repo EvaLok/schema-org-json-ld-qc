@@ -6,6 +6,8 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Article;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SpeakableSpecification;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\WebPageElement;
 use PHPUnit\Framework\TestCase;
 
 class ArticleTest extends TestCase
@@ -118,5 +120,41 @@ class ArticleTest extends TestCase
 
 		$this->assertNotNull($data, 'Generated JSON should be valid');
 		$this->assertJson($json);
+	}
+
+	public function testArticleWithSpeakableAndPaywall(): void
+	{
+		$article = new Article(
+			headline: 'Speakable Article',
+			speakable: new SpeakableSpecification(
+				cssSelector: ['.headline', '.summary'],
+				xpath: ['/html/head/title'],
+			),
+			isAccessibleForFree: false,
+			hasPart: [
+				new WebPageElement(
+					isAccessibleForFree: true,
+					cssSelector: '.free-section',
+				),
+				new WebPageElement(
+					isAccessibleForFree: false,
+					cssSelector: '.paywalled-section',
+				),
+			],
+		);
+
+		$json = JsonLdGenerator::SchemaToJson($article);
+		$data = json_decode($json, true);
+
+		$this->assertArrayHasKey('speakable', $data);
+		$this->assertSame('SpeakableSpecification', $data['speakable']['@type']);
+		$this->assertSame(['.headline', '.summary'], $data['speakable']['cssSelector']);
+		$this->assertSame(['/html/head/title'], $data['speakable']['xpath']);
+		$this->assertFalse($data['isAccessibleForFree']);
+		$this->assertArrayHasKey('hasPart', $data);
+		$this->assertCount(2, $data['hasPart']);
+		$this->assertSame('WebPageElement', $data['hasPart'][0]['@type']);
+		$this->assertTrue($data['hasPart'][0]['isAccessibleForFree']);
+		$this->assertSame('.free-section', $data['hasPart'][0]['cssSelector']);
 	}
 }
