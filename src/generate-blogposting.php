@@ -6,6 +6,8 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\BlogPosting;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SpeakableSpecification;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\WebPageElement;
 
 $post = new BlogPosting(
 	headline: 'Understanding Dependency Injection in PHP',
@@ -17,6 +19,16 @@ $post = new BlogPosting(
 		name: 'PHP Weekly',
 		logo: 'https://example.com/phpweekly-logo.png',
 	),
+	speakable: new SpeakableSpecification(
+		cssSelector: ['.post-title', '.post-excerpt'],
+	),
+	isAccessibleForFree: true,
+	hasPart: [
+		new WebPageElement(
+			isAccessibleForFree: true,
+			cssSelector: '.post-content',
+		),
+	],
 	image: ['https://example.com/di-php.jpg', 'https://example.com/di-diagram.png'],
 );
 

@@ -6,6 +6,8 @@ use EvaLok\SchemaOrgJsonLd\v1\JsonLdGenerator;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Article;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Organization;
 use EvaLok\SchemaOrgJsonLd\v1\Schema\Person;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\SpeakableSpecification;
+use EvaLok\SchemaOrgJsonLd\v1\Schema\WebPageElement;
 
 $article = new Article(
 	headline: 'Understanding Tidal Patterns in the North Sea',
@@ -17,6 +19,21 @@ $article = new Article(
 		name: 'Nature Weekly',
 		logo: 'https://example.com/logo.png',
 	),
+	speakable: new SpeakableSpecification(
+		cssSelector: ['.article-headline', '.article-summary'],
+		xpath: ['/html/head/title'],
+	),
+	isAccessibleForFree: true,
+	hasPart: [
+		new WebPageElement(
+			isAccessibleForFree: true,
+			cssSelector: '.article-body',
+		),
+		new WebPageElement(
+			isAccessibleForFree: false,
+			cssSelector: '.premium-content',
+		),
+	],
 	image: [
 		'https://example.com/tidal-1x1.jpg',
 		'https://example.com/tidal-4x3.jpg',
