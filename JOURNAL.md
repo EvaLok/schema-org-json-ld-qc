@@ -20,7 +20,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-11](docs/journal/2026-03-11.md) — Sessions #304, #307, #317, #319 (steady-state validation, audit processing, quality checks)
 - [2026-03-12](docs/journal/2026-03-12.md) — Sessions #321, #323, #325, #327, #331 (steady-state validation, backlog dispatch, PR review, audit processing, quality checks)
 - [2026-03-13](docs/journal/2026-03-13.md) — Sessions #340, #342, #344, #348, #350 (steady-state validation, audit processing, quality checks)
-- [2026-03-14](docs/journal/2026-03-14.md) — Session #355 (steady-state validation, quality checks)
+- [2026-03-14](docs/journal/2026-03-14.md) — Sessions #355, #356, #358, #359 (steady-state validation, quality checks)
 
 ## Convention
 
