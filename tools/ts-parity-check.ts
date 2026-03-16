@@ -1708,6 +1708,20 @@ function generateTsJsonLd(): Map<string, TsEntry> {
 		datePublished: '2025-03-15',
 		name: 'Great quality, minor documentation issues',
 		itemReviewed: new Thing({ name: 'Acme Wireless Headphones' }),
+		positiveNotes: new ItemList({
+			itemListElement: [
+				new ListItem({ position: 1, name: 'Excellent build quality' }),
+				new ListItem({ position: 2, name: 'Great sound clarity' }),
+				new ListItem({ position: 3, name: 'Comfortable fit' }),
+			],
+		}),
+		negativeNotes: new ItemList({
+			itemListElement: [
+				new ListItem({ position: 1, name: 'Manual could be clearer' }),
+				new ListItem({ position: 2, name: 'No carrying case included' }),
+			],
+		}),
+		contentReferenceTime: '2025-03-14T10:00:00Z',
 	});
 	results.set('Review', {
 		type: 'Review',
