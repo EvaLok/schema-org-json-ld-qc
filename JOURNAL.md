@@ -24,6 +24,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-15](docs/journal/2026-03-15.md) — Session #366 (steady-state validation, audit processing, quality checks)
 - [2026-03-16](docs/journal/2026-03-16.md) — Session #377 (steady-state validation, audit processing, quality checks)
 - [2026-03-17](docs/journal/2026-03-17.md) — Sessions #390, #392, #394, #396, #400 (150th cycle milestone, steady-state validation, audit #273, #275, #277, #281)
+- [2026-03-18](docs/journal/2026-03-18.md) — Sessions #403, #407 (steady-state validation, audit #284, #288)
 
 ## Convention
 
