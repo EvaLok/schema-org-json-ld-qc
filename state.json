@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-21T04:32:40Z",
-	"consecutive_idle_cycles": 5,
+	"last_updated": "2026-03-21T07:15:08Z",
+	"consecutive_idle_cycles": 6,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "124ba32",
-		"last_updated": "2026-03-21T04:32:40Z"
+		"commit": "ff2bcaf",
+		"last_updated": "2026-03-21T07:15:08Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -508,7 +508,9 @@
 			{ "issue": 439, "audit_issue": 262, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #378. Created in error session #438 — audit #262 already processed. Closed immediately." },
 			{ "issue": 440, "audit_issue": 302, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #433. Created in error session #438 — audit #302 already processed. Closed immediately." },
 			{ "issue": 443, "audit_issue": 262, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #378. Created in error session #442 — audit #262 already processed. Closed immediately." },
-			{ "issue": 444, "audit_issue": 302, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #433. Created in error session #442 — audit #302 already processed. Closed immediately." }
+			{ "issue": 444, "audit_issue": 302, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #433. Created in error session #442 — audit #302 already processed. Closed immediately." },
+			{ "issue": 446, "audit_issue": 304, "status": "closed", "decision": "not-applicable", "note": "Close-out step C4.5/C5.5 ordering targets main orchestrator's COMPLETION_CHECKLIST. QC has no pipeline gate or step-commenting workflow." },
+			{ "issue": 447, "audit_issue": 305, "status": "closed", "decision": "not-applicable", "note": "Fallback review mechanism targets main orchestrator's review agent dispatch. QC has no review agent or COMPLETION_CHECKLIST." }
 		]
 	},
 	"copilot_metrics": {
@@ -560,7 +562,7 @@
 			{ "issue": 386, "status": "merged", "pr_number": 387, "failure_mode": null }
 		],
 		"dispatch_log_note": "Per audit #98. dispatch_log.length == total_dispatches is an invariant. #386 merged session 388 — Review enrichment (positiveNotes, negativeNotes, contentReferenceTime).",
-		"last_updated": "2026-03-21T04:32:40Z"
+		"last_updated": "2026-03-21T07:15:08Z"
 	},
 	"agent_sessions": {
 		"in_flight": [],
@@ -1498,6 +1500,12 @@
 			"date": "2026-03-21",
 			"type": "idle-cycle",
 			"summary": "Session 166. Package 04bb314->124ba32 (no PHP source changes — docs, state, journal, worklog only). Duplicate audit-inbound issues #443/#444 created and closed (262/302 already processed). 5th consecutive idle cycle."
+		},
+		{
+			"issue": 445,
+			"date": "2026-03-21",
+			"type": "idle-cycle",
+			"summary": "Session 167. Package 124ba32->ff2bcaf (no PHP source changes — docs, state, worklog only). Processed audit #304/#305 (both not-applicable, target main orchestrator). 6th consecutive idle cycle."
 		}
 	],
 	"quality_checks": {
@@ -1625,27 +1633,27 @@
 	},
 	"field_inventory": {
 		"_note": "Self-describing inventory of all mutable fields in state.json. Each entry declares its refresh cadence. Step 7a verification: after enumerated checks, scan this inventory for any field whose last_refreshed is older than its cadence implies. New mutable fields MUST include an inventory entry.",
-		"last_refreshed_session": 438,
+		"last_refreshed_session": 445,
 		"fields": {
-			"last_updated": { "cadence": "every_session", "last_refreshed": 442 },
-			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 442 },
+			"last_updated": { "cadence": "every_session", "last_refreshed": 445 },
+			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 445 },
 			"operational_mode": { "cadence": "on_mode_transition", "last_refreshed": 297 },
 			"operational_mode_note": { "cadence": "on_mode_transition_or_class_change", "last_refreshed": 297 },
-			"package.commit": { "cadence": "every_session", "last_refreshed": 442 },
-			"package.last_updated": { "cadence": "every_session", "last_refreshed": 442 },
-			"schema_types.covered.*.last_tested": { "cadence": "every_session", "last_refreshed": 442 },
-			"schema_types.covered.*.package_commit": { "cadence": "every_session", "last_refreshed": 442 },
+			"package.commit": { "cadence": "every_session", "last_refreshed": 445 },
+			"package.last_updated": { "cadence": "every_session", "last_refreshed": 445 },
+			"schema_types.covered.*.last_tested": { "cadence": "every_session", "last_refreshed": 445 },
+			"schema_types.covered.*.package_commit": { "cadence": "every_session", "last_refreshed": 445 },
 			"schema_types.uncovered_standalone": { "cadence": "after_coverage_merge", "last_refreshed": 185 },
 			"schema_types.uncovered_building_block": { "cadence": "after_coverage_merge", "last_refreshed": 185 },
-			"e2e_status.last_run": { "cadence": "every_session", "last_refreshed": 442 },
-			"e2e_status.summary": { "cadence": "every_session", "last_refreshed": 442 },
-			"e2e_status.warning_baselines.last_verified": { "cadence": "every_session", "last_refreshed": 442 },
-			"ts_validation.last_run": { "cadence": "every_session", "last_refreshed": 442 },
-			"ts_validation.package_commit": { "cadence": "every_session", "last_refreshed": 442 },
+			"e2e_status.last_run": { "cadence": "every_session", "last_refreshed": 445 },
+			"e2e_status.summary": { "cadence": "every_session", "last_refreshed": 445 },
+			"e2e_status.warning_baselines.last_verified": { "cadence": "every_session", "last_refreshed": 445 },
+			"ts_validation.last_run": { "cadence": "every_session", "last_refreshed": 445 },
+			"ts_validation.package_commit": { "cadence": "every_session", "last_refreshed": 445 },
 			"ts_validation.parity_results.types_tested_count": { "cadence": "after_coverage_merge", "last_refreshed": 185 },
-			"ts_validation.parity_results.all_match": { "cadence": "every_session", "last_refreshed": 442 },
-			"ts_validation.parity_results.e2e_errors": { "cadence": "every_session", "last_refreshed": 442 },
-			"ts_validation.parity_results.e2e_warnings": { "cadence": "every_session", "last_refreshed": 442 },
+			"ts_validation.parity_results.all_match": { "cadence": "every_session", "last_refreshed": 445 },
+			"ts_validation.parity_results.e2e_errors": { "cadence": "every_session", "last_refreshed": 445 },
+			"ts_validation.parity_results.e2e_warnings": { "cadence": "every_session", "last_refreshed": 445 },
 			"ts_validation.parity_results.standalone_testable_count": { "cadence": "after_coverage_merge", "last_refreshed": 185 },
 			"ts_validation.parity_results.types_tested": { "cadence": "after_coverage_merge", "last_refreshed": 185 },
 			"ts_validation.parity_results.types_total_count": { "cadence": "after_upstream_class_change", "last_refreshed": 185 },
@@ -1667,9 +1675,9 @@
 			"cross_repo.inbound_issues.*.status": { "cadence": "on_issue_state_change", "last_refreshed": 297 },
 			"cross_repo.inbound_issues.*.note": { "cadence": "on_status_change", "last_refreshed": 297 },
 			"cross_repo.processed_main_repo_issues": { "cadence": "after_main_repo_processing", "last_refreshed": 297 },
-			"audit.inbound_issues": { "cadence": "after_audit_processing", "last_refreshed": 442 },
-			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 442 },
-			"copilot_metrics.last_updated": { "cadence": "every_session", "last_refreshed": 442 },
+			"audit.inbound_issues": { "cadence": "after_audit_processing", "last_refreshed": 445 },
+			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 445 },
+			"copilot_metrics.last_updated": { "cadence": "every_session", "last_refreshed": 445 },
 			"copilot_metrics.total_dispatches": { "cadence": "after_dispatch", "last_refreshed": 388 },
 			"copilot_metrics.total_prs_created": { "cadence": "after_pr_creation", "last_refreshed": 388 },
 			"copilot_metrics.total_prs_merged": { "cadence": "after_merge", "last_refreshed": 388 },
@@ -1681,7 +1689,7 @@
 			"copilot_metrics.dispatch_log": { "cadence": "after_dispatch_outcome", "last_refreshed": 388 },
 			"copilot_metrics.dispatch_log_note": { "cadence": "static", "last_refreshed": 388 },
 			"agent_sessions.in_flight": { "cadence": "after_dispatch_or_completion", "last_refreshed": 388 },
-			"session_history": { "cadence": "every_session", "last_refreshed": 442 },
+			"session_history": { "cadence": "every_session", "last_refreshed": 445 },
 			"e2e_status.adobe_structured_data_validator": { "cadence": "on_version_change", "last_refreshed": 185 },
 			"e2e_status.validator_version": { "cadence": "on_version_change", "last_refreshed": 185 },
 			"e2e_status.web_auto_extractor_version": { "cadence": "on_version_change", "last_refreshed": 185 },
@@ -1690,8 +1698,8 @@
 			"e2e_status.warning_baselines.php_e2e_total": { "cadence": "on_baseline_change", "last_refreshed": 297 },
 			"e2e_status.warning_baselines.ts_e2e_total": { "cadence": "on_baseline_change", "last_refreshed": 297 },
 			"schema_types.type_classification_note": { "cadence": "static", "last_refreshed": 185 },
-			"quality_checks.history": { "cadence": "after_quality_check", "last_refreshed": 442 },
-			"quality_checks.backlog": { "cadence": "after_quality_check", "last_refreshed": 442 },
+			"quality_checks.history": { "cadence": "after_quality_check", "last_refreshed": 432 },
+			"quality_checks.backlog": { "cadence": "after_quality_check", "last_refreshed": 432 },
 			"quality_checks.dispatched_from_backlog": { "cadence": "after_backlog_dispatch", "last_refreshed": 370 },
 			"quality_checks.last_dispatch_session": { "cadence": "after_backlog_dispatch", "last_refreshed": 388 }
 		}
