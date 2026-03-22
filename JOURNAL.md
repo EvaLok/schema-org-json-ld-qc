@@ -28,6 +28,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-19](docs/journal/2026-03-19.md) — Session #416 (steady-state validation, quality checks)
 - [2026-03-20](docs/journal/2026-03-20.md) — Sessions #429, #432 (audit processing, quality checks)
 - [2026-03-21](docs/journal/2026-03-21.md) — Session #448 (audit processing, state fix, quality check)
+- [2026-03-22](docs/journal/2026-03-22.md) — Session #457 (audit housekeeping, quality check)
 
 ## Convention
 
