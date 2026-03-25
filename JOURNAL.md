@@ -31,6 +31,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-22](docs/journal/2026-03-22.md) — Sessions #457, #460, #463, #467 (audit housekeeping, quality checks)
 - [2026-03-23](docs/journal/2026-03-23.md) — Sessions #468, #469, #470 (routine validation, audit processing, quality checks)
 - [2026-03-24](docs/journal/2026-03-24.md) — Session #480 (Quiz validation with source changes)
+- [2026-03-25](docs/journal/2026-03-25.md) — Session #493 (audit processing, Recipe quality check)
 
 ## Convention
 
