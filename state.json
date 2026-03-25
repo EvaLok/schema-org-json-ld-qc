@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-25T16:27:45Z",
-	"consecutive_idle_cycles": 1,
+	"last_updated": "2026-03-25T19:19:14Z",
+	"consecutive_idle_cycles": 2,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "cf507a7",
-		"last_updated": "2026-03-25T16:27:45Z"
+		"commit": "bbaf626",
+		"last_updated": "2026-03-25T19:19:14Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -576,7 +576,7 @@
 			{ "issue": 386, "status": "merged", "pr_number": 387, "failure_mode": null }
 		],
 		"dispatch_log_note": "Per audit #98. dispatch_log.length == total_dispatches is an invariant. #386 merged session 388 — Review enrichment (positiveNotes, negativeNotes, contentReferenceTime).",
-		"last_updated": "2026-03-25T13:32:25Z"
+		"last_updated": "2026-03-25T19:19:14Z"
 	},
 	"agent_sessions": {
 		"in_flight": [],
@@ -1753,10 +1753,10 @@
 	},
 	"field_inventory": {
 		"_note": "Self-describing inventory of all mutable fields in state.json. Each entry declares its refresh cadence. Step 7a verification: after enumerated checks, scan this inventory for any field whose last_refreshed is older than its cadence implies. New mutable fields MUST include an inventory entry.",
-		"last_refreshed_session": 496,
+		"last_refreshed_session": 499,
 		"fields": {
 			"last_updated": { "cadence": "every_session", "last_refreshed": 496 },
-			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 496 },
+			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 499 },
 			"operational_mode": { "cadence": "on_mode_transition", "last_refreshed": 297 },
 			"operational_mode_note": { "cadence": "on_mode_transition_or_class_change", "last_refreshed": 297 },
 			"package.commit": { "cadence": "every_session", "last_refreshed": 496 },
@@ -1797,7 +1797,7 @@
 			"cross_repo.processed_main_repo_issues": { "cadence": "after_main_repo_processing", "last_refreshed": 297 },
 			"audit.inbound_issues": { "cadence": "after_audit_processing", "last_refreshed": 496 },
 			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 496 },
-			"copilot_metrics.last_updated": { "cadence": "every_session", "last_refreshed": 496 },
+			"copilot_metrics.last_updated": { "cadence": "every_session", "last_refreshed": 499 },
 			"copilot_metrics.total_dispatches": { "cadence": "after_dispatch", "last_refreshed": 388 },
 			"copilot_metrics.total_prs_created": { "cadence": "after_pr_creation", "last_refreshed": 388 },
 			"copilot_metrics.total_prs_merged": { "cadence": "after_merge", "last_refreshed": 388 },
