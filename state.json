@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-26T04:48:14Z",
-	"consecutive_idle_cycles": 1,
+	"last_updated": "2026-03-26T07:28:59Z",
+	"consecutive_idle_cycles": 2,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "e593ee4",
-		"last_updated": "2026-03-26T04:48:14Z"
+		"commit": "0c3ebb5",
+		"last_updated": "2026-03-26T07:28:59Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -373,7 +373,7 @@
 		"processed_main_repo_issues": [121, 141, 153, 165, 200, 215, 234, 249, 261, 265, 299, 331, 496, 535, 562, 703, 717]
 	},
 	"audit": {
-		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60, 62, 71, 73, 75, 76, 78, 80, 82, 83, 85, 87, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 111, 113, 114, 116, 117, 120, 122, 125, 131, 134, 136, 138, 140, 144, 145, 147, 149, 151, 153, 155, 157, 160, 162, 164, 166, 167, 169, 171, 172, 175, 177, 182, 183, 188, 189, 191, 193, 195, 198, 200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 221, 222, 224, 226, 229, 233, 235, 237, 241, 245, 247, 251, 255, 259, 262, 268, 269, 271, 273, 275, 277, 281, 284, 288, 292, 294, 297, 300, 302, 304, 305, 307, 309, 311, 313, 315, 316, 318, 320, 322, 324],
+		"processed_audit_issues": [2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 23, 24, 26, 29, 32, 35, 37, 39, 42, 44, 49, 53, 56, 58, 60, 62, 71, 73, 75, 76, 78, 80, 82, 83, 85, 87, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 111, 113, 114, 116, 117, 120, 122, 125, 131, 134, 136, 138, 140, 144, 145, 147, 149, 151, 153, 155, 157, 160, 162, 164, 166, 167, 169, 171, 172, 175, 177, 182, 183, 188, 189, 191, 193, 195, 198, 200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 221, 222, 224, 226, 229, 233, 235, 237, 241, 245, 247, 251, 255, 259, 262, 268, 269, 271, 273, 275, 277, 281, 284, 288, 292, 294, 297, 300, 302, 304, 305, 307, 309, 311, 313, 315, 316, 318, 320, 322, 324, 326],
 		"inbound_issues": [
 			{ "issue": 92, "audit_issue": 2, "status": "closed", "decision": "accept", "note": "Idle cycle detection implemented in STARTUP_CHECKLIST.md" },
 			{ "issue": 93, "audit_issue": 3, "status": "closed", "decision": "not-applicable", "note": "Applies to main repo only; our tools/ work fine" },
@@ -525,7 +525,8 @@
 			{ "issue": 485, "audit_issue": 320, "status": "closed", "decision": "not-applicable", "note": "Follow-up to audit #318 — acceptance substantively incomplete. Targets main orchestrator's process-review, pipeline-check, and review finding disposition system. QC has none of these." },
 			{ "issue": 494, "audit_issue": 322, "status": "closed", "decision": "not-applicable", "note": "Worklog file proliferation and stale doc-validation targets main orchestrator's write-entry, validate-docs, and COMPLETION_CHECKLIST. QC writes worklogs directly and has no pipeline gate." },
 			{ "issue": 497, "audit_issue": 324, "status": "closed", "decision": "not-applicable", "note": "record-dispatch --addresses-finding adoption gap targets main orchestrator's record-dispatch tool and STARTUP_CHECKLIST. QC has no record-dispatch or review finding disposition system." },
-			{ "issue": 502, "audit_issue": 324, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #497. Created in error session #501 — audit #324 already processed in session #496 but Grep search missed numeric (unquoted) value. Closed immediately." }
+			{ "issue": 502, "audit_issue": 324, "status": "closed", "decision": "not-applicable", "note": "Duplicate of #497. Created in error session #501 — audit #324 already processed in session #496 but Grep search missed numeric (unquoted) value. Closed immediately." },
+			{ "issue": 505, "audit_issue": 326, "status": "closed", "decision": "not-applicable", "note": "record-dispatch --addresses-finding FAIL enforcement targets main orchestrator's record-dispatch, pipeline-check, and STARTUP_CHECKLIST. QC has none of these tools." }
 		]
 	},
 	"copilot_metrics": {
@@ -577,7 +578,7 @@
 			{ "issue": 386, "status": "merged", "pr_number": 387, "failure_mode": null }
 		],
 		"dispatch_log_note": "Per audit #98. dispatch_log.length == total_dispatches is an invariant. #386 merged session 388 — Review enrichment (positiveNotes, negativeNotes, contentReferenceTime).",
-		"last_updated": "2026-03-26T01:35:53Z"
+		"last_updated": "2026-03-26T07:28:59Z"
 	},
 	"agent_sessions": {
 		"in_flight": [],
@@ -1623,6 +1624,12 @@
 			"date": "2026-03-26",
 			"type": "audit-processing",
 			"summary": "Session 185. Package 88bcd7a->da545a2 (no PHP source changes — docs, state, reviews, tooling only). Processed audit #324 (not-applicable, targets main orchestrator). Created duplicate audit-inbound #502 (audit #324 already processed as #497). All validation green: 400 unit tests (2060 assertions), 73/73 E2E (0 errors, 45 warnings), 73/73 TS parity. Coverage: 92/92 types (full)."
+		},
+		{
+			"issue": 504,
+			"date": "2026-03-26",
+			"type": "idle",
+			"summary": "Session 186. Package e593ee4->0c3ebb5 (no PHP source changes — docs, state, reviews, Rust tooling only). Processed audit #326 (not-applicable, targets main orchestrator's record-dispatch enforcement). Idle cycle #2."
 		}
 	],
 	"quality_checks": {
@@ -1809,8 +1816,8 @@
 			"cross_repo.inbound_issues.*.note": { "cadence": "on_status_change", "last_refreshed": 297 },
 			"cross_repo.processed_main_repo_issues": { "cadence": "after_main_repo_processing", "last_refreshed": 297 },
 			"audit.inbound_issues": { "cadence": "after_audit_processing", "last_refreshed": 496 },
-			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 496 },
-			"copilot_metrics.last_updated": { "cadence": "every_session", "last_refreshed": 501 },
+			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 504 },
+			"copilot_metrics.last_updated": { "cadence": "every_session", "last_refreshed": 504 },
 			"copilot_metrics.total_dispatches": { "cadence": "after_dispatch", "last_refreshed": 388 },
 			"copilot_metrics.total_prs_created": { "cadence": "after_pr_creation", "last_refreshed": 388 },
 			"copilot_metrics.total_prs_merged": { "cadence": "after_merge", "last_refreshed": 388 },
