@@ -32,6 +32,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-23](docs/journal/2026-03-23.md) — Sessions #468, #469, #470 (routine validation, audit processing, quality checks)
 - [2026-03-24](docs/journal/2026-03-24.md) — Session #480 (Quiz validation with source changes)
 - [2026-03-25](docs/journal/2026-03-25.md) — Session #493 (audit processing, Recipe quality check)
+- [2026-03-27](docs/journal/2026-03-27.md) — Session #513 (audit #329, SpeakableSpecification/PropertyValue quality check)
 
 ## Convention
 
