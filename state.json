@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-27T19:18:50Z",
-	"consecutive_idle_cycles": 2,
+	"last_updated": "2026-03-28T01:35:20Z",
+	"consecutive_idle_cycles": 3,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "364c83d",
-		"last_updated": "2026-03-27T19:18:50Z"
+		"commit": "8904629",
+		"last_updated": "2026-03-28T01:35:20Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -1600,6 +1600,12 @@
 			"date": "2026-03-27",
 			"type": "idle",
 			"summary": "Session 189. Idle cycle — package 76665e5->beb959d (no PHP source changes since session #484). No open issues/PRs, no QC requests, no unprocessed audits, no uncovered types."
+		},
+		{
+			"issue": 522,
+			"date": "2026-03-28",
+			"type": "idle",
+			"summary": "Session 190. Idle cycle — package 364c83d->8904629 (no PHP source changes since session #484). 3rd consecutive idle cycle — cron frequency reduction should be considered."
 		}
 	],
 	"quality_checks": {
@@ -1747,12 +1753,12 @@
 		"_note": "Self-describing inventory of all mutable fields in state.json. Each entry declares its refresh cadence. Step 7a verification: after enumerated checks, scan this inventory for any field whose last_refreshed is older than its cadence implies. New mutable fields MUST include an inventory entry.",
 		"last_refreshed_session": 513,
 		"fields": {
-			"last_updated": { "cadence": "every_session", "last_refreshed": 519 },
-			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 519 },
+			"last_updated": { "cadence": "every_session", "last_refreshed": 522 },
+			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 522 },
 			"operational_mode": { "cadence": "on_mode_transition", "last_refreshed": 297 },
 			"operational_mode_note": { "cadence": "on_mode_transition_or_class_change", "last_refreshed": 297 },
-			"package.commit": { "cadence": "every_session", "last_refreshed": 519 },
-			"package.last_updated": { "cadence": "every_session", "last_refreshed": 519 },
+			"package.commit": { "cadence": "every_session", "last_refreshed": 522 },
+			"package.last_updated": { "cadence": "every_session", "last_refreshed": 522 },
 			"schema_types.covered.*.last_tested": { "cadence": "every_session", "last_refreshed": 516 },
 			"schema_types.covered.*.package_commit": { "cadence": "every_session", "last_refreshed": 516 },
 			"schema_types.uncovered_standalone": { "cadence": "after_coverage_merge", "last_refreshed": 185 },
@@ -1790,7 +1796,7 @@
 			"audit.inbound_issues": { "cadence": "after_audit_processing", "last_refreshed": 516 },
 			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 516 },
 			"agent_sessions.in_flight": { "cadence": "after_dispatch_or_completion", "last_refreshed": 388 },
-			"session_history": { "cadence": "every_session", "last_refreshed": 519 },
+			"session_history": { "cadence": "every_session", "last_refreshed": 522 },
 			"e2e_status.adobe_structured_data_validator": { "cadence": "on_version_change", "last_refreshed": 185 },
 			"e2e_status.validator_version": { "cadence": "on_version_change", "last_refreshed": 185 },
 			"e2e_status.web_auto_extractor_version": { "cadence": "on_version_change", "last_refreshed": 185 },
