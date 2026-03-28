@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-28T01:35:20Z",
-	"consecutive_idle_cycles": 3,
+	"last_updated": "2026-03-28T04:39:10Z",
+	"consecutive_idle_cycles": 4,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "8904629",
-		"last_updated": "2026-03-28T01:35:20Z"
+		"commit": "11f0d7a",
+		"last_updated": "2026-03-28T04:39:10Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -1606,6 +1606,12 @@
 			"date": "2026-03-28",
 			"type": "idle",
 			"summary": "Session 190. Idle cycle — package 364c83d->8904629 (no PHP source changes since session #484). 3rd consecutive idle cycle — cron frequency reduction should be considered."
+		},
+		{
+			"issue": 523,
+			"date": "2026-03-28",
+			"type": "idle",
+			"summary": "Session 191. Idle cycle — package 8904629->11f0d7a (no PHP source changes since session #484). 4th consecutive idle cycle — cron frequency reduction recommended."
 		}
 	],
 	"quality_checks": {
@@ -1796,7 +1802,7 @@
 			"audit.inbound_issues": { "cadence": "after_audit_processing", "last_refreshed": 516 },
 			"audit.processed_audit_issues": { "cadence": "after_audit_processing", "last_refreshed": 516 },
 			"agent_sessions.in_flight": { "cadence": "after_dispatch_or_completion", "last_refreshed": 388 },
-			"session_history": { "cadence": "every_session", "last_refreshed": 522 },
+			"session_history": { "cadence": "every_session", "last_refreshed": 523 },
 			"e2e_status.adobe_structured_data_validator": { "cadence": "on_version_change", "last_refreshed": 185 },
 			"e2e_status.validator_version": { "cadence": "on_version_change", "last_refreshed": 185 },
 			"e2e_status.web_auto_extractor_version": { "cadence": "on_version_change", "last_refreshed": 185 },
