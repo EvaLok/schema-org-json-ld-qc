@@ -33,6 +33,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-24](docs/journal/2026-03-24.md) — Session #480 (Quiz validation with source changes)
 - [2026-03-25](docs/journal/2026-03-25.md) — Session #493 (audit processing, Recipe quality check)
 - [2026-03-27](docs/journal/2026-03-27.md) — Sessions #513, #516 (audit #329, #333 copilot_metrics removal, #334, quality checks)
+- [2026-03-28](docs/journal/2026-03-28.md) — Session #524 (audit #336, #337, WebApplication quality check)
 
 ## Convention
 
