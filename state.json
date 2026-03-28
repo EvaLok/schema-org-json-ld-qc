@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-03-28T13:23:42Z",
-	"consecutive_idle_cycles": 0,
+	"last_updated": "2026-03-28T16:08:05Z",
+	"consecutive_idle_cycles": 1,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "93715d8",
-		"last_updated": "2026-03-28T13:23:42Z"
+		"commit": "21384b2",
+		"last_updated": "2026-03-28T16:08:05Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -1633,6 +1633,12 @@
 			"date": "2026-03-28",
 			"type": "audit-and-quality-check",
 			"summary": "Session 194. Package 2392f5d->93715d8 (no PHP source changes — Rust tools, docs, reviews). Processed audit #339 (not-applicable — review finding deferral enforcement targets main orchestrator). Quality check: minimal_data_audit on ProductGroup (8/10, 80%, first audit). All validation green: 400 unit tests (2060 assertions), 73/73 E2E (0 errors, 45 warnings), 73/73 TS parity match."
+		},
+		{
+			"issue": 530,
+			"date": "2026-03-28",
+			"type": "idle",
+			"summary": "Session 195. Idle cycle — package 93715d8->21384b2 (no PHP source changes since session #524). No open issues/PRs, no QC requests, no unprocessed audits, no uncovered types."
 		}
 	],
 	"quality_checks": {
