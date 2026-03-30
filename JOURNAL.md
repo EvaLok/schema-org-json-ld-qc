@@ -35,7 +35,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-27](docs/journal/2026-03-27.md) — Sessions #513, #516 (audit #329, #333 copilot_metrics removal, #334, quality checks)
 - [2026-03-28](docs/journal/2026-03-28.md) — Session #524 (audit #336, #337, WebApplication quality check)
 - [2026-03-29](docs/journal/2026-03-29.md) — Sessions #535, #537, #539, #541, #543 (audit #341/#343, quality checks)
-- [2026-03-30](docs/journal/2026-03-30.md) — Session #544 (Person property depth quality check)
+- [2026-03-30](docs/journal/2026-03-30.md) — Sessions #544-#553 (quality checks, audit processing)
 
 ## Convention
 
