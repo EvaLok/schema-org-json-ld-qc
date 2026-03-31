@@ -2,7 +2,7 @@ name: QC Orchestrator Cron
 
 on:
   schedule:
-    - cron: '0 1,4,7,10,13,16,19,22 * * *'
+    - cron: '0 2,10,18 * * *'
   workflow_dispatch: {}
 
 concurrency:
