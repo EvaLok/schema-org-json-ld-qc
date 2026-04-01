@@ -37,6 +37,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-29](docs/journal/2026-03-29.md) — Sessions #535, #537, #539, #541, #543 (audit #341/#343, quality checks)
 - [2026-03-30](docs/journal/2026-03-30.md) — Sessions #544-#553 (quality checks, audit processing)
 - [2026-03-31](docs/journal/2026-03-31.md) — Sessions #555, #560 (quality checks: building_block_integration, property_depth)
+- [2026-04-01](docs/journal/2026-04-01.md) — Session #561 (steady-state validation, minimal_data_audit)
 
 ## Convention
 
