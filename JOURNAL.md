@@ -39,7 +39,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-03-31](docs/journal/2026-03-31.md) — Sessions #555, #560 (quality checks: building_block_integration, property_depth)
 - [2026-04-01](docs/journal/2026-04-01.md) — Session #561 (steady-state validation, minimal_data_audit)
 - [2026-04-03](docs/journal/2026-04-03.md) — Session #575 (building_block_integration quality check, audit duplicates)
-- [2026-04-04](docs/journal/2026-04-04.md) — Session #582 (property_depth quality check: Accommodation, SoftwareApplication)
+- [2026-04-04](docs/journal/2026-04-04.md) — Sessions #582, #583, #586 (property_depth, minimal_data_audit, building_block_integration quality checks)
 
 ## Convention
 
