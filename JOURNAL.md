@@ -43,6 +43,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-04-05](docs/journal/2026-04-05.md) — Session #588 (property_depth quality check, audit #375 acknowledged)
 - [2026-04-07](docs/journal/2026-04-07.md) — Session #602 (audit recommendations #382/#383 evaluated, both not actionable for QC)
 - [2026-04-08](docs/journal/2026-04-08.md) — Session #606 (audit #385 audit-inbound lifecycle regression — not-applicable to QC)
+- [2026-04-09](docs/journal/2026-04-09.md) — Session #612 (audit #392 agent_sessions in_flight reconciliation, audit #393 dispatch-task / record-dispatch frozen worklog mutation — both not-applicable to QC)
 
 ## Convention
 
