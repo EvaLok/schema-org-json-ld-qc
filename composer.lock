@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EvaLok/schema-org-json-ld.git",
-                "reference": "ee64fb892458821fb7ac098649f5e5e147d58fbb"
+                "reference": "0fca59ea2b57d66d2c6ddd4c584fc6d77759912f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/ee64fb892458821fb7ac098649f5e5e147d58fbb",
-                "reference": "ee64fb892458821fb7ac098649f5e5e147d58fbb",
+                "url": "https://api.github.com/repos/EvaLok/schema-org-json-ld/zipball/0fca59ea2b57d66d2c6ddd4c584fc6d77759912f",
+                "reference": "0fca59ea2b57d66d2c6ddd4c584fc6d77759912f",
                 "shasum": ""
             },
             "require": {
@@ -79,7 +79,7 @@
                 "source": "https://github.com/EvaLok/schema-org-json-ld/tree/master",
                 "issues": "https://github.com/EvaLok/schema-org-json-ld/issues"
             },
-            "time": "2026-04-11T03:45:51+00:00"
+            "time": "2026-04-11T07:39:37+00:00"
         }
     ],
     "packages-dev": [
