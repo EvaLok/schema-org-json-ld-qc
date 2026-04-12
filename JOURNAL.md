@@ -46,6 +46,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-04-09](docs/journal/2026-04-09.md) — Session #612 (audit #392 agent_sessions in_flight reconciliation, audit #393 dispatch-task / record-dispatch frozen worklog mutation — both not-applicable to QC)
 - [2026-04-10](docs/journal/2026-04-10.md) — Sessions #619, #621 (audit #398 commitment-drop verification, audit #400 C5.5 gate bypass — both not-applicable; quality checks on SolveMathAction, ShippingConditions, Event, Restaurant)
 - [2026-04-11](docs/journal/2026-04-11.md) — Session #624 (audit #402 chronic-category verification_cycle staleness — not-applicable; property_depth on MerchantReturnPolicy and Dataset)
+- [2026-04-12](docs/journal/2026-04-12.md) — Session #628 (audit #405/#406/#407 — all not-applicable; minimal_data_audit on Offer and Question)
 
 ## Convention
 
