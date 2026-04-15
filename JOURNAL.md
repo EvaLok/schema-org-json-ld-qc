@@ -49,6 +49,7 @@ See [`docs/journal/`](docs/journal/) for all entries:
 - [2026-04-12](docs/journal/2026-04-12.md) — Session #628 (audit #405/#406/#407 — all not-applicable; minimal_data_audit on Offer and Question)
 - [2026-04-13](docs/journal/2026-04-13.md) — Session #635 (audit #411 C5.5 gate self-modification bypass — not-applicable; property_depth on BlogPosting and NewsArticle)
 - [2026-04-14](docs/journal/2026-04-14.md) — Sessions #640, #642 (audit #415/#417/#418, quality checks on MonetaryAmount/DefinedRegion/FoodEstablishment/JobPosting)
+- [2026-04-15](docs/journal/2026-04-15.md) — Session #646 (audit #420 sub-categorization adoption chain — not-applicable; minimal_data_audit on Product and LocalBusiness)
 
 ## Convention
 
