@@ -1,8 +1,9 @@
 name: QC Orchestrator Cron
 
 on:
-  schedule:
-    - cron: '0 22,3,8 * * *'
+  # Scheduled runs disabled. Re-enable by uncommenting the schedule block.
+  # schedule:
+  #   - cron: '0 22,3,8 * * *'
   workflow_dispatch: {}
 
 concurrency:
