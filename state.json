@@ -1,13 +1,13 @@
 {
-	"last_updated": "2026-04-15T22:13:20Z",
-	"consecutive_idle_cycles": 2,
+	"last_updated": "2026-04-16T04:02:11Z",
+	"consecutive_idle_cycles": 3,
 	"operational_mode": "dual_language_post_publish",
 	"operational_mode_note": "TS port complete (88/88 classes). npm v1.0.2 published (2026-03-07). All validation steps are permanent regression checks. ESM/CJS/DTS validated from npm artifact.",
 	"package": {
 		"name": "evabee/schema-org-json-ld",
 		"version": "dev-master",
-		"commit": "87f7cfa",
-		"last_updated": "2026-04-15T22:13:20Z"
+		"commit": "8be4b4e",
+		"last_updated": "2026-04-16T04:02:11Z"
 	},
 	"schema_types": {
 		"covered": {
@@ -2151,8 +2151,8 @@
 		"_note": "Self-describing inventory of all mutable fields in state.json. Each entry declares its refresh cadence. Step 7a verification: after enumerated checks, scan this inventory for any field whose last_refreshed is older than its cadence implies. New mutable fields MUST include an inventory entry.",
 		"last_refreshed_session": 646,
 		"fields": {
-			"last_updated": { "cadence": "every_session", "last_refreshed": 646 },
-			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 646 },
+			"last_updated": { "cadence": "every_session", "last_refreshed": 650 },
+			"consecutive_idle_cycles": { "cadence": "every_session", "last_refreshed": 650 },
 			"operational_mode": { "cadence": "on_mode_transition", "last_refreshed": 297 },
 			"operational_mode_note": { "cadence": "on_mode_transition_or_class_change", "last_refreshed": 297 },
 			"package.commit": { "cadence": "every_session", "last_refreshed": 646 },
